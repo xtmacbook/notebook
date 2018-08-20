@@ -1,0 +1,5 @@
+remove folder from docker: docker exec <container> rm -rf <YourFile
+
+copy files from host to cotainer:docker cp rtabmap-tango 71d147e82508:/root/
+
+
