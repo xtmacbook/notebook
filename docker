@@ -1,12 +1,15 @@
-remove folder from docker: docker exec <container> rm -rf <YourFile
+remove folder from docker:            docker exec <container> rm -rf <YourFile
 
-copy files from host to cotainer:docker cp rtabmap-tango 71d147e82508:/root/
+copy files from host to cotainer:     docker cp rtabmap-tango 71d147e82508:/root/ (71d147e82508:docker的id,可以通过docker ps获取)
+
+查看docker容器信息：
+docker ps:
+docker info:
 
 
-
-
-cat rtabmapimage.tar | sudo docker import - introlab3it/rtabmap:tango-dev
+cat rtabmapimage.tar | sudo docker import - introlab3it/rtabmap:tango-dev (cat是socat库的命令)
 xhost +
+
 docker run --privileged -e "DISPLAY=10.144.86.34:0" -v="/tmp/.X11-unix:/tmp/.X11-unix:rw"  -i -t introlab3it/rtabmap:tango-dev /bin/bash
 cd /root/rtabmap-tango
 eclipes
