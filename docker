@@ -3,3 +3,13 @@ remove folder from docker: docker exec <container> rm -rf <YourFile
 copy files from host to cotainer:docker cp rtabmap-tango 71d147e82508:/root/
 
 
+
+
+cat rtabmapimage.tar | sudo docker import - introlab3it/rtabmap:tango-dev
+xhost +
+docker run --privileged -e "DISPLAY=10.144.86.34:0" -v="/tmp/.X11-unix:/tmp/.X11-unix:rw"  -i -t introlab3it/rtabmap:tango-dev /bin/bash
+cd /root/rtabmap-tango
+eclipes
+
+/usr/bin/
+socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\"
