@@ -15,3 +15,5 @@ glext.h : OpenGL1.2 and above compatibility profile and extension interfaces.
           为了解决这一问题，就有了<GL/glext.h>头文件。 这个头文件提供了高版本OpenGL所需要的各种常数声明以及函数指针声明
 
 wglext.h: 与<GL/glext.h>类似，但这个头文件中只提供适用于Windows系统的各种OpenGL扩展所使用的函数和常量，不适用于其它操作系统
+
+glew.h :包含了gl,glu,glext,wgl,glx
