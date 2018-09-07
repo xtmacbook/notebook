@@ -17,3 +17,5 @@ glext.h : OpenGL1.2 and above compatibility profile and extension interfaces.
 wglext.h: 与<GL/glext.h>类似，但这个头文件中只提供适用于Windows系统的各种OpenGL扩展所使用的函数和常量，不适用于其它操作系统
 
 glew.h :包含了gl,glu,glext,wgl,glx
+
+一般是gl.h 放在所有头文件前面引用
