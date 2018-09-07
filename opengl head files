@@ -1,0 +1,17 @@
+glcorearb.h:
+
+glu:是实用库，包含有43个函数，函数名的前缀为glu。Glu 为了减轻繁重的编程工作，封装了OpenGL函数，Glu函数通过调用核心库的函数，
+      为开发者提供相对简单的用法，实现一些较为复杂的操作
+
+glaux: OpenGL辅助库，包含有31个函数，函数名前缀为aux。这部分函数提供窗口管理、输入输出处理以及绘制一些简单三维物体。
+
+GLX:对于X窗口系统，它所使用的的OpenGL扩展（GLX）是作为OpenGL的一个附件提供的，所有的GLX函数都使用前缀glX
+
+glut: GLUT（OpenGL实用工具包）所使用的函数和常量声明。这个库的功能大致与GLAUX类似，目前许多OpenGL教程使用这个库来编写演示程序。
+      一些编译系统可能不直接提供这个库（例如VC系列），需要单独下载安装。这个头文件自动包含了<GL/gl.h>和<GL/glu.h>，编程时不必再次包含它们。
+      
+glext.h : OpenGL1.2 and above compatibility profile and extension interfaces.
+          没有OpenGL 1.2及其以后版本。对当前的计算机配置而言，几乎都支持OpenGL 1.4版本，更高的则到1.5, 2.0, 2.1，而无法直接使用这些功能。
+          为了解决这一问题，就有了<GL/glext.h>头文件。 这个头文件提供了高版本OpenGL所需要的各种常数声明以及函数指针声明
+
+wglext.h: 与<GL/glext.h>类似，但这个头文件中只提供适用于Windows系统的各种OpenGL扩展所使用的函数和常量，不适用于其它操作系统
