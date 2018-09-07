@@ -5,3 +5,8 @@ INCLUDE_DIRECTORIES: Add the given directories to those the compiler uses to sea
                       the directory property INCLUDE_DIRECTORIES for the current CMakeLists file. They are also added to the target 
                       property INCLUDE_DIRECTORIES for each target in the current CMakeLists file. The target property values are 
                       the ones used by the generators
+                   
+
+source_group: source_group("Source Files\\Graph\\Triplet" FILES "Graph3.h" "Graph3.cpp") 在source Files文件目录下的Graph的目录下Triplet 下方Graphic3.h Graph3.cpp
+              source_group("Source Files\\Inference" FILES "Infer.h" "Infer.cpp")  
+              
