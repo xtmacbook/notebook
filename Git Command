@@ -1,0 +1,53 @@
+git checkout -b business-new-data origin/business-new-data  [origin - remote name 远程库名:origin]
+
+分支:business-new-data 默认分支:master[分支]
+
+
+查看远程仓库:git remote -v
+
+
+//
+git checkout master (parent1)
+git merge hotfix(parent2)    将hotfix合并到master下 
+(fast-forward) 快进
+
+
+
+
+git push <remote> <local_branch>:<remote_branch>
+for example
+
+git push github master:master
+which will push the current master branch to the master branch at github.
+
+
+图形查看所有分支历史：
+	a.git gui
+	b.gitk --all -d(按照时间排序)
+
+
+
+To update the local list of remote branches: git remote update origin --prune
+
+rename branch:
+	git branch -m old_branch new_branch         # Rename branch locally    
+	git push origin :old_branch                 # Delete the old branch    
+	git push --set-upstream origin new_branch   # Push the new branch, set local branch to track the new remote
+
+
+Deleting a remote branch:
+
+git push origin --delete <branch>  # Git version 1.7.0 or newer
+git push origin :<branch>          # Git versions older than 1.7.0
+Deleting a local branch:
+
+git branch --delete <branch>
+git branch -d <branch> # Shorter version
+git branch -D <branch> # Force delete un-merged branches
+Deleting a local remote-tracking branch:
+
+git branch --delete --remotes <remote>/<branch>
+git branch -dr <remote>/<branch> # Shorter
+
+git fetch <remote> --prune # Delete multiple obsolete tracking branches
+git fetch <remote> -p      # Shorter
