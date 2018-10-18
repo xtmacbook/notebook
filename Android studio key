@@ -1,0 +1,37 @@
+ctr+N :class name
+ctrl + alt + shift + N :symblol name
+ctrl + shift + N :file name
+
+Alt + F7 :find all places where a particular class ,method ,variable is used
+ctrl + B :find the declaration of a class ,method or variable
+ctrl + F12 :see the list of members of the current class
+ctrl+alt+B: to the implement 
+
+
+ctrl + Q:see the document for this api
+
+shift+f6 :rename and refactor
+ctrl + o override methods
+
+ctrl+shift+space : suggeset
+
+Alt+Insert : constructor get setter 
+
+
+ctl + D :copy to down line
+ctrl + E:popup list of the rececnet file
+
+F11 :bookmark
+shift + F11:list of bookmark
+
+crl + shift + (+ -)收缩展开代码 
+========================================================================
+
+Android SDK JDK NDK
+
+
+Gradle version 4.1   C:/Program Files/Android/Android Studio/gradle/gradle-2.14.1
+plugin version 3.0.1
+
+
+========================================================================
