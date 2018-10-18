@@ -51,3 +51,6 @@ git branch -dr <remote>/<branch> # Shorter
 
 git fetch <remote> --prune # Delete multiple obsolete tracking branches
 git fetch <remote> -p      # Shorter
+
+
+	
