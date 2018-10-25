@@ -1,0 +1,13 @@
+At is core is and indendent rewrite of MSYS,based on modern Cygwin(POSIX campatbilty layer) and MinGW-w64 with the aim of better interoperabilty
+with native Window software.
+
+子目录:
+  三个子目录和他们对应的package :msys2,mingw32 和mingw64
+  
+pacman指令:
+  pacman -Sy 更新软件包数据 
+  pacman -Syu 更新所有 
+  pacman -Ss xx 查询软件xx的信息 
+  pacman -S xx 安装软件xx
+  
+  
