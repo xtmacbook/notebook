@@ -1,0 +1,11 @@
+MinGW和msys:
+  启动的是msys的msys.bat,在msys文件夹下'etc/fstab'里面有对应的MinGW目录，将msys和MinGW融合起来
+  启动的msys.bat就可以./configure和make命令了。
+
+
+./configure --enable-shared --disable-staitc
+  --enable-porable-binary:required if you want ot creawte DLLS that will work on any Intel processor.
+  --with-incoming-stack-boundary=2:compile assuming a 4-byte aligment .
+  
+  MinGW会创建.DLL，你如果要使用".lib"的话需要使用lib.exe工具:
+    lib  /def:libXX.def
