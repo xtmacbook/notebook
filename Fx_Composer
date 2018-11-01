@@ -1,0 +1,10 @@
+使用:
+  在Render plane使用Alt + Leftmouse 旋转场景
+  不支持directx 11,支持到directx10
+  
+  pass GlowPass <
+       	string Script= "RenderColorTarget0=;"
+			"RenderDepthStencilTarget=;"
+			"Draw=Buffer;";        	
+    >
+    这个尖括号里面的东西:叫SAS 全称是 standard annotations 和semantic（Standard Annotations and Semantics）
