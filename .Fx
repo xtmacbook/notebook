@@ -20,3 +20,10 @@ technique (tch_uniqueId)
 配置的 technique , pass 可以根据 显卡的支持，以及应用程序的需求，选择性的激活相应的 technique 和 pass
 
 3. 渲染函数，   这个就是传统意义上的着色程序，定点着色，片段着色等
+
+Coding Conventions(命名习俗)
+     Connection Structs:
+          Most example shaders use a struct to collect their special‐register inputs and outputs, where each member of the struct has the 
+          appropriate register semantic (for example, “:TANGENT0”).This is not a language requirement, but makes debugging much easier.
+          In general, functions are declared after global parameters, so that those parameters can be used without declaration.
+     
