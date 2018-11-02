@@ -1,0 +1,5 @@
+HLSL与Shader model关系:
+HLSL shaders can be compiled at author-time or at runtime, and set at runtime into the appropriate pipeline stage. 
+Direct3D 9 shaders can be designed using shader model 1, shader model 2 and shader model 3; Direct3D 10 shaders can 
+only be designed on shader model 4. Direct3D 11 shaders can be designed on shader model 5. Direct3D 11.3 and Direct3D 12 can 
+be designed on shader model 5.1, and Direct3D 12 can also be designed on shader model 6.
