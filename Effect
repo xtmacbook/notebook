@@ -1,0 +1,83 @@
+在D3D11应用程序中，对于写好的Effect程序进行编译有如下几种常见方法：
+1. 在运行期编译
+
+       用这种方法，我们只管写好Effect代码即可，不用关心其编译问题，而是在C++程序中，通过调用相应的API先对Effect进行编译，得到编译后的内容，再用之来创建Effect接口。在上个例子绘制立方体时我们用的即这个方法，其相关代码再看一下：
+
+	//两个ID3D10Blob用来存放编译好的shader及错误消息
+	ID3D10Blob	*shader(NULL);
+	ID3D10Blob	*errMsg(NULL);
+	//编译effect
+	HRESULT hr = D3DX11CompileFromFile(L"FX/BasicDraw.fx",0,0,0,"fx_5_0",flag,0,0,&shader,&errMsg,0);
+	//如果有编译错误，显示之
+	if(errMsg)
+	{
+		MessageBoxA(NULL,(char*)errMsg->GetBufferPointer(),"ShaderCompileError",MB_OK);
+		errMsg->Release();
+		return FALSE;
+	}
+	if(FAILED(hr))
+	{
+		MessageBox(NULL,L"CompileShader错误!",L"错误",MB_OK);
+		return FALSE;
+	}
+我们通过使用ID3D10Blob接口来存放得到的编译后内容及相关编译错误信息，编译后的内容存放在shader变量中，在确保编译无误的情况下用它来创建Effect。此外，在Debug模式下，为了便于检查shader代码相关问题，我们通过flag变量来指定编译方式，如下所示：
+
+	UINT flag(0);
+#if defined(DEBUG) || defined(_DEBUG)
+	flag |= D3D10_SHADER_DEBUG;
+	flag |= D3D10_SHADER_SKIP_OPTIMIZATION;
+#endif
+这样在Release即可按正常模式进行。
+
+2. 使用Effect编译工具
+
+       在安装好DirectX SDK后，在Utilities\bin目录下（无论x64还是x86），有专门用来对Shader代码进行编译的工具，即“fxc”。通过它，我们可以在运行程序前先对我们写的Effect程序进行编译，确保无误，并且输出编译好的二进制文件。在运行期，应用程序通过直接读取二进制shader代码来创建Effect即可。这样的好处还是很多的，一方面，我们可以事先把可能的问题排除掉，确保shader准备无误；另一方面，当shader代码特别庞大的时候，可以有效避免程序运行是初始化阶段因为临时对shader进行编译而造成的漫长的等待。如果用过SDK附带的Sample Browser中的示例程序的话，就会很熟悉，相当多的示例在运行时的开始阶段会有好几秒甚至几十秒的编译shader的时间，好在微软专门对我们进行提示，告诉我们程序正在编译shader，否则一般的程序初始化这么久的话真是很难容忍滴。。。还有一个好处就是，在我们不想公开自己的shader代码时，可以事先编译成二进制文件，让C++程序直接读取二进制代码即可，这样就不必把shader代码连同可执行程序一起发布了。
+
+       说了这么多，来看下如何用这个编译工具吧。
+
+       fxc用法其实很简单，常见的几个flag就那么几个，很好记住。而且就算记不住，SDK也很方便查阅。首先，当然是打开命令行啦~如果没有把该工具的目录加到系统变量中的话就要先把命令行的工作目录先调到fxc对应目录。
+
+       要编译effect，首先要指定编译所用的shader model，在我们学习d3d11过程中，一般用最高等级:fx_5_0，这跟我们effect代码中pass内指定的是一样的，前面跟 /T 。然后指明输出文件名，用 /Fo 指定，接输出文件名；最后直接注明我们要编译的文件名。这就是一个最简单的命令，如下：
+
+fxc /T fx_5_0 /Fo BasicDraw.fxo BasicDraw.fx
+如果为了Debug目的，只要多插入几个相应的编译参数即可。一般而言，在Debug过程中我们要组上编译器进行优化，通过增加 /Od 实现，显示Debug信息，增加 /Zi 参数。 此外，如果对对应的汇编指令感兴趣的话，也可以让编译把汇编指令输出到一个文件当中，增加 /Fc即可。这时的命令如下：fxc /Od /Zi /T fx_5_0 /Fo BasicDraw.fxo BasicDraw.fx
+
+fxc /Fc /Od /Zi /T fx_5_0 /Fo BasicDraw.fxo BasicDraw.fx
+       这就是两个我们最常用到的编译effect时的命令。想了解更详细的参数说明，请参考SDK。
+
+       对应用程序而言，重要的只有输出的二进制文件，通过C++的输入流读取该文件即可。读取二进制文件的代码如下：
+
+	ifstream fin("FX/BasicDraw.fxo",ifstream::binary);
+	fin.seekg(0,ifstream::end);
+	int size = static_cast<int>(fin.tellg());
+	fin.seekg(0,ifstream::beg);
+	vector<char> compiledShader(size);
+	fin.read(&compiledShader[0],size);
+	fin.close();
+	//从编译好的Effect创建Effect
+	HRESULT hr = D3DX11CreateEffectFromMemory(&compiledShader[0],size,0,g_device,&g_effect);
+首先创建输入流，指定二进制文件名和读取方式，这里显然设置为二进制，即ifstream::binary（或 ios::binary）。然后把输入流定位到文件末尾，保存其位置，该位置其实就是文件的大小。这时再把输入流重新定位到文件一开始，并通过调用输入流的read函数读取文件内容到vector变量当中，最后关闭输入流。这时vector当中存放的即是我们需要的编译好的effect代码。最后通过它来创建Effect即可。
+
+       3. 让Visual Studio在Build时自动帮我们编译Effect
+
+       如果不想每次都手动来编译Effect文件，我们也可以指定IDE来帮我们自动完成。方法如下：
+
+       1. 首先在工程目录中把Effect文件添加进来：右键项目名->Add-New Filter，取个名字，比如”FX“，表示我们的Effect文件
+
+
+
+       接着在该目录下把对应的effect文件添加进来：
+
+
+
+       2. 右键相应的Effect文件，选"Properties”（属性），在弹出的对话框中按下图所示选择"Custom Build Tool“（中文版选择对应的就行了）：
+
+点右下角”应用"，这时，还是该对话框，左侧栏会多出一项“Custom Build Tool”，双击它，然后在右边开始输入相应内容。
+
+ 对应于Debug模式，在Command Line行输入 fxc /Fc /Od /Zi /T fx_5_0 /Fo "%(RelativeDir)\%(Filename).fxo" "%(FullPath)"。看得出就是我们手动编译Effect时的命令。Outputs行输入 %(RelativeDir)\%(Filename).fxo，即输入目录及文件名。如图所示：
+
+
+
+对应Release模式很相似，只是Command Line那一行换成我们正常手动编译Effect时对应的命令即可，即：fxc /T fx_5_0 /Fo "%(RelativeDir)\%(Filename).fxo" "%(FullPath)"。Outputs行与上面一样。配置完成，点确定。
+
+       这时，每当我们Build我们的项目时，IDE会自动帮我们编译Effect并生成相应的输出文件。在C++程序中直接读取二进制文件即可。
