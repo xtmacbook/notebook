@@ -27,3 +27,20 @@ Coding Conventions(命名习俗)
           appropriate register semantic (for example, “:TANGENT0”).This is not a language requirement, but makes debugging much easier.
           In general, functions are declared after global parameters, so that those parameters can be used without declaration.
      
+
+4 .
+用fxc.exe编译shader文件（*.fx, *.hlsl）的设置:
+拿DX11 SDK中BasicCompute11为例子
+右击BasicCompute11.hlsl -> properities -> Custom Build Tool -> command line: "$(DXSDK_DIR)Utilities\bin\x86\"fxc.exe  /T cs_5_0 /E CSMain /Fo "%(Filename).cso" "%(FullPath)" -> outputs: $(filename).cso
+根据shader类型和入口函数名的不同，红色字体部分可做相应的替换。
+
+例如对于fx文件，可设置为：
+"$(DXSDK_DIR)Utilities\bin\x86\"fxc.exe  /T fx_4_0 /Fo "%(Filename).fxo" "%(FullPath)"
+$(filename).fxo
+
+拿DX11 SDK中BasicCompute11为例子
+右击BasicCompute11.hlsl -> properities -> Custom Build Tool -> command line: "$(DXSDK_DIR)Utilities\bin\x86\"fxc.exe  /T cs_5_0 /E CSMain /Fo "%(Filename).cso" "%(FullPath)" -> outputs: $(filename).cso
+根据shader类型和入口函数名的不同，红色字体部分可做相应的替换。
+例如对于fx文件，可设置为：
+"$(DXSDK_DIR)Utilities\bin\x86\"fxc.exe  /T fx_4_0 /Fo "%(Filename).fxo" "%(FullPath)"
+$(filename).fxo
