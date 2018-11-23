@@ -1,0 +1,54 @@
+
+logDir = /Users/gis/xt_src/projs/log4cxx/log4cxx/log/
+
+# set root logger as debug
+log4j.rootLogger=TRACE,stdout
+
+#Appender stdout
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender 
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout 
+log4j.appender.stdout.layout.ConversionPattern=%d [%t] %-5p %.16c - %m%n
+
+#Appender ERROR log
+log4j.logger.errorLogger=ERROR,E
+log4j.appender.E=org.apache.log4j.RollingFileAppender
+#log4j.appender.E.RollingPolicy=oorg.apache.log4j.rolling.TimeBasedRollingPolicy
+log4j.appender.E.File=${logDir}/error.log
+log4j.appender.E.MaxFileSize=10MB
+log4j.appender.E.MaxBackupIndex=5
+log4j.appender.E.layout = org.apache.log4j.PatternLayout
+log4j.appender.E.layout.ConversionPattern=%d [%t] %-5p %.16c - %m%n
+log4j.additivity.E=false
+#log4j.appender.E.encoding=UTF-8 
+
+# Appender WARN log
+log4j.logger.warnLogger=WARN,W
+log4j.appender.W=org.apache.log4j.RollingFileAppender
+log4j.appender.W.File=${logDir}/warn.log
+log4j.appender.W.MaxFileSize=10MB
+log4j.appender.W.MaxBackupIndex=5
+log4j.appender.W.layout=org.apache.log4j.PatternLayout
+log4j.appender.W.layout.ConversionPattern=%d [%t] %-5p %.16c - %m%n
+log4j.additivity.W=false 
+
+#Appender INFO log
+log4j.logger.infoLogger= INFO,I
+log4j.appender.I=org.apache.log4j.RollingFileAppender
+log4j.appender.I.File=${logDir}/info.log
+log4j.appender.I.MaxFileSize=10MB
+log4j.appender.I.MaxBackupIndex=5
+log4j.appender.I.layout=org.apache.log4j.PatternLayout
+log4j.appender.I.layout.ConversionPattern=%d [%t] %-5p %.16c - %m%n
+log4j.additivity.I=false
+
+#Appender DEBUG log
+log4j.logger.debugLogger=DEBUG,D
+log4j.appender.D=org.apache.log4j.RollingFileAppender
+log4j.appender.D.File=${logDir}/debug.log
+log4j.appender.D.MaxFileSize=10MB
+log4j.appender.D.MaxBackupIndex=5
+log4j.appender.D.layout=org.apache.log4j.PatternLayout
+log4j.appender.D.layout.ConversionPattern=%d [%t] %-5p %.16c - %m%n
+log4j.additivity.D=false 
+
+
