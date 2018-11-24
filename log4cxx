@@ -12,7 +12,7 @@ log4j.appender.stdout.layout.ConversionPattern=%d [%t] %-5p %.16c - %m%n
 #Appender ERROR log
 log4j.logger.errorLogger=ERROR,E
 log4j.appender.E=org.apache.log4j.RollingFileAppender
-#log4j.appender.E.RollingPolicy=oorg.apache.log4j.rolling.TimeBasedRollingPolicy
+#log4j.appender.E.RollingPolicy=org.apache.log4j.rolling.TimeBasedRollingPolicy
 log4j.appender.E.File=${logDir}/error.log
 log4j.appender.E.MaxFileSize=10MB
 log4j.appender.E.MaxBackupIndex=5
