@@ -51,4 +51,179 @@ log4j.appender.D.layout=org.apache.log4j.PatternLayout
 log4j.appender.D.layout.ConversionPattern=%d [%t] %-5p %.16c - %m%n
 log4j.additivity.D=false 
 
+c++:
+//
+//  main.cpp
+//  log4cxx
+//
+//  Created by xt on 18/11/24.
+//  Copyright © 2018年 xt. All rights reserved.
+//
+
+#include <iostream>
+
+#include <log4cxx/rolling/rollingfileappender.h>
+#include <log4cxx/logger.h>
+#include <log4cxx/consoleappender.h>
+#include <log4cxx/logmanager.h>
+#include <log4cxx/patternlayout.h>
+#include <log4cxx/rolling/timebasedrollingpolicy.h>
+#include <log4cxx/helpers/simpledateformat.h>
+#include <iostream>
+#include <log4cxx/rolling/sizebasedtriggeringpolicy.h>
+#include <log4cxx/helpers/stringhelper.h>
+
+using namespace log4cxx;
+using namespace log4cxx::helpers;
+using namespace log4cxx::rolling;
+
+
+int main(int argc, const char * argv[])
+{
+
+    std::string outDir = "/Users/glp/Documents/projects/log4cxx/logs/";
+
+    std::string errorFileNamePattern = outDir + "%d{yyyy_MM_dd}/error.%d{HHmmss}.log";
+    std::string warnFileNamePattern  = outDir + "%d{yyyy_MM_dd}/warn.%d{HHmmss}.log";
+    std::string infoFileNamePattern  = outDir + "%d{yyyy_MM_dd}/info.%d{HHmmss}.log";
+
+
+    LoggerPtr rootLogger = Logger::getRootLogger();
+
+    {
+        //set Trace
+        rootLogger->setLevel(Level::getTrace());
+        PatternLayoutPtr layout(new PatternLayout(LOG4CXX_STR("%d [%t] %-5p %.16c - %m%n")));
+
+        //Appender
+        ConsoleAppenderPtr appender(new ConsoleAppender());
+        appender->setLayout(layout);
+
+        log4cxx::helpers::Pool pool;
+        appender->activateOptions(pool);
+        rootLogger->addAppender(appender);
+
+    }
+
+    LoggerPtr errorLoger = Logger::getLogger(LOG4CXX_STR("error"));
+    {
+
+    errorLoger->setAdditivity(false);
+    errorLoger->setLevel(Level::getError());
+
+        //patterLayout
+    PatternLayoutPtr layout(new PatternLayout(LOG4CXX_STR("%c{1} - %m%n")));
+
+        //Appender
+    RollingFileAppenderPtr rolling_file_appender(new RollingFileAppender());
+    rolling_file_appender->setLayout(layout);
+
+        //rolling policy
+    TimeBasedRollingPolicyPtr time_rolling_policy(new TimeBasedRollingPolicy());
+    time_rolling_policy->setFileNamePattern(LOG4CXX_STR(errorFileNamePattern.c_str()));
+
+        //tringger policy
+    SizeBasedTriggeringPolicyPtr size_trigger_policy = new SizeBasedTriggeringPolicy();
+    size_trigger_policy->setMaxFileSize(60);
+
+
+    Pool p;
+    time_rolling_policy->activateOptions(p);
+
+    rolling_file_appender->setRollingPolicy(time_rolling_policy);
+    rolling_file_appender->setTriggeringPolicy(size_trigger_policy);
+    rolling_file_appender->activateOptions(p);
+    errorLoger->addAppender(rolling_file_appender);
+    }
+
+    LoggerPtr warnLoger = Logger::getLogger(LOG4CXX_STR("warn"));
+    {
+
+    warnLoger->setAdditivity(false);
+    warnLoger->setLevel(Level::getWarn());
+
+        //patterLayout
+    PatternLayoutPtr layout(new PatternLayout(LOG4CXX_STR("%c{1} - %m%n")));
+
+        //Appender
+    RollingFileAppenderPtr rolling_file_appender(new RollingFileAppender());
+    rolling_file_appender->setLayout(layout);
+
+        //rolling policy
+    TimeBasedRollingPolicyPtr time_rolling_policy(new TimeBasedRollingPolicy());
+    time_rolling_policy->setFileNamePattern(LOG4CXX_STR(warnFileNamePattern.c_str()));
+
+        //tringger policy
+    SizeBasedTriggeringPolicyPtr size_trigger_policy = new SizeBasedTriggeringPolicy();
+    size_trigger_policy->setMaxFileSize(60);
+
+
+    Pool p;
+    time_rolling_policy->activateOptions(p);
+
+    rolling_file_appender->setRollingPolicy(time_rolling_policy);
+    rolling_file_appender->setTriggeringPolicy(size_trigger_policy);
+    rolling_file_appender->activateOptions(p);
+    warnLoger->addAppender(rolling_file_appender);
+    }
+
+    LoggerPtr infoLoger = Logger::getLogger(LOG4CXX_STR("info"));
+    {
+
+    infoLoger->setAdditivity(false);
+    infoLoger->setLevel(Level::getInfo());
+
+        //patterLayout
+    PatternLayoutPtr layout(new PatternLayout(LOG4CXX_STR("%c{1} - %m%n")));
+
+        //Appender
+    RollingFileAppenderPtr rolling_file_appender(new RollingFileAppender());
+    rolling_file_appender->setLayout(layout);
+
+        //rolling policy
+    TimeBasedRollingPolicyPtr time_rolling_policy(new TimeBasedRollingPolicy());
+    time_rolling_policy->setFileNamePattern(LOG4CXX_STR(infoFileNamePattern.c_str()));
+
+        //tringger policy
+    SizeBasedTriggeringPolicyPtr size_trigger_policy = new SizeBasedTriggeringPolicy();
+    size_trigger_policy->setMaxFileSize(60);
+
+
+    Pool p;
+    time_rolling_policy->activateOptions(p);
+
+    rolling_file_appender->setRollingPolicy(time_rolling_policy);
+    rolling_file_appender->setTriggeringPolicy(size_trigger_policy);
+    rolling_file_appender->activateOptions(p);
+    infoLoger->addAppender(rolling_file_appender);
+    }
+
+
+
+
+    char msg[] = { 'H', 'e', 'l', 'l', 'o', '-', '-', '-', 'N', 0 };
+
+    for (int i = 0; i < 25; i++)
+    {
+        if (i < 10) {
+            msg[8] = '0' + i;
+        } else if (i < 100) {
+            msg[7] = '0' + i / 10;
+            msg[8] = '0' + i % 10;
+        }
+        sleep(1.0);
+        LOG4CXX_ERROR(rootLogger, "error .....");
+        LOG4CXX_WARN(rootLogger, "warn ......");
+        LOG4CXX_INFO(rootLogger, "lnfo .....");
+
+
+        LOG4CXX_ERROR(errorLoger, "error .....");
+        LOG4CXX_WARN(warnLoger, "warn .....");
+        LOG4CXX_INFO(infoLoger, "lnfo .....");
+
+            }
+
+
+    return 0;
+}
 
