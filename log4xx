@@ -1,7 +1,0 @@
-log4cxx有三个主要组件:loggers（记录器），appenders(输出源)和layout(布局)。可以简单理解为日志类别，要输出的地方，输出形式。
-
-1) Loggers
-
-2) Appenders
-
-3) Layouts
