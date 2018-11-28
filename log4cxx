@@ -1,63 +1,88 @@
 
-logDir = /Users/gis/xt_src/projs/log4cxx/log4cxx/log/
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration>
 
-# set root logger as debug
-log4j.rootLogger=TRACE,stdout
+<log4j:configuration xmlns:log4j='http://logging.apache.org/' debug="false" >
 
-#Appender stdout
-log4j.appender.stdout=org.apache.log4j.ConsoleAppender 
-log4j.appender.stdout.layout=org.apache.log4j.PatternLayout 
-log4j.appender.stdout.layout.ConversionPattern=%d [%t] %-5p %.16c - %m%n
+    <appender name="studo" class="org.apache.log4j.ConsoleAppender">
+       <layout class="org.apache.log4j.PatternLayout">
+         <param name="ConversionPattern" value="%-5p %c{2} - %m%n"/>
+       </layout>	    
+     </appender>
 
-#Appender ERROR log
-log4j.logger.errorLogger=ERROR,E
-log4j.appender.E=org.apache.log4j.RollingFileAppender
-#log4j.appender.E.RollingPolicy=org.apache.log4j.rolling.TimeBasedRollingPolicy
-log4j.appender.E.File=${logDir}/error.log
-log4j.appender.E.MaxFileSize=10MB
-log4j.appender.E.MaxBackupIndex=5
-log4j.appender.E.layout = org.apache.log4j.PatternLayout
-log4j.appender.E.layout.ConversionPattern=%d [%t] %-5p %.16c - %m%n
-log4j.additivity.E=false
-#log4j.appender.E.encoding=UTF-8 
-
-# Appender WARN log
-log4j.logger.warnLogger=WARN,W
-log4j.appender.W=org.apache.log4j.RollingFileAppender
-log4j.appender.W.File=${logDir}/warn.log
-log4j.appender.W.MaxFileSize=10MB
-log4j.appender.W.MaxBackupIndex=5
-log4j.appender.W.layout=org.apache.log4j.PatternLayout
-log4j.appender.W.layout.ConversionPattern=%d [%t] %-5p %.16c - %m%n
-log4j.additivity.W=false 
-
-#Appender INFO log
-log4j.logger.infoLogger= INFO,I
-log4j.appender.I=org.apache.log4j.RollingFileAppender
-log4j.appender.I.File=${logDir}/info.log
-log4j.appender.I.MaxFileSize=10MB
-log4j.appender.I.MaxBackupIndex=5
-log4j.appender.I.layout=org.apache.log4j.PatternLayout
-log4j.appender.I.layout.ConversionPattern=%d [%t] %-5p %.16c - %m%n
-log4j.additivity.I=false
-
-#Appender DEBUG log
-log4j.logger.debugLogger=DEBUG,D
-log4j.appender.D=org.apache.log4j.RollingFileAppender
-log4j.appender.D.File=${logDir}/debug.log
-log4j.appender.D.MaxFileSize=10MB
-log4j.appender.D.MaxBackupIndex=5
-log4j.appender.D.layout=org.apache.log4j.PatternLayout
-log4j.appender.D.layout.ConversionPattern=%d [%t] %-5p %.16c - %m%n
-log4j.additivity.D=false 
-
+  <appender name="infoAppender" class="org.apache.log4j.rolling.RollingFileAppender">
+	  
+	<rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+	  <param name="ActiveFileName"  value="/opt/huawei/riemann/logs/app/GIS_APP_Font_Render/info_GIS_APP_Font_Render.log" />
+      <param name="fileNamePattern" value="/opt/huawei/riemann/logs/app/GIS_APP_Font_Render/info_GIS_APP_Font_Render_%d{yyyy-MM-dd_HH_mm_ss}.gz"/>
+    </rollingPolicy>
+	<triggeringPolicy class="org.apache.log4j.rolling.SizeBasedTriggeringPolicy">
+			<param name="maxFileSize" value="0.5kb" />
+	</triggeringPolicy>
+	 
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%c{1} - %m%n"/>
+    </layout>	    
+  </appender>
+ 
+  <appender name="warnAppender" class="org.apache.log4j.rolling.RollingFileAppender">
+	  
+	<rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+	  <param name="ActiveFileName"  value="/opt/huawei/riemann/logs/app/GIS_APP_Font_Render/warn_GIS_APP_Font_Render.log" />
+      <param name="fileNamePattern" value="/opt/huawei/riemann/logs/app/GIS_APP_Font_Render/warn_GIS_APP_Font_Render_%d{yyyy-MM-dd_HH_mm_ss}.gz"/>
+    </rollingPolicy>
+	<triggeringPolicy class="org.apache.log4j.rolling.SizeBasedTriggeringPolicy">
+			<param name="maxFileSize" value="0.5kb" />
+	</triggeringPolicy>
+	 
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%c{1} - %m%n"/>
+    </layout>	    
+  </appender>
+  
+  <appender name="errorAppender" class="org.apache.log4j.rolling.RollingFileAppender">
+	  
+	<rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+	  <param name="ActiveFileName"  value="/opt/huawei/riemann/logs/app/GIS_APP_Font_Render/error_GIS_APP_Font_Render.log" />
+      <param name="fileNamePattern" value="/opt/huawei/riemann/logs/app/GIS_APP_Font_Render/error_GIS_APP_Font_Render_%d{yyyy-MM-dd_HH_mm_ss}.gz"/>
+    </rollingPolicy>
+	<triggeringPolicy class="org.apache.log4j.rolling.SizeBasedTriggeringPolicy">
+			<param name="maxFileSize" value="0.5kb" />
+	</triggeringPolicy>
+	 
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%c{1} - %m%n"/>
+    </layout>	    
+  </appender>
+  
+  <root>
+	  <level value="TRACE"/>
+    <appender-ref ref="studo" />
+  </root>
+  
+ <logger name="infoLogger"  additivity="false">
+    <appender-ref ref="infoAppender"/>
+	<level value="INFO" />
+  </logger>
+  
+  <logger name="warnLogger"  additivity="false">
+     <appender-ref ref="warnAppender"/>
+ 	<level value="WARN" />
+   </logger>
+   
+   <logger name="errorLogger"  additivity="false">
+      <appender-ref ref="errorAppender"/>
+  	<level value="ERROR" />
+    </logger>
+  
+</log4j:configuration>
 c++:
 //
 //  main.cpp
 //  log4cxx
 //
-//  Created by xt on 18/11/24.
-//  Copyright © 2018年 xt. All rights reserved.
+ .
+//  Copyright © 2018  rights reserved.
 //
 
 #include <iostream>
