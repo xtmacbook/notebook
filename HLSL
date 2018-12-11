@@ -26,3 +26,19 @@ Direct3D 9 introduced effect-framework profiles fx_1_0 and fx_2_0.
 Direct3D 10 introduced effect-framework profile fx_4_0.
 Direct3D 10.1 introduced effect-framework profile fx_4_1.
 Direct3D 11 introduced effect-framework profile fx_5_0.
+
+
+Version History
+D3DCompiler_47 - Windows 10 (inbox), Windows 10 SDK; Windows 8.1 (inbox), Windows 8.1 SDK, Visual Studio 2013/2015
+D3DCompiler_46 - Windows 8.0 SDK, Visual Studio 2012
+D3DCompiler_43 - DirectX SDK (June 2010)
+D3DCompiler_42 - DirectX SDK (February 2010)
+D3DCompiler_41 - DirectX SDK (March 2009)
+D3DCompiler_40 - DirectX SDK (November 2008)
+D3DCompiler_39 - DirectX SDK (August 2008)
+D3DCompiler_38 - DirectX SDK (June 2008)
+D3DCompiler_37 - DirectX SDK (March 2008)
+D3DCompiler_36 - DirectX SDK (November 2007)
+D3DCompiler_35 - DirectX SDK (August 2007)
+D3DCompiler_34 - DirectX SDK (June 2007)
+D3DCompiler_33 - DirectX SDK (Aprli 2007)
