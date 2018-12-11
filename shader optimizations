@@ -1,0 +1,52 @@
+Front-end compiler:
+              HLSL compiler             ASM Compiler                Driver
+  HLSL shader---------------->ASM shader--------------->P-Code ----------->optimiztion--------->HW Optimizer--->HW u-code
+  
+  HLSL code :       Aassembly code          Directx R p-code       HardWare specific u-code
+  
+  
+  优化策略:
+    1.尽量使用现有函数而不是自己重写一个函数
+    2.使用正确的变量类型(float,float2,float3,float4),可以使用float3不要使用float4
+    3.避免typecasting,类型转换
+    4.避免integer类型的使用，有的硬件不支持integer运行(int),而是使用float
+      float4 main(int k: TEXCOORD0):COLOR                       float main(float k:TEXCOORD0):COLOR{ ...
+      { 
+        int n = k / 3;
+        return n;
+       }
+    5.当使用变量来标示数组的下标的时候使用integer，而不是floats
+    6.把scalar 合并成一个vectors，可以减少变量个数，同时避免了硬件的限制,例如:
+      float scale,bias 改为:float2 scale_bias;
+    7.数组元素合并 (同上):
+      没有优化：                                                     优化:
+        floatfArray[8];                                               float4fPackedArray[2];
+                                                                        static floatfArray[8] =(float[8])fPackedArray;
+        float4main(float4v:COLOR) : COLOR                             float4main(float4v:COLOR) : COLOR
+        {                                                               {
+          floata = 0;                                                     floata = 0;
+          int i;                                                           int i; 
+          for(i = 0; i < 8; i++)                                            for(i = 0; i < 8; i++)
+          {                                                                 {
+               a += fArray[i];                                                a += fArray[i];
+          }                                                                  }
+          returnv * a;                                                       returnv * a;
+        }                                                               }
+        
+    8.正常初始化变量 :For conditional compilation use booleanconstants declared as static
+      bool b = true；  变成 static bool b = true;
+    9.Vectorize calculations (向量化计算):
+      没有优化:                                               优化：
+      float a,b,c,d                                             float4 v
+      a = k + 1;
+      b = k + 2;                                                  v = k + float4(1,2,3,4);
+      c = k + 3;
+      d = k + 4;
+      
+    10.尽量使用向量操作:　点成 dot
+      a + b + c + d  ===> a * 1 + b *1 + c * 1 + d * 1
+      所以f = a + b + c + d 最好使用 f = dot (v ,1)
+      
+    11.  
+                                                                          
+      
