@@ -1,0 +1,37 @@
+11.认真对待矩阵的转置(Transpose)
+   Avoid transposing matrices in HLSL code
+   Use reversed mul()operand order for multiplication by transposed matrix
+   Use column order matrices whenever possible
+   
+   没有优化:                                                  优化:
+   float3x4m;                                                   float4x3m;
+   float4 main(float4p: POSITION) : POSITION                      float4 main(float4p: POSITION) : POSITION
+        {                                                           {
+          float3  v;                                                    float3 v;
+          v = mul(m, p);                                                 v = mul(p, m);
+          return float4(v, 1);                                           return float4(v, 1); 
+        }                                                            }
+ 12.Use Swizzles Wisely
+  PS 2.0 doesn’t support arbitrary swizzles
+  –Creatively use existing swizzles (i.e. .WZYX gives you access to .ZW in reversed order)
+  –Can be used for constant packing and vectorization
+  
+  Without Optimization                                               With Optimization
+  
+  float2 a, b, c, d;                                                   float4 ab, cd;
+  samplers;                                                             samplers;
+  float　4main(float2i0: TEXCOORD0, float2 i1 : TEXCOORD1) : COLOR        float4　main(float4i01 : TEXCOORD0) : COLOR
+  {                                                                       {
+    float4j = tex2D(s,(i0+a)*c) +tex2D(s,(i1+b)*d);                             float4j = tex2D(s,(i0+a)*c) +tex2D(s,(i1+b)*d);                         
+                                                                                float4j = tex2D(s,t.xy) +　tex2D(s,t.wz);
+    return j;                                                                    return j;
+  }                                                                        } 
+  
+  13.Use1D Texture Fetches
+    InDirectX® 1D textures are emulated by 2Dtextures ofNx1 dimensions
+    •For fetching1D textures use special intrinsic function tex1Deven though texture is really 2D
+    
+  14. Use Signed Textures
+    •Use signed texture formats to represent signed data (i.e. normal maps)
+    •PS 2.0 doesn’t support _bx2modifier, so it takes extra MADinstruction to expand range of unsigned data
+  
