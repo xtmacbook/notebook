@@ -1,0 +1,13 @@
+
+  // octree is empty - we set the center of the bounding box to our first pixel
+        this->min_x_ = point_idx_arg.x - this->resolution_ / 2;
+        this->min_y_ = point_idx_arg.y - this->resolution_ / 2;
+        this->min_z_ = point_idx_arg.z - this->resolution_ / 2;
+
+        this->max_x_ = point_idx_arg.x + this->resolution_ / 2;
+        this->max_y_ = point_idx_arg.y + this->resolution_ / 2;
+        this->max_z_ = point_idx_arg.z + this->resolution_ / 2;
+
+        getKeyBitSize ();
+
+        bounding_box_defined_ = true;
