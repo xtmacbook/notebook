@@ -54,3 +54,5 @@ git fetch <remote> -p      # Shorter
 
 
 	
+ git log -g --abbrev-commit --pretty=oneline
+	
