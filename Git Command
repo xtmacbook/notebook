@@ -29,4 +29,28 @@ git branch -dr <remote>/<branch> # Shorter
 
 #查看日志
  git log -g --abbrev-commit --pretty=oneline
+ git reflog
+ git log --online
 	
+##get reset
+get reset (--mixed) :可以使用file path(file name)，而--hard and --soft无法使用file path
+If you specify a path, it replaces the matched files in the index with the files from a commit (HEAD by default).
+This action doesn't affect the working tree at all and is usually used as the opposite of git add.
+
+If you don't specify a path, it moves the current branch head to a specified commit and, together with that, optionally resets 
+the index and the working tree to the state of that commit. This additional behavior is controlled by the mode parameter:
+--soft: don't touch the index and the working tree.
+--mixed (default): reset the index but not the working tree.
+--hard: reset the index and the working tree.
+There are also other options, see the documentation for the full list and some use cases.
+如果因为使用--hard删除了文件，可以取消上一步的reset （git reset head@{1}）然后在git checkout .复原删除的文件
+
+
+#查看head信息
+git symbolic-ref head
+git show-ref --heads -s
+git branch -v --all
+
+#git rebase的使用:
+	git rebase -i HEAD~3 (-i：标示是交互式操作)
+
