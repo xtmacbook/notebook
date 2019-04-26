@@ -1,0 +1,26 @@
+HEAD 标记
+现在的问题是，当你执行 git branch (分支名称) 这条命令的时候，Git 怎么知道最后一次提交的 SHA-1 值呢？答案就是 HEAD 文件。
+HEAD 文件是一个指向你当前所在分支的引用标识符。这样的引用标识符——它看起来并不像一个普通的引用——其实并不包含 SHA-1 值，而是一个指向另外一个引用的指针。
+如果你看一下这个文件，通常你将会看到这样的内容：
+
+$ cat .git/HEAD
+ref: refs/heads/master
+如果你执行 git checkout test，Git 就会更新这个文件，看起来像这样：
+
+$ cat .git/HEAD
+ref: refs/heads/test
+当你再执行 git commit 命令，它就创建了一个 commit 对象，把这个 commit 对象的父级设置为 HEAD 指向的引用的 SHA-1 值。
+
+你也可以手动编辑这个文件，但是同样有一个更安全的方法可以这样做：symbolic-ref。你可以用下面这条命令读取 HEAD 的值：
+
+$ git symbolic-ref HEAD
+refs/heads/master
+你也可以设置 HEAD 的值：
+
+$ git symbolic-ref HEAD refs/heads/test
+$ cat .git/HEAD
+ref: refs/heads/test
+但是你不能设置成 refs 以外的形式：
+
+$ git symbolic-ref HEAD test
+fatal: Refusing to point HEAD outside of refs/
