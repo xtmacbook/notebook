@@ -1,2 +1,5 @@
 a.
   ld -lssl --verbose to find library by linker which uses system LD_LIBRARY_PATH variable:
+  
+  
+  export CPLUS_INCLUDE_PATH=`pwd`/code/src/include:${CPLUS_INCLUDE_PATH}
