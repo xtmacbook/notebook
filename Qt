@@ -11,3 +11,18 @@ QMainWindow:
 菜单：分为两种：主菜单(或下拉菜单)和上下文菜单。上下文菜单一般在用户单击鼠标右键时出现在鼠标的位置
 
 Qt 设计器建立两个工具栏:"文件"工具栏和"编辑"工具栏
+Qt 中心控件的类型：
+  A.Qt提供的标准窗口部件
+  B.用户自定义的窗口部件
+  C.分裂器 QSplitter
+  D.工作控件部件  workspace
+  E.多文档区部件 QMdiArea
+
+
+锚接部件QDockWidget
+
+QT布局管理器
+  绝对位置方式:Qwidget::setGeometry()
+  手动布局:Qwidget::setGeometry()
+  布局管理器: QHBoxLayout QVBoxLayout QGridLayout QStackLayout
+  
