@@ -26,3 +26,10 @@ QT布局管理器
   手动布局:Qwidget::setGeometry()
   布局管理器: QHBoxLayout QVBoxLayout QGridLayout QStackLayout
   
+workspace:
+  workspace->addWindow()
+  workspace->windowList
+  workspace->setActiveWindow()
+  workspace->activeWindow()
+  
+  信号:windowActivated
