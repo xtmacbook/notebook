@@ -33,3 +33,20 @@ workspace:
   workspace->activeWindow()
   
   信号:windowActivated
+  
+1.编辑UI:uic -o ui_hellodialog.h hellodialog.ui
+2.构建项目.pro文件: qmake -project
+3.命令行编译生成exe:
+  （1）命令行输入：qmake，生成用于编译的Makefile文件。qmake之后生成共了三个文件、两个目录：
+
+Dir：
+  debug
+  release       // 后面编译后的exe文件在这里面
+
+File:
+  Makefile     // 包含了编译信息
+  Makefile.Debug
+  Makefile.Release
+  （2）输入“mingw32-make"命令来编译程序，编译完后会在release目录中出现helloworld.exe文件。
+  （若想编译debug版本，只需要更改命令为：mingw32-make -f Makefile.Debug）或者使用msvc的nmake
+  
