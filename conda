@@ -36,3 +36,7 @@ $ conda remove -n tf --all
 拷贝环境
 在创建环境时可以使用 --clone 从已存在的环境进行拷贝。
 $ conda create --clone tensorflow --name tf
+
+
+
+conda info查询配置信息，conda info中，config file项会显示配置文件.condarc的地址
