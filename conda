@@ -1,0 +1,38 @@
+使用 conda install 安装 conda 包，会自动处理包之间的依赖。
+$ conda install scrapy
+
+使用 conda 安装指定版本包，既可以使用类似 pip 的 ==，也可以直接使用 =：
+$ conda install scrapy=1.5.
+
+使用 conda update 更新 conda 包到最新版本，也可使用 conda upgrade。
+$ conda update scrapy
+
+卸载
+使用 conda remove 卸载 conda 包，也可使用 conda uninstall。
+$ conda remove scrapy
+
+
+创建环境
+创建虚拟环境，使用 -n/--name 指定环境名称。
+$ conda create --name tf 
+
+现在使用 conda info -e 查看环境（也可使用命令 conda env list）
+
+激活环境
+默认处于 base 环境，进入其他环境需要使用 source activate 手动切换：
+$ source activate tf
+
+激活成功会在命令行提示符前面标识出当前环境：
+(tf) ➜ ~ 
+
+若要退出激活当前环境，使用 source deactivate，默认回到 base 环境：
+$ source deactivate
+
+删除环境
+删除环境也使用 conda remove 命令，不过加上参数 --all 并使用 -n/--name 指定要删除的环境名。
+$ conda remove -n tf --all
+
+
+拷贝环境
+在创建环境时可以使用 --clone 从已存在的环境进行拷贝。
+$ conda create --clone tensorflow --name tf
