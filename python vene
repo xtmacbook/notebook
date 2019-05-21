@@ -1,0 +1,6 @@
+虚拟环境创建
+python3 -m venv dir_name
+
+虚拟环境激活和退出
+source dir_name/bin/activate
+deactivate
