@@ -1,0 +1,1 @@
+cmake用cmakelists.txt生成vs的codeblock工程 ：>cmake .. -G"CodeBlocks - NMake Makefiles"
