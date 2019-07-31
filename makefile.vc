@@ -1,0 +1,67 @@
+
+nmake命令：
+NMAKE [options] [macros] [targets] [@commandfile]
+
+选项options：
+
+/A Build all evaluated targets
+/B Build if time stamps are equal
+/C Suppress output messages
+/D Display build information
+/E Override env-var macros
+/HELP Display brief usage message
+/I Ignore exit codes from commands
+/K Build unrelated targets on error
+/N Display commands but do not execute
+/NOLOGO Suppress copyright message
+/P Display NMAKE information
+/Q Check time stamps but do not build
+/R Ignore predefined rules/macros
+/S Suppress executed-commands display
+/T Change time stamps but do not build
+/U Dump inline files
+/Y Disable batch-mode 
+/? Display brief usage message
+ 
+ 3.2、Nmake基本语法
+    当用户输入nmake命令后，首先nmake会读取makefile，然后解析makefile，并根据makefile的规则来确定要编译哪些代码。然后nmake会调用编译器、链接器等一些开发工具，完成对代码的编译链接。最终会生成可执行文件。
+
+（1）描述块（推导规则）
+
+targets... : dependents...
+	commands...
+    nmake的描述块的规则和用法同gmake的推导规则，targets也就是一个目标文件，可以是Object File，也可以是可执行文件。还可以是一个标签（Label）。targets必须在一行的顶格写，前面不能有空格。
+dependents就是要生成target所需要的文件或是目标依赖项。dependents与targets之间用冒号间隔。一个targets可以有多个dependents。
+command也就是NMake需要执行的命令。其中commands可以是任意的Windows命令行命令。
+这是一个文件的依赖关系，也就是说，target这一个或多个的目标文件依赖于dependents中的文件，其生成规则定义在command中。也就是说，dependents中如果有一个以上的文件比targets文件要新的话，command所定义的命令就会被执行。这就是makefile的规则。也就是Makefile中最核心的内容。
+ 
+  
+（2）使用变量
+
+CC=cl.exe
+LINK=link.exe
+LIB=lib.exe
+
+在nmake格式的makefile中$(CC)和$(CPP)属于内置宏，默认值为cl。
+不支持gnu make中的立即赋值:=,追加赋值+=和条件赋值?=的变量赋值方式。
+nmake中的自动变量使用不同于gnu make。
+
+（3）使用预处理
+预处理指令以“!”开头，必须出现在每行的最开始。最常用的预处理指令是条件处理。
+条件处理：
+Nmake支持如下的条件预处理指令：
+!IF 
+!IFDEF
+!IFNDEF
+!ELSE
+!ELSEIF
+!ELSEIFDEF
+!ELSEIFNDEF
+!ENDIF
+ 
+文件包含：
+  ! INCLUDE [<] 文件名 [>]
+显示错误信息：
+  !MESSAGE <内容> 
+  !ERROR message 
+ 
