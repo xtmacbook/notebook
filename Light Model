@@ -1,0 +1,41 @@
+Light Source: 
+  a:Directional Lights
+  b:Point Lights
+  c:Spotlights
+  
+  正式的光计算数学公式参考：opengl programing guide7上有
+  
+  gl_FrontLightModelProduct.sceneColor(内部变量) = gl_FrontMaterial.emission + gl_FrontMaterial.ambient * gl_LightModel.ambient
+  
+  
+  the specular highlights after texturing. This technique, called the secondary specular color, can be manually applied or automatically 
+  calculated by the lighting model. Usually, you do this using the normal OpenGL lighting model and simply turn it on using glLightModeli, 
+  as shown here:
+    第一种方式:
+    glLightModeli(GL_LIGHT_MODEL_COLOR_CONTROL, GL_SEPARATE_SPECULAR_COLOR);
+    You can switch back to the normal lighting model by specifying GL_SINGLE_COLOR for the light model parameter:
+    glLightModeli(GL_LIGHT_MODEL_COLOR_CONTROL, GL_COLOR_SINGLE);
+    第二种方式:
+    You can also directly specify a secondary color after texturing when you are not using lighting (lighting is disabled) using the
+ glSecondaryColor function. This function comes in many variations just as glColor does and is fully documented in the reference section.
+ You should also note that if you specify a secondary color, you must also explicitly enable the use of the secondary color by enabling 
+ the GL_COLOR_SUM flag:glEnable(GL_COLOR_SUM);
+  
+  secondary color 介绍:
+      The GL stores both a primary four-valued RGBA color and a secondary four-valued RGBA color (where alpha is always set to 0.0) that 
+      is associated with every vertex. 
+      The secondary color is interpolated and applied to each fragment during rasterization when GL_COLOR_SUM is enabled。
+      When lighting is enabled, and GL_SEPARATE_SPECULAR_COLOR is specified, the value of the secondary color is assigned the value 
+      computed from the specular term of the lighting computation. Both the primary and secondary current colors are applied to each 
+      fragment, regardless of the state of GL_COLOR_SUM, under such conditions. 
+      
+      如果设置了GL_SEPARATE_SPECULAR_COLOR,则无论是否设置了GL_COLOR_SUM，都会启动secondary color。如果没有开启光照但要使用后赋予specular光照
+      必须单独设置GL_COLOR_SUM（是把specular color加到设置文理后的模型上而不是相乘 ：至于为什么可以参考opengl superbible中的:Texture Mapping in OpenGL: Beyond the Basics
+      章节）
+      
+
+   
+  
+  
+  
+  
