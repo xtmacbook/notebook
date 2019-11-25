@@ -4,7 +4,65 @@ Light Source:
   c:Spotlights
   
   正式的光计算数学公式参考：opengl programing guide7上有
+  struct LightProperties {
+        bool isEnabled;
+        bool isLocal;
+        bool isSpot;
+        vec3 ambient;
+        vec3 color;
+        vec3 position;
+        vec3 halfVector;
+        
+        vec3 coneDirection;
+        float spotCosCutoff;
+        float spotExponent;
+        
+        float constantAttenuation;
+        float linearAttenuation;
+        float quadraticAttenuation;
+    };
+  struct MaterialProperties {
+        vec3 emission; // light produced by the material
+        vec3 ambient; // what part of ambient light is reflected
+        vec3 diffuse; // what part of diffuse light is scattered
+        vec3 specular; // what part of specular light is scattered
+        float shininess; // exponent for sharpening specular reflection
+        // other properties you may desire
+};
+    全局环境光(GL_LIGHT_MODEL_AMBIENT设置)与材料的环境颜色属性相乘:ambient_lightmode * ambient_material 来计算全局环境光的值；
   
+  每个光源的共享：
+    =衰减因子 * 聚光灯效果*（环境光成分 + 散射光成分 + 镜面光成分）
+  衰减因子：
+          = 1 / kc + kl * d + kq * d * d
+          d:光源和顶点距离
+          kc:GL_CONSTANT_ATTENUATION
+          kl:GL_LINEAR_ATTENUATION
+          kq:GL_QUADRATIC_ATTENUATION
+          如果光源为方向光，则衰减因子为1
+   聚光灯效果：
+      根据是光源是否为聚光灯和在聚光灯的锥形范围有三种情况：
+      a)光源不是聚光灯:GL_SPOT_CUTTOFF为180.0，取值为1.0
+      b)为聚光灯，但顶点在锥形外，则取值为0.0
+      c)max({v * d,0.0}
+          v:顶点到聚光灯大单位向量
+          d:聚光灯方向(GL_SPOT_DIRECTION) GL_SPOT_EXPOENT
+      判断是否在聚光灯的范围内：max{v * d,0.0}这个值小于聚光灯的切角(GL_SPOT_CUTOFF)的余弦值，则在光锥的外面。
+  环境光成分：
+    ambient_light * ambient_material
+  散射光成分：
+    max{L * n,0} * diffuse_light * diffuse_material
+      L:顶点到光源向量
+      n:顶点法向量
+  镜面光成分：
+      取决于光线是否落在顶点上。如果L*n小于0，则顶点不存在镜面光。如果存在镜面光则值取决于以下因素：
+        a)顶点出的法向量
+        b)顶点指向光源的向量；顶点指向观察者的向量(前提是设置了GL_LIGHT_MODEL_LOCAL_VIEWER为真)，否则为(0,0,1),两个向量和的规范化得出向量s
+        c)镜面指数(GL_SHININESS)
+        d)光源的镜面颜色(GL_SPECULAR)
+        e)材料的镜面属性
+      =(max{s*n,0}}*shininess * specular_light * specular_material  
+      
   gl_FrontLightModelProduct.sceneColor(内部变量) = gl_FrontMaterial.emission + gl_FrontMaterial.ambient * gl_LightModel.ambient
   
   
@@ -36,6 +94,9 @@ Light Source:
 
    
   
-  LightPosition 必须在eye coordinate坐标系下
+
   
+
+    
+
   
