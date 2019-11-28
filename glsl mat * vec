@@ -97,6 +97,12 @@ r[2].y = m[0].y * n[2].x + m[1].y * n[2].y + m[2].y * n[2].z;
 r[0].z = m[0].z * n[0].x + m[1].z * n[0].y + m[2].z * n[0].z;
 r[1].z = m[0].z * n[1].x + m[1].z * n[1].y + m[2].z * n[1].z;
 r[2].z = m[0].z * n[2].x + m[1].z * n[2].y + m[2].z * n[2].z;
-————————————————
-版权声明：本文为CSDN博主「ouyangshima」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/shimazhuge/article/details/96483962
+
+glsl的矩阵mat是按照列存储的:mat2 m = mat2(1.0, 2.0, 3.0, 4.0)等同与:
+  [1.0 3.0
+  2.0,4.0]
+  Matrix components are read out of arguments in column major order and written in column major order.
+
+  vec4 color = vec4(1.0,1.0,0.0,0.0)
+   mat2 xycolor = mat2(color);则mat2[0] = [1.0,1.0]
+  
