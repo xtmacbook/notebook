@@ -106,3 +106,12 @@ glsl的矩阵mat是按照列存储的:mat2 m = mat2(1.0, 2.0, 3.0, 4.0)等同与
   vec4 color = vec4(1.0,1.0,0.0,0.0)
    mat2 xycolor = mat2(color);则mat2[0] = [1.0,1.0]
   
+mat4 TranslateMatrix( const in vec3 t )
+{
+    return mat4( 1.0, 0.0, 0.0, 0.0,
+                0.0, 1.0, 0.0, 0.0,
+                0.0, 0.0, 1.0, 0.0,
+                t.x, t.y, t.z, 1.0 );
+}
+
+http://www.songho.ca/opengl/gl_anglestoaxes.html
