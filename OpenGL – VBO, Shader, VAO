@@ -1,0 +1,350 @@
+Render
+     Immediate using glBegin and glEnd
+     Vertex Array to specify vertex data in client memory
+     Vertex Buffer Object (VBO) to store vertex data in GPU memory
+     Shader to define the program to execute on the GPU
+     Shader with Vertex Buffer Object (VBO) to invoke the Programmable Pipeline
+     Shader with Verrtex Array Object (VAO) an advanced concept of the Programmable Pipeline
+Conclusion
+
+The simplest way to “experience” OpenGL is to draw in immediate mode using per vertex attribute specification between
+------------------------glBegin and glEnd.----------------------------------------------------------------------
+static void drawImmediate()
+{
+    // Draw x-axis in red
+    glColor3d(ac[0], ac[1], ac[2]);
+    glBegin(GL_LINES);
+        glVertex3f(av[0], av[1], av[2]);
+        glVertex3f(av[3], av[4], av[5]);
+    glEnd();
+
+    // Draw y-axis in green
+    glColor3d(ac[3], ac[4], ac[5]);
+    glBegin(GL_LINES);
+        glVertex3f(av[0], av[1], av[2]);
+        glVertex3f(av[6], av[7], av[8]);
+    glEnd();
+
+    // Draw z-axis in blue
+    glColor3d(ac[6], ac[7], ac[8]);
+    glBegin(GL_LINES);
+        glVertex3f(av[0], av[1], av[2]);
+        glVertex3f(av[9], av[10], av[11]);
+    glEnd();
+
+    // Draw pyramid
+    glBegin(GL_TRIANGLES);
+        glColor3d(pc[0], pc[1], pc[2]);
+
+        glVertex3f(pv[0], pv[1], pv[2]);       // 0
+        glVertex3f(pv[3], pv[4], pv[5]);       // 1
+        glVertex3f(pv[6], pv[7], pv[8]);       // 2
+
+        glVertex3f(pv[6], pv[7],  pv[8]);      // 2
+        glVertex3f(pv[9], pv[10], pv[11]);     // 3
+        glVertex3f(pv[0], pv[1],  pv[2]);      // 0
+
+        glColor3f(pc[3], pc[4], pc[5]);
+
+        glVertex3f(pv[0],  pv[1],  pv[2]);     // 0
+        glVertex3f(pv[9],  pv[10], pv[11]);    // 3
+        glVertex3f(pv[12], pv[13], pv[14]);    // 4
+
+        glColor3f(pc[6], pc[7], pc[8]);
+
+        glVertex3f(pv[9],  pv[10], pv[11]);    // 3
+        glVertex3f(pv[6],  pv[7],  pv[8]);     // 2
+        glVertex3f(pv[12], pv[13], pv[14]);    // 4
+
+        glColor3f(pc[9], pc[10], pc[11]);
+
+        glVertex3f(pv[6],  pv[7],  pv[8]);     // 2
+        glVertex3f(pv[3],  pv[4],  pv[5]);     // 1
+        glVertex3f(pv[12], pv[13], pv[14]);    // 4
+
+        glColor3f(pc[12],  pc[13], pc[14]);
+
+        glVertex3f(pv[3],  pv[4],  pv[5]);     // 1
+        glVertex3f(pv[0],  pv[1],  pv[2]);     // 0
+        glVertex3f(pv[12], pv[13], pv[14]);    // 4
+    glEnd();
+}
+
+-------------------Vertex Array----------------------------------------------------
+
+A slightly better way to specify vertex data in immediate mode is using Vertex Arrays (not to be confused with Vertex Array Objects 
+    discussed later). The vertex data is stored in array format in client memory. The respective attribute association is specified 
+    with glVertexPointer and glColorPointer. Data is transferred to the GPU in bulk for every frame.
+static void drawVertexArray()
+{
+    glEnableClientState(GL_VERTEX_ARRAY);
+    glEnableClientState(GL_COLOR_ARRAY);
+
+    // Set axes data
+    glVertexPointer(nVertexComponents, GL_FLOAT, 0, ave);
+    glColorPointer(nColorComponents, GL_FLOAT, 0, ace);
+
+    // Draw axes
+    glDrawArrays(GL_LINES, 0, nLines*nVerticesPerLine);
+
+    // Set pyramid data
+    glVertexPointer(nVertexComponents, GL_FLOAT, 0, pve);
+    glColorPointer(nColorComponents, GL_FLOAT, 0, pce);
+
+    // Draw pyramid
+    glDrawArrays(GL_TRIANGLES, 0, nFaces*nVerticesPerFace);
+
+    glDisableClientState(GL_VERTEX_ARRAY);
+    glDisableClientState(GL_COLOR_ARRAY);
+}
+
+
+-----------------------------------Vertex Buffer Object (VBO)--------------------------------
+
+An even better way is to store the vertex data directly on the GPU. These GPU memory pools are called Vertex Buffer Objects. This is
+achieved by setting a current buffer with glBindBuffer and copying the contents from client memory to the VBO with glBufferData. The
+GPU can then access the data directly and will save the cost of transferring from client memory to GPU memory every frame. The attribute
+association is again specified with glVertexPointer and glColorPointer.
+
+static void drawVertexBufferObject()
+{
+    LoadGLExtensions();
+
+    vboIds = new GLuint[3];
+    glGenBuffers(3, vboIds);
+
+    glEnableClientState(GL_VERTEX_ARRAY);
+    glEnableClientState(GL_COLOR_ARRAY);
+
+    // Set axes data
+    glBindBuffer(GL_ARRAY_BUFFER, vboIds[0]);  // coordinates
+    glBufferData(GL_ARRAY_BUFFER, sizeof(ave), ave, GL_STATIC_DRAW);
+    glVertexPointer(nCoordsComponents, GL_FLOAT, 0, 0);
+
+    glBindBuffer(GL_ARRAY_BUFFER, vboIds[1]);  // color
+    glBufferData(GL_ARRAY_BUFFER, sizeof(ace), ace, GL_STATIC_DRAW);
+    glColorPointer(nColorComponents, GL_FLOAT, 0, 0);
+
+    // Draw axes
+    glDrawArrays(GL_LINES, 0, nLines*nVerticesPerLine);
+
+    // Set pyramid data
+    glBindBuffer(GL_ARRAY_BUFFER, vboIds[2]);  // coordinates
+    glBufferData(GL_ARRAY_BUFFER, sizeof(pve), pve, GL_STATIC_DRAW);
+    glVertexPointer(nCoordsComponents, GL_FLOAT, 0, 0);
+
+    glBindBuffer(GL_ARRAY_BUFFER, vboIds[3]);  // color
+    glBufferData(GL_ARRAY_BUFFER, sizeof(pce), pce, GL_STATIC_DRAW);
+    glColorPointer(nColorComponents, GL_FLOAT, 0, 0);
+
+    // Draw pyramid
+    glDrawArrays(GL_TRIANGLES, 0, nFaces*nVerticesPerFace);
+
+    glDisableClientState(GL_VERTEX_ARRAY);
+    glDisableClientState(GL_COLOR_ARRAY);
+
+    // Disable the VBO
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+}
+
+Shader
+
+Shaders are user defined programs/code written in GLSL (OpenGL Shading Language) that are executed on the GPU in the rendering pipeline. Very basic shaders are used as the focus is on the overall setup rather than GLSL.
+•Vertex Shader – applies the projection and model-view matrix to each of the vertices
+•Fragment Shader – applies the color attribute specified at the vertices
+const char* vertex_shader =
+    "attribute vec3 aCoords;"
+    "attribute vec3 aColor;"
+    "uniform mat4 umvMat;"
+    "uniform mat4 upMat;"
+    "varying vec3 vColor;"
+    "void main () {"
+        "gl_Position = upMat * umvMat * vec4(aCoords, 1.0);"
+        "vColor = aColor;"
+    "}";
+
+const char* fragment_shader =
+    "varying vec3 vColor;"
+    "void main () {"
+        "gl_FragColor = vec4 (vColor, 1.0);"
+    "}";
+
+
+
+These programs replace the fixed functions provided in legacy OpenGL. Since these programs run on the GPU, the source written in OpenGL Shading Language (GLSL) has to be first first loaded, then complied and linked on the GPU using appropriate API.
+GLuint VERTEX_ATTR_COORDS = 1;
+GLuint VERTEX_ATTR_COLOR = 2;
+
+static void initShaders()
+{
+    GLuint vs = glCreateShader (GL_VERTEX_SHADER);
+    glShaderSource (vs, 1, &vertex_shader, NULL);
+    glCompileShader (vs);
+
+    GLuint fs = glCreateShader (GL_FRAGMENT_SHADER);
+    glShaderSource (fs, 1, &fragment_shader, NULL);
+    glCompileShader (fs);
+
+    program = glCreateProgram();
+    glAttachShader (program, fs);
+    glAttachShader (program, vs);
+
+    glBindAttribLocation(program, VERTEX_ATTR_COORDS, "aCoords");
+    glBindAttribLocation(program, VERTEX_ATTR_COLOR, "aColor");
+
+    glLinkProgram (program);
+
+    glUseProgram (program);
+}
+
+
+Shader with Vertex Buffer Object (VBO)
+
+The shaders are loaded on the GPU, and are responsible for portions of the rendering pipeline. So it is necessary for the shader code to access the vertex data to process it. Since the shader is on the GPU, the vertex data too has to be on the GPU in VBOs. The vertex data is copied to the GPU Vertex Buffer Objects as before with glBindBuffer and glBufferData.
+
+Then comes the most confusing part – associating the attributes (coordinates, color, etc.) in VBOs to be accessed by the shader variables. The magic happens in this one function glVertexAttribPointer which creates generic vertex attributes. It establishes a relation between the bound (current) VBO to the shader attribute variable associated (using glBindAttribLocation) with its index. See OpenGL Terminology Demystified for a detailed explanation.
+static void drawShaderWithVertexBufferObject()
+{
+    LoadGLExtensions();
+
+    initShaders();
+
+    // Get the variables from the shader to which data will be passed
+    GLint mvloc = glGetUniformLocation(program, "umvMat");
+    GLint ploc = glGetUniformLocation(program, "upMat");
+    GLint vertexAttribCoords = glGetAttribLocation(program, "aCoords");
+    GLint vertexAttribColor = glGetAttribLocation(program, "aColor");
+    
+    // Pass the model-view matrix to the shader
+    GLfloat mvMat[16]; 
+    glGetFloatv(GL_MODELVIEW_MATRIX, mvMat); 
+    glUniformMatrix4fv(mvloc, 1, false, mvMat);
+
+    // Pass the projection matrix to the shader
+    GLfloat pMat[16]; 
+    glGetFloatv(GL_PROJECTION_MATRIX, pMat); 
+    glUniformMatrix4fv(ploc, 1, false, pMat);
+
+    vboIds = new GLuint[4];
+    glGenBuffers(4, vboIds);
+
+    // Set axes data
+    glBindBuffer(GL_ARRAY_BUFFER, vboIds[0]);  // coordinates
+    glBufferData(GL_ARRAY_BUFFER, sizeof(ave), ave, GL_STATIC_DRAW);
+    glVertexAttribPointer(vertexAttribCoords, nCoordsComponents, GL_FLOAT, GL_FALSE, 0, 0);
+    glEnableVertexAttribArray(vertexAttribCoords);
+
+    glBindBuffer(GL_ARRAY_BUFFER, vboIds[1]);  // color
+    glBufferData(GL_ARRAY_BUFFER, sizeof(ace), ace, GL_STATIC_DRAW);
+    glVertexAttribPointer(vertexAttribColor, nColorComponents, GL_FLOAT, GL_FALSE, 0, 0);
+    glEnableVertexAttribArray(vertexAttribColor);
+
+    // Draw axes
+    glDrawArrays(GL_LINES, 0, nLines*nVerticesPerLine);
+
+    // Set pyramid data
+    glBindBuffer(GL_ARRAY_BUFFER, vboIds[2]);  // coordinates
+    glBufferData(GL_ARRAY_BUFFER, sizeof(pve), pve, GL_STATIC_DRAW);
+    glVertexAttribPointer(vertexAttribCoords, nCoordsComponents, GL_FLOAT, GL_FALSE, 0, 0);
+    glEnableVertexAttribArray(vertexAttribCoords);
+
+    glBindBuffer(GL_ARRAY_BUFFER, vboIds[3]);  // color
+    glBufferData(GL_ARRAY_BUFFER, sizeof(pce), pce, GL_STATIC_DRAW);
+    glVertexAttribPointer(vertexAttribColor, nColorComponents, GL_FLOAT, GL_FALSE, 0, 0);
+    glEnableVertexAttribArray(vertexAttribColor);
+
+    // Draw pyramid
+    glDrawArrays(GL_TRIANGLES, 0, nFaces*nVerticesPerFace);
+
+    // Disable the VBO
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+}
+
+Shader with Vertex Array Object (VAO)
+
+VAOs provide a way to “pre-define” vertex data and its attributes. It is like creating “objects” which hold the required states to render. In this example, two VAOs are created, one for the axes and the other for the pyramid. The code defining a VAO is the same as rendering using VBOs. Instead of binding the buffer, copying data to the buffer and creating a generic vertex attribute during render, these steps are “defined” in a VAO.
+static void defineVAO()
+{
+    vaoIds = new GLuint[2];
+    glGenVertexArrays(2, vaoIds);
+
+    vboIds = new GLuint[4];
+    glGenBuffers(4, vboIds);
+
+    GLint vertexAttribCoords = glGetAttribLocation(program, "aCoords");
+    GLint vertexAttribColor = glGetAttribLocation(program, "aColor");
+
+    // Bind VAO (set current) to define axes data
+    glBindVertexArray(vaoIds[0]);
+
+    glBindBuffer(GL_ARRAY_BUFFER, vboIds[0]);  // coordinates
+    glBufferData(GL_ARRAY_BUFFER, sizeof(ave), ave, GL_STATIC_DRAW);
+    glVertexAttribPointer(vertexAttribCoords, nCoordsComponents, GL_FLOAT, GL_FALSE, 0, 0);
+    glEnableVertexAttribArray(vertexAttribCoords);
+
+    glBindBuffer(GL_ARRAY_BUFFER, vboIds[1]);  // color
+    glBufferData(GL_ARRAY_BUFFER, sizeof(ace), ace, GL_STATIC_DRAW);
+    glVertexAttribPointer(vertexAttribColor, nColorComponents, GL_FLOAT, GL_FALSE, 0, 0);
+    glEnableVertexAttribArray(vertexAttribColor);
+
+    // Bind VAO (set current) to define pyramid data
+    glBindVertexArray(vaoIds[1]);
+    
+    glBindBuffer(GL_ARRAY_BUFFER, vboIds[2]);  // coordinates
+    glBufferData(GL_ARRAY_BUFFER, sizeof(pve), pve, GL_STATIC_DRAW);
+    glVertexAttribPointer(vertexAttribCoords, nCoordsComponents, GL_FLOAT, GL_FALSE, 0, 0);
+    glEnableVertexAttribArray(vertexAttribCoords);
+
+    glBindBuffer(GL_ARRAY_BUFFER, vboIds[3]);  // color
+    glBufferData(GL_ARRAY_BUFFER, sizeof(pce), pce, GL_STATIC_DRAW);
+    glVertexAttribPointer(vertexAttribColor, nColorComponents, GL_FLOAT, GL_FALSE, 0, 0);
+    glEnableVertexAttribArray(vertexAttribColor);
+
+    // Disable VAO
+    glBindVertexArray(0);
+}
+
+
+
+During render, the VAO(s) are simply bound (made current) for the GPU to access the information about the “pre-defined” VBOs and vertex attributes.
+static void drawShaderWithVertexArrayObject()
+{
+    LoadGLExtensions();
+
+    initShaders();
+    defineVAO();
+
+    // Get the variables from the shader to which data will be passed
+    GLint mvloc = glGetUniformLocation(program, "umvMat");
+    GLint ploc = glGetUniformLocation(program, "upMat");
+
+    // Pass the model-view matrix to the shader
+    GLfloat mvMat[16]; 
+    glGetFloatv(GL_MODELVIEW_MATRIX, mvMat); 
+    glUniformMatrix4fv(mvloc, 1, false, mvMat);
+
+    // Pass the projection matrix to the shader
+    GLfloat pMat[16]; 
+    glGetFloatv(GL_PROJECTION_MATRIX, pMat); 
+    glUniformMatrix4fv(ploc, 1, false, pMat);
+
+    // Enable VAO to set axes data
+    glBindVertexArray(vaoIds[0]);
+    
+    // Draw axes
+    glDrawArrays(GL_LINES, 0, nLines*nVerticesPerLine);
+
+    // Enable VAO to set pyramid data
+    glBindVertexArray(vaoIds[1]);
+
+    // Draw pyramid
+    glDrawArrays(GL_TRIANGLES, 0, nFaces*nVerticesPerFace);
+
+    // Disable VAO
+    glBindVertexArray(0);
+}
+
+
+Conclusion
+
+Modern OpenGL is powerful but can be intimidating until you understand the nitty gritty details. Hope that the document is useful. Feel free to comment if you need any clarifications or further information.
