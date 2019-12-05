@@ -1,0 +1,18 @@
+void glTexImage2D(GLenum target​, GLint level​, GLint internalFormat​, GLsizei width​, GLsizei height​, GLint border​, GLenum format​, GLenum type​, const GLvoid * data​);
+
+internalFormat:
+  Specifies the number of color components in the texture. Must be one of base internal formats, one of the sized internal formats ,or one of the compressed internal formats
+  
+  The format (7th argument), together with the type argument, describes the data you pass in as the last argument. So the format/type combination defines the memory layout of the data you pass in.
+  internalFormat (2nd argument) defines the format that OpenGL should use to store the data internally.The internal format describes how the texture shall be stored in the GPU. The format describes 
+  how the format of your pixel data in client memory (together with the type parameter).
+  Note that the internal format does specify both the number of channels (1 to 4) as well as the data type, while for the pixel data in client memory, both are specified via two separate parameters.
+  The GL will convert your pixel data to the internal format. If you want efficient texture uploads, you should use matching formats so that there is no conversion needed. But be aware that 
+  GPUs store the texture data in BGRA order, this still is represented by the internal format GL_RBGA - the internal format only dexfribes the number of channels and the data type, the internal
+  layout is totally GPU-specific. However, that means that it is often recommended for maximum performance to use GL_BGRA as the format of your pixel data in client memory.
+  
+  You could for example supply the data as 3-channel RGB data and the GL would automatically extend this to RGBA (with setting A to 1) if the internal format is left at RGBA. You also could supply only the Red channel. 
+  The other way around, if you use GL_RED as internalFormat, the GL would ignore the GB and A channel in your input data.
+  Also note that the data types will be converted. If you provide a pixel RGB with 32 bit float per channel, you could use GL_FLOAT. However, when you still use the GL_RGBA internal format, the GL will convert these to normalized integers with 8 bpit per channel, so the extra precision is lost. If you want the GL to use the floating point precision, you would also have to use a floating point texture format like GL_RGBA32F.
+
+
