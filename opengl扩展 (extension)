@@ -1,0 +1,4 @@
+有3类: vendor-specific  generic ARB-approved
+GL_EXT :是generic extensions.可以是不同的实现。不保证被所有的IHVs实现。
+GL_ARB:是multi-vendor扩展。被OpenGL ARB支持。这个扩展将来可能被收入到core opengl。
+其他的扩展为特别的生产商类型，例如:GL_NV只是被NVIDIA硬件支持。
