@@ -1,0 +1,22 @@
+Register Combiner/NVParse 
+nvParse是nVIDIA公司推出的一个库，可以简化RC（Register Combiners）及TS（Texture Shader）的开发。使用GL_NV_register_combiners和
+GL_NV_texture_shader扩展实现片断编程全是函数调用的形式，很不方便，而nVIDIA为了简化RC和TS程序开发，建立了一种脚本格式，
+用简单的脚本代替复杂的GL_NV_register_combiners和GL_NV_texture_shader函数调用，nvParse则提供API用于解释执行RC和TS脚本。
+
+RC scripts are very simply. You have some temporary registers (spare0, spare1) in which you can store temp values, you have your output register (out), and youre input registers (tex0,tex1,tex2,tex3,col0,etc). You can simply apply the texture colour to the output pixel but doing
+
+out.rgb = tex0;
+
+You can apply simple mathematics as well, so blending the texture colour with the glColor value would be done like so:
+
+out.rgb = tex0 * col0;
+
+There are also more complex stages for scripts, such as using a combiner to do add 2 texture colours together, then multiply that result by the glColor values.
+
+{
+ rgb {
+ spare0 = tex0 * tex1;
+ spare1 = spare0 * col0;
+ }
+}
+out.rgb = spare1;
