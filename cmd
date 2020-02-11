@@ -28,3 +28,4 @@ echo %%i
 echo %%~fi
 )
 https://github.com/TheRealMJP/MSAAFilter
+https://blog.selfshadow.com/
