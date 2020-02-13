@@ -1,0 +1,29 @@
+// top-level variable
+float globalShaderVariable; 
+
+// top-level function
+void function(in float4 position: POSITION0 // top-level argument)
+{
+  float localShaderVariable; // local variable
+  function2(...)
+}
+
+void function2()
+{
+  ...
+}
+
+
+Uniform Shader Inputs:
+  a)is specified by constant registers.
+  b)This data can be specified by two methods:declare global variables and mark an input 
+  c)parameter of the top-level-shader function.
+  d)used by shader are communicated back to the application via the constant table.The constant table contains the 
+    constant register locatons of all uniform variables used by the shader.
+    
+ Varying Shader Inputs:
+  a)is specified by v and t registers
+  b)
+  
+Writing Functions:
+  
