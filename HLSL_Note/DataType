@@ -1,0 +1,92 @@
+
+Scalar Types:
+  bool int(32) uint(32u) dword(32u) half(16) float(32) double(64) ..
+Buffer:
+  Buffer<float4> g_buffer;
+Vector Type:
+  vector<int,4> = {1,2,3,4};
+Sampler Type:
+  Sampler state & sampler-comparison state.
+      Differences between Direct3D 9 and Direct3D 10 and later:
+        Here is the syntax for a sampler in Direct3D 9.
+          sampler Name = SamplerType{ Texture = texture_variable>; [state_name = state_value;] ... };
+      The syntax for a sampler in Direct3D 10 and later is changed slightly to support texture objects and sampler arrays.
+          SamplerType Name[Index]{ [state_name = state_value;] ... };
+  SamplerType:
+    The sampler type, which is one of the following: sampler, sampler1D, sampler2D, sampler3D, samplerCUBE, sampler_state, SamplerState.
+
+Shader Type:
+      // Direct3D 9
+    technique RenderSceneWithTexture1Light
+    {
+        pass P0
+        {          
+            VertexShader = compile vs_2_0 RenderSceneVS( 1, true, true );
+            PixelShader  = compile ps_2_0 RenderScenePS( true );
+        }
+    }
+    
+    // Direct3D 10
+    technique10 Render
+    {
+        pass P0
+        {
+            SetVertexShader( CompileShader( vs_4_0, VS() ) );
+            SetGeometryShader( NULL );
+            SetPixelShader( CompileShader( ps_4_0, PS() ) );
+        }
+    }
+
+Texture:
+Struct:
+
+
+Per-Component Math Operations:
+  Vector:
+    float3  fVector;   // vector containing 3 floats
+    double4 dVector;   // vector containing 4 doubles
+    Initializers can also be included in the declarations:
+      float3  fVector = { 0.2f, 0.3f, 0.4f };
+      double4 dVector = { 0.2, 0.3, 0.4, 0.5 };
+     can use Swizzling.
+  Matrix:
+    int1x4    iMatrix;   // integer matrix with 1 row, 4 columns
+    matrix <float, 2, 3> fFloatMatrix; // matrix of float values (32-bit floating-point numbers) with two rows and three columns
+    initialized:
+      1)float2x2 fMatrix = { 0.0f, 0.1, // row 1
+                           2.1f, 2.2f // row 2
+                   };   
+      2)More than one component can be assigned, assuming only one name space is used:
+        float4x4 worldMatrix = float4( {0,0,0,0}, {1,1,1,1}, {2,2,2,2}, {3,3,3,3} );
+        float4x4 tempMatrix;
+        
+        tempMatrix._m00_m11 = worldMatrix._m00_m11; // multiple components
+        tempMatrix._m00_m11 = worldMatrix.m13_m23;
+        
+        tempMatrix._11_22_33 = worldMatrix._11_22_33; // any order on swizzles
+        tempMatrix._11_22_33 = worldMatrix._24_23_22;
+    access:
+   1) A matrix contains values organized in rows and columns, which can be accessed using the structure operator "." followed by one of two naming sets:
+
+          The zero-based row-column position:
+          _m00, _m01, _m02, _m03
+          _m10, _m11, _m12, _m13
+          _m20, _m21, _m22, _m23
+          _m30, _m31, _m32, _m33
+          The one-based row-column position:
+          _11, _12, _13, _14
+          _21, _22, _23, _24
+          _31, _32, _33, _34
+          _41, _42, _43, _44
+      注:零访问有个m    
+    2)array accessing can read a multi-component vector:
+        temp = fMatrix[0] // read the first row
+    
+    矩阵order:
+    Matrix packing can be changed with the #pragmapack_matrix directive, or with the row_major or the column_major keyword.
+    Row-major and column-major matrix ordering determine the order the matrix components are read from shader inputs. Once the 
+    data is written into constant registers, matrix order has no effect on how the data is used or accessed from within shader code. 
+    Also, matrices declared in a shader body do not get packed into constant registers. Row-major and column-major packing order 
+    has no influence on the packing order of constructors (which always follows row-major ordering).
+    就是#pragmapack_matrix只是控制从shader input中matrix 是如何写入寄存器中的，对于shader如何访问寄存器没有影响。shader body中的Matrix没有放
+    到寄存器中，所以不受#pragmapack_matrix影响(默认是row_major)  
