@@ -1,0 +1,4 @@
+Input Assembler(IA) Stage->Vertex Shader(VS)Stage->Hull Shader(HS)Stage->Tessellator Stage->
+    Domain Shader(DS)Stage->Geometry Shader(GS)Stage->Rasterizer(RS)Stage->Piex Shader(PS)Stage->OutPut Merger(OM)Stage
+    
+    
