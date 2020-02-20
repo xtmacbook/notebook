@@ -15,8 +15,8 @@ gl_TessLevelInner[0] roughly determines how many rings the triangle will contain
 ![Image text](http://in2gpu.com/wp-content/uploads/2014/06/tess12.png)
 
 对与quads
-in0   = horizontal tessellation,
-in1   = vertical tessellation ,
+in0   = horizontal tessellation
+in1   = vertical tessellation
 out0 = edge 0-3 
 out1 = edge 2-3
 out2 = edge 1-2 
