@@ -105,6 +105,26 @@ point splitBezierOptimize(point P[4], point P1[4], point P2[4])
     P2[3] = P[3]; 
 } 
 ```
+# Bézier Surfaces
+Once we understand the principle of Bézier curve extending the same technique to Bézier surface is really straightforward. Rather than having 4 points we will define the surface with 16 points which you can see as a grid of 4x4 control points. In the case of curves we had 1 parameter to move along the curve (t). In the case of surface we will need two: one to move in the u direction and one to move in the v direction (see figure 1). Both u and v are contained within the range [0,1]. You can see the process of going from (u, v) to 3D space as a remapping of the unit square (defined by u, v) into a smooth continuous surface within the tree dimensional space. intuitively, you can see that a Bézier surface is made of many curves going along either the u or v direction. For instance, if we move in the v direction we need to interpolate the curves defined by the points 1, 2, 3, 4 and 5, 6, 7, 8 (and so on for the rest of the surface). If we move along the u direction, the curves defined by the points 1, 5, 9, 13 and 2, 6, 10, 14 need to be interpolated instead. More formally, a point on the Bézier surface depends of the parametric values u and v, and can be defined (equation 1) as a double sum of control points and coefficients ("a sum of Bézier curves"):
 
+P(u,v)=∑i=0n∑j=0mBni(u)Bmj(v)Pij
+P(u,v)=∑i=0n∑j=0mBin(u)Bjm(v)Pij
+ 
+where as for curves,
+
+
+Bni(u)=(ni)ui(1−u)n−i
+Bin(u)=(ni)ui(1−u)n−i
+
+
+is a Bernstein polynomial (equation 2), and
+
+(ni)=n!i!(n−i)!
+(ni)=n!i!(n−i)!
+ 
+is a binomial coefficient (equation 3). We can see easily see the similarities with curves. If you are interested in the terminology, we say that a Bézier surface (or patch) is constructed as the tensor product of two Bézier curves. Note that we will only consider bicubic Bézier surface in this lesson, that is, surfaces for which n = 3 and m = 3. Therefore, the Bernstein polynomials (equation 4) are the same as with bicubic curves (we have four of them and they are the same for n and m. We just show the coefficients for u but the same equation are used for v):
+
+K1(u)=(1−t)3K2(u)=3(1−t)2∗tK3(u)=3(1−t)∗t2K4(u)=t
 
 
