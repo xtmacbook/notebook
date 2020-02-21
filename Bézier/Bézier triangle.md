@@ -19,7 +19,7 @@ Calculating the Barycentric coordinates of a triangle is very similar. In the im
 
 ## Bézier triangle
 A general nth-order Bézier triangle has (n + 1)(n + 2)/2 control points.
-With linear order (n = 1), the resulting Bézier triangle is actually a regular flat triangle, with the triangle vertices equaling the three control points. A quadratic (n = 2) Bézier triangle features 6 control points which are all located on the edges. The cubic (n = 3) Bézier triangle is defined by 10 control points and is the lowest order Bézier triangle that has an internal control point, not located on the edges. In all cases, the edges of the triangle will be Bézier curves of the same degree.  
+With linear order (n = 1), the resulting Bézier triangle is actually a regular flat triangle, with the triangle vertices equaling the three control points. A **quadratic** (n = 2) Bézier triangle features 6 control points which are all located on the edges. The **cubic** (n = 3) Bézier triangle is defined by 10 control points and is the lowest order Bézier triangle that has an internal control point, not located on the edges. In all cases, the edges of the triangle will be Bézier curves of the same degree.  
 &emsp;&emsp;Much like how a **linear Bezier curve** is a linear interpolation (lerp) between two values, **a linear Bezier triangle** is a linear interpolation between three values. Each edge of the triangle is also a linear Bezier curve.  
 &emsp;&emsp;A quadratic Bezier curve is made by linearly interpolating between two linear Bezier curves. A **quadratic Bezier triangle** is made by linearly interpolating between three linear Bezier triangles.  
 ### quadratic Bezier triangle  (二次)
