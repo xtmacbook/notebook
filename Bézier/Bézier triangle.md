@@ -24,6 +24,19 @@ With linear order (n = 1), the resulting Bézier triangle is actually a regular 
 &emsp;&emsp;A quadratic Bezier curve is made by linearly interpolating between two linear Bezier curves. A **quadratic Bezier triangle** is made by linearly interpolating between three linear Bezier triangles.  
 ### quadratic Bezier triangle  (二次)
 &emsp;&emsp;A quadratic Bezier triangle is made by linearly interpolating between three linear Bezier triangles.How does this work on a Bezier triangle? Each edge of the triangle in a quadratic Bezier curve which gives us control points like the below:<br>
-![Image text](https://demofox2.files.wordpress.com/2019/12/quadraticbeziertriangle2dc.png)
+![Image text](https://demofox2.files.wordpress.com/2019/12/quadraticbeziertriangle2dc.png)  
+> 
+> - What we do first is use point P’s Barycentric coordinates to interpolate the values of the red triangle: 002, 011, 101 to get point A. You treat those values as if they are at the corners of the larger triangle (if you think about it, this is how quadratic Bezier curves work too with the time parameter. Each line segment has t=0 at the start and t=1 at the end).  
+> - We next interpolate the values of the green triangle: 011, 020, 110 to get point B.  
+> - We then interpolate the values of the blue triangle: 101, 110, 200 to get the point C.  
+> - Now we can do a regular linear barycentric interpolation between those three values, using the same barycentric coordinates, and get a quadratic Bezier triangle. Each edge of the triangle is also a quadratic Bezier Curve.  
+> 
+
+## cubic Bezier triangle
+&emsp;&emsp;For a cubic Bezier triangle, it’s much the same. You evaluate a quadratic Bezier for each corner, and then linearly interpolate between them to get a cubic. Below is an image showing the control points used to create the three quadratic Bezier triangles.  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;![Image text](https://demofox2.files.wordpress.com/2019/12/cubicbeziertriangle2dr.png)<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;![Image text](https://demofox2.files.wordpress.com/2019/12/cubicbeziertriangle2dg.png)<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;![Image text](https://demofox2.files.wordpress.com/2019/12/cubicbeziertriangle2db.png)
+
 
 
