@@ -23,7 +23,7 @@ With linear order (n = 1), the resulting Bézier triangle is actually a regular 
 &emsp;&emsp;Much like how a **linear Bezier curve** is a linear interpolation (lerp) between two values, **a linear Bezier triangle** is a linear interpolation between three values. Each edge of the triangle is also a linear Bezier curve.  
 &emsp;&emsp;A quadratic Bezier curve is made by linearly interpolating between two linear Bezier curves. A **quadratic Bezier triangle** is made by linearly interpolating between three linear Bezier triangles.  
 ### quadratic Bezier triangle  (二次)
-How does this work on a Bezier triangle? Each edge of the triangle in a quadratic Bezier curve which gives us control points like the below:
+&emsp;&emsp;A quadratic Bezier triangle is made by linearly interpolating between three linear Bezier triangles.How does this work on a Bezier triangle? Each edge of the triangle in a quadratic Bezier curve which gives us control points like the below:<br>
 ![Image text](https://demofox2.files.wordpress.com/2019/12/quadraticbeziertriangle2dc.png)
 
 
