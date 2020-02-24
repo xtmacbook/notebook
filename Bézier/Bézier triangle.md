@@ -198,5 +198,5 @@ Below are diagrams in the same style as the last section, which show the equatio
 ![Image text](https://demofox2.files.wordpress.com/2019/12/trianglecontrolpointsquadratic.png)  
 ![Image text](https://demofox2.files.wordpress.com/2019/12/trianglecontrolpointscubic.png)  
 
- ## N-Patches
+ ## N-Patches ((shaded according to surface normal variation)
 Given an input triangle mesh with normals at each vertex, the goal of the N-patches scheme by Vlachos et al. [2] is to construct a better looking surface on a triangle basis. The term "N-patches" is short for **Normal-Patches**, and these patches are also called PN triangles.
