@@ -93,4 +93,5 @@ The control-points of a cubic Bézier triangle are determined from its vertices
 >>  
 ![Image text](https://www.mdpi.com/symmetry/symmetry-08-00013/article_deploy/html/images/symmetry-08-00013-g003.png)<br>
 
- 
+ ## N-Patches
+Given an input triangle mesh with normals at each vertex, the goal of the N-patches scheme by Vlachos et al. [2] is to construct a better looking surface on a triangle basis. The term "N-patches" is short for **Normal-Patches**, and these patches are also called PN triangles.
