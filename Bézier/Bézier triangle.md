@@ -33,13 +33,135 @@ With linear order (n = 1), the resulting Bézier triangle is actually a regular 
 > 
 
 ## cubic Bezier triangle
+
 &emsp;&emsp;For a cubic Bezier triangle, it’s much the same. You evaluate a quadratic Bezier for each corner, and then linearly interpolate between them to get a cubic. Below is an image showing the control points used to create the three quadratic Bezier triangles.  
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;![Image text](https://demofox2.files.wordpress.com/2019/12/cubicbeziertriangle2dr.png)<br>
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;![Image text](https://demofox2.files.wordpress.com/2019/12/cubicbeziertriangle2dg.png)<br>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;![Image text](https://demofox2.files.wordpress.com/2019/12/cubicbeziertriangle2db.png)
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;![Image text](https://demofox2.files.wordpress.com/2019/12/cubicbeziertriangle2db.png)<br>
 
+On each triangle of the given mesh, we construct a cubic Bézier triangle **b(u,v,w)**of the following form:  
 
+ 
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+  <mtable displaystyle="true">
+    <mtr>
+      <mtd columnalign="right">
+        <mrow>
+          <mspace width="-14.22636pt" />
+          <mi mathvariant="bold">b</mi>
+          <mo>(</mo>
+          <mi>u</mi>
+          <mo>,</mo>
+          <mi>v</mi>
+          <mo>,</mo>
+          <mi>w</mi>
+          <mo>)</mo>
+          <mspace width="-0.166667em" />
+          <mspace width="-0.166667em" />
+        </mrow>
+      </mtd>
+      <mtd>
+        <mrow>
+          <mspace width="-0.166667em" />
+          <mspace width="-0.166667em" />
+          <mo>=</mo>
+          <mspace width="-0.166667em" />
+          <mspace width="-0.166667em" />
+        </mrow>
+      </mtd>
+      <mtd columnalign="left">
+        <mrow>
+          <mspace width="-0.166667em" />
+          <mspace width="-0.166667em" />
+          <munder>
+            <mo>&#x2211;</mo>
+            <mrow>
+              <mi>i</mi>
+              <mo>+</mo>
+              <mi>j</mi>
+              <mo>+</mo>
+              <mi>k</mi>
+              <mo>=</mo>
+              <mn>3</mn>
+            </mrow>
+          </munder>
+          <mspace width="-0.166667em" />
+          <mspace width="-0.166667em" />
+          <mspace width="-0.166667em" />
+          <msub>
+            <mi mathvariant="bold">b</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+              <mi>k</mi>
+            </mrow>
+          </msub>
+          <mfrac>
+            <mrow>
+              <mn>3</mn>
+              <mo>!</mo>
+            </mrow>
+            <mrow>
+              <mi>i</mi>
+              <mo>!</mo>
+              <mi>j</mi>
+              <mo>!</mo>
+              <mi>k</mi>
+              <mo>!</mo>
+            </mrow>
+          </mfrac>
+          <msup>
+            <mi>u</mi>
+            <mi>i</mi>
+          </msup>
+          <msup>
+            <mi>v</mi>
+            <mi>j</mi>
+          </msup>
+          <msup>
+            <mi>w</mi>
+            <mi>k</mi>
+          </msup>
+          <mo>,</mo>
+          <mspace width="3.33333pt" />
+          <mi>u</mi>
+          <mo>+</mo>
+          <mi>v</mi>
+          <mo>+</mo>
+          <mi>w</mi>
+          <mo>=</mo>
+          <mn>1</mn>
+          <mo>,</mo>
+        </mrow>
+      </mtd>
+    </mtr>
+  </mtable>
+</math>  
 
+where (u,v,w)are barycentric coordinates in a triangular domain and bijk are control-points  
+![Image text](https://www.mdpi.com/symmetry/symmetry-08-00013/article_deploy/html/images/symmetry-08-00013-g002.png)  
+
+&emsp;&emsp;&emsp;&emsp;Figure 2. (a) A cubic Bézier triangle; (b) Constructed on a triangle. <br>
+The control-points of a cubic Bézier triangle are determined from its vertices **p1,p2**and **p3**, and the corresponding normals **n1,n2** and **n3** as follows:  
+>>
+>- b 300 = p 1 ,
+>- b 030 = p 2 ,
+>- b 003 = p 3 
+>- b 210 = ( 2 p 1 + p 2 − w 12 n 1 ) / 3 
+>- b 120 = ( 2 p 2 + p 1 − w 21 n 2 ) / 3 
+>- b 021 = ( 2 p 2 + p 3 − w 23 n 2 ) / 3
+>- b 012 = ( 2 p 3 + p 2 − w 32 n 3 ) / 3 
+>- b 102 = ( 2 p 3 + p 1 − w 31 n 3 ) / 3 
+>- b 201 = ( 2 p 1 + p 3 − w 13 n 1 ) / 3 
+>- b 111 = E + ( E − V ) / 2 
+>>  
+![Image text](https://www.mdpi.com/symmetry/symmetry-08-00013/article_deploy/html/images/symmetry-08-00013-g003.png)  
+
+where wij=(pj−pi)·ni,E=(b210+b120+b021+b012+b102+b201)/6 and V=(p1+p2+p3)/3. Figure 3b shows cubic Bézier triangles constructed from a triangular mesh in Figure 3a. We have already explained that this surface has **G1**continuity at triangle vertices, but only **G0** continuity across triangle edges.  
+
+控制点并不是在三角形上，只是在控制新三角形的生成
+-------------------------------------------
+-------------------------------------------
 ## The Formula For Bezier Curves
 Just like Bezier curves, you can come up with a multivariable polynomial to plug values into for Bezier Triangles, instead of using the De Casteljau algorithm. The De casteljau algorithm is more numerically stable, but the polynomial form is a lot more direct to calculate.
 
@@ -59,7 +181,8 @@ Doing that, you have everything you need to create the familiar Bernstein basis 
 
 The image below puts it all together. Orange is the name of the control point, which you can see also describes where it is on a line. The index values of the control point also describe the power of the Barycentric coordinates s and t which are in green. Lastly, the row of pascal’s triangle is in blue. To get the formula, you multiply each of those three things for each control point, and sum them up.
 
-![Image text](https://demofox2.files.wordpress.com/2019/12/curvecontrolpoints.png)
+![Image text](https://demofox2.files.wordpress.com/2019/12/curvecontrolpoints.png)  
+
 ## The Formula For Bezier Triangles<br>
 You can follow the same steps as the above for making the formula for Bezier triangles, but you need to use Pascal’s pyramid (aka trinomial coefficients) instead of Pascal’s triangle for the control points.<br>
 This time, we have 3 index numbers on control points instead of the 2 that curves had, but we still find all permutations which add up to N.
@@ -74,24 +197,6 @@ Below are diagrams in the same style as the last section, which show the equatio
 ![Image text](https://demofox2.files.wordpress.com/2019/12/trianglecontrolpointslinear.png)  
 ![Image text](https://demofox2.files.wordpress.com/2019/12/trianglecontrolpointsquadratic.png)  
 ![Image text](https://demofox2.files.wordpress.com/2019/12/trianglecontrolpointscubic.png)  
-
-![Image text](https://www.mdpi.com/symmetry/symmetry-08-00013/article_deploy/html/images/symmetry-08-00013-g002.png)<br>
-&emsp;&emsp;&emsp;&emsp;Figure 2. (a) A cubic Bézier triangle; (b) Constructed on a triangle. <br>
-The control-points of a cubic Bézier triangle are determined from its vertices      
-**p1,p2**and **p3**, and the corresponding normals **n1,n2** and **n3** as follows:  
->>
->- b 300 = p 1 ,
->- b 030 = p 2 ,
->- b 003 = p 3 
->- b 210 = ( 2 p 1 + p 2 − w 12 n 1 ) / 3 
->- b 120 = ( 2 p 2 + p 1 − w 21 n 2 ) / 3 
->- b 021 = ( 2 p 2 + p 3 − w 23 n 2 ) / 3
->- b 012 = ( 2 p 3 + p 2 − w 32 n 3 ) / 3 
->- b 102 = ( 2 p 3 + p 1 − w 31 n 3 ) / 3 
->- b 201 = ( 2 p 1 + p 3 − w 13 n 1 ) / 3 
->- b 111 = E + ( E − V ) / 2 
->>  
-![Image text](https://www.mdpi.com/symmetry/symmetry-08-00013/article_deploy/html/images/symmetry-08-00013-g003.png)<br>
 
  ## N-Patches
 Given an input triangle mesh with normals at each vertex, the goal of the N-patches scheme by Vlachos et al. [2] is to construct a better looking surface on a triangle basis. The term "N-patches" is short for **Normal-Patches**, and these patches are also called PN triangles.
