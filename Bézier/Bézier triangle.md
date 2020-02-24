@@ -74,3 +74,23 @@ Below are diagrams in the same style as the last section, which show the equatio
 ![Image text](https://demofox2.files.wordpress.com/2019/12/trianglecontrolpointslinear.png)  
 ![Image text](https://demofox2.files.wordpress.com/2019/12/trianglecontrolpointsquadratic.png)  
 ![Image text](https://demofox2.files.wordpress.com/2019/12/trianglecontrolpointscubic.png)  
+
+![Image text](https://www.mdpi.com/symmetry/symmetry-08-00013/article_deploy/html/images/symmetry-08-00013-g002.png)<br>
+&emsp;&emsp;&emsp;&emsp;Figure 2. (a) A cubic Bézier triangle; (b) Constructed on a triangle. <br>
+The control-points of a cubic Bézier triangle are determined from its vertices      
+**p1,p2**and **p3**, and the corresponding normals **n1,n2** and **n3** as follows:  
+>>
+>- b 300 = p 1 ,
+>- b 030 = p 2 ,
+>- b 003 = p 3 
+>- b 210 = ( 2 p 1 + p 2 − w 12 n 1 ) / 3 
+>- b 120 = ( 2 p 2 + p 1 − w 21 n 2 ) / 3 
+>- b 021 = ( 2 p 2 + p 3 − w 23 n 2 ) / 3
+>- b 012 = ( 2 p 3 + p 2 − w 32 n 3 ) / 3 
+>- b 102 = ( 2 p 3 + p 1 − w 31 n 3 ) / 3 
+>- b 201 = ( 2 p 1 + p 3 − w 13 n 1 ) / 3 
+>- b 111 = E + ( E − V ) / 2 
+>>  
+![Image text](https://www.mdpi.com/symmetry/symmetry-08-00013/article_deploy/html/images/symmetry-08-00013-g003.png)<br>
+
+ 
