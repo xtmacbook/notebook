@@ -40,3 +40,37 @@ With linear order (n = 1), the resulting Bézier triangle is actually a regular 
 
 
 
+## The Formula For Bezier Curves
+Just like Bezier curves, you can come up with a multivariable polynomial to plug values into for Bezier Triangles, instead of using the De Casteljau algorithm. The De casteljau algorithm is more numerically stable, but the polynomial form is a lot more direct to calculate.
+
+Let’s consider Bezier curves again first.
+
+Lines (a 1-simplex) have two points, so we’ll describe control points as P_{xy}. If we want to make a degree N curve, our control points will be all the x,y pairs that add up to N. Here are the control points for the first few degrees of Bezier curves.  
+1. Linear: P10, P01
+2. Quadratic: P20, P11, P02
+3. Cubic: P30, P21, P12, P03  
+You might notice that a degree N curve has N+1 control points. Linear curves have 2 control points, quadratic curves have 3 control points, cubic curves have 4 control points and so on.
+
+The index values on these control points tell you where they are on the line, and they also tell you the power of each barycentric coordinate they have, which we will get to in a minute.
+
+The last part of making the formula is that the control point terms are also multiplied by the Nth row of Pascal’s triangle where row 0 is at the top row. 
+![Image text](https://demofox2.files.wordpress.com/2019/12/pascalstriangle.png)<br>
+Doing that, you have everything you need to create the familiar Bernstein basis polynomial form of Bezier curves.
+
+The image below puts it all together. Orange is the name of the control point, which you can see also describes where it is on a line. The index values of the control point also describe the power of the Barycentric coordinates s and t which are in green. Lastly, the row of pascal’s triangle is in blue. To get the formula, you multiply each of those three things for each control point, and sum them up.
+
+![Image text](https://demofox2.files.wordpress.com/2019/12/curvecontrolpoints.png)
+## The Formula For Bezier Triangles<br>
+You can follow the same steps as the above for making the formula for Bezier triangles, but you need to use Pascal’s pyramid (aka trinomial coefficients) instead of Pascal’s triangle for the control points.<br>
+This time, we have 3 index numbers on control points instead of the 2 that curves had, but we still find all permutations which add up to N.
+![Image text](https://demofox2.files.wordpress.com/2019/12/pascalspyramid.png)<br>
+Here are the control points for the first few degrees of Bezier triangles.
+1. Linear: P100, P010, P001
+2. Quadratic: P200, P110, P101, P020, P011, P002
+3. Cubic: P300, P201, P210, P120, P111, P102, P030, P021, P012, P003 
+
+Below are diagrams in the same style as the last section, which show the equation for a Bezier triangle and how to come up with it.
+
+![Image text](https://demofox2.files.wordpress.com/2019/12/trianglecontrolpointslinear.png)  
+![Image text](https://demofox2.files.wordpress.com/2019/12/trianglecontrolpointsquadratic.png)  
+![Image text](https://demofox2.files.wordpress.com/2019/12/trianglecontrolpointscubic.png)  
