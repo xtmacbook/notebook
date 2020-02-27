@@ -26,11 +26,7 @@
  ##tmp web
  https://www.scratchapixel.com/lessons/advanced-rendering/bezier-curve-rendering-utah-teapot/bezier-curve
 
-https://www.gamasutra.com/view/feature/131389/b�zier_triangles_and_npatches.php
-
-https://blog.demofox.org/2019/12/07/bezier-triangles/
-
-https://www.khronos.org/opengl/wiki/Tessellation_Control_Shader#Patch_variables
+https://github.com/flcker/ogldev_source/tree/master/Content
 
 http://ogldev.atspace.co.uk/www/tutorial31/tutorial31.html
 http://ogldev.atspace.co.uk/www/tutorial30/tutorial30.html
