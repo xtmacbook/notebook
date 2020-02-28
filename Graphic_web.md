@@ -32,7 +32,7 @@ http://ogldev.atspace.co.uk/www/tutorial31/tutorial31.html
 http://ogldev.atspace.co.uk/www/tutorial30/tutorial30.html
 http://alex.vlachos.com/graphics/CurvedPNTriangles.pdf
 
-
+http://www.klayge.org/material/4_0/PhongTess/PhongTessellation.pdf
 
 https://developer.download.nvidia.cn/SDK/9.5/Samples/DEMOS/Direct3D9/src/CSAATutorial/docs/CSAATutorial.pdf
 
