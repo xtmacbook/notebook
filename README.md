@@ -11,3 +11,5 @@ https://sourceforge.net/projects/ipmapping/files/
 
 
 https://github.com/stuffmatic/blam
+
+http://weber.itn.liu.se/~stegu/TNM084-2019/simplexnoise.pdf
