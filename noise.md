@@ -28,4 +28,4 @@ double Y0 = v+t;
 ```  
 So the question is, where do these funny factors F2 and G2 come from?  
 
-![G2 ](https://kristiannielsen.livejournal.com/18962.html)
+[G2](https://kristiannielsen.livejournal.com/18962.html)
