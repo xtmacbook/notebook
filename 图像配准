@@ -8,3 +8,4 @@
 可以分为点、 线（边缘）、区域（面）等特征，也可以分为局部特征和全局特征。区域（面）特征提取比较麻烦，耗时，因此主要用点特征和边缘特征。
       第三类是基于域变换的方法
  
+http://git.mikejsavage.co.uk/medfall/file/clipmap.cc.html#l197
