@@ -2,68 +2,55 @@ import os
 import cv2 as cv
 from PIL import Image
 
-def splitimage(src, rownum, colnum, dstpath):
-    img = Image.open(src)
+Image.MAX_IMAGE_PIXELS = None
+
+def splitimage(level,img, titleSize, dstpath):
     w, h = img.size
-    if rownum <= h and colnum <= w:
+    if w >= titleSize  and h >= titleSize:
         print('Original image info: %sx%s, %s, %s' % (w, h, img.format, img.mode))
         print('start split...')
 
-        s = os.path.split(src)
-        if dstpath == '':
-            dstpath = s[0]
-        fn = s[1].split('.')
-        basename = fn[0]
-        ext = fn[-1]
+        levelPath = os.path.join(dstpath, str(level))
+        isExists = os.path.exists(levelPath)
+        if not isExists:
+            os.makedirs(levelPath)
 
         num = 0
-        rowheight = h // rownum
-        colwidth = w // colnum
+        rownum = h // titleSize
+        colnum = w // titleSize
         for r in range(rownum):
-            path = os.path.join(dstpath, str(r))
-            isExists = os.path.exists(path)
+            rowPath = os.path.join(levelPath, str(r))
+            isExists = os.path.exists(rowPath)
             if not isExists:
-                os.makedirs(path)
+                os.makedirs(rowPath)
             for c in range(colnum):
-                box = (c * colwidth, r * rowheight, (c + 1) * colwidth, (r + 1) * rowheight)
-                img.crop(box).save(os.path.join(dstpath, str(r) + '/' + str(c) + '.' + ext), ext)
+                box = (c * titleSize, r * titleSize, (c + 1) * titleSize, (r + 1) * titleSize)
+                img.crop(box).save(os.path.join(rowPath, str(c) + '.png'))
                 num = num + 1
     else:
     	print('invalid')
+
+
+
+titleSize = 128
 
 src = input('img path: ')
 if os.path.isfile(src):
     dstpath = input('out file dir: ')
     if (dstpath == '') or os.path.exists(dstpath):
-        row = int(input('rows'))
-        col = int(input('cols'))
-        if row > 0 and col > 0:
-
-            splitimage(src, row, col, dstpath)
+        if titleSize > 0:
+            img = Image.open(src)
+            w, h = img.size
+            level = 0
+            while w >= titleSize and h >= titleSize:
+                splitimage(level, img, titleSize, dstpath)
+                w /= 2
+                h /= 2
+                img = img.resize((int(w), int(h )))
+                level += 1
         else:
             print('error')
     else:
         print('no exist %s file' % dstpath)
 else:
     print('no exist %s fil' % src)
-    
-    
-    
-    import cv2 as cv
- 
-
-img = cv.imread('d:/temp/terrain.png')
- 
-x, y = img.shape[0:2]
-
-cout = 0
-
-while x > 2 and y > 2:
-	img_test1 = cv.resize(img, (int(x / 2), int(y / 2)))
-	imgname = 'd:/temp/' + str(cout) + '.png'
-	cv.imwrite(imgname,img_test1)
-	del img	
-	img = img_test1
-	x /= 2
-	y /= 2
-	cout += 1
