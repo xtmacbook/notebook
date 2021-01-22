@@ -1,9632 +1,1694 @@
+//----------------------------------------------------------------------------------
+// File:   Clipmaps.cpp
+// Author: Evgeny Makarov
+// Email:  sdkfeedback@nvidia.com
+// 
+// Copyright (c) 2007 NVIDIA Corporation. All rights reserved.
+//
+// TO  THE MAXIMUM  EXTENT PERMITTED  BY APPLICABLE  LAW, THIS SOFTWARE  IS PROVIDED
+// *AS IS*  AND NVIDIA AND  ITS SUPPLIERS DISCLAIM  ALL WARRANTIES,  EITHER  EXPRESS
+// OR IMPLIED, INCLUDING, BUT NOT LIMITED  TO, IMPLIED WARRANTIES OF MERCHANTABILITY
+// AND FITNESS FOR A PARTICULAR PURPOSE.  IN NO EVENT SHALL  NVIDIA OR ITS SUPPLIERS
+// BE  LIABLE  FOR  ANY  SPECIAL,  INCIDENTAL,  INDIRECT,  OR  CONSEQUENTIAL DAMAGES
+// WHATSOEVER (INCLUDING, WITHOUT LIMITATION,  DAMAGES FOR LOSS OF BUSINESS PROFITS,
+// BUSINESS INTERRUPTION, LOSS OF BUSINESS INFORMATION, OR ANY OTHER PECUNIARY LOSS)
+// ARISING OUT OF THE  USE OF OR INABILITY  TO USE THIS SOFTWARE, EVEN IF NVIDIA HAS
+// BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+//
+//
+//----------------------------------------------------------------------------------
 
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28315.86
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Automation", "Automation", "{F07908E6-FF02-34DB-96F3-F1A60DE84FA0}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Datasmith", "Datasmith", "{09EF6FF8-22B7-3DBB-977F-3AD64734C6F5}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Engine", "Engine", "{94A6C6F3-99B3-346E-9557-ABF9D4064DBD}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Programs", "Programs", "{8FE31723-DCE6-3A23-9775-626568AA785E}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BenchmarkTool", "Engine\Intermediate\ProjectFiles\BenchmarkTool.vcxproj", "{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BlankProgram", "Engine\Intermediate\ProjectFiles\BlankProgram.vcxproj", "{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BuildPatchTool", "Engine\Intermediate\ProjectFiles\BuildPatchTool.vcxproj", "{78D5E766-1789-4385-8301-52793B45E210}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CrashReportClient", "Engine\Intermediate\ProjectFiles\CrashReportClient.vcxproj", "{61314208-BC97-4175-B563-AF8EA115958C}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CrashReportClientEditor", "Engine\Intermediate\ProjectFiles\CrashReportClientEditor.vcxproj", "{D099FE48-143B-4610-AC5C-0625F6B4731D}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DatasmithCADWorker", "Engine\Intermediate\ProjectFiles\DatasmithCADWorker.vcxproj", "{8ACB86F3-3657-459C-B2A5-B369575DC744}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DatasmithFacadeCSharp", "Engine\Intermediate\ProjectFiles\DatasmithFacadeCSharp.vcxproj", "{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DatasmithMax2016", "Engine\Intermediate\ProjectFiles\DatasmithMax2016.vcxproj", "{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DatasmithMax2017", "Engine\Intermediate\ProjectFiles\DatasmithMax2017.vcxproj", "{3C9DDC90-765E-4AAE-AD19-929D32277E73}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DatasmithMax2018", "Engine\Intermediate\ProjectFiles\DatasmithMax2018.vcxproj", "{57770C43-107F-49F6-B7C4-8F635B2D3E55}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DatasmithMax2019", "Engine\Intermediate\ProjectFiles\DatasmithMax2019.vcxproj", "{E671DC67-2383-46E5-BB5B-F55C0CA68603}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DatasmithMax2020", "Engine\Intermediate\ProjectFiles\DatasmithMax2020.vcxproj", "{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DatasmithMax2021", "Engine\Intermediate\ProjectFiles\DatasmithMax2021.vcxproj", "{64673500-F801-4E6E-96B8-890F5E95E83D}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DatasmithRevit2018", "Engine\Intermediate\ProjectFiles\DatasmithRevit2018.vcxproj", "{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DatasmithRevit2019", "Engine\Intermediate\ProjectFiles\DatasmithRevit2019.vcxproj", "{20FB9496-E07E-41FB-943D-1146E8A47A50}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DatasmithRevit2020", "Engine\Intermediate\ProjectFiles\DatasmithRevit2020.vcxproj", "{7EF01036-2763-4A33-B283-F7CD7E44A875}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DatasmithRevit2021", "Engine\Intermediate\ProjectFiles\DatasmithRevit2021.vcxproj", "{0D5A0EF4-E20D-4893-8593-D2B911BB1741}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DatasmithSDK", "Engine\Intermediate\ProjectFiles\DatasmithSDK.vcxproj", "{390551B7-DC26-4DA6-B454-E606365D6F57}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DatasmithSketchUp2017", "Engine\Intermediate\ProjectFiles\DatasmithSketchUp2017.vcxproj", "{021DE5A4-227A-4CE4-938A-14B6F9F92851}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DatasmithSketchUp2018", "Engine\Intermediate\ProjectFiles\DatasmithSketchUp2018.vcxproj", "{8064FEF8-5588-4F48-84C2-F80EB78328D7}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DatasmithSketchUp2019", "Engine\Intermediate\ProjectFiles\DatasmithSketchUp2019.vcxproj", "{8616FBC7-C3B4-463A-8480-4503837FF89D}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DatasmithSketchUp2020", "Engine\Intermediate\ProjectFiles\DatasmithSketchUp2020.vcxproj", "{7CF817C8-7B3B-4D1A-A643-A5188F443693}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HeadlessChaos", "Engine\Intermediate\ProjectFiles\HeadlessChaos.vcxproj", "{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LiveCodingConsole", "Engine\Intermediate\ProjectFiles\LiveCodingConsole.vcxproj", "{00F8D5E3-DBA0-4174-8438-09F678868621}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DsymExporter", "Engine\Intermediate\ProjectFiles\DsymExporter.vcxproj", "{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UE4EditorServices", "Engine\Intermediate\ProjectFiles\UE4EditorServices.vcxproj", "{A7691B7F-8D28-4FDE-886D-825E152D2F05}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnrealAtoS", "Engine\Intermediate\ProjectFiles\UnrealAtoS.vcxproj", "{3B64D6F0-27A2-476F-A5D5-80E271C616C7}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ShaderCompileWorker", "Engine\Intermediate\ProjectFiles\ShaderCompileWorker.vcxproj", "{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SlateViewer", "Engine\Intermediate\ProjectFiles\SlateViewer.vcxproj", "{3C20F290-644F-456F-855E-1625E052E6C9}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestPAL", "Engine\Intermediate\ProjectFiles\TestPAL.vcxproj", "{FD6CB92C-1F05-4D7F-8C36-770A911A0571}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnrealCEFSubProcess", "Engine\Intermediate\ProjectFiles\UnrealCEFSubProcess.vcxproj", "{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnrealFileServer", "Engine\Intermediate\ProjectFiles\UnrealFileServer.vcxproj", "{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnrealFrontend", "Engine\Intermediate\ProjectFiles\UnrealFrontend.vcxproj", "{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnrealHeaderTool", "Engine\Intermediate\ProjectFiles\UnrealHeaderTool.vcxproj", "{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnrealInsights", "Engine\Intermediate\ProjectFiles\UnrealInsights.vcxproj", "{906A6833-61B4-4745-A2BB-349D92150A1D}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnrealLightmass", "Engine\Intermediate\ProjectFiles\UnrealLightmass.vcxproj", "{7619BEBE-294C-43B9-8787-605B776EFA15}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnrealMultiUserServer", "Engine\Intermediate\ProjectFiles\UnrealMultiUserServer.vcxproj", "{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnrealPak", "Engine\Intermediate\ProjectFiles\UnrealPak.vcxproj", "{F6D6627B-5335-4371-A940-1E0818F99C7D}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnrealRecoverySvc", "Engine\Intermediate\ProjectFiles\UnrealRecoverySvc.vcxproj", "{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnrealVersionSelector", "Engine\Intermediate\ProjectFiles\UnrealVersionSelector.vcxproj", "{052E7DD4-244C-417F-BC93-542303E2341D}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnrealWatchdog", "Engine\Intermediate\ProjectFiles\UnrealWatchdog.vcxproj", "{531B5567-1A85-432A-B1F9-B871486D23D8}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BootstrapPackagedGame", "Engine\Intermediate\ProjectFiles\BootstrapPackagedGame.vcxproj", "{F04924E9-F295-48E6-8673-CB39F546BF31}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UE4", "Engine\Intermediate\ProjectFiles\UE4.vcxproj", "{1FD68EFF-2EDD-4349-9237-79A67310D8EE}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnrealBuildTool", "Engine\Source\Programs\UnrealBuildTool\UnrealBuildTool.csproj", "{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomationTool", "Engine\Source\Programs\AutomationTool\AutomationTool.csproj", "{A35B0261-D868-475E-A098-EB14CE6DC89F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AllDesktop.Automation", "Engine\Source\Programs\AutomationTool\AllDesktop\AllDesktop.Automation.csproj", "{A9CD1A06-764A-4C53-86CE-2F34B94F0283}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Android.Automation", "Engine\Source\Programs\AutomationTool\Android\Android.Automation.csproj", "{32E3A47E-359A-4F78-AE6C-703B87DE0B97}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomationUtils.Automation", "Engine\Source\Programs\AutomationTool\AutomationUtils\AutomationUtils.Automation.csproj", "{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildGraph.Automation", "Engine\Source\Programs\AutomationTool\BuildGraph\BuildGraph.Automation.csproj", "{A002361E-37F9-4124-AF82-CF0D393CB928}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gauntlet.Automation", "Engine\Source\Programs\AutomationTool\Gauntlet\Gauntlet.Automation.csproj", "{767B4F85-AB56-4B00-A033-04C7600ACC3D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoloLens.Automation", "Engine\Source\Programs\AutomationTool\HoloLens\HoloLens.Automation.csproj", "{A9FB8BC6-A93D-4FC3-AC02-91333930505E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IOS.Automation", "Engine\Source\Programs\AutomationTool\IOS\IOS.Automation.csproj", "{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linux.Automation", "Engine\Source\Programs\AutomationTool\Linux\Linux.Automation.csproj", "{EC395254-405B-4030-92CE-E346CC50848D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Localization.Automation", "Engine\Source\Programs\AutomationTool\Localization\Localization.Automation.csproj", "{C2F959B1-1727-4598-9C32-3D9ACCE72750}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lumin.Automation", "Engine\Source\Programs\AutomationTool\Lumin\Lumin.Automation.csproj", "{17779110-5CAB-43A0-9DFB-4DF67DF29B42}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mac.Automation", "Engine\Source\Programs\AutomationTool\Mac\Mac.Automation.csproj", "{16778681-DAB8-46A4-89F6-927796467995}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneSkyLocalization.Automation", "Engine\Source\Programs\AutomationTool\OneSkyLocalization\OneSkyLocalization.Automation.csproj", "{39369368-5603-46DA-BAAE-766BB3CB2B51}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomationScripts.Automation", "Engine\Source\Programs\AutomationTool\Scripts\AutomationScripts.Automation.csproj", "{8AA00D65-0954-4A27-AC0D-FB8B1106120F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TVOS.Automation", "Engine\Source\Programs\AutomationTool\TVOS\TVOS.Automation.csproj", "{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Win.Automation", "Engine\Source\Programs\AutomationTool\Win\Win.Automation.csproj", "{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XLocLocalization.Automation", "Engine\Source\Programs\AutomationTool\XLocLocalization\XLocLocalization.Automation.csproj", "{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XXX.Automation", "Engine\Platforms\XXX\Source\Programs\AutomationTool\XXX.Automation.csproj", "{22404B09-95BE-44DD-AD83-D64C42AAE245}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomationToolLauncher", "Engine\Source\Programs\AutomationToolLauncher\AutomationToolLauncher.csproj", "{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildAgent", "Engine\Source\Programs\BuildAgent\BuildAgent.csproj", "{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNETUtilities", "Engine\Source\Programs\DotNETCommon\DotNETUtilities\DotNETUtilities.csproj", "{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitDependencies", "Engine\Source\Programs\GitDependencies\GitDependencies.csproj", "{9B740143-841C-4AF7-905E-D8883F1735DE}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryProfiler2", "Engine\Source\Programs\MemoryProfiler2\MemoryProfiler2.csproj", "{75240A67-CF47-4DDC-83B2-AD5D371F31BD}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nDisplayLauncher", "Engine\Source\Programs\nDisplayLauncher\nDisplayLauncher.csproj", "{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nDisplayListener", "Engine\Source\Programs\nDisplayListener\nDisplayListener.csproj", "{89224712-325D-4500-A4A5-B102A3A8EE2F}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Visualizers", "Visualizers", "{1CCEC849-CC72-4C59-8C36-2F7C38706D4C}"
-	ProjectSection(SolutionItems) = preProject
-		Engine\Extras\VisualStudioDebugging\UE4.natvis = Engine\Extras\VisualStudioDebugging\UE4.natvis
-	EndProjectSection
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug Client|HoloLens = Debug Client|HoloLens
-		Debug Client|Mac = Debug Client|Mac
-		Debug Client|Win32 = Debug Client|Win32
-		Debug Client|Win64 = Debug Client|Win64
-		Debug Client|XXX = Debug Client|XXX
-		Debug Editor|HoloLens = Debug Editor|HoloLens
-		Debug Editor|Mac = Debug Editor|Mac
-		Debug Editor|Win32 = Debug Editor|Win32
-		Debug Editor|Win64 = Debug Editor|Win64
-		Debug Editor|XXX = Debug Editor|XXX
-		Debug Server|HoloLens = Debug Server|HoloLens
-		Debug Server|Mac = Debug Server|Mac
-		Debug Server|Win32 = Debug Server|Win32
-		Debug Server|Win64 = Debug Server|Win64
-		Debug Server|XXX = Debug Server|XXX
-		Debug|HoloLens = Debug|HoloLens
-		Debug|Mac = Debug|Mac
-		Debug|Win32 = Debug|Win32
-		Debug|Win64 = Debug|Win64
-		Debug|XXX = Debug|XXX
-		DebugGame Client|HoloLens = DebugGame Client|HoloLens
-		DebugGame Client|Mac = DebugGame Client|Mac
-		DebugGame Client|Win32 = DebugGame Client|Win32
-		DebugGame Client|Win64 = DebugGame Client|Win64
-		DebugGame Client|XXX = DebugGame Client|XXX
-		DebugGame Editor|HoloLens = DebugGame Editor|HoloLens
-		DebugGame Editor|Mac = DebugGame Editor|Mac
-		DebugGame Editor|Win32 = DebugGame Editor|Win32
-		DebugGame Editor|Win64 = DebugGame Editor|Win64
-		DebugGame Editor|XXX = DebugGame Editor|XXX
-		DebugGame Server|HoloLens = DebugGame Server|HoloLens
-		DebugGame Server|Mac = DebugGame Server|Mac
-		DebugGame Server|Win32 = DebugGame Server|Win32
-		DebugGame Server|Win64 = DebugGame Server|Win64
-		DebugGame Server|XXX = DebugGame Server|XXX
-		DebugGame|HoloLens = DebugGame|HoloLens
-		DebugGame|Mac = DebugGame|Mac
-		DebugGame|Win32 = DebugGame|Win32
-		DebugGame|Win64 = DebugGame|Win64
-		DebugGame|XXX = DebugGame|XXX
-		Development Client|HoloLens = Development Client|HoloLens
-		Development Client|Mac = Development Client|Mac
-		Development Client|Win32 = Development Client|Win32
-		Development Client|Win64 = Development Client|Win64
-		Development Client|XXX = Development Client|XXX
-		Development Editor|HoloLens = Development Editor|HoloLens
-		Development Editor|Mac = Development Editor|Mac
-		Development Editor|Win32 = Development Editor|Win32
-		Development Editor|Win64 = Development Editor|Win64
-		Development Editor|XXX = Development Editor|XXX
-		Development Server|HoloLens = Development Server|HoloLens
-		Development Server|Mac = Development Server|Mac
-		Development Server|Win32 = Development Server|Win32
-		Development Server|Win64 = Development Server|Win64
-		Development Server|XXX = Development Server|XXX
-		Development|HoloLens = Development|HoloLens
-		Development|Mac = Development|Mac
-		Development|Win32 = Development|Win32
-		Development|Win64 = Development|Win64
-		Development|XXX = Development|XXX
-		Shipping Client|HoloLens = Shipping Client|HoloLens
-		Shipping Client|Mac = Shipping Client|Mac
-		Shipping Client|Win32 = Shipping Client|Win32
-		Shipping Client|Win64 = Shipping Client|Win64
-		Shipping Client|XXX = Shipping Client|XXX
-		Shipping Server|HoloLens = Shipping Server|HoloLens
-		Shipping Server|Mac = Shipping Server|Mac
-		Shipping Server|Win32 = Shipping Server|Win32
-		Shipping Server|Win64 = Shipping Server|Win64
-		Shipping Server|XXX = Shipping Server|XXX
-		Shipping|HoloLens = Shipping|HoloLens
-		Shipping|Mac = Shipping|Mac
-		Shipping|Win32 = Shipping|Win32
-		Shipping|Win64 = Shipping|Win64
-		Shipping|XXX = Shipping|XXX
-		Test Client|HoloLens = Test Client|HoloLens
-		Test Client|Mac = Test Client|Mac
-		Test Client|Win32 = Test Client|Win32
-		Test Client|Win64 = Test Client|Win64
-		Test Client|XXX = Test Client|XXX
-		Test Server|HoloLens = Test Server|HoloLens
-		Test Server|Mac = Test Server|Mac
-		Test Server|Win32 = Test Server|Win32
-		Test Server|Win64 = Test Server|Win64
-		Test Server|XXX = Test Server|XXX
-		Test|HoloLens = Test|HoloLens
-		Test|Mac = Test|Mac
-		Test|Win32 = Test|Win32
-		Test|Win64 = Test|Win64
-		Test|XXX = Test|XXX
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Debug Editor|Mac.Build.0 = Mac_Debug_Program|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Debug Editor|Win32.ActiveCfg = Debug_Program|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Debug Editor|Win32.Build.0 = Debug_Program|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Debug Editor|Win64.Build.0 = Debug_Program|x64
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Debug|HoloLens.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Debug|Mac.Build.0 = Mac_Debug_Program|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Debug|Win32.ActiveCfg = Debug_Program|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Debug|Win32.Build.0 = Debug_Program|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Debug|Win64.Build.0 = Debug_Program|x64
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Debug|XXX.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.DebugGame Editor|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.DebugGame Editor|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.DebugGame Editor|Win32.ActiveCfg = DebugGame_Program|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.DebugGame Editor|Win32.Build.0 = DebugGame_Program|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.DebugGame Editor|Win64.ActiveCfg = DebugGame_Program|x64
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.DebugGame Editor|Win64.Build.0 = DebugGame_Program|x64
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.DebugGame|HoloLens.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.DebugGame|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.DebugGame|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.DebugGame|Win32.ActiveCfg = DebugGame_Program|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.DebugGame|Win32.Build.0 = DebugGame_Program|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.DebugGame|Win64.ActiveCfg = DebugGame_Program|x64
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.DebugGame|Win64.Build.0 = DebugGame_Program|x64
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.DebugGame|XXX.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Development Editor|Mac.Build.0 = Mac_Development_Program|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Development Editor|Win32.ActiveCfg = Development_Program|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Development Editor|Win32.Build.0 = Development_Program|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Development Editor|Win64.Build.0 = Development_Program|x64
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Development|HoloLens.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Development|Mac.Build.0 = Mac_Development_Program|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Development|Win32.ActiveCfg = Development_Program|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Development|Win32.Build.0 = Development_Program|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Development|Win64.ActiveCfg = Development_Program|x64
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Development|Win64.Build.0 = Development_Program|x64
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Development|XXX.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Shipping|HoloLens.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Shipping|Mac.Build.0 = Mac_Shipping_Program|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Shipping|Win32.ActiveCfg = Shipping_Program|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Shipping|Win32.Build.0 = Shipping_Program|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Shipping|Win64.Build.0 = Shipping_Program|x64
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Shipping|XXX.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Test|HoloLens.ActiveCfg = Invalid|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Test|Mac.ActiveCfg = Mac_Test_Program|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Test|Mac.Build.0 = Mac_Test_Program|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Test|Win32.ActiveCfg = Test_Program|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Test|Win32.Build.0 = Test_Program|Win32
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Test|Win64.ActiveCfg = Test_Program|x64
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Test|Win64.Build.0 = Test_Program|x64
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984}.Test|XXX.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Debug Editor|Mac.Build.0 = Mac_Debug_Program|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Debug Editor|Win32.ActiveCfg = Debug_Program|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Debug Editor|Win32.Build.0 = Debug_Program|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Debug Editor|Win64.Build.0 = Debug_Program|x64
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Debug|HoloLens.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Debug|Mac.Build.0 = Mac_Debug_Program|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Debug|Win32.ActiveCfg = Debug_Program|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Debug|Win32.Build.0 = Debug_Program|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Debug|Win64.Build.0 = Debug_Program|x64
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Debug|XXX.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.DebugGame Editor|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.DebugGame Editor|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.DebugGame Editor|Win32.ActiveCfg = DebugGame_Program|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.DebugGame Editor|Win32.Build.0 = DebugGame_Program|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.DebugGame Editor|Win64.ActiveCfg = DebugGame_Program|x64
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.DebugGame Editor|Win64.Build.0 = DebugGame_Program|x64
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.DebugGame|HoloLens.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.DebugGame|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.DebugGame|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.DebugGame|Win32.ActiveCfg = DebugGame_Program|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.DebugGame|Win32.Build.0 = DebugGame_Program|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.DebugGame|Win64.ActiveCfg = DebugGame_Program|x64
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.DebugGame|Win64.Build.0 = DebugGame_Program|x64
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.DebugGame|XXX.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Development Editor|Mac.Build.0 = Mac_Development_Program|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Development Editor|Win32.ActiveCfg = Development_Program|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Development Editor|Win32.Build.0 = Development_Program|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Development Editor|Win64.Build.0 = Development_Program|x64
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Development|HoloLens.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Development|Mac.Build.0 = Mac_Development_Program|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Development|Win32.ActiveCfg = Development_Program|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Development|Win32.Build.0 = Development_Program|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Development|Win64.ActiveCfg = Development_Program|x64
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Development|Win64.Build.0 = Development_Program|x64
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Development|XXX.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Shipping|HoloLens.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Shipping|Mac.Build.0 = Mac_Shipping_Program|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Shipping|Win32.ActiveCfg = Shipping_Program|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Shipping|Win32.Build.0 = Shipping_Program|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Shipping|Win64.Build.0 = Shipping_Program|x64
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Shipping|XXX.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Test|HoloLens.ActiveCfg = Invalid|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Test|Mac.ActiveCfg = Mac_Test_Program|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Test|Mac.Build.0 = Mac_Test_Program|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Test|Win32.ActiveCfg = Test_Program|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Test|Win32.Build.0 = Test_Program|Win32
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Test|Win64.ActiveCfg = Test_Program|x64
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Test|Win64.Build.0 = Test_Program|x64
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831}.Test|XXX.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Debug Editor|Mac.Build.0 = Mac_Debug_Program|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Debug Editor|Win32.ActiveCfg = Debug_Program|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Debug Editor|Win32.Build.0 = Debug_Program|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{78D5E766-1789-4385-8301-52793B45E210}.Debug Editor|Win64.Build.0 = Debug_Program|x64
-		{78D5E766-1789-4385-8301-52793B45E210}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Debug|HoloLens.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Debug|Mac.Build.0 = Mac_Debug_Program|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Debug|Win32.ActiveCfg = Debug_Program|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Debug|Win32.Build.0 = Debug_Program|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{78D5E766-1789-4385-8301-52793B45E210}.Debug|Win64.Build.0 = Debug_Program|x64
-		{78D5E766-1789-4385-8301-52793B45E210}.Debug|XXX.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.DebugGame Editor|Mac.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.DebugGame Editor|Win32.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.DebugGame Editor|Win64.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.DebugGame|HoloLens.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.DebugGame|Mac.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.DebugGame|Win32.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.DebugGame|Win64.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.DebugGame|XXX.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Development Editor|Mac.Build.0 = Mac_Development_Program|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Development Editor|Win32.ActiveCfg = Development_Program|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Development Editor|Win32.Build.0 = Development_Program|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{78D5E766-1789-4385-8301-52793B45E210}.Development Editor|Win64.Build.0 = Development_Program|x64
-		{78D5E766-1789-4385-8301-52793B45E210}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Development|HoloLens.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Development|Mac.Build.0 = Mac_Development_Program|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Development|Win32.ActiveCfg = Development_Program|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Development|Win32.Build.0 = Development_Program|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Development|Win64.ActiveCfg = Development_Program|x64
-		{78D5E766-1789-4385-8301-52793B45E210}.Development|Win64.Build.0 = Development_Program|x64
-		{78D5E766-1789-4385-8301-52793B45E210}.Development|XXX.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Shipping|HoloLens.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Shipping|Mac.Build.0 = Mac_Shipping_Program|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Shipping|Win32.ActiveCfg = Shipping_Program|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Shipping|Win32.Build.0 = Shipping_Program|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{78D5E766-1789-4385-8301-52793B45E210}.Shipping|Win64.Build.0 = Shipping_Program|x64
-		{78D5E766-1789-4385-8301-52793B45E210}.Shipping|XXX.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Test|HoloLens.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Test|Mac.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Test|Win32.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Test|Win64.ActiveCfg = Invalid|Win32
-		{78D5E766-1789-4385-8301-52793B45E210}.Test|XXX.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Debug Editor|Mac.Build.0 = Mac_Debug_Program|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Debug Editor|Win32.ActiveCfg = Debug_Program|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Debug Editor|Win32.Build.0 = Debug_Program|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{61314208-BC97-4175-B563-AF8EA115958C}.Debug Editor|Win64.Build.0 = Debug_Program|x64
-		{61314208-BC97-4175-B563-AF8EA115958C}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Debug|HoloLens.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Debug|Mac.Build.0 = Mac_Debug_Program|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Debug|Win32.ActiveCfg = Debug_Program|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Debug|Win32.Build.0 = Debug_Program|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{61314208-BC97-4175-B563-AF8EA115958C}.Debug|Win64.Build.0 = Debug_Program|x64
-		{61314208-BC97-4175-B563-AF8EA115958C}.Debug|XXX.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.DebugGame Editor|Mac.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.DebugGame Editor|Win32.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.DebugGame Editor|Win64.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.DebugGame|HoloLens.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.DebugGame|Mac.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.DebugGame|Win32.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.DebugGame|Win64.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.DebugGame|XXX.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Development Editor|Mac.Build.0 = Mac_Development_Program|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Development Editor|Win32.ActiveCfg = Development_Program|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Development Editor|Win32.Build.0 = Development_Program|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{61314208-BC97-4175-B563-AF8EA115958C}.Development Editor|Win64.Build.0 = Development_Program|x64
-		{61314208-BC97-4175-B563-AF8EA115958C}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Development|HoloLens.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Development|Mac.Build.0 = Mac_Development_Program|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Development|Win32.ActiveCfg = Development_Program|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Development|Win32.Build.0 = Development_Program|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Development|Win64.ActiveCfg = Development_Program|x64
-		{61314208-BC97-4175-B563-AF8EA115958C}.Development|Win64.Build.0 = Development_Program|x64
-		{61314208-BC97-4175-B563-AF8EA115958C}.Development|XXX.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Shipping|HoloLens.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Shipping|Mac.Build.0 = Mac_Shipping_Program|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Shipping|Win32.ActiveCfg = Shipping_Program|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Shipping|Win32.Build.0 = Shipping_Program|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{61314208-BC97-4175-B563-AF8EA115958C}.Shipping|Win64.Build.0 = Shipping_Program|x64
-		{61314208-BC97-4175-B563-AF8EA115958C}.Shipping|XXX.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Test|HoloLens.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Test|Mac.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Test|Win32.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Test|Win64.ActiveCfg = Invalid|Win32
-		{61314208-BC97-4175-B563-AF8EA115958C}.Test|XXX.ActiveCfg = Invalid|Win32
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Debug Client|HoloLens.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Debug Client|Mac.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Debug Client|Win32.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Debug Client|Win64.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Debug Client|XXX.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Debug Editor|HoloLens.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Debug Editor|Mac.Build.0 = Mac_Debug_Program|Win32
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Debug Editor|Win32.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Debug Editor|Win64.Build.0 = Debug_Program|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Debug Editor|XXX.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Debug Server|HoloLens.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Debug Server|Mac.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Debug Server|Win32.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Debug Server|Win64.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Debug Server|XXX.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Debug|HoloLens.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Debug|Mac.Build.0 = Mac_Debug_Program|Win32
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Debug|Win32.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Debug|Win64.Build.0 = Debug_Program|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Debug|XXX.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.DebugGame Client|HoloLens.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.DebugGame Client|Mac.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.DebugGame Client|Win32.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.DebugGame Client|Win64.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.DebugGame Client|XXX.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.DebugGame Editor|Mac.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.DebugGame Editor|Win32.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.DebugGame Editor|Win64.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.DebugGame Editor|XXX.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.DebugGame Server|HoloLens.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.DebugGame Server|Mac.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.DebugGame Server|Win32.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.DebugGame Server|Win64.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.DebugGame Server|XXX.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.DebugGame|HoloLens.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.DebugGame|Mac.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.DebugGame|Win32.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.DebugGame|Win64.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.DebugGame|XXX.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Development Client|HoloLens.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Development Client|Mac.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Development Client|Win32.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Development Client|Win64.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Development Client|XXX.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Development Editor|HoloLens.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Development Editor|Mac.Build.0 = Mac_Development_Program|Win32
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Development Editor|Win32.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Development Editor|Win64.Build.0 = Development_Program|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Development Editor|XXX.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Development Server|HoloLens.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Development Server|Mac.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Development Server|Win32.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Development Server|Win64.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Development Server|XXX.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Development|HoloLens.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Development|Mac.Build.0 = Mac_Development_Program|Win32
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Development|Win32.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Development|Win64.ActiveCfg = Development_Program|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Development|Win64.Build.0 = Development_Program|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Development|XXX.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Shipping Client|HoloLens.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Shipping Client|Mac.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Shipping Client|Win32.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Shipping Client|Win64.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Shipping Client|XXX.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Shipping Server|HoloLens.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Shipping Server|Mac.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Shipping Server|Win32.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Shipping Server|Win64.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Shipping Server|XXX.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Shipping|HoloLens.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Shipping|Mac.Build.0 = Mac_Shipping_Program|Win32
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Shipping|Win32.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Shipping|Win64.Build.0 = Shipping_Program|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Shipping|XXX.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Test Client|HoloLens.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Test Client|Mac.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Test Client|Win32.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Test Client|Win64.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Test Client|XXX.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Test Server|HoloLens.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Test Server|Mac.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Test Server|Win32.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Test Server|Win64.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Test Server|XXX.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Test|HoloLens.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Test|Mac.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Test|Win32.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Test|Win64.ActiveCfg = Invalid|x64
-		{D099FE48-143B-4610-AC5C-0625F6B4731D}.Test|XXX.ActiveCfg = Invalid|x64
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Debug Editor|Mac.Build.0 = Mac_Debug_Program|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Debug Editor|Win32.ActiveCfg = Debug_Program|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Debug Editor|Win32.Build.0 = Debug_Program|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Debug Editor|Win64.Build.0 = Debug_Program|x64
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Debug|HoloLens.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Debug|Mac.Build.0 = Mac_Debug_Program|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Debug|Win32.ActiveCfg = Debug_Program|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Debug|Win32.Build.0 = Debug_Program|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Debug|Win64.Build.0 = Debug_Program|x64
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Debug|XXX.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.DebugGame Editor|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.DebugGame Editor|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.DebugGame Editor|Win32.ActiveCfg = DebugGame_Program|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.DebugGame Editor|Win32.Build.0 = DebugGame_Program|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.DebugGame Editor|Win64.ActiveCfg = DebugGame_Program|x64
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.DebugGame Editor|Win64.Build.0 = DebugGame_Program|x64
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.DebugGame|HoloLens.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.DebugGame|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.DebugGame|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.DebugGame|Win32.ActiveCfg = DebugGame_Program|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.DebugGame|Win32.Build.0 = DebugGame_Program|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.DebugGame|Win64.ActiveCfg = DebugGame_Program|x64
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.DebugGame|Win64.Build.0 = DebugGame_Program|x64
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.DebugGame|XXX.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Development Editor|Mac.Build.0 = Mac_Development_Program|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Development Editor|Win32.ActiveCfg = Development_Program|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Development Editor|Win32.Build.0 = Development_Program|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Development Editor|Win64.Build.0 = Development_Program|x64
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Development|HoloLens.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Development|Mac.Build.0 = Mac_Development_Program|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Development|Win32.ActiveCfg = Development_Program|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Development|Win32.Build.0 = Development_Program|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Development|Win64.ActiveCfg = Development_Program|x64
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Development|Win64.Build.0 = Development_Program|x64
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Development|XXX.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Shipping|HoloLens.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Shipping|Mac.Build.0 = Mac_Shipping_Program|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Shipping|Win32.ActiveCfg = Shipping_Program|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Shipping|Win32.Build.0 = Shipping_Program|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Shipping|Win64.Build.0 = Shipping_Program|x64
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Shipping|XXX.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Test|HoloLens.ActiveCfg = Invalid|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Test|Mac.ActiveCfg = Mac_Test_Program|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Test|Mac.Build.0 = Mac_Test_Program|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Test|Win32.ActiveCfg = Test_Program|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Test|Win32.Build.0 = Test_Program|Win32
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Test|Win64.ActiveCfg = Test_Program|x64
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Test|Win64.Build.0 = Test_Program|x64
-		{8ACB86F3-3657-459C-B2A5-B369575DC744}.Test|XXX.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Debug Editor|Win32.ActiveCfg = Debug_Program|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Debug|HoloLens.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Debug|Win32.ActiveCfg = Debug_Program|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Debug|XXX.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.DebugGame Editor|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.DebugGame Editor|Win32.ActiveCfg = DebugGame_Program|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.DebugGame Editor|Win64.ActiveCfg = DebugGame_Program|x64
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.DebugGame|HoloLens.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.DebugGame|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.DebugGame|Win32.ActiveCfg = DebugGame_Program|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.DebugGame|Win64.ActiveCfg = DebugGame_Program|x64
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.DebugGame|XXX.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Development Editor|Win32.ActiveCfg = Development_Program|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Development|HoloLens.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Development|Win32.ActiveCfg = Development_Program|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Development|Win64.ActiveCfg = Development_Program|x64
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Development|XXX.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Shipping|HoloLens.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Shipping|Win32.ActiveCfg = Shipping_Program|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Shipping|XXX.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Test|HoloLens.ActiveCfg = Invalid|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Test|Mac.ActiveCfg = Mac_Test_Program|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Test|Win32.ActiveCfg = Test_Program|Win32
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Test|Win64.ActiveCfg = Test_Program|x64
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15}.Test|XXX.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Debug Editor|Win32.ActiveCfg = Debug_Program|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Debug|HoloLens.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Debug|Win32.ActiveCfg = Debug_Program|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Debug|XXX.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.DebugGame Editor|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.DebugGame Editor|Win32.ActiveCfg = DebugGame_Program|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.DebugGame Editor|Win64.ActiveCfg = DebugGame_Program|x64
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.DebugGame|HoloLens.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.DebugGame|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.DebugGame|Win32.ActiveCfg = DebugGame_Program|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.DebugGame|Win64.ActiveCfg = DebugGame_Program|x64
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.DebugGame|XXX.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Development Editor|Win32.ActiveCfg = Development_Program|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Development|HoloLens.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Development|Win32.ActiveCfg = Development_Program|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Development|Win64.ActiveCfg = Development_Program|x64
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Development|XXX.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Shipping|HoloLens.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Shipping|Win32.ActiveCfg = Shipping_Program|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Shipping|XXX.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Test|HoloLens.ActiveCfg = Invalid|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Test|Mac.ActiveCfg = Mac_Test_Program|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Test|Win32.ActiveCfg = Test_Program|Win32
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Test|Win64.ActiveCfg = Test_Program|x64
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1}.Test|XXX.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Debug Editor|Win32.ActiveCfg = Debug_Program|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Debug|HoloLens.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Debug|Win32.ActiveCfg = Debug_Program|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Debug|XXX.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.DebugGame Editor|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.DebugGame Editor|Win32.ActiveCfg = DebugGame_Program|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.DebugGame Editor|Win64.ActiveCfg = DebugGame_Program|x64
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.DebugGame|HoloLens.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.DebugGame|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.DebugGame|Win32.ActiveCfg = DebugGame_Program|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.DebugGame|Win64.ActiveCfg = DebugGame_Program|x64
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.DebugGame|XXX.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Development Editor|Win32.ActiveCfg = Development_Program|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Development|HoloLens.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Development|Win32.ActiveCfg = Development_Program|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Development|Win64.ActiveCfg = Development_Program|x64
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Development|XXX.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Shipping|HoloLens.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Shipping|Win32.ActiveCfg = Shipping_Program|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Shipping|XXX.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Test|HoloLens.ActiveCfg = Invalid|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Test|Mac.ActiveCfg = Mac_Test_Program|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Test|Win32.ActiveCfg = Test_Program|Win32
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Test|Win64.ActiveCfg = Test_Program|x64
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73}.Test|XXX.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Debug Editor|Win32.ActiveCfg = Debug_Program|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Debug|HoloLens.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Debug|Win32.ActiveCfg = Debug_Program|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Debug|XXX.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.DebugGame Editor|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.DebugGame Editor|Win32.ActiveCfg = DebugGame_Program|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.DebugGame Editor|Win64.ActiveCfg = DebugGame_Program|x64
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.DebugGame|HoloLens.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.DebugGame|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.DebugGame|Win32.ActiveCfg = DebugGame_Program|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.DebugGame|Win64.ActiveCfg = DebugGame_Program|x64
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.DebugGame|XXX.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Development Editor|Win32.ActiveCfg = Development_Program|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Development|HoloLens.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Development|Win32.ActiveCfg = Development_Program|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Development|Win64.ActiveCfg = Development_Program|x64
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Development|XXX.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Shipping|HoloLens.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Shipping|Win32.ActiveCfg = Shipping_Program|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Shipping|XXX.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Test|HoloLens.ActiveCfg = Invalid|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Test|Mac.ActiveCfg = Mac_Test_Program|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Test|Win32.ActiveCfg = Test_Program|Win32
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Test|Win64.ActiveCfg = Test_Program|x64
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55}.Test|XXX.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Debug Editor|Win32.ActiveCfg = Debug_Program|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Debug|HoloLens.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Debug|Win32.ActiveCfg = Debug_Program|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Debug|XXX.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.DebugGame Editor|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.DebugGame Editor|Win32.ActiveCfg = DebugGame_Program|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.DebugGame Editor|Win64.ActiveCfg = DebugGame_Program|x64
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.DebugGame|HoloLens.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.DebugGame|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.DebugGame|Win32.ActiveCfg = DebugGame_Program|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.DebugGame|Win64.ActiveCfg = DebugGame_Program|x64
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.DebugGame|XXX.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Development Editor|Win32.ActiveCfg = Development_Program|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Development|HoloLens.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Development|Win32.ActiveCfg = Development_Program|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Development|Win64.ActiveCfg = Development_Program|x64
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Development|XXX.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Shipping|HoloLens.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Shipping|Win32.ActiveCfg = Shipping_Program|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Shipping|XXX.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Test|HoloLens.ActiveCfg = Invalid|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Test|Mac.ActiveCfg = Mac_Test_Program|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Test|Win32.ActiveCfg = Test_Program|Win32
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Test|Win64.ActiveCfg = Test_Program|x64
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603}.Test|XXX.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Debug Editor|Win32.ActiveCfg = Debug_Program|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Debug|HoloLens.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Debug|Win32.ActiveCfg = Debug_Program|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Debug|XXX.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.DebugGame Editor|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.DebugGame Editor|Win32.ActiveCfg = DebugGame_Program|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.DebugGame Editor|Win64.ActiveCfg = DebugGame_Program|x64
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.DebugGame|HoloLens.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.DebugGame|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.DebugGame|Win32.ActiveCfg = DebugGame_Program|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.DebugGame|Win64.ActiveCfg = DebugGame_Program|x64
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.DebugGame|XXX.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Development Editor|Win32.ActiveCfg = Development_Program|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Development|HoloLens.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Development|Win32.ActiveCfg = Development_Program|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Development|Win64.ActiveCfg = Development_Program|x64
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Development|XXX.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Shipping|HoloLens.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Shipping|Win32.ActiveCfg = Shipping_Program|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Shipping|XXX.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Test|HoloLens.ActiveCfg = Invalid|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Test|Mac.ActiveCfg = Mac_Test_Program|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Test|Win32.ActiveCfg = Test_Program|Win32
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Test|Win64.ActiveCfg = Test_Program|x64
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771}.Test|XXX.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Debug Editor|Win32.ActiveCfg = Debug_Program|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Debug|HoloLens.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Debug|Win32.ActiveCfg = Debug_Program|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Debug|XXX.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.DebugGame Editor|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.DebugGame Editor|Win32.ActiveCfg = DebugGame_Program|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.DebugGame Editor|Win64.ActiveCfg = DebugGame_Program|x64
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.DebugGame|HoloLens.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.DebugGame|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.DebugGame|Win32.ActiveCfg = DebugGame_Program|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.DebugGame|Win64.ActiveCfg = DebugGame_Program|x64
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.DebugGame|XXX.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Development Editor|Win32.ActiveCfg = Development_Program|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Development|HoloLens.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Development|Win32.ActiveCfg = Development_Program|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Development|Win64.ActiveCfg = Development_Program|x64
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Development|XXX.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Shipping|HoloLens.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Shipping|Win32.ActiveCfg = Shipping_Program|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Shipping|XXX.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Test|HoloLens.ActiveCfg = Invalid|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Test|Mac.ActiveCfg = Mac_Test_Program|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Test|Win32.ActiveCfg = Test_Program|Win32
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Test|Win64.ActiveCfg = Test_Program|x64
-		{64673500-F801-4E6E-96B8-890F5E95E83D}.Test|XXX.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Debug Editor|Win32.ActiveCfg = Debug_Program|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Debug|HoloLens.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Debug|Win32.ActiveCfg = Debug_Program|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Debug|XXX.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.DebugGame Editor|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.DebugGame Editor|Win32.ActiveCfg = DebugGame_Program|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.DebugGame Editor|Win64.ActiveCfg = DebugGame_Program|x64
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.DebugGame|HoloLens.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.DebugGame|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.DebugGame|Win32.ActiveCfg = DebugGame_Program|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.DebugGame|Win64.ActiveCfg = DebugGame_Program|x64
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.DebugGame|XXX.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Development Editor|Win32.ActiveCfg = Development_Program|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Development|HoloLens.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Development|Win32.ActiveCfg = Development_Program|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Development|Win64.ActiveCfg = Development_Program|x64
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Development|XXX.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Shipping|HoloLens.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Shipping|Win32.ActiveCfg = Shipping_Program|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Shipping|XXX.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Test|HoloLens.ActiveCfg = Invalid|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Test|Mac.ActiveCfg = Mac_Test_Program|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Test|Win32.ActiveCfg = Test_Program|Win32
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Test|Win64.ActiveCfg = Test_Program|x64
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B}.Test|XXX.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Debug Editor|Win32.ActiveCfg = Debug_Program|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Debug|HoloLens.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Debug|Win32.ActiveCfg = Debug_Program|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Debug|XXX.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.DebugGame Editor|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.DebugGame Editor|Win32.ActiveCfg = DebugGame_Program|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.DebugGame Editor|Win64.ActiveCfg = DebugGame_Program|x64
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.DebugGame|HoloLens.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.DebugGame|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.DebugGame|Win32.ActiveCfg = DebugGame_Program|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.DebugGame|Win64.ActiveCfg = DebugGame_Program|x64
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.DebugGame|XXX.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Development Editor|Win32.ActiveCfg = Development_Program|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Development|HoloLens.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Development|Win32.ActiveCfg = Development_Program|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Development|Win64.ActiveCfg = Development_Program|x64
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Development|XXX.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Shipping|HoloLens.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Shipping|Win32.ActiveCfg = Shipping_Program|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Shipping|XXX.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Test|HoloLens.ActiveCfg = Invalid|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Test|Mac.ActiveCfg = Mac_Test_Program|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Test|Win32.ActiveCfg = Test_Program|Win32
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Test|Win64.ActiveCfg = Test_Program|x64
-		{20FB9496-E07E-41FB-943D-1146E8A47A50}.Test|XXX.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Debug Editor|Win32.ActiveCfg = Debug_Program|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Debug|HoloLens.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Debug|Win32.ActiveCfg = Debug_Program|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Debug|XXX.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.DebugGame Editor|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.DebugGame Editor|Win32.ActiveCfg = DebugGame_Program|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.DebugGame Editor|Win64.ActiveCfg = DebugGame_Program|x64
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.DebugGame|HoloLens.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.DebugGame|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.DebugGame|Win32.ActiveCfg = DebugGame_Program|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.DebugGame|Win64.ActiveCfg = DebugGame_Program|x64
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.DebugGame|XXX.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Development Editor|Win32.ActiveCfg = Development_Program|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Development|HoloLens.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Development|Win32.ActiveCfg = Development_Program|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Development|Win64.ActiveCfg = Development_Program|x64
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Development|XXX.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Shipping|HoloLens.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Shipping|Win32.ActiveCfg = Shipping_Program|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Shipping|XXX.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Test|HoloLens.ActiveCfg = Invalid|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Test|Mac.ActiveCfg = Mac_Test_Program|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Test|Win32.ActiveCfg = Test_Program|Win32
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Test|Win64.ActiveCfg = Test_Program|x64
-		{7EF01036-2763-4A33-B283-F7CD7E44A875}.Test|XXX.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Debug Editor|Win32.ActiveCfg = Debug_Program|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Debug|HoloLens.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Debug|Win32.ActiveCfg = Debug_Program|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Debug|XXX.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.DebugGame Editor|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.DebugGame Editor|Win32.ActiveCfg = DebugGame_Program|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.DebugGame Editor|Win64.ActiveCfg = DebugGame_Program|x64
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.DebugGame|HoloLens.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.DebugGame|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.DebugGame|Win32.ActiveCfg = DebugGame_Program|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.DebugGame|Win64.ActiveCfg = DebugGame_Program|x64
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.DebugGame|XXX.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Development Editor|Win32.ActiveCfg = Development_Program|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Development|HoloLens.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Development|Win32.ActiveCfg = Development_Program|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Development|Win64.ActiveCfg = Development_Program|x64
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Development|XXX.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Shipping|HoloLens.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Shipping|Win32.ActiveCfg = Shipping_Program|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Shipping|XXX.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Test|HoloLens.ActiveCfg = Invalid|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Test|Mac.ActiveCfg = Mac_Test_Program|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Test|Win32.ActiveCfg = Test_Program|Win32
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Test|Win64.ActiveCfg = Test_Program|x64
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741}.Test|XXX.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Debug Editor|Mac.Build.0 = Mac_Debug_Program|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Debug Editor|Win32.ActiveCfg = Debug_Program|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Debug Editor|Win32.Build.0 = Debug_Program|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Debug Editor|Win64.Build.0 = Debug_Program|x64
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Debug|HoloLens.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Debug|Mac.Build.0 = Mac_Debug_Program|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Debug|Win32.ActiveCfg = Debug_Program|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Debug|Win32.Build.0 = Debug_Program|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Debug|Win64.Build.0 = Debug_Program|x64
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Debug|XXX.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.DebugGame Editor|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.DebugGame Editor|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.DebugGame Editor|Win32.ActiveCfg = DebugGame_Program|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.DebugGame Editor|Win32.Build.0 = DebugGame_Program|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.DebugGame Editor|Win64.ActiveCfg = DebugGame_Program|x64
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.DebugGame Editor|Win64.Build.0 = DebugGame_Program|x64
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.DebugGame|HoloLens.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.DebugGame|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.DebugGame|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.DebugGame|Win32.ActiveCfg = DebugGame_Program|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.DebugGame|Win32.Build.0 = DebugGame_Program|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.DebugGame|Win64.ActiveCfg = DebugGame_Program|x64
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.DebugGame|Win64.Build.0 = DebugGame_Program|x64
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.DebugGame|XXX.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Development Editor|Mac.Build.0 = Mac_Development_Program|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Development Editor|Win32.ActiveCfg = Development_Program|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Development Editor|Win32.Build.0 = Development_Program|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Development Editor|Win64.Build.0 = Development_Program|x64
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Development|HoloLens.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Development|Mac.Build.0 = Mac_Development_Program|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Development|Win32.ActiveCfg = Development_Program|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Development|Win32.Build.0 = Development_Program|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Development|Win64.ActiveCfg = Development_Program|x64
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Development|Win64.Build.0 = Development_Program|x64
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Development|XXX.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Shipping|HoloLens.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Shipping|Mac.Build.0 = Mac_Shipping_Program|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Shipping|Win32.ActiveCfg = Shipping_Program|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Shipping|Win32.Build.0 = Shipping_Program|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Shipping|Win64.Build.0 = Shipping_Program|x64
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Shipping|XXX.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Test|HoloLens.ActiveCfg = Invalid|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Test|Mac.ActiveCfg = Mac_Test_Program|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Test|Mac.Build.0 = Mac_Test_Program|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Test|Win32.ActiveCfg = Test_Program|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Test|Win32.Build.0 = Test_Program|Win32
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Test|Win64.ActiveCfg = Test_Program|x64
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Test|Win64.Build.0 = Test_Program|x64
-		{390551B7-DC26-4DA6-B454-E606365D6F57}.Test|XXX.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Debug Editor|Win32.ActiveCfg = Debug_Program|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Debug|HoloLens.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Debug|Win32.ActiveCfg = Debug_Program|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Debug|XXX.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.DebugGame Editor|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.DebugGame Editor|Win32.ActiveCfg = DebugGame_Program|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.DebugGame Editor|Win64.ActiveCfg = DebugGame_Program|x64
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.DebugGame|HoloLens.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.DebugGame|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.DebugGame|Win32.ActiveCfg = DebugGame_Program|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.DebugGame|Win64.ActiveCfg = DebugGame_Program|x64
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.DebugGame|XXX.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Development Editor|Win32.ActiveCfg = Development_Program|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Development|HoloLens.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Development|Win32.ActiveCfg = Development_Program|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Development|Win64.ActiveCfg = Development_Program|x64
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Development|XXX.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Shipping|HoloLens.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Shipping|Win32.ActiveCfg = Shipping_Program|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Shipping|XXX.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Test|HoloLens.ActiveCfg = Invalid|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Test|Mac.ActiveCfg = Mac_Test_Program|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Test|Win32.ActiveCfg = Test_Program|Win32
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Test|Win64.ActiveCfg = Test_Program|x64
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851}.Test|XXX.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Debug Editor|Win32.ActiveCfg = Debug_Program|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Debug|HoloLens.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Debug|Win32.ActiveCfg = Debug_Program|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Debug|XXX.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.DebugGame Editor|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.DebugGame Editor|Win32.ActiveCfg = DebugGame_Program|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.DebugGame Editor|Win64.ActiveCfg = DebugGame_Program|x64
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.DebugGame|HoloLens.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.DebugGame|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.DebugGame|Win32.ActiveCfg = DebugGame_Program|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.DebugGame|Win64.ActiveCfg = DebugGame_Program|x64
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.DebugGame|XXX.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Development Editor|Win32.ActiveCfg = Development_Program|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Development|HoloLens.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Development|Win32.ActiveCfg = Development_Program|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Development|Win64.ActiveCfg = Development_Program|x64
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Development|XXX.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Shipping|HoloLens.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Shipping|Win32.ActiveCfg = Shipping_Program|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Shipping|XXX.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Test|HoloLens.ActiveCfg = Invalid|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Test|Mac.ActiveCfg = Mac_Test_Program|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Test|Win32.ActiveCfg = Test_Program|Win32
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Test|Win64.ActiveCfg = Test_Program|x64
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7}.Test|XXX.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Debug Editor|Win32.ActiveCfg = Debug_Program|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Debug|HoloLens.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Debug|Win32.ActiveCfg = Debug_Program|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Debug|XXX.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.DebugGame Editor|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.DebugGame Editor|Win32.ActiveCfg = DebugGame_Program|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.DebugGame Editor|Win64.ActiveCfg = DebugGame_Program|x64
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.DebugGame|HoloLens.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.DebugGame|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.DebugGame|Win32.ActiveCfg = DebugGame_Program|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.DebugGame|Win64.ActiveCfg = DebugGame_Program|x64
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.DebugGame|XXX.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Development Editor|Win32.ActiveCfg = Development_Program|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Development|HoloLens.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Development|Win32.ActiveCfg = Development_Program|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Development|Win64.ActiveCfg = Development_Program|x64
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Development|XXX.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Shipping|HoloLens.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Shipping|Win32.ActiveCfg = Shipping_Program|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Shipping|XXX.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Test|HoloLens.ActiveCfg = Invalid|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Test|Mac.ActiveCfg = Mac_Test_Program|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Test|Win32.ActiveCfg = Test_Program|Win32
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Test|Win64.ActiveCfg = Test_Program|x64
-		{8616FBC7-C3B4-463A-8480-4503837FF89D}.Test|XXX.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Debug Editor|Win32.ActiveCfg = Debug_Program|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Debug|HoloLens.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Debug|Win32.ActiveCfg = Debug_Program|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Debug|XXX.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.DebugGame Editor|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.DebugGame Editor|Win32.ActiveCfg = DebugGame_Program|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.DebugGame Editor|Win64.ActiveCfg = DebugGame_Program|x64
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.DebugGame|HoloLens.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.DebugGame|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.DebugGame|Win32.ActiveCfg = DebugGame_Program|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.DebugGame|Win64.ActiveCfg = DebugGame_Program|x64
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.DebugGame|XXX.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Development Editor|Win32.ActiveCfg = Development_Program|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Development|HoloLens.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Development|Win32.ActiveCfg = Development_Program|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Development|Win64.ActiveCfg = Development_Program|x64
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Development|XXX.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Shipping|HoloLens.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Shipping|Win32.ActiveCfg = Shipping_Program|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Shipping|XXX.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Test|HoloLens.ActiveCfg = Invalid|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Test|Mac.ActiveCfg = Mac_Test_Program|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Test|Win32.ActiveCfg = Test_Program|Win32
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Test|Win64.ActiveCfg = Test_Program|x64
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693}.Test|XXX.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Debug Editor|HoloLens.ActiveCfg = Debug_Program|arm64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Debug Editor|HoloLens.Build.0 = Debug_Program|arm64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Debug Editor|HoloLens.Deploy.0 = Debug_Program|arm64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Debug Editor|Mac.Build.0 = Mac_Debug_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Debug Editor|Win32.ActiveCfg = Debug_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Debug Editor|Win32.Build.0 = Debug_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Debug Editor|Win64.Build.0 = Debug_Program|x64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Debug Editor|XXX.ActiveCfg = XXX_Debug_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Debug Editor|XXX.Build.0 = XXX_Debug_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Debug|HoloLens.ActiveCfg = Debug_Program|arm64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Debug|HoloLens.Build.0 = Debug_Program|arm64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Debug|HoloLens.Deploy.0 = Debug_Program|arm64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Debug|Mac.Build.0 = Mac_Debug_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Debug|Win32.ActiveCfg = Debug_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Debug|Win32.Build.0 = Debug_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Debug|Win64.Build.0 = Debug_Program|x64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Debug|XXX.ActiveCfg = XXX_Debug_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Debug|XXX.Build.0 = XXX_Debug_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.DebugGame Editor|HoloLens.ActiveCfg = DebugGame_Program|arm64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.DebugGame Editor|HoloLens.Build.0 = DebugGame_Program|arm64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.DebugGame Editor|HoloLens.Deploy.0 = DebugGame_Program|arm64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.DebugGame Editor|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.DebugGame Editor|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.DebugGame Editor|Win32.ActiveCfg = DebugGame_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.DebugGame Editor|Win32.Build.0 = DebugGame_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.DebugGame Editor|Win64.ActiveCfg = DebugGame_Program|x64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.DebugGame Editor|Win64.Build.0 = DebugGame_Program|x64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.DebugGame Editor|XXX.ActiveCfg = XXX_DebugGame_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.DebugGame Editor|XXX.Build.0 = XXX_DebugGame_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.DebugGame|HoloLens.ActiveCfg = DebugGame_Program|arm64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.DebugGame|HoloLens.Build.0 = DebugGame_Program|arm64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.DebugGame|HoloLens.Deploy.0 = DebugGame_Program|arm64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.DebugGame|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.DebugGame|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.DebugGame|Win32.ActiveCfg = DebugGame_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.DebugGame|Win32.Build.0 = DebugGame_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.DebugGame|Win64.ActiveCfg = DebugGame_Program|x64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.DebugGame|Win64.Build.0 = DebugGame_Program|x64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.DebugGame|XXX.ActiveCfg = XXX_DebugGame_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.DebugGame|XXX.Build.0 = XXX_DebugGame_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Development Editor|HoloLens.ActiveCfg = Development_Program|arm64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Development Editor|HoloLens.Build.0 = Development_Program|arm64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Development Editor|HoloLens.Deploy.0 = Development_Program|arm64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Development Editor|Mac.Build.0 = Mac_Development_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Development Editor|Win32.ActiveCfg = Development_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Development Editor|Win32.Build.0 = Development_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Development Editor|Win64.Build.0 = Development_Program|x64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Development Editor|XXX.ActiveCfg = XXX_Development_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Development Editor|XXX.Build.0 = XXX_Development_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Development|HoloLens.ActiveCfg = Development_Program|arm64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Development|HoloLens.Build.0 = Development_Program|arm64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Development|HoloLens.Deploy.0 = Development_Program|arm64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Development|Mac.Build.0 = Mac_Development_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Development|Win32.ActiveCfg = Development_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Development|Win32.Build.0 = Development_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Development|Win64.ActiveCfg = Development_Program|x64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Development|Win64.Build.0 = Development_Program|x64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Development|XXX.ActiveCfg = XXX_Development_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Development|XXX.Build.0 = XXX_Development_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Shipping|HoloLens.ActiveCfg = Shipping_Program|arm64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Shipping|HoloLens.Build.0 = Shipping_Program|arm64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Shipping|HoloLens.Deploy.0 = Shipping_Program|arm64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Shipping|Mac.Build.0 = Mac_Shipping_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Shipping|Win32.ActiveCfg = Shipping_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Shipping|Win32.Build.0 = Shipping_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Shipping|Win64.Build.0 = Shipping_Program|x64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Shipping|XXX.ActiveCfg = XXX_Shipping_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Shipping|XXX.Build.0 = XXX_Shipping_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Test|HoloLens.ActiveCfg = Test_Program|arm64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Test|HoloLens.Build.0 = Test_Program|arm64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Test|HoloLens.Deploy.0 = Test_Program|arm64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Test|Mac.ActiveCfg = Mac_Test_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Test|Mac.Build.0 = Mac_Test_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Test|Win32.ActiveCfg = Test_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Test|Win32.Build.0 = Test_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Test|Win64.ActiveCfg = Test_Program|x64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Test|Win64.Build.0 = Test_Program|x64
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Test|XXX.ActiveCfg = XXX_Test_Program|Win32
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704}.Test|XXX.Build.0 = XXX_Test_Program|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Debug Editor|Mac.Build.0 = Mac_Debug_Program|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Debug Editor|Win32.ActiveCfg = Debug_Program|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Debug Editor|Win32.Build.0 = Debug_Program|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Debug Editor|Win64.Build.0 = Debug_Program|x64
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Debug|HoloLens.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Debug|Mac.Build.0 = Mac_Debug_Program|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Debug|Win32.ActiveCfg = Debug_Program|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Debug|Win32.Build.0 = Debug_Program|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Debug|Win64.Build.0 = Debug_Program|x64
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Debug|XXX.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.DebugGame Editor|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.DebugGame Editor|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.DebugGame Editor|Win32.ActiveCfg = DebugGame_Program|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.DebugGame Editor|Win32.Build.0 = DebugGame_Program|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.DebugGame Editor|Win64.ActiveCfg = DebugGame_Program|x64
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.DebugGame Editor|Win64.Build.0 = DebugGame_Program|x64
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.DebugGame|HoloLens.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.DebugGame|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.DebugGame|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.DebugGame|Win32.ActiveCfg = DebugGame_Program|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.DebugGame|Win32.Build.0 = DebugGame_Program|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.DebugGame|Win64.ActiveCfg = DebugGame_Program|x64
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.DebugGame|Win64.Build.0 = DebugGame_Program|x64
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.DebugGame|XXX.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Development Editor|Mac.Build.0 = Mac_Development_Program|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Development Editor|Win32.ActiveCfg = Development_Program|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Development Editor|Win32.Build.0 = Development_Program|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Development Editor|Win64.Build.0 = Development_Program|x64
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Development|HoloLens.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Development|Mac.Build.0 = Mac_Development_Program|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Development|Win32.ActiveCfg = Development_Program|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Development|Win32.Build.0 = Development_Program|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Development|Win64.ActiveCfg = Development_Program|x64
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Development|Win64.Build.0 = Development_Program|x64
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Development|XXX.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Shipping|HoloLens.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Shipping|Mac.Build.0 = Mac_Shipping_Program|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Shipping|Win32.ActiveCfg = Shipping_Program|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Shipping|Win32.Build.0 = Shipping_Program|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Shipping|Win64.Build.0 = Shipping_Program|x64
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Shipping|XXX.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Test|HoloLens.ActiveCfg = Invalid|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Test|Mac.ActiveCfg = Mac_Test_Program|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Test|Mac.Build.0 = Mac_Test_Program|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Test|Win32.ActiveCfg = Test_Program|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Test|Win32.Build.0 = Test_Program|Win32
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Test|Win64.ActiveCfg = Test_Program|x64
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Test|Win64.Build.0 = Test_Program|x64
-		{00F8D5E3-DBA0-4174-8438-09F678868621}.Test|XXX.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Debug Editor|Mac.Build.0 = Mac_Debug_Program|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Debug Editor|Win32.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Debug Editor|Win64.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Debug|HoloLens.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Debug|Mac.Build.0 = Mac_Debug_Program|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Debug|Win32.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Debug|Win64.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Debug|XXX.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.DebugGame Editor|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.DebugGame Editor|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.DebugGame Editor|Win32.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.DebugGame Editor|Win64.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.DebugGame|HoloLens.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.DebugGame|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.DebugGame|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.DebugGame|Win32.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.DebugGame|Win64.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.DebugGame|XXX.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Development Editor|Mac.Build.0 = Mac_Development_Program|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Development Editor|Win32.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Development Editor|Win64.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Development|HoloLens.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Development|Mac.Build.0 = Mac_Development_Program|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Development|Win32.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Development|Win64.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Development|XXX.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Shipping|HoloLens.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Shipping|Mac.Build.0 = Mac_Shipping_Program|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Shipping|Win32.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Shipping|Win64.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Shipping|XXX.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Test|HoloLens.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Test|Mac.ActiveCfg = Mac_Test_Program|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Test|Mac.Build.0 = Mac_Test_Program|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Test|Win32.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Test|Win64.ActiveCfg = Invalid|Win32
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42}.Test|XXX.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Debug Editor|Mac.Build.0 = Mac_Debug_Program|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Debug Editor|Win32.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Debug Editor|Win64.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Debug|HoloLens.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Debug|Mac.Build.0 = Mac_Debug_Program|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Debug|Win32.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Debug|Win64.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Debug|XXX.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.DebugGame Editor|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.DebugGame Editor|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.DebugGame Editor|Win32.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.DebugGame Editor|Win64.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.DebugGame|HoloLens.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.DebugGame|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.DebugGame|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.DebugGame|Win32.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.DebugGame|Win64.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.DebugGame|XXX.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Development Editor|Mac.Build.0 = Mac_Development_Program|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Development Editor|Win32.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Development Editor|Win64.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Development|HoloLens.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Development|Mac.Build.0 = Mac_Development_Program|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Development|Win32.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Development|Win64.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Development|XXX.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Shipping|HoloLens.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Shipping|Mac.Build.0 = Mac_Shipping_Program|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Shipping|Win32.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Shipping|Win64.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Shipping|XXX.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Test|HoloLens.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Test|Mac.ActiveCfg = Mac_Test_Program|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Test|Mac.Build.0 = Mac_Test_Program|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Test|Win32.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Test|Win64.ActiveCfg = Invalid|Win32
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05}.Test|XXX.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Debug Editor|Mac.Build.0 = Mac_Debug_Program|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Debug Editor|Win32.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Debug Editor|Win64.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Debug|HoloLens.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Debug|Mac.Build.0 = Mac_Debug_Program|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Debug|Win32.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Debug|Win64.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Debug|XXX.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.DebugGame Editor|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.DebugGame Editor|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.DebugGame Editor|Win32.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.DebugGame Editor|Win64.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.DebugGame|HoloLens.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.DebugGame|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.DebugGame|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.DebugGame|Win32.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.DebugGame|Win64.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.DebugGame|XXX.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Development Editor|Mac.Build.0 = Mac_Development_Program|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Development Editor|Win32.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Development Editor|Win64.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Development|HoloLens.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Development|Mac.Build.0 = Mac_Development_Program|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Development|Win32.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Development|Win64.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Development|XXX.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Shipping|HoloLens.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Shipping|Mac.Build.0 = Mac_Shipping_Program|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Shipping|Win32.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Shipping|Win64.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Shipping|XXX.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Test|HoloLens.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Test|Mac.ActiveCfg = Mac_Test_Program|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Test|Mac.Build.0 = Mac_Test_Program|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Test|Win32.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Test|Win64.ActiveCfg = Invalid|Win32
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7}.Test|XXX.ActiveCfg = Invalid|Win32
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Debug Client|HoloLens.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Debug Client|Mac.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Debug Client|Win32.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Debug Client|Win64.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Debug Client|XXX.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Debug Editor|HoloLens.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Debug Editor|Mac.Build.0 = Mac_Debug_Program|Win32
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Debug Editor|Win32.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Debug Editor|Win64.Build.0 = Debug_Program|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Debug Editor|XXX.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Debug Server|HoloLens.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Debug Server|Mac.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Debug Server|Win32.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Debug Server|Win64.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Debug Server|XXX.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Debug|HoloLens.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Debug|Mac.Build.0 = Mac_Debug_Program|Win32
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Debug|Win32.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Debug|Win64.Build.0 = Debug_Program|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Debug|XXX.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.DebugGame Client|HoloLens.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.DebugGame Client|Mac.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.DebugGame Client|Win32.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.DebugGame Client|Win64.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.DebugGame Client|XXX.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.DebugGame Editor|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.DebugGame Editor|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.DebugGame Editor|Win32.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.DebugGame Editor|Win64.ActiveCfg = DebugGame_Program|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.DebugGame Editor|Win64.Build.0 = DebugGame_Program|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.DebugGame Editor|XXX.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.DebugGame Server|HoloLens.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.DebugGame Server|Mac.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.DebugGame Server|Win32.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.DebugGame Server|Win64.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.DebugGame Server|XXX.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.DebugGame|HoloLens.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.DebugGame|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.DebugGame|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.DebugGame|Win32.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.DebugGame|Win64.ActiveCfg = DebugGame_Program|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.DebugGame|Win64.Build.0 = DebugGame_Program|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.DebugGame|XXX.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Development Client|HoloLens.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Development Client|Mac.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Development Client|Win32.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Development Client|Win64.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Development Client|XXX.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Development Editor|HoloLens.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Development Editor|Mac.Build.0 = Mac_Development_Program|Win32
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Development Editor|Win32.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Development Editor|Win64.Build.0 = Development_Program|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Development Editor|XXX.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Development Server|HoloLens.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Development Server|Mac.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Development Server|Win32.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Development Server|Win64.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Development Server|XXX.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Development|HoloLens.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Development|Mac.Build.0 = Mac_Development_Program|Win32
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Development|Win32.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Development|Win64.ActiveCfg = Development_Program|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Development|Win64.Build.0 = Development_Program|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Development|XXX.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Shipping Client|HoloLens.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Shipping Client|Mac.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Shipping Client|Win32.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Shipping Client|Win64.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Shipping Client|XXX.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Shipping Server|HoloLens.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Shipping Server|Mac.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Shipping Server|Win32.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Shipping Server|Win64.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Shipping Server|XXX.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Shipping|HoloLens.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Shipping|Mac.Build.0 = Mac_Shipping_Program|Win32
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Shipping|Win32.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Shipping|Win64.Build.0 = Shipping_Program|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Shipping|XXX.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Test Client|HoloLens.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Test Client|Mac.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Test Client|Win32.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Test Client|Win64.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Test Client|XXX.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Test Server|HoloLens.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Test Server|Mac.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Test Server|Win32.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Test Server|Win64.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Test Server|XXX.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Test|HoloLens.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Test|Mac.ActiveCfg = Mac_Test_Program|Win32
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Test|Mac.Build.0 = Mac_Test_Program|Win32
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Test|Win32.ActiveCfg = Invalid|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Test|Win64.ActiveCfg = Test_Program|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Test|Win64.Build.0 = Test_Program|x64
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC}.Test|XXX.ActiveCfg = Invalid|x64
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Debug Editor|Mac.Build.0 = Mac_Debug_Program|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Debug Editor|Win32.ActiveCfg = Debug_Program|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Debug Editor|Win32.Build.0 = Debug_Program|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Debug Editor|Win64.Build.0 = Debug_Program|x64
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Debug|HoloLens.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Debug|Mac.Build.0 = Mac_Debug_Program|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Debug|Win32.ActiveCfg = Debug_Program|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Debug|Win32.Build.0 = Debug_Program|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Debug|Win64.Build.0 = Debug_Program|x64
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Debug|XXX.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.DebugGame Editor|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.DebugGame Editor|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.DebugGame Editor|Win32.ActiveCfg = DebugGame_Program|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.DebugGame Editor|Win32.Build.0 = DebugGame_Program|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.DebugGame Editor|Win64.ActiveCfg = DebugGame_Program|x64
-		{3C20F290-644F-456F-855E-1625E052E6C9}.DebugGame Editor|Win64.Build.0 = DebugGame_Program|x64
-		{3C20F290-644F-456F-855E-1625E052E6C9}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.DebugGame|HoloLens.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.DebugGame|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.DebugGame|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.DebugGame|Win32.ActiveCfg = DebugGame_Program|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.DebugGame|Win32.Build.0 = DebugGame_Program|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.DebugGame|Win64.ActiveCfg = DebugGame_Program|x64
-		{3C20F290-644F-456F-855E-1625E052E6C9}.DebugGame|Win64.Build.0 = DebugGame_Program|x64
-		{3C20F290-644F-456F-855E-1625E052E6C9}.DebugGame|XXX.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Development Editor|Mac.Build.0 = Mac_Development_Program|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Development Editor|Win32.ActiveCfg = Development_Program|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Development Editor|Win32.Build.0 = Development_Program|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Development Editor|Win64.Build.0 = Development_Program|x64
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Development|HoloLens.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Development|Mac.Build.0 = Mac_Development_Program|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Development|Win32.ActiveCfg = Development_Program|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Development|Win32.Build.0 = Development_Program|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Development|Win64.ActiveCfg = Development_Program|x64
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Development|Win64.Build.0 = Development_Program|x64
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Development|XXX.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Shipping|HoloLens.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Shipping|Mac.Build.0 = Mac_Shipping_Program|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Shipping|Win32.ActiveCfg = Shipping_Program|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Shipping|Win32.Build.0 = Shipping_Program|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Shipping|Win64.Build.0 = Shipping_Program|x64
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Shipping|XXX.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Test|HoloLens.ActiveCfg = Invalid|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Test|Mac.ActiveCfg = Mac_Test_Program|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Test|Mac.Build.0 = Mac_Test_Program|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Test|Win32.ActiveCfg = Test_Program|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Test|Win32.Build.0 = Test_Program|Win32
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Test|Win64.ActiveCfg = Test_Program|x64
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Test|Win64.Build.0 = Test_Program|x64
-		{3C20F290-644F-456F-855E-1625E052E6C9}.Test|XXX.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Debug Editor|Mac.Build.0 = Mac_Debug_Program|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Debug Editor|Win32.ActiveCfg = Debug_Program|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Debug Editor|Win32.Build.0 = Debug_Program|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Debug Editor|Win64.Build.0 = Debug_Program|x64
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Debug|HoloLens.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Debug|Mac.Build.0 = Mac_Debug_Program|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Debug|Win32.ActiveCfg = Debug_Program|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Debug|Win32.Build.0 = Debug_Program|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Debug|Win64.Build.0 = Debug_Program|x64
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Debug|XXX.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.DebugGame Editor|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.DebugGame Editor|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.DebugGame Editor|Win32.ActiveCfg = DebugGame_Program|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.DebugGame Editor|Win32.Build.0 = DebugGame_Program|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.DebugGame Editor|Win64.ActiveCfg = DebugGame_Program|x64
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.DebugGame Editor|Win64.Build.0 = DebugGame_Program|x64
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.DebugGame|HoloLens.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.DebugGame|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.DebugGame|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.DebugGame|Win32.ActiveCfg = DebugGame_Program|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.DebugGame|Win32.Build.0 = DebugGame_Program|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.DebugGame|Win64.ActiveCfg = DebugGame_Program|x64
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.DebugGame|Win64.Build.0 = DebugGame_Program|x64
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.DebugGame|XXX.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Development Editor|Mac.Build.0 = Mac_Development_Program|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Development Editor|Win32.ActiveCfg = Development_Program|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Development Editor|Win32.Build.0 = Development_Program|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Development Editor|Win64.Build.0 = Development_Program|x64
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Development|HoloLens.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Development|Mac.Build.0 = Mac_Development_Program|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Development|Win32.ActiveCfg = Development_Program|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Development|Win32.Build.0 = Development_Program|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Development|Win64.ActiveCfg = Development_Program|x64
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Development|Win64.Build.0 = Development_Program|x64
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Development|XXX.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Shipping|HoloLens.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Shipping|Mac.Build.0 = Mac_Shipping_Program|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Shipping|Win32.ActiveCfg = Shipping_Program|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Shipping|Win32.Build.0 = Shipping_Program|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Shipping|Win64.Build.0 = Shipping_Program|x64
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Shipping|XXX.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Test|HoloLens.ActiveCfg = Invalid|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Test|Mac.ActiveCfg = Mac_Test_Program|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Test|Mac.Build.0 = Mac_Test_Program|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Test|Win32.ActiveCfg = Test_Program|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Test|Win32.Build.0 = Test_Program|Win32
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Test|Win64.ActiveCfg = Test_Program|x64
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Test|Win64.Build.0 = Test_Program|x64
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571}.Test|XXX.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Debug Editor|Mac.Build.0 = Mac_Debug_Program|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Debug Editor|Win32.ActiveCfg = Debug_Program|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Debug Editor|Win32.Build.0 = Debug_Program|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Debug Editor|Win64.Build.0 = Debug_Program|x64
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Debug|HoloLens.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Debug|Mac.Build.0 = Mac_Debug_Program|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Debug|Win32.ActiveCfg = Debug_Program|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Debug|Win32.Build.0 = Debug_Program|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Debug|Win64.Build.0 = Debug_Program|x64
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Debug|XXX.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.DebugGame Editor|Mac.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.DebugGame Editor|Win32.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.DebugGame Editor|Win64.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.DebugGame|HoloLens.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.DebugGame|Mac.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.DebugGame|Win32.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.DebugGame|Win64.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.DebugGame|XXX.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Development Editor|Mac.Build.0 = Mac_Development_Program|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Development Editor|Win32.ActiveCfg = Development_Program|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Development Editor|Win32.Build.0 = Development_Program|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Development Editor|Win64.Build.0 = Development_Program|x64
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Development|HoloLens.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Development|Mac.Build.0 = Mac_Development_Program|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Development|Win32.ActiveCfg = Development_Program|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Development|Win32.Build.0 = Development_Program|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Development|Win64.ActiveCfg = Development_Program|x64
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Development|Win64.Build.0 = Development_Program|x64
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Development|XXX.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Shipping|HoloLens.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Shipping|Mac.Build.0 = Mac_Shipping_Program|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Shipping|Win32.ActiveCfg = Shipping_Program|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Shipping|Win32.Build.0 = Shipping_Program|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Shipping|Win64.Build.0 = Shipping_Program|x64
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Shipping|XXX.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Test|HoloLens.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Test|Mac.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Test|Win32.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Test|Win64.ActiveCfg = Invalid|Win32
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17}.Test|XXX.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Debug Editor|Mac.Build.0 = Mac_Debug_Program|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Debug Editor|Win32.ActiveCfg = Debug_Program|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Debug Editor|Win32.Build.0 = Debug_Program|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Debug Editor|Win64.Build.0 = Debug_Program|x64
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Debug|HoloLens.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Debug|Mac.Build.0 = Mac_Debug_Program|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Debug|Win32.ActiveCfg = Debug_Program|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Debug|Win32.Build.0 = Debug_Program|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Debug|Win64.Build.0 = Debug_Program|x64
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Debug|XXX.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.DebugGame Editor|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.DebugGame Editor|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.DebugGame Editor|Win32.ActiveCfg = DebugGame_Program|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.DebugGame Editor|Win32.Build.0 = DebugGame_Program|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.DebugGame Editor|Win64.ActiveCfg = DebugGame_Program|x64
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.DebugGame Editor|Win64.Build.0 = DebugGame_Program|x64
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.DebugGame|HoloLens.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.DebugGame|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.DebugGame|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.DebugGame|Win32.ActiveCfg = DebugGame_Program|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.DebugGame|Win32.Build.0 = DebugGame_Program|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.DebugGame|Win64.ActiveCfg = DebugGame_Program|x64
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.DebugGame|Win64.Build.0 = DebugGame_Program|x64
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.DebugGame|XXX.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Development Editor|Mac.Build.0 = Mac_Development_Program|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Development Editor|Win32.ActiveCfg = Development_Program|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Development Editor|Win32.Build.0 = Development_Program|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Development Editor|Win64.Build.0 = Development_Program|x64
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Development|HoloLens.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Development|Mac.Build.0 = Mac_Development_Program|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Development|Win32.ActiveCfg = Development_Program|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Development|Win32.Build.0 = Development_Program|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Development|Win64.ActiveCfg = Development_Program|x64
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Development|Win64.Build.0 = Development_Program|x64
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Development|XXX.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Shipping|HoloLens.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Shipping|Mac.Build.0 = Mac_Shipping_Program|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Shipping|Win32.ActiveCfg = Shipping_Program|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Shipping|Win32.Build.0 = Shipping_Program|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Shipping|Win64.Build.0 = Shipping_Program|x64
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Shipping|XXX.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Test|HoloLens.ActiveCfg = Invalid|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Test|Mac.ActiveCfg = Mac_Test_Program|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Test|Mac.Build.0 = Mac_Test_Program|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Test|Win32.ActiveCfg = Test_Program|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Test|Win32.Build.0 = Test_Program|Win32
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Test|Win64.ActiveCfg = Test_Program|x64
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Test|Win64.Build.0 = Test_Program|x64
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213}.Test|XXX.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Debug Editor|Mac.Build.0 = Mac_Debug_Program|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Debug Editor|Win32.ActiveCfg = Debug_Program|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Debug Editor|Win32.Build.0 = Debug_Program|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Debug Editor|Win64.Build.0 = Debug_Program|x64
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Debug|HoloLens.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Debug|Mac.Build.0 = Mac_Debug_Program|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Debug|Win32.ActiveCfg = Debug_Program|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Debug|Win32.Build.0 = Debug_Program|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Debug|Win64.Build.0 = Debug_Program|x64
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Debug|XXX.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.DebugGame Editor|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.DebugGame Editor|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.DebugGame Editor|Win32.ActiveCfg = DebugGame_Program|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.DebugGame Editor|Win32.Build.0 = DebugGame_Program|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.DebugGame Editor|Win64.ActiveCfg = DebugGame_Program|x64
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.DebugGame Editor|Win64.Build.0 = DebugGame_Program|x64
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.DebugGame|HoloLens.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.DebugGame|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.DebugGame|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.DebugGame|Win32.ActiveCfg = DebugGame_Program|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.DebugGame|Win32.Build.0 = DebugGame_Program|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.DebugGame|Win64.ActiveCfg = DebugGame_Program|x64
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.DebugGame|Win64.Build.0 = DebugGame_Program|x64
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.DebugGame|XXX.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Development Editor|Mac.Build.0 = Mac_Development_Program|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Development Editor|Win32.ActiveCfg = Development_Program|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Development Editor|Win32.Build.0 = Development_Program|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Development Editor|Win64.Build.0 = Development_Program|x64
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Development|HoloLens.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Development|Mac.Build.0 = Mac_Development_Program|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Development|Win32.ActiveCfg = Development_Program|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Development|Win32.Build.0 = Development_Program|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Development|Win64.ActiveCfg = Development_Program|x64
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Development|Win64.Build.0 = Development_Program|x64
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Development|XXX.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Shipping|HoloLens.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Shipping|Mac.Build.0 = Mac_Shipping_Program|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Shipping|Win32.ActiveCfg = Shipping_Program|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Shipping|Win32.Build.0 = Shipping_Program|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Shipping|Win64.Build.0 = Shipping_Program|x64
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Shipping|XXX.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Test|HoloLens.ActiveCfg = Invalid|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Test|Mac.ActiveCfg = Mac_Test_Program|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Test|Mac.Build.0 = Mac_Test_Program|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Test|Win32.ActiveCfg = Test_Program|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Test|Win32.Build.0 = Test_Program|Win32
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Test|Win64.ActiveCfg = Test_Program|x64
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Test|Win64.Build.0 = Test_Program|x64
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0}.Test|XXX.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Debug Editor|Mac.Build.0 = Mac_Debug_Program|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Debug Editor|Win32.ActiveCfg = Debug_Program|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Debug Editor|Win32.Build.0 = Debug_Program|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Debug Editor|Win64.Build.0 = Debug_Program|x64
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Debug|HoloLens.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Debug|Mac.Build.0 = Mac_Debug_Program|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Debug|Win32.ActiveCfg = Debug_Program|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Debug|Win32.Build.0 = Debug_Program|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Debug|Win64.Build.0 = Debug_Program|x64
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Debug|XXX.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.DebugGame Editor|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.DebugGame Editor|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.DebugGame Editor|Win32.ActiveCfg = DebugGame_Program|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.DebugGame Editor|Win32.Build.0 = DebugGame_Program|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.DebugGame Editor|Win64.ActiveCfg = DebugGame_Program|x64
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.DebugGame Editor|Win64.Build.0 = DebugGame_Program|x64
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.DebugGame|HoloLens.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.DebugGame|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.DebugGame|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.DebugGame|Win32.ActiveCfg = DebugGame_Program|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.DebugGame|Win32.Build.0 = DebugGame_Program|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.DebugGame|Win64.ActiveCfg = DebugGame_Program|x64
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.DebugGame|Win64.Build.0 = DebugGame_Program|x64
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.DebugGame|XXX.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Development Editor|Mac.Build.0 = Mac_Development_Program|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Development Editor|Win32.ActiveCfg = Development_Program|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Development Editor|Win32.Build.0 = Development_Program|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Development Editor|Win64.Build.0 = Development_Program|x64
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Development|HoloLens.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Development|Mac.Build.0 = Mac_Development_Program|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Development|Win32.ActiveCfg = Development_Program|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Development|Win32.Build.0 = Development_Program|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Development|Win64.ActiveCfg = Development_Program|x64
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Development|Win64.Build.0 = Development_Program|x64
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Development|XXX.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Shipping|HoloLens.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Shipping|Mac.Build.0 = Mac_Shipping_Program|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Shipping|Win32.ActiveCfg = Shipping_Program|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Shipping|Win32.Build.0 = Shipping_Program|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Shipping|Win64.Build.0 = Shipping_Program|x64
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Shipping|XXX.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Test|HoloLens.ActiveCfg = Invalid|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Test|Mac.ActiveCfg = Mac_Test_Program|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Test|Mac.Build.0 = Mac_Test_Program|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Test|Win32.ActiveCfg = Test_Program|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Test|Win32.Build.0 = Test_Program|Win32
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Test|Win64.ActiveCfg = Test_Program|x64
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Test|Win64.Build.0 = Test_Program|x64
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8}.Test|XXX.ActiveCfg = Invalid|Win32
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Debug Client|HoloLens.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Debug Client|Mac.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Debug Client|Win32.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Debug Client|Win64.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Debug Client|XXX.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Debug Editor|HoloLens.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Debug Editor|Mac.Build.0 = Mac_Debug_Program|Win32
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Debug Editor|Win32.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Debug Editor|Win64.Build.0 = Debug_Program|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Debug Editor|XXX.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Debug Server|HoloLens.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Debug Server|Mac.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Debug Server|Win32.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Debug Server|Win64.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Debug Server|XXX.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Debug|HoloLens.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Debug|Mac.Build.0 = Mac_Debug_Program|Win32
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Debug|Win32.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Debug|Win64.Build.0 = Debug_Program|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Debug|XXX.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.DebugGame Client|HoloLens.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.DebugGame Client|Mac.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.DebugGame Client|Win32.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.DebugGame Client|Win64.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.DebugGame Client|XXX.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.DebugGame Editor|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.DebugGame Editor|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.DebugGame Editor|Win32.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.DebugGame Editor|Win64.ActiveCfg = DebugGame_Program|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.DebugGame Editor|Win64.Build.0 = DebugGame_Program|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.DebugGame Editor|XXX.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.DebugGame Server|HoloLens.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.DebugGame Server|Mac.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.DebugGame Server|Win32.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.DebugGame Server|Win64.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.DebugGame Server|XXX.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.DebugGame|HoloLens.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.DebugGame|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.DebugGame|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.DebugGame|Win32.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.DebugGame|Win64.ActiveCfg = DebugGame_Program|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.DebugGame|Win64.Build.0 = DebugGame_Program|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.DebugGame|XXX.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Development Client|HoloLens.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Development Client|Mac.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Development Client|Win32.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Development Client|Win64.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Development Client|XXX.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Development Editor|HoloLens.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Development Editor|Mac.Build.0 = Mac_Development_Program|Win32
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Development Editor|Win32.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Development Editor|Win64.Build.0 = Development_Program|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Development Editor|XXX.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Development Server|HoloLens.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Development Server|Mac.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Development Server|Win32.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Development Server|Win64.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Development Server|XXX.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Development|HoloLens.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Development|Mac.Build.0 = Mac_Development_Program|Win32
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Development|Win32.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Development|Win64.ActiveCfg = Development_Program|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Development|Win64.Build.0 = Development_Program|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Development|XXX.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Shipping Client|HoloLens.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Shipping Client|Mac.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Shipping Client|Win32.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Shipping Client|Win64.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Shipping Client|XXX.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Shipping Server|HoloLens.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Shipping Server|Mac.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Shipping Server|Win32.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Shipping Server|Win64.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Shipping Server|XXX.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Shipping|HoloLens.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Shipping|Mac.Build.0 = Mac_Shipping_Program|Win32
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Shipping|Win32.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Shipping|Win64.Build.0 = Shipping_Program|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Shipping|XXX.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Test Client|HoloLens.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Test Client|Mac.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Test Client|Win32.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Test Client|Win64.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Test Client|XXX.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Test Server|HoloLens.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Test Server|Mac.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Test Server|Win32.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Test Server|Win64.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Test Server|XXX.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Test|HoloLens.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Test|Mac.ActiveCfg = Mac_Test_Program|Win32
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Test|Mac.Build.0 = Mac_Test_Program|Win32
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Test|Win32.ActiveCfg = Invalid|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Test|Win64.ActiveCfg = Test_Program|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Test|Win64.Build.0 = Test_Program|x64
-		{906A6833-61B4-4745-A2BB-349D92150A1D}.Test|XXX.ActiveCfg = Invalid|x64
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Debug Editor|Mac.Build.0 = Mac_Debug_Program|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Debug Editor|Win32.ActiveCfg = Debug_Program|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Debug Editor|Win32.Build.0 = Debug_Program|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Debug Editor|Win64.Build.0 = Debug_Program|x64
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Debug|HoloLens.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Debug|Mac.Build.0 = Mac_Debug_Program|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Debug|Win32.ActiveCfg = Debug_Program|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Debug|Win32.Build.0 = Debug_Program|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Debug|Win64.Build.0 = Debug_Program|x64
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Debug|XXX.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.DebugGame Editor|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.DebugGame Editor|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.DebugGame Editor|Win32.ActiveCfg = DebugGame_Program|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.DebugGame Editor|Win32.Build.0 = DebugGame_Program|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.DebugGame Editor|Win64.ActiveCfg = DebugGame_Program|x64
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.DebugGame Editor|Win64.Build.0 = DebugGame_Program|x64
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.DebugGame|HoloLens.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.DebugGame|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.DebugGame|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.DebugGame|Win32.ActiveCfg = DebugGame_Program|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.DebugGame|Win32.Build.0 = DebugGame_Program|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.DebugGame|Win64.ActiveCfg = DebugGame_Program|x64
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.DebugGame|Win64.Build.0 = DebugGame_Program|x64
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.DebugGame|XXX.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Development Editor|Mac.Build.0 = Mac_Development_Program|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Development Editor|Win32.ActiveCfg = Development_Program|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Development Editor|Win32.Build.0 = Development_Program|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Development Editor|Win64.Build.0 = Development_Program|x64
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Development|HoloLens.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Development|Mac.Build.0 = Mac_Development_Program|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Development|Win32.ActiveCfg = Development_Program|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Development|Win32.Build.0 = Development_Program|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Development|Win64.ActiveCfg = Development_Program|x64
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Development|Win64.Build.0 = Development_Program|x64
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Development|XXX.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Shipping|HoloLens.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Shipping|Mac.Build.0 = Mac_Shipping_Program|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Shipping|Win32.ActiveCfg = Shipping_Program|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Shipping|Win32.Build.0 = Shipping_Program|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Shipping|Win64.Build.0 = Shipping_Program|x64
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Shipping|XXX.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Test|HoloLens.ActiveCfg = Invalid|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Test|Mac.ActiveCfg = Mac_Test_Program|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Test|Mac.Build.0 = Mac_Test_Program|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Test|Win32.ActiveCfg = Test_Program|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Test|Win32.Build.0 = Test_Program|Win32
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Test|Win64.ActiveCfg = Test_Program|x64
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Test|Win64.Build.0 = Test_Program|x64
-		{7619BEBE-294C-43B9-8787-605B776EFA15}.Test|XXX.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Debug Editor|Mac.Build.0 = Mac_Debug_Program|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Debug Editor|Win32.ActiveCfg = Debug_Program|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Debug Editor|Win32.Build.0 = Debug_Program|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Debug Editor|Win64.Build.0 = Debug_Program|x64
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Debug|HoloLens.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Debug|Mac.Build.0 = Mac_Debug_Program|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Debug|Win32.ActiveCfg = Debug_Program|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Debug|Win32.Build.0 = Debug_Program|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Debug|Win64.Build.0 = Debug_Program|x64
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Debug|XXX.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.DebugGame Editor|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.DebugGame Editor|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.DebugGame Editor|Win32.ActiveCfg = DebugGame_Program|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.DebugGame Editor|Win32.Build.0 = DebugGame_Program|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.DebugGame Editor|Win64.ActiveCfg = DebugGame_Program|x64
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.DebugGame Editor|Win64.Build.0 = DebugGame_Program|x64
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.DebugGame|HoloLens.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.DebugGame|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.DebugGame|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.DebugGame|Win32.ActiveCfg = DebugGame_Program|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.DebugGame|Win32.Build.0 = DebugGame_Program|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.DebugGame|Win64.ActiveCfg = DebugGame_Program|x64
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.DebugGame|Win64.Build.0 = DebugGame_Program|x64
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.DebugGame|XXX.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Development Editor|Mac.Build.0 = Mac_Development_Program|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Development Editor|Win32.ActiveCfg = Development_Program|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Development Editor|Win32.Build.0 = Development_Program|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Development Editor|Win64.Build.0 = Development_Program|x64
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Development|HoloLens.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Development|Mac.Build.0 = Mac_Development_Program|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Development|Win32.ActiveCfg = Development_Program|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Development|Win32.Build.0 = Development_Program|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Development|Win64.ActiveCfg = Development_Program|x64
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Development|Win64.Build.0 = Development_Program|x64
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Development|XXX.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Shipping|HoloLens.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Shipping|Mac.Build.0 = Mac_Shipping_Program|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Shipping|Win32.ActiveCfg = Shipping_Program|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Shipping|Win32.Build.0 = Shipping_Program|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Shipping|Win64.Build.0 = Shipping_Program|x64
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Shipping|XXX.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Test|HoloLens.ActiveCfg = Invalid|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Test|Mac.ActiveCfg = Mac_Test_Program|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Test|Mac.Build.0 = Mac_Test_Program|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Test|Win32.ActiveCfg = Test_Program|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Test|Win32.Build.0 = Test_Program|Win32
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Test|Win64.ActiveCfg = Test_Program|x64
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Test|Win64.Build.0 = Test_Program|x64
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA}.Test|XXX.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Debug Editor|Mac.Build.0 = Mac_Debug_Program|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Debug Editor|Win32.ActiveCfg = Debug_Program|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Debug Editor|Win32.Build.0 = Debug_Program|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Debug Editor|Win64.Build.0 = Debug_Program|x64
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Debug|HoloLens.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Debug|Mac.Build.0 = Mac_Debug_Program|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Debug|Win32.ActiveCfg = Debug_Program|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Debug|Win32.Build.0 = Debug_Program|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Debug|Win64.Build.0 = Debug_Program|x64
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Debug|XXX.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.DebugGame Editor|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.DebugGame Editor|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.DebugGame Editor|Win32.ActiveCfg = DebugGame_Program|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.DebugGame Editor|Win32.Build.0 = DebugGame_Program|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.DebugGame Editor|Win64.ActiveCfg = DebugGame_Program|x64
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.DebugGame Editor|Win64.Build.0 = DebugGame_Program|x64
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.DebugGame|HoloLens.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.DebugGame|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.DebugGame|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.DebugGame|Win32.ActiveCfg = DebugGame_Program|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.DebugGame|Win32.Build.0 = DebugGame_Program|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.DebugGame|Win64.ActiveCfg = DebugGame_Program|x64
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.DebugGame|Win64.Build.0 = DebugGame_Program|x64
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.DebugGame|XXX.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Development Editor|Mac.Build.0 = Mac_Development_Program|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Development Editor|Win32.ActiveCfg = Development_Program|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Development Editor|Win32.Build.0 = Development_Program|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Development Editor|Win64.Build.0 = Development_Program|x64
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Development|HoloLens.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Development|Mac.Build.0 = Mac_Development_Program|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Development|Win32.ActiveCfg = Development_Program|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Development|Win32.Build.0 = Development_Program|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Development|Win64.ActiveCfg = Development_Program|x64
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Development|Win64.Build.0 = Development_Program|x64
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Development|XXX.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Shipping|HoloLens.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Shipping|Mac.Build.0 = Mac_Shipping_Program|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Shipping|Win32.ActiveCfg = Shipping_Program|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Shipping|Win32.Build.0 = Shipping_Program|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Shipping|Win64.Build.0 = Shipping_Program|x64
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Shipping|XXX.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Test|HoloLens.ActiveCfg = Invalid|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Test|Mac.ActiveCfg = Mac_Test_Program|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Test|Mac.Build.0 = Mac_Test_Program|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Test|Win32.ActiveCfg = Test_Program|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Test|Win32.Build.0 = Test_Program|Win32
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Test|Win64.ActiveCfg = Test_Program|x64
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Test|Win64.Build.0 = Test_Program|x64
-		{F6D6627B-5335-4371-A940-1E0818F99C7D}.Test|XXX.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Debug Editor|Mac.Build.0 = Mac_Debug_Program|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Debug Editor|Win32.ActiveCfg = Debug_Program|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Debug Editor|Win32.Build.0 = Debug_Program|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Debug Editor|Win64.Build.0 = Debug_Program|x64
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Debug|HoloLens.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Debug|Mac.Build.0 = Mac_Debug_Program|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Debug|Win32.ActiveCfg = Debug_Program|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Debug|Win32.Build.0 = Debug_Program|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Debug|Win64.Build.0 = Debug_Program|x64
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Debug|XXX.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.DebugGame Editor|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.DebugGame Editor|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.DebugGame Editor|Win32.ActiveCfg = DebugGame_Program|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.DebugGame Editor|Win32.Build.0 = DebugGame_Program|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.DebugGame Editor|Win64.ActiveCfg = DebugGame_Program|x64
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.DebugGame Editor|Win64.Build.0 = DebugGame_Program|x64
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.DebugGame|HoloLens.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.DebugGame|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.DebugGame|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.DebugGame|Win32.ActiveCfg = DebugGame_Program|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.DebugGame|Win32.Build.0 = DebugGame_Program|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.DebugGame|Win64.ActiveCfg = DebugGame_Program|x64
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.DebugGame|Win64.Build.0 = DebugGame_Program|x64
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.DebugGame|XXX.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Development Editor|Mac.Build.0 = Mac_Development_Program|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Development Editor|Win32.ActiveCfg = Development_Program|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Development Editor|Win32.Build.0 = Development_Program|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Development Editor|Win64.Build.0 = Development_Program|x64
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Development|HoloLens.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Development|Mac.Build.0 = Mac_Development_Program|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Development|Win32.ActiveCfg = Development_Program|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Development|Win32.Build.0 = Development_Program|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Development|Win64.ActiveCfg = Development_Program|x64
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Development|Win64.Build.0 = Development_Program|x64
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Development|XXX.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Shipping|HoloLens.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Shipping|Mac.Build.0 = Mac_Shipping_Program|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Shipping|Win32.ActiveCfg = Shipping_Program|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Shipping|Win32.Build.0 = Shipping_Program|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Shipping|Win64.Build.0 = Shipping_Program|x64
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Shipping|XXX.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Test|HoloLens.ActiveCfg = Invalid|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Test|Mac.ActiveCfg = Mac_Test_Program|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Test|Mac.Build.0 = Mac_Test_Program|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Test|Win32.ActiveCfg = Test_Program|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Test|Win32.Build.0 = Test_Program|Win32
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Test|Win64.ActiveCfg = Test_Program|x64
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Test|Win64.Build.0 = Test_Program|x64
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14}.Test|XXX.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Debug Editor|Mac.Build.0 = Mac_Debug_Program|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Debug Editor|Win32.ActiveCfg = Debug_Program|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Debug Editor|Win32.Build.0 = Debug_Program|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Debug Editor|Win64.Build.0 = Debug_Program|x64
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Debug|HoloLens.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Debug|Mac.Build.0 = Mac_Debug_Program|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Debug|Win32.ActiveCfg = Debug_Program|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Debug|Win32.Build.0 = Debug_Program|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Debug|Win64.Build.0 = Debug_Program|x64
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Debug|XXX.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.DebugGame Editor|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.DebugGame Editor|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.DebugGame Editor|Win32.ActiveCfg = DebugGame_Program|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.DebugGame Editor|Win32.Build.0 = DebugGame_Program|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.DebugGame Editor|Win64.ActiveCfg = DebugGame_Program|x64
-		{052E7DD4-244C-417F-BC93-542303E2341D}.DebugGame Editor|Win64.Build.0 = DebugGame_Program|x64
-		{052E7DD4-244C-417F-BC93-542303E2341D}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.DebugGame|HoloLens.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.DebugGame|Mac.ActiveCfg = Mac_DebugGame_Program|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.DebugGame|Mac.Build.0 = Mac_DebugGame_Program|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.DebugGame|Win32.ActiveCfg = DebugGame_Program|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.DebugGame|Win32.Build.0 = DebugGame_Program|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.DebugGame|Win64.ActiveCfg = DebugGame_Program|x64
-		{052E7DD4-244C-417F-BC93-542303E2341D}.DebugGame|Win64.Build.0 = DebugGame_Program|x64
-		{052E7DD4-244C-417F-BC93-542303E2341D}.DebugGame|XXX.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Development Editor|Mac.Build.0 = Mac_Development_Program|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Development Editor|Win32.ActiveCfg = Development_Program|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Development Editor|Win32.Build.0 = Development_Program|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Development Editor|Win64.Build.0 = Development_Program|x64
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Development|HoloLens.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Development|Mac.Build.0 = Mac_Development_Program|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Development|Win32.ActiveCfg = Development_Program|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Development|Win32.Build.0 = Development_Program|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Development|Win64.ActiveCfg = Development_Program|x64
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Development|Win64.Build.0 = Development_Program|x64
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Development|XXX.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Shipping|HoloLens.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Shipping|Mac.Build.0 = Mac_Shipping_Program|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Shipping|Win32.ActiveCfg = Shipping_Program|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Shipping|Win32.Build.0 = Shipping_Program|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Shipping|Win64.Build.0 = Shipping_Program|x64
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Shipping|XXX.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Test|HoloLens.ActiveCfg = Invalid|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Test|Mac.ActiveCfg = Mac_Test_Program|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Test|Mac.Build.0 = Mac_Test_Program|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Test|Win32.ActiveCfg = Test_Program|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Test|Win32.Build.0 = Test_Program|Win32
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Test|Win64.ActiveCfg = Test_Program|x64
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Test|Win64.Build.0 = Test_Program|x64
-		{052E7DD4-244C-417F-BC93-542303E2341D}.Test|XXX.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Debug Editor|Mac.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Debug Editor|Win32.ActiveCfg = Debug_Program|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Debug Editor|Win32.Build.0 = Debug_Program|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Debug Editor|Win64.Build.0 = Debug_Program|x64
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Debug|HoloLens.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Debug|Mac.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Debug|Win32.ActiveCfg = Debug_Program|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Debug|Win32.Build.0 = Debug_Program|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Debug|Win64.Build.0 = Debug_Program|x64
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Debug|XXX.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.DebugGame Editor|Mac.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.DebugGame Editor|Win32.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.DebugGame Editor|Win64.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.DebugGame|HoloLens.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.DebugGame|Mac.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.DebugGame|Win32.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.DebugGame|Win64.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.DebugGame|XXX.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Development Editor|Mac.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Development Editor|Win32.ActiveCfg = Development_Program|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Development Editor|Win32.Build.0 = Development_Program|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Development Editor|Win64.Build.0 = Development_Program|x64
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Development|HoloLens.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Development|Mac.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Development|Win32.ActiveCfg = Development_Program|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Development|Win32.Build.0 = Development_Program|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Development|Win64.ActiveCfg = Development_Program|x64
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Development|Win64.Build.0 = Development_Program|x64
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Development|XXX.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Shipping|HoloLens.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Shipping|Mac.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Shipping|Win32.ActiveCfg = Shipping_Program|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Shipping|Win32.Build.0 = Shipping_Program|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Shipping|Win64.Build.0 = Shipping_Program|x64
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Shipping|XXX.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Test|HoloLens.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Test|Mac.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Test|Win32.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Test|Win64.ActiveCfg = Invalid|Win32
-		{531B5567-1A85-432A-B1F9-B871486D23D8}.Test|XXX.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Debug Client|HoloLens.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Debug Client|Mac.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Debug Client|Win32.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Debug Client|Win64.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Debug Client|XXX.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Debug Editor|Mac.Build.0 = Mac_Debug_Program|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Debug Editor|Win32.ActiveCfg = Debug_Program|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Debug Editor|Win32.Build.0 = Debug_Program|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Debug Editor|Win64.ActiveCfg = Debug_Program|x64
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Debug Editor|Win64.Build.0 = Debug_Program|x64
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Debug Server|Mac.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Debug Server|Win32.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Debug Server|Win64.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Debug|HoloLens.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Debug|Mac.ActiveCfg = Mac_Debug_Program|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Debug|Mac.Build.0 = Mac_Debug_Program|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Debug|Win32.ActiveCfg = Debug_Program|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Debug|Win32.Build.0 = Debug_Program|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Debug|Win64.ActiveCfg = Debug_Program|x64
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Debug|Win64.Build.0 = Debug_Program|x64
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Debug|XXX.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.DebugGame Client|HoloLens.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.DebugGame Client|Mac.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.DebugGame Client|Win32.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.DebugGame Client|Win64.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.DebugGame Client|XXX.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.DebugGame Editor|Mac.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.DebugGame Editor|Win32.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.DebugGame Editor|Win64.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.DebugGame Server|Mac.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.DebugGame Server|Win32.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.DebugGame Server|Win64.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.DebugGame|HoloLens.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.DebugGame|Mac.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.DebugGame|Win32.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.DebugGame|Win64.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.DebugGame|XXX.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Development Client|HoloLens.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Development Client|Mac.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Development Client|Win32.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Development Client|Win64.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Development Client|XXX.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Development Editor|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Development Editor|Mac.Build.0 = Mac_Development_Program|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Development Editor|Win32.ActiveCfg = Development_Program|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Development Editor|Win32.Build.0 = Development_Program|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Development Editor|Win64.ActiveCfg = Development_Program|x64
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Development Editor|Win64.Build.0 = Development_Program|x64
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Development Server|Mac.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Development Server|Win32.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Development Server|Win64.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Development|HoloLens.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Development|Mac.ActiveCfg = Mac_Development_Program|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Development|Mac.Build.0 = Mac_Development_Program|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Development|Win32.ActiveCfg = Development_Program|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Development|Win32.Build.0 = Development_Program|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Development|Win64.ActiveCfg = Development_Program|x64
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Development|Win64.Build.0 = Development_Program|x64
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Development|XXX.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Shipping Client|HoloLens.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Shipping Client|Mac.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Shipping Client|Win32.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Shipping Client|Win64.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Shipping Client|XXX.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Shipping Server|Mac.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Shipping Server|Win32.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Shipping Server|Win64.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Shipping|HoloLens.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Shipping|Mac.ActiveCfg = Mac_Shipping_Program|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Shipping|Mac.Build.0 = Mac_Shipping_Program|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Shipping|Win32.ActiveCfg = Shipping_Program|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Shipping|Win32.Build.0 = Shipping_Program|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Shipping|Win64.ActiveCfg = Shipping_Program|x64
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Shipping|Win64.Build.0 = Shipping_Program|x64
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Shipping|XXX.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Test Client|HoloLens.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Test Client|Mac.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Test Client|Win32.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Test Client|Win64.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Test Client|XXX.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Test Server|Mac.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Test Server|Win32.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Test Server|Win64.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Test|HoloLens.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Test|Mac.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Test|Win32.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Test|Win64.ActiveCfg = Invalid|Win32
-		{F04924E9-F295-48E6-8673-CB39F546BF31}.Test|XXX.ActiveCfg = Invalid|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Debug Client|HoloLens.ActiveCfg = Debug_Client|arm64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Debug Client|HoloLens.Build.0 = Debug_Client|arm64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Debug Client|HoloLens.Deploy.0 = Debug_Client|arm64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Debug Client|Mac.ActiveCfg = Mac_Debug_Client|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Debug Client|Mac.Build.0 = Mac_Debug_Client|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Debug Client|Win32.ActiveCfg = Debug_Client|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Debug Client|Win32.Build.0 = Debug_Client|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Debug Client|Win64.ActiveCfg = Debug_Client|x64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Debug Client|Win64.Build.0 = Debug_Client|x64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Debug Client|XXX.ActiveCfg = XXX_Debug_Client|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Debug Client|XXX.Build.0 = XXX_Debug_Client|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Debug Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Debug Editor|Mac.ActiveCfg = Mac_Debug_Editor|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Debug Editor|Mac.Build.0 = Mac_Debug_Editor|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Debug Editor|Win32.ActiveCfg = Invalid|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Debug Editor|Win64.ActiveCfg = Debug_Editor|x64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Debug Editor|Win64.Build.0 = Debug_Editor|x64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Debug Editor|XXX.ActiveCfg = Invalid|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Debug Server|HoloLens.ActiveCfg = Invalid|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Debug Server|Mac.ActiveCfg = Mac_Debug_Server|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Debug Server|Mac.Build.0 = Mac_Debug_Server|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Debug Server|Win32.ActiveCfg = Debug_Server|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Debug Server|Win32.Build.0 = Debug_Server|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Debug Server|Win64.ActiveCfg = Debug_Server|x64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Debug Server|Win64.Build.0 = Debug_Server|x64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Debug Server|XXX.ActiveCfg = Invalid|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Debug|HoloLens.ActiveCfg = Debug|arm64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Debug|HoloLens.Build.0 = Debug|arm64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Debug|HoloLens.Deploy.0 = Debug|arm64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Debug|Mac.ActiveCfg = Mac_Debug|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Debug|Mac.Build.0 = Mac_Debug|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Debug|Win32.ActiveCfg = Debug|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Debug|Win32.Build.0 = Debug|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Debug|Win64.ActiveCfg = Debug|x64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Debug|Win64.Build.0 = Debug|x64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Debug|XXX.ActiveCfg = XXX_Debug|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Debug|XXX.Build.0 = XXX_Debug|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.DebugGame Client|HoloLens.ActiveCfg = DebugGame_Client|arm64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.DebugGame Client|HoloLens.Build.0 = DebugGame_Client|arm64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.DebugGame Client|HoloLens.Deploy.0 = DebugGame_Client|arm64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.DebugGame Client|Mac.ActiveCfg = Mac_DebugGame_Client|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.DebugGame Client|Mac.Build.0 = Mac_DebugGame_Client|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.DebugGame Client|Win32.ActiveCfg = DebugGame_Client|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.DebugGame Client|Win32.Build.0 = DebugGame_Client|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.DebugGame Client|Win64.ActiveCfg = DebugGame_Client|x64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.DebugGame Client|Win64.Build.0 = DebugGame_Client|x64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.DebugGame Client|XXX.ActiveCfg = XXX_DebugGame_Client|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.DebugGame Client|XXX.Build.0 = XXX_DebugGame_Client|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.DebugGame Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.DebugGame Editor|Mac.ActiveCfg = Mac_DebugGame_Editor|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.DebugGame Editor|Mac.Build.0 = Mac_DebugGame_Editor|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.DebugGame Editor|Win32.ActiveCfg = Invalid|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.DebugGame Editor|Win64.ActiveCfg = DebugGame_Editor|x64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.DebugGame Editor|Win64.Build.0 = DebugGame_Editor|x64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.DebugGame Editor|XXX.ActiveCfg = Invalid|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.DebugGame Server|HoloLens.ActiveCfg = Invalid|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.DebugGame Server|Mac.ActiveCfg = Mac_DebugGame_Server|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.DebugGame Server|Mac.Build.0 = Mac_DebugGame_Server|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.DebugGame Server|Win32.ActiveCfg = DebugGame_Server|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.DebugGame Server|Win32.Build.0 = DebugGame_Server|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.DebugGame Server|Win64.ActiveCfg = DebugGame_Server|x64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.DebugGame Server|Win64.Build.0 = DebugGame_Server|x64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.DebugGame Server|XXX.ActiveCfg = Invalid|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.DebugGame|HoloLens.ActiveCfg = DebugGame|arm64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.DebugGame|HoloLens.Build.0 = DebugGame|arm64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.DebugGame|HoloLens.Deploy.0 = DebugGame|arm64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.DebugGame|Mac.ActiveCfg = Mac_DebugGame|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.DebugGame|Mac.Build.0 = Mac_DebugGame|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.DebugGame|Win32.ActiveCfg = DebugGame|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.DebugGame|Win32.Build.0 = DebugGame|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.DebugGame|Win64.ActiveCfg = DebugGame|x64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.DebugGame|Win64.Build.0 = DebugGame|x64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.DebugGame|XXX.ActiveCfg = XXX_DebugGame|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.DebugGame|XXX.Build.0 = XXX_DebugGame|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Development Client|HoloLens.ActiveCfg = Development_Client|arm64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Development Client|HoloLens.Build.0 = Development_Client|arm64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Development Client|HoloLens.Deploy.0 = Development_Client|arm64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Development Client|Mac.ActiveCfg = Mac_Development_Client|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Development Client|Mac.Build.0 = Mac_Development_Client|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Development Client|Win32.ActiveCfg = Development_Client|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Development Client|Win32.Build.0 = Development_Client|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Development Client|Win64.ActiveCfg = Development_Client|x64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Development Client|Win64.Build.0 = Development_Client|x64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Development Client|XXX.ActiveCfg = XXX_Development_Client|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Development Client|XXX.Build.0 = XXX_Development_Client|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Development Editor|HoloLens.ActiveCfg = Invalid|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Development Editor|Mac.ActiveCfg = Mac_Development_Editor|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Development Editor|Mac.Build.0 = Mac_Development_Editor|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Development Editor|Win32.ActiveCfg = Invalid|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Development Editor|Win64.ActiveCfg = Development_Editor|x64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Development Editor|Win64.Build.0 = Development_Editor|x64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Development Editor|XXX.ActiveCfg = Invalid|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Development Server|HoloLens.ActiveCfg = Invalid|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Development Server|Mac.ActiveCfg = Mac_Development_Server|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Development Server|Mac.Build.0 = Mac_Development_Server|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Development Server|Win32.ActiveCfg = Development_Server|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Development Server|Win32.Build.0 = Development_Server|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Development Server|Win64.ActiveCfg = Development_Server|x64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Development Server|Win64.Build.0 = Development_Server|x64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Development Server|XXX.ActiveCfg = Invalid|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Development|HoloLens.ActiveCfg = Development|arm64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Development|HoloLens.Build.0 = Development|arm64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Development|HoloLens.Deploy.0 = Development|arm64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Development|Mac.ActiveCfg = Mac_Development|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Development|Mac.Build.0 = Mac_Development|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Development|Win32.ActiveCfg = Development|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Development|Win32.Build.0 = Development|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Development|Win64.ActiveCfg = Development|x64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Development|Win64.Build.0 = Development|x64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Development|XXX.ActiveCfg = XXX_Development|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Development|XXX.Build.0 = XXX_Development|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Shipping Client|HoloLens.ActiveCfg = Shipping_Client|arm64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Shipping Client|HoloLens.Build.0 = Shipping_Client|arm64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Shipping Client|HoloLens.Deploy.0 = Shipping_Client|arm64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Shipping Client|Mac.ActiveCfg = Mac_Shipping_Client|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Shipping Client|Mac.Build.0 = Mac_Shipping_Client|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Shipping Client|Win32.ActiveCfg = Shipping_Client|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Shipping Client|Win32.Build.0 = Shipping_Client|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Shipping Client|Win64.ActiveCfg = Shipping_Client|x64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Shipping Client|Win64.Build.0 = Shipping_Client|x64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Shipping Client|XXX.ActiveCfg = XXX_Shipping_Client|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Shipping Client|XXX.Build.0 = XXX_Shipping_Client|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Shipping Server|HoloLens.ActiveCfg = Invalid|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Shipping Server|Mac.ActiveCfg = Mac_Shipping_Server|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Shipping Server|Mac.Build.0 = Mac_Shipping_Server|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Shipping Server|Win32.ActiveCfg = Shipping_Server|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Shipping Server|Win32.Build.0 = Shipping_Server|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Shipping Server|Win64.ActiveCfg = Shipping_Server|x64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Shipping Server|Win64.Build.0 = Shipping_Server|x64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Shipping Server|XXX.ActiveCfg = Invalid|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Shipping|HoloLens.ActiveCfg = Shipping|arm64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Shipping|HoloLens.Build.0 = Shipping|arm64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Shipping|HoloLens.Deploy.0 = Shipping|arm64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Shipping|Mac.ActiveCfg = Mac_Shipping|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Shipping|Mac.Build.0 = Mac_Shipping|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Shipping|Win32.ActiveCfg = Shipping|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Shipping|Win32.Build.0 = Shipping|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Shipping|Win64.ActiveCfg = Shipping|x64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Shipping|Win64.Build.0 = Shipping|x64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Shipping|XXX.ActiveCfg = XXX_Shipping|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Shipping|XXX.Build.0 = XXX_Shipping|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Test Client|HoloLens.ActiveCfg = Test_Client|arm64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Test Client|HoloLens.Build.0 = Test_Client|arm64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Test Client|HoloLens.Deploy.0 = Test_Client|arm64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Test Client|Mac.ActiveCfg = Mac_Test_Client|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Test Client|Mac.Build.0 = Mac_Test_Client|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Test Client|Win32.ActiveCfg = Test_Client|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Test Client|Win32.Build.0 = Test_Client|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Test Client|Win64.ActiveCfg = Test_Client|x64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Test Client|Win64.Build.0 = Test_Client|x64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Test Client|XXX.ActiveCfg = XXX_Test_Client|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Test Client|XXX.Build.0 = XXX_Test_Client|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Test Server|HoloLens.ActiveCfg = Invalid|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Test Server|Mac.ActiveCfg = Mac_Test_Server|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Test Server|Mac.Build.0 = Mac_Test_Server|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Test Server|Win32.ActiveCfg = Test_Server|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Test Server|Win32.Build.0 = Test_Server|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Test Server|Win64.ActiveCfg = Test_Server|x64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Test Server|Win64.Build.0 = Test_Server|x64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Test Server|XXX.ActiveCfg = Invalid|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Test|HoloLens.ActiveCfg = Test|arm64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Test|HoloLens.Build.0 = Test|arm64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Test|HoloLens.Deploy.0 = Test|arm64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Test|Mac.ActiveCfg = Mac_Test|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Test|Mac.Build.0 = Mac_Test|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Test|Win32.ActiveCfg = Test|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Test|Win32.Build.0 = Test|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Test|Win64.ActiveCfg = Test|x64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Test|Win64.Build.0 = Test|x64
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Test|XXX.ActiveCfg = XXX_Test|Win32
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE}.Test|XXX.Build.0 = XXX_Test|Win32
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug Client|HoloLens.ActiveCfg = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug Client|HoloLens.Build.0 = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug Client|Mac.ActiveCfg = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug Client|Mac.Build.0 = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug Client|Win32.ActiveCfg = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug Client|Win32.Build.0 = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug Client|Win64.ActiveCfg = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug Client|Win64.Build.0 = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug Client|XXX.ActiveCfg = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug Client|XXX.Build.0 = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug Editor|HoloLens.ActiveCfg = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug Editor|HoloLens.Build.0 = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug Editor|Mac.ActiveCfg = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug Editor|Mac.Build.0 = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug Editor|Win32.ActiveCfg = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug Editor|Win32.Build.0 = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug Editor|Win64.ActiveCfg = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug Editor|Win64.Build.0 = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug Editor|XXX.ActiveCfg = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug Editor|XXX.Build.0 = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug Server|HoloLens.ActiveCfg = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug Server|HoloLens.Build.0 = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug Server|Mac.ActiveCfg = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug Server|Mac.Build.0 = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug Server|Win32.ActiveCfg = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug Server|Win32.Build.0 = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug Server|Win64.ActiveCfg = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug Server|Win64.Build.0 = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug Server|XXX.ActiveCfg = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug Server|XXX.Build.0 = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug|HoloLens.ActiveCfg = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug|HoloLens.Build.0 = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug|Mac.ActiveCfg = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug|Mac.Build.0 = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug|Win32.Build.0 = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug|Win64.ActiveCfg = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug|Win64.Build.0 = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug|XXX.ActiveCfg = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Debug|XXX.Build.0 = Debug|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame Client|HoloLens.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame Client|HoloLens.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame Client|Mac.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame Client|Mac.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame Client|Win32.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame Client|Win32.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame Client|Win64.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame Client|Win64.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame Client|XXX.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame Client|XXX.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame Editor|HoloLens.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame Editor|Mac.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame Editor|Mac.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame Editor|Win32.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame Editor|Win32.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame Editor|Win64.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame Editor|Win64.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame Editor|XXX.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame Editor|XXX.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame Server|HoloLens.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame Server|HoloLens.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame Server|Mac.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame Server|Mac.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame Server|Win32.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame Server|Win32.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame Server|Win64.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame Server|Win64.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame Server|XXX.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame Server|XXX.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame|HoloLens.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame|HoloLens.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame|Mac.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame|Mac.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame|Win32.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame|Win32.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame|Win64.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame|Win64.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame|XXX.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.DebugGame|XXX.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development Client|HoloLens.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development Client|HoloLens.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development Client|Mac.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development Client|Mac.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development Client|Win32.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development Client|Win32.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development Client|Win64.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development Client|Win64.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development Client|XXX.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development Client|XXX.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development Editor|HoloLens.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development Editor|Mac.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development Editor|Mac.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development Editor|Win32.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development Editor|Win32.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development Editor|Win64.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development Editor|Win64.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development Editor|XXX.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development Editor|XXX.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development Server|HoloLens.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development Server|HoloLens.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development Server|Mac.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development Server|Mac.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development Server|Win32.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development Server|Win32.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development Server|Win64.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development Server|Win64.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development Server|XXX.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development Server|XXX.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development|HoloLens.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development|HoloLens.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development|Mac.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development|Mac.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development|Win32.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development|Win32.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development|Win64.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development|Win64.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development|XXX.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Development|XXX.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Shipping Client|HoloLens.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Shipping Client|HoloLens.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Shipping Client|Mac.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Shipping Client|Mac.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Shipping Client|Win32.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Shipping Client|Win32.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Shipping Client|Win64.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Shipping Client|Win64.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Shipping Client|XXX.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Shipping Client|XXX.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Shipping Server|HoloLens.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Shipping Server|HoloLens.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Shipping Server|Mac.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Shipping Server|Mac.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Shipping Server|Win32.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Shipping Server|Win32.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Shipping Server|Win64.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Shipping Server|Win64.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Shipping Server|XXX.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Shipping Server|XXX.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Shipping|HoloLens.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Shipping|HoloLens.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Shipping|Mac.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Shipping|Mac.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Shipping|Win32.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Shipping|Win32.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Shipping|Win64.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Shipping|Win64.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Shipping|XXX.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Shipping|XXX.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Test Client|HoloLens.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Test Client|HoloLens.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Test Client|Mac.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Test Client|Mac.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Test Client|Win32.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Test Client|Win32.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Test Client|Win64.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Test Client|Win64.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Test Client|XXX.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Test Client|XXX.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Test Server|HoloLens.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Test Server|HoloLens.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Test Server|Mac.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Test Server|Mac.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Test Server|Win32.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Test Server|Win32.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Test Server|Win64.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Test Server|Win64.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Test Server|XXX.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Test Server|XXX.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Test|HoloLens.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Test|HoloLens.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Test|Mac.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Test|Mac.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Test|Win32.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Test|Win32.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Test|Win64.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Test|Win64.Build.0 = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Test|XXX.ActiveCfg = Development|Any CPU
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC}.Test|XXX.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug Client|HoloLens.ActiveCfg = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug Client|HoloLens.Build.0 = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug Client|Mac.ActiveCfg = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug Client|Mac.Build.0 = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug Client|Win32.ActiveCfg = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug Client|Win32.Build.0 = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug Client|Win64.ActiveCfg = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug Client|Win64.Build.0 = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug Client|XXX.ActiveCfg = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug Client|XXX.Build.0 = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug Editor|HoloLens.ActiveCfg = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug Editor|HoloLens.Build.0 = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug Editor|Mac.ActiveCfg = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug Editor|Mac.Build.0 = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug Editor|Win32.ActiveCfg = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug Editor|Win32.Build.0 = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug Editor|Win64.ActiveCfg = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug Editor|Win64.Build.0 = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug Editor|XXX.ActiveCfg = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug Editor|XXX.Build.0 = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug Server|HoloLens.ActiveCfg = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug Server|HoloLens.Build.0 = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug Server|Mac.ActiveCfg = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug Server|Mac.Build.0 = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug Server|Win32.ActiveCfg = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug Server|Win32.Build.0 = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug Server|Win64.ActiveCfg = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug Server|Win64.Build.0 = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug Server|XXX.ActiveCfg = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug Server|XXX.Build.0 = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug|HoloLens.ActiveCfg = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug|HoloLens.Build.0 = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug|Mac.ActiveCfg = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug|Mac.Build.0 = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug|Win32.Build.0 = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug|Win64.ActiveCfg = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug|Win64.Build.0 = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug|XXX.ActiveCfg = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Debug|XXX.Build.0 = Debug|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame Client|HoloLens.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame Client|HoloLens.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame Client|Mac.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame Client|Mac.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame Client|Win32.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame Client|Win32.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame Client|Win64.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame Client|Win64.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame Client|XXX.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame Client|XXX.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame Editor|HoloLens.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame Editor|Mac.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame Editor|Mac.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame Editor|Win32.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame Editor|Win32.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame Editor|Win64.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame Editor|Win64.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame Editor|XXX.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame Editor|XXX.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame Server|HoloLens.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame Server|HoloLens.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame Server|Mac.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame Server|Mac.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame Server|Win32.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame Server|Win32.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame Server|Win64.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame Server|Win64.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame Server|XXX.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame Server|XXX.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame|HoloLens.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame|HoloLens.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame|Mac.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame|Mac.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame|Win32.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame|Win32.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame|Win64.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame|Win64.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame|XXX.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.DebugGame|XXX.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development Client|HoloLens.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development Client|HoloLens.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development Client|Mac.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development Client|Mac.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development Client|Win32.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development Client|Win32.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development Client|Win64.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development Client|Win64.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development Client|XXX.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development Client|XXX.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development Editor|HoloLens.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development Editor|Mac.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development Editor|Mac.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development Editor|Win32.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development Editor|Win32.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development Editor|Win64.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development Editor|Win64.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development Editor|XXX.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development Editor|XXX.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development Server|HoloLens.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development Server|HoloLens.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development Server|Mac.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development Server|Mac.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development Server|Win32.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development Server|Win32.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development Server|Win64.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development Server|Win64.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development Server|XXX.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development Server|XXX.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development|HoloLens.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development|HoloLens.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development|Mac.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development|Mac.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development|Win32.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development|Win32.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development|Win64.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development|Win64.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development|XXX.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Development|XXX.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Shipping Client|HoloLens.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Shipping Client|HoloLens.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Shipping Client|Mac.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Shipping Client|Mac.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Shipping Client|Win32.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Shipping Client|Win32.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Shipping Client|Win64.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Shipping Client|Win64.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Shipping Client|XXX.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Shipping Client|XXX.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Shipping Server|HoloLens.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Shipping Server|HoloLens.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Shipping Server|Mac.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Shipping Server|Mac.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Shipping Server|Win32.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Shipping Server|Win32.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Shipping Server|Win64.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Shipping Server|Win64.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Shipping Server|XXX.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Shipping Server|XXX.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Shipping|HoloLens.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Shipping|HoloLens.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Shipping|Mac.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Shipping|Mac.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Shipping|Win32.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Shipping|Win32.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Shipping|Win64.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Shipping|Win64.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Shipping|XXX.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Shipping|XXX.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Test Client|HoloLens.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Test Client|HoloLens.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Test Client|Mac.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Test Client|Mac.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Test Client|Win32.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Test Client|Win32.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Test Client|Win64.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Test Client|Win64.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Test Client|XXX.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Test Client|XXX.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Test Server|HoloLens.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Test Server|HoloLens.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Test Server|Mac.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Test Server|Mac.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Test Server|Win32.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Test Server|Win32.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Test Server|Win64.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Test Server|Win64.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Test Server|XXX.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Test Server|XXX.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Test|HoloLens.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Test|HoloLens.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Test|Mac.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Test|Mac.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Test|Win32.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Test|Win32.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Test|Win64.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Test|Win64.Build.0 = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Test|XXX.ActiveCfg = Development|Any CPU
-		{A35B0261-D868-475E-A098-EB14CE6DC89F}.Test|XXX.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug Client|HoloLens.ActiveCfg = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug Client|HoloLens.Build.0 = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug Client|Mac.ActiveCfg = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug Client|Mac.Build.0 = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug Client|Win32.ActiveCfg = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug Client|Win32.Build.0 = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug Client|Win64.ActiveCfg = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug Client|Win64.Build.0 = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug Client|XXX.ActiveCfg = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug Client|XXX.Build.0 = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug Editor|HoloLens.ActiveCfg = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug Editor|HoloLens.Build.0 = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug Editor|Mac.ActiveCfg = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug Editor|Mac.Build.0 = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug Editor|Win32.ActiveCfg = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug Editor|Win32.Build.0 = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug Editor|Win64.ActiveCfg = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug Editor|Win64.Build.0 = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug Editor|XXX.ActiveCfg = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug Editor|XXX.Build.0 = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug Server|HoloLens.ActiveCfg = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug Server|HoloLens.Build.0 = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug Server|Mac.ActiveCfg = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug Server|Mac.Build.0 = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug Server|Win32.ActiveCfg = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug Server|Win32.Build.0 = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug Server|Win64.ActiveCfg = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug Server|Win64.Build.0 = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug Server|XXX.ActiveCfg = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug Server|XXX.Build.0 = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug|HoloLens.ActiveCfg = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug|HoloLens.Build.0 = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug|Mac.ActiveCfg = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug|Mac.Build.0 = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug|Win32.Build.0 = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug|Win64.ActiveCfg = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug|Win64.Build.0 = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug|XXX.ActiveCfg = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Debug|XXX.Build.0 = Debug|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame Client|HoloLens.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame Client|HoloLens.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame Client|Mac.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame Client|Mac.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame Client|Win32.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame Client|Win32.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame Client|Win64.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame Client|Win64.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame Client|XXX.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame Client|XXX.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame Editor|HoloLens.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame Editor|Mac.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame Editor|Mac.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame Editor|Win32.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame Editor|Win32.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame Editor|Win64.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame Editor|Win64.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame Editor|XXX.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame Editor|XXX.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame Server|HoloLens.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame Server|HoloLens.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame Server|Mac.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame Server|Mac.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame Server|Win32.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame Server|Win32.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame Server|Win64.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame Server|Win64.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame Server|XXX.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame Server|XXX.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame|HoloLens.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame|HoloLens.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame|Mac.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame|Mac.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame|Win32.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame|Win32.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame|Win64.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame|Win64.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame|XXX.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.DebugGame|XXX.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development Client|HoloLens.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development Client|HoloLens.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development Client|Mac.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development Client|Mac.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development Client|Win32.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development Client|Win32.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development Client|Win64.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development Client|Win64.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development Client|XXX.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development Client|XXX.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development Editor|HoloLens.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development Editor|Mac.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development Editor|Mac.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development Editor|Win32.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development Editor|Win32.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development Editor|Win64.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development Editor|Win64.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development Editor|XXX.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development Editor|XXX.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development Server|HoloLens.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development Server|HoloLens.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development Server|Mac.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development Server|Mac.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development Server|Win32.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development Server|Win32.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development Server|Win64.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development Server|Win64.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development Server|XXX.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development Server|XXX.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development|HoloLens.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development|HoloLens.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development|Mac.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development|Mac.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development|Win32.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development|Win32.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development|Win64.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development|Win64.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development|XXX.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Development|XXX.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Shipping Client|HoloLens.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Shipping Client|HoloLens.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Shipping Client|Mac.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Shipping Client|Mac.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Shipping Client|Win32.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Shipping Client|Win32.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Shipping Client|Win64.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Shipping Client|Win64.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Shipping Client|XXX.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Shipping Client|XXX.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Shipping Server|HoloLens.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Shipping Server|HoloLens.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Shipping Server|Mac.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Shipping Server|Mac.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Shipping Server|Win32.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Shipping Server|Win32.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Shipping Server|Win64.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Shipping Server|Win64.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Shipping Server|XXX.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Shipping Server|XXX.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Shipping|HoloLens.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Shipping|HoloLens.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Shipping|Mac.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Shipping|Mac.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Shipping|Win32.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Shipping|Win32.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Shipping|Win64.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Shipping|Win64.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Shipping|XXX.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Shipping|XXX.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Test Client|HoloLens.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Test Client|HoloLens.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Test Client|Mac.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Test Client|Mac.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Test Client|Win32.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Test Client|Win32.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Test Client|Win64.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Test Client|Win64.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Test Client|XXX.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Test Client|XXX.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Test Server|HoloLens.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Test Server|HoloLens.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Test Server|Mac.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Test Server|Mac.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Test Server|Win32.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Test Server|Win32.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Test Server|Win64.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Test Server|Win64.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Test Server|XXX.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Test Server|XXX.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Test|HoloLens.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Test|HoloLens.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Test|Mac.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Test|Mac.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Test|Win32.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Test|Win32.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Test|Win64.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Test|Win64.Build.0 = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Test|XXX.ActiveCfg = Development|Any CPU
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283}.Test|XXX.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug Client|HoloLens.ActiveCfg = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug Client|HoloLens.Build.0 = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug Client|Mac.ActiveCfg = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug Client|Mac.Build.0 = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug Client|Win32.ActiveCfg = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug Client|Win32.Build.0 = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug Client|Win64.ActiveCfg = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug Client|Win64.Build.0 = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug Client|XXX.ActiveCfg = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug Client|XXX.Build.0 = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug Editor|HoloLens.ActiveCfg = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug Editor|HoloLens.Build.0 = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug Editor|Mac.ActiveCfg = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug Editor|Mac.Build.0 = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug Editor|Win32.ActiveCfg = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug Editor|Win32.Build.0 = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug Editor|Win64.ActiveCfg = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug Editor|Win64.Build.0 = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug Editor|XXX.ActiveCfg = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug Editor|XXX.Build.0 = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug Server|HoloLens.ActiveCfg = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug Server|HoloLens.Build.0 = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug Server|Mac.ActiveCfg = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug Server|Mac.Build.0 = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug Server|Win32.ActiveCfg = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug Server|Win32.Build.0 = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug Server|Win64.ActiveCfg = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug Server|Win64.Build.0 = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug Server|XXX.ActiveCfg = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug Server|XXX.Build.0 = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug|HoloLens.ActiveCfg = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug|HoloLens.Build.0 = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug|Mac.ActiveCfg = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug|Mac.Build.0 = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug|Win32.Build.0 = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug|Win64.ActiveCfg = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug|Win64.Build.0 = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug|XXX.ActiveCfg = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Debug|XXX.Build.0 = Debug|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame Client|HoloLens.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame Client|HoloLens.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame Client|Mac.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame Client|Mac.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame Client|Win32.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame Client|Win32.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame Client|Win64.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame Client|Win64.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame Client|XXX.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame Client|XXX.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame Editor|HoloLens.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame Editor|Mac.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame Editor|Mac.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame Editor|Win32.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame Editor|Win32.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame Editor|Win64.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame Editor|Win64.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame Editor|XXX.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame Editor|XXX.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame Server|HoloLens.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame Server|HoloLens.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame Server|Mac.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame Server|Mac.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame Server|Win32.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame Server|Win32.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame Server|Win64.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame Server|Win64.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame Server|XXX.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame Server|XXX.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame|HoloLens.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame|HoloLens.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame|Mac.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame|Mac.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame|Win32.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame|Win32.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame|Win64.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame|Win64.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame|XXX.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.DebugGame|XXX.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development Client|HoloLens.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development Client|HoloLens.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development Client|Mac.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development Client|Mac.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development Client|Win32.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development Client|Win32.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development Client|Win64.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development Client|Win64.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development Client|XXX.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development Client|XXX.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development Editor|HoloLens.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development Editor|Mac.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development Editor|Mac.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development Editor|Win32.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development Editor|Win32.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development Editor|Win64.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development Editor|Win64.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development Editor|XXX.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development Editor|XXX.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development Server|HoloLens.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development Server|HoloLens.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development Server|Mac.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development Server|Mac.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development Server|Win32.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development Server|Win32.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development Server|Win64.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development Server|Win64.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development Server|XXX.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development Server|XXX.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development|HoloLens.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development|HoloLens.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development|Mac.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development|Mac.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development|Win32.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development|Win32.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development|Win64.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development|Win64.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development|XXX.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Development|XXX.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Shipping Client|HoloLens.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Shipping Client|HoloLens.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Shipping Client|Mac.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Shipping Client|Mac.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Shipping Client|Win32.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Shipping Client|Win32.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Shipping Client|Win64.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Shipping Client|Win64.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Shipping Client|XXX.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Shipping Client|XXX.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Shipping Server|HoloLens.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Shipping Server|HoloLens.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Shipping Server|Mac.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Shipping Server|Mac.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Shipping Server|Win32.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Shipping Server|Win32.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Shipping Server|Win64.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Shipping Server|Win64.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Shipping Server|XXX.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Shipping Server|XXX.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Shipping|HoloLens.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Shipping|HoloLens.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Shipping|Mac.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Shipping|Mac.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Shipping|Win32.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Shipping|Win32.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Shipping|Win64.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Shipping|Win64.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Shipping|XXX.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Shipping|XXX.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Test Client|HoloLens.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Test Client|HoloLens.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Test Client|Mac.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Test Client|Mac.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Test Client|Win32.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Test Client|Win32.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Test Client|Win64.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Test Client|Win64.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Test Client|XXX.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Test Client|XXX.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Test Server|HoloLens.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Test Server|HoloLens.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Test Server|Mac.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Test Server|Mac.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Test Server|Win32.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Test Server|Win32.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Test Server|Win64.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Test Server|Win64.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Test Server|XXX.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Test Server|XXX.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Test|HoloLens.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Test|HoloLens.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Test|Mac.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Test|Mac.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Test|Win32.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Test|Win32.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Test|Win64.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Test|Win64.Build.0 = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Test|XXX.ActiveCfg = Development|Any CPU
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97}.Test|XXX.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug Client|HoloLens.ActiveCfg = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug Client|HoloLens.Build.0 = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug Client|Mac.ActiveCfg = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug Client|Mac.Build.0 = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug Client|Win32.ActiveCfg = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug Client|Win32.Build.0 = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug Client|Win64.ActiveCfg = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug Client|Win64.Build.0 = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug Client|XXX.ActiveCfg = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug Client|XXX.Build.0 = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug Editor|HoloLens.ActiveCfg = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug Editor|HoloLens.Build.0 = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug Editor|Mac.ActiveCfg = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug Editor|Mac.Build.0 = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug Editor|Win32.ActiveCfg = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug Editor|Win32.Build.0 = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug Editor|Win64.ActiveCfg = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug Editor|Win64.Build.0 = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug Editor|XXX.ActiveCfg = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug Editor|XXX.Build.0 = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug Server|HoloLens.ActiveCfg = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug Server|HoloLens.Build.0 = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug Server|Mac.ActiveCfg = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug Server|Mac.Build.0 = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug Server|Win32.ActiveCfg = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug Server|Win32.Build.0 = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug Server|Win64.ActiveCfg = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug Server|Win64.Build.0 = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug Server|XXX.ActiveCfg = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug Server|XXX.Build.0 = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug|HoloLens.ActiveCfg = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug|HoloLens.Build.0 = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug|Mac.ActiveCfg = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug|Mac.Build.0 = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug|Win32.Build.0 = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug|Win64.ActiveCfg = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug|Win64.Build.0 = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug|XXX.ActiveCfg = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Debug|XXX.Build.0 = Debug|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame Client|HoloLens.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame Client|HoloLens.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame Client|Mac.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame Client|Mac.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame Client|Win32.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame Client|Win32.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame Client|Win64.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame Client|Win64.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame Client|XXX.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame Client|XXX.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame Editor|HoloLens.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame Editor|Mac.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame Editor|Mac.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame Editor|Win32.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame Editor|Win32.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame Editor|Win64.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame Editor|Win64.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame Editor|XXX.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame Editor|XXX.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame Server|HoloLens.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame Server|HoloLens.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame Server|Mac.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame Server|Mac.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame Server|Win32.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame Server|Win32.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame Server|Win64.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame Server|Win64.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame Server|XXX.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame Server|XXX.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame|HoloLens.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame|HoloLens.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame|Mac.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame|Mac.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame|Win32.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame|Win32.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame|Win64.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame|Win64.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame|XXX.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.DebugGame|XXX.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development Client|HoloLens.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development Client|HoloLens.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development Client|Mac.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development Client|Mac.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development Client|Win32.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development Client|Win32.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development Client|Win64.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development Client|Win64.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development Client|XXX.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development Client|XXX.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development Editor|HoloLens.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development Editor|Mac.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development Editor|Mac.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development Editor|Win32.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development Editor|Win32.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development Editor|Win64.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development Editor|Win64.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development Editor|XXX.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development Editor|XXX.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development Server|HoloLens.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development Server|HoloLens.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development Server|Mac.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development Server|Mac.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development Server|Win32.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development Server|Win32.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development Server|Win64.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development Server|Win64.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development Server|XXX.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development Server|XXX.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development|HoloLens.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development|HoloLens.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development|Mac.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development|Mac.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development|Win32.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development|Win32.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development|Win64.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development|Win64.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development|XXX.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Development|XXX.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Shipping Client|HoloLens.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Shipping Client|HoloLens.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Shipping Client|Mac.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Shipping Client|Mac.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Shipping Client|Win32.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Shipping Client|Win32.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Shipping Client|Win64.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Shipping Client|Win64.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Shipping Client|XXX.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Shipping Client|XXX.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Shipping Server|HoloLens.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Shipping Server|HoloLens.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Shipping Server|Mac.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Shipping Server|Mac.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Shipping Server|Win32.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Shipping Server|Win32.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Shipping Server|Win64.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Shipping Server|Win64.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Shipping Server|XXX.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Shipping Server|XXX.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Shipping|HoloLens.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Shipping|HoloLens.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Shipping|Mac.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Shipping|Mac.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Shipping|Win32.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Shipping|Win32.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Shipping|Win64.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Shipping|Win64.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Shipping|XXX.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Shipping|XXX.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Test Client|HoloLens.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Test Client|HoloLens.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Test Client|Mac.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Test Client|Mac.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Test Client|Win32.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Test Client|Win32.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Test Client|Win64.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Test Client|Win64.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Test Client|XXX.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Test Client|XXX.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Test Server|HoloLens.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Test Server|HoloLens.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Test Server|Mac.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Test Server|Mac.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Test Server|Win32.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Test Server|Win32.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Test Server|Win64.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Test Server|Win64.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Test Server|XXX.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Test Server|XXX.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Test|HoloLens.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Test|HoloLens.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Test|Mac.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Test|Mac.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Test|Win32.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Test|Win32.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Test|Win64.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Test|Win64.Build.0 = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Test|XXX.ActiveCfg = Development|Any CPU
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E}.Test|XXX.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug Client|HoloLens.ActiveCfg = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug Client|HoloLens.Build.0 = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug Client|Mac.ActiveCfg = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug Client|Mac.Build.0 = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug Client|Win32.ActiveCfg = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug Client|Win32.Build.0 = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug Client|Win64.ActiveCfg = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug Client|Win64.Build.0 = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug Client|XXX.ActiveCfg = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug Client|XXX.Build.0 = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug Editor|HoloLens.ActiveCfg = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug Editor|HoloLens.Build.0 = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug Editor|Mac.ActiveCfg = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug Editor|Mac.Build.0 = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug Editor|Win32.ActiveCfg = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug Editor|Win32.Build.0 = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug Editor|Win64.ActiveCfg = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug Editor|Win64.Build.0 = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug Editor|XXX.ActiveCfg = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug Editor|XXX.Build.0 = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug Server|HoloLens.ActiveCfg = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug Server|HoloLens.Build.0 = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug Server|Mac.ActiveCfg = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug Server|Mac.Build.0 = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug Server|Win32.ActiveCfg = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug Server|Win32.Build.0 = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug Server|Win64.ActiveCfg = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug Server|Win64.Build.0 = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug Server|XXX.ActiveCfg = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug Server|XXX.Build.0 = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug|HoloLens.ActiveCfg = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug|HoloLens.Build.0 = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug|Mac.ActiveCfg = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug|Mac.Build.0 = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug|Win32.Build.0 = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug|Win64.ActiveCfg = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug|Win64.Build.0 = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug|XXX.ActiveCfg = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Debug|XXX.Build.0 = Debug|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame Client|HoloLens.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame Client|HoloLens.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame Client|Mac.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame Client|Mac.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame Client|Win32.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame Client|Win32.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame Client|Win64.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame Client|Win64.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame Client|XXX.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame Client|XXX.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame Editor|HoloLens.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame Editor|Mac.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame Editor|Mac.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame Editor|Win32.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame Editor|Win32.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame Editor|Win64.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame Editor|Win64.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame Editor|XXX.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame Editor|XXX.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame Server|HoloLens.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame Server|HoloLens.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame Server|Mac.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame Server|Mac.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame Server|Win32.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame Server|Win32.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame Server|Win64.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame Server|Win64.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame Server|XXX.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame Server|XXX.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame|HoloLens.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame|HoloLens.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame|Mac.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame|Mac.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame|Win32.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame|Win32.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame|Win64.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame|Win64.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame|XXX.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.DebugGame|XXX.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development Client|HoloLens.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development Client|HoloLens.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development Client|Mac.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development Client|Mac.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development Client|Win32.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development Client|Win32.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development Client|Win64.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development Client|Win64.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development Client|XXX.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development Client|XXX.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development Editor|HoloLens.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development Editor|Mac.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development Editor|Mac.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development Editor|Win32.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development Editor|Win32.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development Editor|Win64.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development Editor|Win64.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development Editor|XXX.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development Editor|XXX.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development Server|HoloLens.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development Server|HoloLens.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development Server|Mac.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development Server|Mac.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development Server|Win32.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development Server|Win32.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development Server|Win64.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development Server|Win64.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development Server|XXX.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development Server|XXX.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development|HoloLens.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development|HoloLens.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development|Mac.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development|Mac.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development|Win32.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development|Win32.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development|Win64.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development|Win64.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development|XXX.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Development|XXX.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Shipping Client|HoloLens.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Shipping Client|HoloLens.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Shipping Client|Mac.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Shipping Client|Mac.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Shipping Client|Win32.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Shipping Client|Win32.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Shipping Client|Win64.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Shipping Client|Win64.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Shipping Client|XXX.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Shipping Client|XXX.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Shipping Server|HoloLens.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Shipping Server|HoloLens.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Shipping Server|Mac.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Shipping Server|Mac.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Shipping Server|Win32.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Shipping Server|Win32.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Shipping Server|Win64.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Shipping Server|Win64.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Shipping Server|XXX.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Shipping Server|XXX.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Shipping|HoloLens.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Shipping|HoloLens.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Shipping|Mac.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Shipping|Mac.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Shipping|Win32.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Shipping|Win32.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Shipping|Win64.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Shipping|Win64.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Shipping|XXX.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Shipping|XXX.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Test Client|HoloLens.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Test Client|HoloLens.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Test Client|Mac.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Test Client|Mac.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Test Client|Win32.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Test Client|Win32.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Test Client|Win64.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Test Client|Win64.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Test Client|XXX.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Test Client|XXX.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Test Server|HoloLens.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Test Server|HoloLens.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Test Server|Mac.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Test Server|Mac.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Test Server|Win32.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Test Server|Win32.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Test Server|Win64.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Test Server|Win64.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Test Server|XXX.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Test Server|XXX.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Test|HoloLens.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Test|HoloLens.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Test|Mac.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Test|Mac.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Test|Win32.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Test|Win32.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Test|Win64.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Test|Win64.Build.0 = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Test|XXX.ActiveCfg = Development|Any CPU
-		{A002361E-37F9-4124-AF82-CF0D393CB928}.Test|XXX.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug Client|HoloLens.ActiveCfg = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug Client|HoloLens.Build.0 = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug Client|Mac.ActiveCfg = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug Client|Mac.Build.0 = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug Client|Win32.ActiveCfg = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug Client|Win32.Build.0 = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug Client|Win64.ActiveCfg = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug Client|Win64.Build.0 = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug Client|XXX.ActiveCfg = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug Client|XXX.Build.0 = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug Editor|HoloLens.ActiveCfg = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug Editor|HoloLens.Build.0 = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug Editor|Mac.ActiveCfg = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug Editor|Mac.Build.0 = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug Editor|Win32.ActiveCfg = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug Editor|Win32.Build.0 = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug Editor|Win64.ActiveCfg = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug Editor|Win64.Build.0 = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug Editor|XXX.ActiveCfg = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug Editor|XXX.Build.0 = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug Server|HoloLens.ActiveCfg = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug Server|HoloLens.Build.0 = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug Server|Mac.ActiveCfg = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug Server|Mac.Build.0 = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug Server|Win32.ActiveCfg = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug Server|Win32.Build.0 = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug Server|Win64.ActiveCfg = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug Server|Win64.Build.0 = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug Server|XXX.ActiveCfg = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug Server|XXX.Build.0 = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug|HoloLens.ActiveCfg = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug|HoloLens.Build.0 = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug|Mac.ActiveCfg = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug|Mac.Build.0 = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug|Win32.Build.0 = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug|Win64.ActiveCfg = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug|Win64.Build.0 = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug|XXX.ActiveCfg = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Debug|XXX.Build.0 = Debug|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame Client|HoloLens.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame Client|HoloLens.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame Client|Mac.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame Client|Mac.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame Client|Win32.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame Client|Win32.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame Client|Win64.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame Client|Win64.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame Client|XXX.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame Client|XXX.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame Editor|HoloLens.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame Editor|Mac.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame Editor|Mac.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame Editor|Win32.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame Editor|Win32.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame Editor|Win64.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame Editor|Win64.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame Editor|XXX.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame Editor|XXX.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame Server|HoloLens.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame Server|HoloLens.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame Server|Mac.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame Server|Mac.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame Server|Win32.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame Server|Win32.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame Server|Win64.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame Server|Win64.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame Server|XXX.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame Server|XXX.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame|HoloLens.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame|HoloLens.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame|Mac.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame|Mac.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame|Win32.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame|Win32.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame|Win64.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame|Win64.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame|XXX.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.DebugGame|XXX.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development Client|HoloLens.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development Client|HoloLens.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development Client|Mac.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development Client|Mac.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development Client|Win32.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development Client|Win32.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development Client|Win64.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development Client|Win64.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development Client|XXX.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development Client|XXX.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development Editor|HoloLens.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development Editor|Mac.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development Editor|Mac.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development Editor|Win32.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development Editor|Win32.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development Editor|Win64.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development Editor|Win64.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development Editor|XXX.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development Editor|XXX.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development Server|HoloLens.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development Server|HoloLens.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development Server|Mac.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development Server|Mac.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development Server|Win32.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development Server|Win32.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development Server|Win64.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development Server|Win64.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development Server|XXX.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development Server|XXX.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development|HoloLens.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development|HoloLens.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development|Mac.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development|Mac.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development|Win32.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development|Win32.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development|Win64.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development|Win64.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development|XXX.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Development|XXX.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Shipping Client|HoloLens.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Shipping Client|HoloLens.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Shipping Client|Mac.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Shipping Client|Mac.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Shipping Client|Win32.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Shipping Client|Win32.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Shipping Client|Win64.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Shipping Client|Win64.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Shipping Client|XXX.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Shipping Client|XXX.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Shipping Server|HoloLens.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Shipping Server|HoloLens.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Shipping Server|Mac.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Shipping Server|Mac.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Shipping Server|Win32.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Shipping Server|Win32.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Shipping Server|Win64.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Shipping Server|Win64.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Shipping Server|XXX.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Shipping Server|XXX.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Shipping|HoloLens.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Shipping|HoloLens.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Shipping|Mac.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Shipping|Mac.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Shipping|Win32.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Shipping|Win32.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Shipping|Win64.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Shipping|Win64.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Shipping|XXX.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Shipping|XXX.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Test Client|HoloLens.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Test Client|HoloLens.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Test Client|Mac.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Test Client|Mac.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Test Client|Win32.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Test Client|Win32.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Test Client|Win64.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Test Client|Win64.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Test Client|XXX.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Test Client|XXX.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Test Server|HoloLens.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Test Server|HoloLens.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Test Server|Mac.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Test Server|Mac.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Test Server|Win32.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Test Server|Win32.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Test Server|Win64.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Test Server|Win64.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Test Server|XXX.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Test Server|XXX.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Test|HoloLens.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Test|HoloLens.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Test|Mac.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Test|Mac.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Test|Win32.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Test|Win32.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Test|Win64.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Test|Win64.Build.0 = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Test|XXX.ActiveCfg = Development|Any CPU
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D}.Test|XXX.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug Client|HoloLens.ActiveCfg = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug Client|HoloLens.Build.0 = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug Client|Mac.ActiveCfg = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug Client|Mac.Build.0 = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug Client|Win32.ActiveCfg = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug Client|Win32.Build.0 = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug Client|Win64.ActiveCfg = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug Client|Win64.Build.0 = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug Client|XXX.ActiveCfg = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug Client|XXX.Build.0 = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug Editor|HoloLens.ActiveCfg = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug Editor|HoloLens.Build.0 = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug Editor|Mac.ActiveCfg = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug Editor|Mac.Build.0 = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug Editor|Win32.ActiveCfg = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug Editor|Win32.Build.0 = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug Editor|Win64.ActiveCfg = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug Editor|Win64.Build.0 = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug Editor|XXX.ActiveCfg = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug Editor|XXX.Build.0 = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug Server|HoloLens.ActiveCfg = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug Server|HoloLens.Build.0 = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug Server|Mac.ActiveCfg = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug Server|Mac.Build.0 = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug Server|Win32.ActiveCfg = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug Server|Win32.Build.0 = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug Server|Win64.ActiveCfg = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug Server|Win64.Build.0 = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug Server|XXX.ActiveCfg = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug Server|XXX.Build.0 = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug|HoloLens.ActiveCfg = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug|HoloLens.Build.0 = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug|Mac.ActiveCfg = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug|Mac.Build.0 = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug|Win32.Build.0 = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug|Win64.ActiveCfg = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug|Win64.Build.0 = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug|XXX.ActiveCfg = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Debug|XXX.Build.0 = Debug|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame Client|HoloLens.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame Client|HoloLens.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame Client|Mac.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame Client|Mac.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame Client|Win32.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame Client|Win32.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame Client|Win64.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame Client|Win64.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame Client|XXX.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame Client|XXX.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame Editor|HoloLens.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame Editor|Mac.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame Editor|Mac.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame Editor|Win32.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame Editor|Win32.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame Editor|Win64.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame Editor|Win64.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame Editor|XXX.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame Editor|XXX.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame Server|HoloLens.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame Server|HoloLens.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame Server|Mac.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame Server|Mac.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame Server|Win32.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame Server|Win32.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame Server|Win64.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame Server|Win64.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame Server|XXX.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame Server|XXX.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame|HoloLens.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame|HoloLens.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame|Mac.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame|Mac.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame|Win32.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame|Win32.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame|Win64.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame|Win64.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame|XXX.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.DebugGame|XXX.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development Client|HoloLens.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development Client|HoloLens.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development Client|Mac.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development Client|Mac.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development Client|Win32.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development Client|Win32.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development Client|Win64.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development Client|Win64.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development Client|XXX.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development Client|XXX.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development Editor|HoloLens.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development Editor|Mac.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development Editor|Mac.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development Editor|Win32.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development Editor|Win32.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development Editor|Win64.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development Editor|Win64.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development Editor|XXX.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development Editor|XXX.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development Server|HoloLens.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development Server|HoloLens.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development Server|Mac.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development Server|Mac.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development Server|Win32.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development Server|Win32.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development Server|Win64.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development Server|Win64.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development Server|XXX.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development Server|XXX.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development|HoloLens.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development|HoloLens.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development|Mac.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development|Mac.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development|Win32.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development|Win32.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development|Win64.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development|Win64.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development|XXX.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Development|XXX.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Shipping Client|HoloLens.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Shipping Client|HoloLens.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Shipping Client|Mac.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Shipping Client|Mac.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Shipping Client|Win32.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Shipping Client|Win32.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Shipping Client|Win64.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Shipping Client|Win64.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Shipping Client|XXX.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Shipping Client|XXX.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Shipping Server|HoloLens.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Shipping Server|HoloLens.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Shipping Server|Mac.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Shipping Server|Mac.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Shipping Server|Win32.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Shipping Server|Win32.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Shipping Server|Win64.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Shipping Server|Win64.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Shipping Server|XXX.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Shipping Server|XXX.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Shipping|HoloLens.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Shipping|HoloLens.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Shipping|Mac.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Shipping|Mac.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Shipping|Win32.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Shipping|Win32.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Shipping|Win64.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Shipping|Win64.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Shipping|XXX.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Shipping|XXX.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Test Client|HoloLens.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Test Client|HoloLens.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Test Client|Mac.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Test Client|Mac.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Test Client|Win32.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Test Client|Win32.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Test Client|Win64.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Test Client|Win64.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Test Client|XXX.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Test Client|XXX.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Test Server|HoloLens.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Test Server|HoloLens.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Test Server|Mac.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Test Server|Mac.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Test Server|Win32.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Test Server|Win32.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Test Server|Win64.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Test Server|Win64.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Test Server|XXX.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Test Server|XXX.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Test|HoloLens.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Test|HoloLens.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Test|Mac.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Test|Mac.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Test|Win32.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Test|Win32.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Test|Win64.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Test|Win64.Build.0 = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Test|XXX.ActiveCfg = Development|Any CPU
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E}.Test|XXX.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug Client|HoloLens.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug Client|HoloLens.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug Client|Mac.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug Client|Mac.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug Client|Win32.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug Client|Win32.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug Client|Win64.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug Client|Win64.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug Client|XXX.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug Client|XXX.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug Editor|HoloLens.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug Editor|HoloLens.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug Editor|Mac.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug Editor|Mac.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug Editor|Win32.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug Editor|Win32.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug Editor|Win64.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug Editor|Win64.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug Editor|XXX.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug Editor|XXX.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug Server|HoloLens.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug Server|HoloLens.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug Server|Mac.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug Server|Mac.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug Server|Win32.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug Server|Win32.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug Server|Win64.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug Server|Win64.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug Server|XXX.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug Server|XXX.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug|HoloLens.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug|HoloLens.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug|Mac.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug|Mac.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug|Win32.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug|Win64.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug|Win64.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug|XXX.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Debug|XXX.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame Client|HoloLens.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame Client|HoloLens.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame Client|Mac.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame Client|Mac.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame Client|Win32.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame Client|Win32.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame Client|Win64.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame Client|Win64.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame Client|XXX.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame Client|XXX.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame Editor|HoloLens.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame Editor|Mac.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame Editor|Mac.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame Editor|Win32.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame Editor|Win32.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame Editor|Win64.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame Editor|Win64.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame Editor|XXX.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame Editor|XXX.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame Server|HoloLens.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame Server|HoloLens.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame Server|Mac.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame Server|Mac.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame Server|Win32.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame Server|Win32.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame Server|Win64.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame Server|Win64.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame Server|XXX.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame Server|XXX.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame|HoloLens.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame|HoloLens.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame|Mac.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame|Mac.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame|Win32.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame|Win32.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame|Win64.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame|Win64.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame|XXX.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.DebugGame|XXX.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development Client|HoloLens.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development Client|HoloLens.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development Client|Mac.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development Client|Mac.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development Client|Win32.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development Client|Win32.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development Client|Win64.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development Client|Win64.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development Client|XXX.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development Client|XXX.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development Editor|HoloLens.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development Editor|Mac.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development Editor|Mac.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development Editor|Win32.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development Editor|Win32.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development Editor|Win64.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development Editor|Win64.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development Editor|XXX.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development Editor|XXX.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development Server|HoloLens.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development Server|HoloLens.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development Server|Mac.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development Server|Mac.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development Server|Win32.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development Server|Win32.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development Server|Win64.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development Server|Win64.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development Server|XXX.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development Server|XXX.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development|HoloLens.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development|HoloLens.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development|Mac.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development|Mac.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development|Win32.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development|Win32.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development|Win64.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development|Win64.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development|XXX.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Development|XXX.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Shipping Client|HoloLens.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Shipping Client|HoloLens.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Shipping Client|Mac.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Shipping Client|Mac.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Shipping Client|Win32.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Shipping Client|Win32.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Shipping Client|Win64.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Shipping Client|Win64.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Shipping Client|XXX.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Shipping Client|XXX.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Shipping Server|HoloLens.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Shipping Server|HoloLens.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Shipping Server|Mac.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Shipping Server|Mac.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Shipping Server|Win32.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Shipping Server|Win32.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Shipping Server|Win64.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Shipping Server|Win64.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Shipping Server|XXX.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Shipping Server|XXX.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Shipping|HoloLens.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Shipping|HoloLens.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Shipping|Mac.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Shipping|Mac.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Shipping|Win32.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Shipping|Win32.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Shipping|Win64.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Shipping|Win64.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Shipping|XXX.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Shipping|XXX.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Test Client|HoloLens.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Test Client|HoloLens.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Test Client|Mac.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Test Client|Mac.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Test Client|Win32.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Test Client|Win32.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Test Client|Win64.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Test Client|Win64.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Test Client|XXX.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Test Client|XXX.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Test Server|HoloLens.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Test Server|HoloLens.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Test Server|Mac.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Test Server|Mac.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Test Server|Win32.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Test Server|Win32.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Test Server|Win64.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Test Server|Win64.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Test Server|XXX.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Test Server|XXX.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Test|HoloLens.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Test|HoloLens.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Test|Mac.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Test|Mac.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Test|Win32.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Test|Win32.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Test|Win64.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Test|Win64.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Test|XXX.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22}.Test|XXX.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug Client|HoloLens.ActiveCfg = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug Client|HoloLens.Build.0 = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug Client|Mac.ActiveCfg = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug Client|Mac.Build.0 = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug Client|Win32.ActiveCfg = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug Client|Win32.Build.0 = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug Client|Win64.ActiveCfg = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug Client|Win64.Build.0 = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug Client|XXX.ActiveCfg = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug Client|XXX.Build.0 = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug Editor|HoloLens.ActiveCfg = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug Editor|HoloLens.Build.0 = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug Editor|Mac.ActiveCfg = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug Editor|Mac.Build.0 = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug Editor|Win32.ActiveCfg = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug Editor|Win32.Build.0 = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug Editor|Win64.ActiveCfg = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug Editor|Win64.Build.0 = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug Editor|XXX.ActiveCfg = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug Editor|XXX.Build.0 = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug Server|HoloLens.ActiveCfg = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug Server|HoloLens.Build.0 = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug Server|Mac.ActiveCfg = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug Server|Mac.Build.0 = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug Server|Win32.ActiveCfg = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug Server|Win32.Build.0 = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug Server|Win64.ActiveCfg = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug Server|Win64.Build.0 = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug Server|XXX.ActiveCfg = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug Server|XXX.Build.0 = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug|HoloLens.ActiveCfg = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug|HoloLens.Build.0 = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug|Mac.ActiveCfg = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug|Mac.Build.0 = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug|Win32.Build.0 = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug|Win64.ActiveCfg = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug|Win64.Build.0 = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug|XXX.ActiveCfg = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Debug|XXX.Build.0 = Debug|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame Client|HoloLens.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame Client|HoloLens.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame Client|Mac.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame Client|Mac.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame Client|Win32.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame Client|Win32.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame Client|Win64.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame Client|Win64.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame Client|XXX.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame Client|XXX.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame Editor|HoloLens.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame Editor|Mac.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame Editor|Mac.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame Editor|Win32.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame Editor|Win32.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame Editor|Win64.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame Editor|Win64.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame Editor|XXX.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame Editor|XXX.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame Server|HoloLens.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame Server|HoloLens.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame Server|Mac.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame Server|Mac.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame Server|Win32.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame Server|Win32.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame Server|Win64.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame Server|Win64.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame Server|XXX.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame Server|XXX.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame|HoloLens.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame|HoloLens.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame|Mac.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame|Mac.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame|Win32.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame|Win32.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame|Win64.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame|Win64.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame|XXX.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.DebugGame|XXX.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development Client|HoloLens.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development Client|HoloLens.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development Client|Mac.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development Client|Mac.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development Client|Win32.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development Client|Win32.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development Client|Win64.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development Client|Win64.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development Client|XXX.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development Client|XXX.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development Editor|HoloLens.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development Editor|Mac.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development Editor|Mac.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development Editor|Win32.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development Editor|Win32.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development Editor|Win64.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development Editor|Win64.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development Editor|XXX.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development Editor|XXX.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development Server|HoloLens.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development Server|HoloLens.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development Server|Mac.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development Server|Mac.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development Server|Win32.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development Server|Win32.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development Server|Win64.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development Server|Win64.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development Server|XXX.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development Server|XXX.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development|HoloLens.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development|HoloLens.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development|Mac.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development|Mac.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development|Win32.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development|Win32.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development|Win64.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development|Win64.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development|XXX.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Development|XXX.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Shipping Client|HoloLens.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Shipping Client|HoloLens.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Shipping Client|Mac.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Shipping Client|Mac.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Shipping Client|Win32.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Shipping Client|Win32.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Shipping Client|Win64.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Shipping Client|Win64.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Shipping Client|XXX.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Shipping Client|XXX.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Shipping Server|HoloLens.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Shipping Server|HoloLens.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Shipping Server|Mac.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Shipping Server|Mac.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Shipping Server|Win32.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Shipping Server|Win32.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Shipping Server|Win64.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Shipping Server|Win64.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Shipping Server|XXX.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Shipping Server|XXX.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Shipping|HoloLens.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Shipping|HoloLens.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Shipping|Mac.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Shipping|Mac.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Shipping|Win32.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Shipping|Win32.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Shipping|Win64.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Shipping|Win64.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Shipping|XXX.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Shipping|XXX.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Test Client|HoloLens.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Test Client|HoloLens.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Test Client|Mac.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Test Client|Mac.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Test Client|Win32.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Test Client|Win32.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Test Client|Win64.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Test Client|Win64.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Test Client|XXX.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Test Client|XXX.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Test Server|HoloLens.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Test Server|HoloLens.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Test Server|Mac.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Test Server|Mac.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Test Server|Win32.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Test Server|Win32.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Test Server|Win64.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Test Server|Win64.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Test Server|XXX.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Test Server|XXX.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Test|HoloLens.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Test|HoloLens.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Test|Mac.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Test|Mac.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Test|Win32.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Test|Win32.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Test|Win64.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Test|Win64.Build.0 = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Test|XXX.ActiveCfg = Development|Any CPU
-		{EC395254-405B-4030-92CE-E346CC50848D}.Test|XXX.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug Client|HoloLens.ActiveCfg = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug Client|HoloLens.Build.0 = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug Client|Mac.ActiveCfg = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug Client|Mac.Build.0 = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug Client|Win32.ActiveCfg = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug Client|Win32.Build.0 = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug Client|Win64.ActiveCfg = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug Client|Win64.Build.0 = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug Client|XXX.ActiveCfg = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug Client|XXX.Build.0 = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug Editor|HoloLens.ActiveCfg = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug Editor|HoloLens.Build.0 = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug Editor|Mac.ActiveCfg = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug Editor|Mac.Build.0 = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug Editor|Win32.ActiveCfg = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug Editor|Win32.Build.0 = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug Editor|Win64.ActiveCfg = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug Editor|Win64.Build.0 = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug Editor|XXX.ActiveCfg = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug Editor|XXX.Build.0 = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug Server|HoloLens.ActiveCfg = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug Server|HoloLens.Build.0 = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug Server|Mac.ActiveCfg = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug Server|Mac.Build.0 = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug Server|Win32.ActiveCfg = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug Server|Win32.Build.0 = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug Server|Win64.ActiveCfg = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug Server|Win64.Build.0 = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug Server|XXX.ActiveCfg = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug Server|XXX.Build.0 = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug|HoloLens.ActiveCfg = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug|HoloLens.Build.0 = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug|Mac.ActiveCfg = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug|Mac.Build.0 = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug|Win32.Build.0 = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug|Win64.ActiveCfg = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug|Win64.Build.0 = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug|XXX.ActiveCfg = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Debug|XXX.Build.0 = Debug|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame Client|HoloLens.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame Client|HoloLens.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame Client|Mac.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame Client|Mac.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame Client|Win32.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame Client|Win32.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame Client|Win64.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame Client|Win64.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame Client|XXX.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame Client|XXX.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame Editor|HoloLens.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame Editor|Mac.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame Editor|Mac.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame Editor|Win32.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame Editor|Win32.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame Editor|Win64.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame Editor|Win64.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame Editor|XXX.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame Editor|XXX.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame Server|HoloLens.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame Server|HoloLens.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame Server|Mac.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame Server|Mac.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame Server|Win32.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame Server|Win32.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame Server|Win64.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame Server|Win64.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame Server|XXX.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame Server|XXX.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame|HoloLens.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame|HoloLens.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame|Mac.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame|Mac.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame|Win32.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame|Win32.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame|Win64.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame|Win64.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame|XXX.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.DebugGame|XXX.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development Client|HoloLens.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development Client|HoloLens.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development Client|Mac.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development Client|Mac.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development Client|Win32.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development Client|Win32.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development Client|Win64.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development Client|Win64.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development Client|XXX.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development Client|XXX.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development Editor|HoloLens.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development Editor|Mac.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development Editor|Mac.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development Editor|Win32.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development Editor|Win32.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development Editor|Win64.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development Editor|Win64.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development Editor|XXX.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development Editor|XXX.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development Server|HoloLens.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development Server|HoloLens.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development Server|Mac.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development Server|Mac.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development Server|Win32.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development Server|Win32.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development Server|Win64.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development Server|Win64.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development Server|XXX.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development Server|XXX.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development|HoloLens.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development|HoloLens.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development|Mac.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development|Mac.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development|Win32.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development|Win32.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development|Win64.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development|Win64.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development|XXX.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Development|XXX.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Shipping Client|HoloLens.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Shipping Client|HoloLens.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Shipping Client|Mac.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Shipping Client|Mac.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Shipping Client|Win32.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Shipping Client|Win32.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Shipping Client|Win64.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Shipping Client|Win64.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Shipping Client|XXX.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Shipping Client|XXX.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Shipping Server|HoloLens.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Shipping Server|HoloLens.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Shipping Server|Mac.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Shipping Server|Mac.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Shipping Server|Win32.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Shipping Server|Win32.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Shipping Server|Win64.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Shipping Server|Win64.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Shipping Server|XXX.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Shipping Server|XXX.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Shipping|HoloLens.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Shipping|HoloLens.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Shipping|Mac.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Shipping|Mac.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Shipping|Win32.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Shipping|Win32.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Shipping|Win64.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Shipping|Win64.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Shipping|XXX.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Shipping|XXX.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Test Client|HoloLens.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Test Client|HoloLens.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Test Client|Mac.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Test Client|Mac.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Test Client|Win32.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Test Client|Win32.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Test Client|Win64.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Test Client|Win64.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Test Client|XXX.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Test Client|XXX.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Test Server|HoloLens.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Test Server|HoloLens.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Test Server|Mac.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Test Server|Mac.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Test Server|Win32.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Test Server|Win32.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Test Server|Win64.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Test Server|Win64.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Test Server|XXX.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Test Server|XXX.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Test|HoloLens.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Test|HoloLens.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Test|Mac.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Test|Mac.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Test|Win32.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Test|Win32.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Test|Win64.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Test|Win64.Build.0 = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Test|XXX.ActiveCfg = Development|Any CPU
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750}.Test|XXX.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug Client|HoloLens.ActiveCfg = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug Client|HoloLens.Build.0 = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug Client|Mac.ActiveCfg = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug Client|Mac.Build.0 = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug Client|Win32.ActiveCfg = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug Client|Win32.Build.0 = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug Client|Win64.ActiveCfg = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug Client|Win64.Build.0 = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug Client|XXX.ActiveCfg = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug Client|XXX.Build.0 = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug Editor|HoloLens.ActiveCfg = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug Editor|HoloLens.Build.0 = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug Editor|Mac.ActiveCfg = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug Editor|Mac.Build.0 = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug Editor|Win32.ActiveCfg = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug Editor|Win32.Build.0 = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug Editor|Win64.ActiveCfg = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug Editor|Win64.Build.0 = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug Editor|XXX.ActiveCfg = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug Editor|XXX.Build.0 = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug Server|HoloLens.ActiveCfg = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug Server|HoloLens.Build.0 = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug Server|Mac.ActiveCfg = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug Server|Mac.Build.0 = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug Server|Win32.ActiveCfg = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug Server|Win32.Build.0 = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug Server|Win64.ActiveCfg = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug Server|Win64.Build.0 = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug Server|XXX.ActiveCfg = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug Server|XXX.Build.0 = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug|HoloLens.ActiveCfg = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug|HoloLens.Build.0 = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug|Mac.ActiveCfg = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug|Mac.Build.0 = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug|Win32.Build.0 = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug|Win64.ActiveCfg = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug|Win64.Build.0 = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug|XXX.ActiveCfg = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Debug|XXX.Build.0 = Debug|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame Client|HoloLens.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame Client|HoloLens.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame Client|Mac.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame Client|Mac.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame Client|Win32.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame Client|Win32.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame Client|Win64.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame Client|Win64.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame Client|XXX.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame Client|XXX.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame Editor|HoloLens.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame Editor|Mac.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame Editor|Mac.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame Editor|Win32.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame Editor|Win32.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame Editor|Win64.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame Editor|Win64.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame Editor|XXX.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame Editor|XXX.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame Server|HoloLens.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame Server|HoloLens.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame Server|Mac.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame Server|Mac.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame Server|Win32.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame Server|Win32.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame Server|Win64.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame Server|Win64.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame Server|XXX.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame Server|XXX.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame|HoloLens.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame|HoloLens.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame|Mac.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame|Mac.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame|Win32.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame|Win32.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame|Win64.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame|Win64.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame|XXX.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.DebugGame|XXX.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development Client|HoloLens.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development Client|HoloLens.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development Client|Mac.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development Client|Mac.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development Client|Win32.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development Client|Win32.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development Client|Win64.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development Client|Win64.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development Client|XXX.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development Client|XXX.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development Editor|HoloLens.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development Editor|Mac.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development Editor|Mac.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development Editor|Win32.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development Editor|Win32.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development Editor|Win64.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development Editor|Win64.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development Editor|XXX.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development Editor|XXX.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development Server|HoloLens.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development Server|HoloLens.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development Server|Mac.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development Server|Mac.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development Server|Win32.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development Server|Win32.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development Server|Win64.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development Server|Win64.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development Server|XXX.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development Server|XXX.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development|HoloLens.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development|HoloLens.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development|Mac.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development|Mac.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development|Win32.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development|Win32.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development|Win64.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development|Win64.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development|XXX.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Development|XXX.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Shipping Client|HoloLens.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Shipping Client|HoloLens.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Shipping Client|Mac.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Shipping Client|Mac.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Shipping Client|Win32.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Shipping Client|Win32.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Shipping Client|Win64.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Shipping Client|Win64.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Shipping Client|XXX.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Shipping Client|XXX.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Shipping Server|HoloLens.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Shipping Server|HoloLens.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Shipping Server|Mac.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Shipping Server|Mac.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Shipping Server|Win32.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Shipping Server|Win32.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Shipping Server|Win64.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Shipping Server|Win64.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Shipping Server|XXX.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Shipping Server|XXX.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Shipping|HoloLens.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Shipping|HoloLens.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Shipping|Mac.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Shipping|Mac.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Shipping|Win32.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Shipping|Win32.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Shipping|Win64.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Shipping|Win64.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Shipping|XXX.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Shipping|XXX.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Test Client|HoloLens.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Test Client|HoloLens.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Test Client|Mac.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Test Client|Mac.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Test Client|Win32.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Test Client|Win32.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Test Client|Win64.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Test Client|Win64.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Test Client|XXX.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Test Client|XXX.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Test Server|HoloLens.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Test Server|HoloLens.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Test Server|Mac.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Test Server|Mac.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Test Server|Win32.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Test Server|Win32.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Test Server|Win64.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Test Server|Win64.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Test Server|XXX.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Test Server|XXX.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Test|HoloLens.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Test|HoloLens.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Test|Mac.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Test|Mac.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Test|Win32.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Test|Win32.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Test|Win64.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Test|Win64.Build.0 = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Test|XXX.ActiveCfg = Development|Any CPU
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42}.Test|XXX.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug Client|HoloLens.ActiveCfg = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug Client|HoloLens.Build.0 = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug Client|Mac.ActiveCfg = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug Client|Mac.Build.0 = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug Client|Win32.ActiveCfg = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug Client|Win32.Build.0 = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug Client|Win64.ActiveCfg = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug Client|Win64.Build.0 = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug Client|XXX.ActiveCfg = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug Client|XXX.Build.0 = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug Editor|HoloLens.ActiveCfg = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug Editor|HoloLens.Build.0 = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug Editor|Mac.ActiveCfg = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug Editor|Mac.Build.0 = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug Editor|Win32.ActiveCfg = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug Editor|Win32.Build.0 = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug Editor|Win64.ActiveCfg = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug Editor|Win64.Build.0 = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug Editor|XXX.ActiveCfg = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug Editor|XXX.Build.0 = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug Server|HoloLens.ActiveCfg = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug Server|HoloLens.Build.0 = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug Server|Mac.ActiveCfg = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug Server|Mac.Build.0 = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug Server|Win32.ActiveCfg = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug Server|Win32.Build.0 = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug Server|Win64.ActiveCfg = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug Server|Win64.Build.0 = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug Server|XXX.ActiveCfg = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug Server|XXX.Build.0 = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug|HoloLens.ActiveCfg = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug|HoloLens.Build.0 = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug|Mac.ActiveCfg = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug|Mac.Build.0 = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug|Win32.Build.0 = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug|Win64.ActiveCfg = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug|Win64.Build.0 = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug|XXX.ActiveCfg = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Debug|XXX.Build.0 = Debug|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame Client|HoloLens.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame Client|HoloLens.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame Client|Mac.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame Client|Mac.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame Client|Win32.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame Client|Win32.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame Client|Win64.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame Client|Win64.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame Client|XXX.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame Client|XXX.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame Editor|HoloLens.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame Editor|Mac.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame Editor|Mac.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame Editor|Win32.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame Editor|Win32.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame Editor|Win64.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame Editor|Win64.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame Editor|XXX.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame Editor|XXX.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame Server|HoloLens.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame Server|HoloLens.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame Server|Mac.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame Server|Mac.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame Server|Win32.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame Server|Win32.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame Server|Win64.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame Server|Win64.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame Server|XXX.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame Server|XXX.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame|HoloLens.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame|HoloLens.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame|Mac.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame|Mac.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame|Win32.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame|Win32.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame|Win64.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame|Win64.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame|XXX.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.DebugGame|XXX.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development Client|HoloLens.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development Client|HoloLens.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development Client|Mac.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development Client|Mac.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development Client|Win32.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development Client|Win32.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development Client|Win64.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development Client|Win64.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development Client|XXX.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development Client|XXX.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development Editor|HoloLens.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development Editor|Mac.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development Editor|Mac.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development Editor|Win32.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development Editor|Win32.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development Editor|Win64.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development Editor|Win64.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development Editor|XXX.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development Editor|XXX.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development Server|HoloLens.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development Server|HoloLens.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development Server|Mac.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development Server|Mac.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development Server|Win32.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development Server|Win32.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development Server|Win64.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development Server|Win64.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development Server|XXX.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development Server|XXX.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development|HoloLens.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development|HoloLens.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development|Mac.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development|Mac.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development|Win32.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development|Win32.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development|Win64.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development|Win64.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development|XXX.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Development|XXX.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Shipping Client|HoloLens.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Shipping Client|HoloLens.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Shipping Client|Mac.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Shipping Client|Mac.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Shipping Client|Win32.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Shipping Client|Win32.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Shipping Client|Win64.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Shipping Client|Win64.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Shipping Client|XXX.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Shipping Client|XXX.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Shipping Server|HoloLens.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Shipping Server|HoloLens.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Shipping Server|Mac.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Shipping Server|Mac.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Shipping Server|Win32.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Shipping Server|Win32.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Shipping Server|Win64.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Shipping Server|Win64.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Shipping Server|XXX.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Shipping Server|XXX.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Shipping|HoloLens.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Shipping|HoloLens.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Shipping|Mac.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Shipping|Mac.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Shipping|Win32.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Shipping|Win32.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Shipping|Win64.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Shipping|Win64.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Shipping|XXX.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Shipping|XXX.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Test Client|HoloLens.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Test Client|HoloLens.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Test Client|Mac.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Test Client|Mac.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Test Client|Win32.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Test Client|Win32.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Test Client|Win64.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Test Client|Win64.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Test Client|XXX.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Test Client|XXX.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Test Server|HoloLens.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Test Server|HoloLens.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Test Server|Mac.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Test Server|Mac.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Test Server|Win32.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Test Server|Win32.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Test Server|Win64.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Test Server|Win64.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Test Server|XXX.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Test Server|XXX.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Test|HoloLens.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Test|HoloLens.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Test|Mac.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Test|Mac.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Test|Win32.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Test|Win32.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Test|Win64.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Test|Win64.Build.0 = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Test|XXX.ActiveCfg = Development|Any CPU
-		{16778681-DAB8-46A4-89F6-927796467995}.Test|XXX.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug Client|HoloLens.ActiveCfg = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug Client|HoloLens.Build.0 = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug Client|Mac.ActiveCfg = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug Client|Mac.Build.0 = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug Client|Win32.ActiveCfg = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug Client|Win32.Build.0 = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug Client|Win64.ActiveCfg = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug Client|Win64.Build.0 = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug Client|XXX.ActiveCfg = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug Client|XXX.Build.0 = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug Editor|HoloLens.ActiveCfg = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug Editor|HoloLens.Build.0 = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug Editor|Mac.ActiveCfg = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug Editor|Mac.Build.0 = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug Editor|Win32.ActiveCfg = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug Editor|Win32.Build.0 = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug Editor|Win64.ActiveCfg = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug Editor|Win64.Build.0 = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug Editor|XXX.ActiveCfg = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug Editor|XXX.Build.0 = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug Server|HoloLens.ActiveCfg = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug Server|HoloLens.Build.0 = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug Server|Mac.ActiveCfg = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug Server|Mac.Build.0 = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug Server|Win32.ActiveCfg = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug Server|Win32.Build.0 = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug Server|Win64.ActiveCfg = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug Server|Win64.Build.0 = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug Server|XXX.ActiveCfg = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug Server|XXX.Build.0 = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug|HoloLens.ActiveCfg = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug|HoloLens.Build.0 = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug|Mac.ActiveCfg = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug|Mac.Build.0 = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug|Win32.Build.0 = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug|Win64.ActiveCfg = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug|Win64.Build.0 = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug|XXX.ActiveCfg = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Debug|XXX.Build.0 = Debug|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame Client|HoloLens.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame Client|HoloLens.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame Client|Mac.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame Client|Mac.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame Client|Win32.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame Client|Win32.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame Client|Win64.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame Client|Win64.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame Client|XXX.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame Client|XXX.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame Editor|HoloLens.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame Editor|Mac.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame Editor|Mac.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame Editor|Win32.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame Editor|Win32.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame Editor|Win64.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame Editor|Win64.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame Editor|XXX.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame Editor|XXX.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame Server|HoloLens.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame Server|HoloLens.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame Server|Mac.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame Server|Mac.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame Server|Win32.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame Server|Win32.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame Server|Win64.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame Server|Win64.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame Server|XXX.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame Server|XXX.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame|HoloLens.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame|HoloLens.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame|Mac.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame|Mac.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame|Win32.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame|Win32.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame|Win64.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame|Win64.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame|XXX.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.DebugGame|XXX.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development Client|HoloLens.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development Client|HoloLens.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development Client|Mac.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development Client|Mac.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development Client|Win32.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development Client|Win32.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development Client|Win64.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development Client|Win64.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development Client|XXX.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development Client|XXX.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development Editor|HoloLens.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development Editor|Mac.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development Editor|Mac.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development Editor|Win32.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development Editor|Win32.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development Editor|Win64.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development Editor|Win64.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development Editor|XXX.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development Editor|XXX.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development Server|HoloLens.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development Server|HoloLens.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development Server|Mac.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development Server|Mac.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development Server|Win32.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development Server|Win32.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development Server|Win64.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development Server|Win64.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development Server|XXX.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development Server|XXX.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development|HoloLens.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development|HoloLens.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development|Mac.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development|Mac.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development|Win32.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development|Win32.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development|Win64.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development|Win64.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development|XXX.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Development|XXX.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Shipping Client|HoloLens.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Shipping Client|HoloLens.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Shipping Client|Mac.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Shipping Client|Mac.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Shipping Client|Win32.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Shipping Client|Win32.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Shipping Client|Win64.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Shipping Client|Win64.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Shipping Client|XXX.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Shipping Client|XXX.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Shipping Server|HoloLens.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Shipping Server|HoloLens.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Shipping Server|Mac.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Shipping Server|Mac.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Shipping Server|Win32.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Shipping Server|Win32.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Shipping Server|Win64.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Shipping Server|Win64.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Shipping Server|XXX.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Shipping Server|XXX.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Shipping|HoloLens.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Shipping|HoloLens.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Shipping|Mac.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Shipping|Mac.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Shipping|Win32.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Shipping|Win32.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Shipping|Win64.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Shipping|Win64.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Shipping|XXX.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Shipping|XXX.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Test Client|HoloLens.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Test Client|HoloLens.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Test Client|Mac.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Test Client|Mac.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Test Client|Win32.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Test Client|Win32.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Test Client|Win64.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Test Client|Win64.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Test Client|XXX.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Test Client|XXX.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Test Server|HoloLens.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Test Server|HoloLens.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Test Server|Mac.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Test Server|Mac.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Test Server|Win32.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Test Server|Win32.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Test Server|Win64.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Test Server|Win64.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Test Server|XXX.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Test Server|XXX.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Test|HoloLens.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Test|HoloLens.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Test|Mac.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Test|Mac.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Test|Win32.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Test|Win32.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Test|Win64.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Test|Win64.Build.0 = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Test|XXX.ActiveCfg = Development|Any CPU
-		{39369368-5603-46DA-BAAE-766BB3CB2B51}.Test|XXX.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug Client|HoloLens.ActiveCfg = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug Client|HoloLens.Build.0 = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug Client|Mac.ActiveCfg = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug Client|Mac.Build.0 = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug Client|Win32.ActiveCfg = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug Client|Win32.Build.0 = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug Client|Win64.ActiveCfg = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug Client|Win64.Build.0 = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug Client|XXX.ActiveCfg = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug Client|XXX.Build.0 = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug Editor|HoloLens.ActiveCfg = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug Editor|HoloLens.Build.0 = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug Editor|Mac.ActiveCfg = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug Editor|Mac.Build.0 = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug Editor|Win32.ActiveCfg = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug Editor|Win32.Build.0 = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug Editor|Win64.ActiveCfg = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug Editor|Win64.Build.0 = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug Editor|XXX.ActiveCfg = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug Editor|XXX.Build.0 = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug Server|HoloLens.ActiveCfg = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug Server|HoloLens.Build.0 = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug Server|Mac.ActiveCfg = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug Server|Mac.Build.0 = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug Server|Win32.ActiveCfg = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug Server|Win32.Build.0 = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug Server|Win64.ActiveCfg = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug Server|Win64.Build.0 = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug Server|XXX.ActiveCfg = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug Server|XXX.Build.0 = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug|HoloLens.ActiveCfg = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug|HoloLens.Build.0 = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug|Mac.ActiveCfg = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug|Mac.Build.0 = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug|Win32.Build.0 = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug|Win64.ActiveCfg = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug|Win64.Build.0 = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug|XXX.ActiveCfg = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Debug|XXX.Build.0 = Debug|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame Client|HoloLens.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame Client|HoloLens.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame Client|Mac.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame Client|Mac.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame Client|Win32.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame Client|Win32.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame Client|Win64.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame Client|Win64.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame Client|XXX.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame Client|XXX.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame Editor|HoloLens.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame Editor|Mac.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame Editor|Mac.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame Editor|Win32.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame Editor|Win32.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame Editor|Win64.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame Editor|Win64.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame Editor|XXX.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame Editor|XXX.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame Server|HoloLens.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame Server|HoloLens.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame Server|Mac.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame Server|Mac.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame Server|Win32.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame Server|Win32.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame Server|Win64.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame Server|Win64.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame Server|XXX.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame Server|XXX.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame|HoloLens.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame|HoloLens.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame|Mac.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame|Mac.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame|Win32.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame|Win32.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame|Win64.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame|Win64.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame|XXX.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.DebugGame|XXX.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development Client|HoloLens.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development Client|HoloLens.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development Client|Mac.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development Client|Mac.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development Client|Win32.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development Client|Win32.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development Client|Win64.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development Client|Win64.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development Client|XXX.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development Client|XXX.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development Editor|HoloLens.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development Editor|Mac.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development Editor|Mac.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development Editor|Win32.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development Editor|Win32.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development Editor|Win64.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development Editor|Win64.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development Editor|XXX.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development Editor|XXX.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development Server|HoloLens.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development Server|HoloLens.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development Server|Mac.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development Server|Mac.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development Server|Win32.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development Server|Win32.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development Server|Win64.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development Server|Win64.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development Server|XXX.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development Server|XXX.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development|HoloLens.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development|HoloLens.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development|Mac.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development|Mac.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development|Win32.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development|Win32.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development|Win64.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development|Win64.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development|XXX.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Development|XXX.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Shipping Client|HoloLens.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Shipping Client|HoloLens.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Shipping Client|Mac.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Shipping Client|Mac.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Shipping Client|Win32.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Shipping Client|Win32.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Shipping Client|Win64.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Shipping Client|Win64.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Shipping Client|XXX.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Shipping Client|XXX.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Shipping Server|HoloLens.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Shipping Server|HoloLens.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Shipping Server|Mac.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Shipping Server|Mac.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Shipping Server|Win32.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Shipping Server|Win32.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Shipping Server|Win64.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Shipping Server|Win64.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Shipping Server|XXX.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Shipping Server|XXX.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Shipping|HoloLens.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Shipping|HoloLens.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Shipping|Mac.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Shipping|Mac.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Shipping|Win32.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Shipping|Win32.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Shipping|Win64.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Shipping|Win64.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Shipping|XXX.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Shipping|XXX.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Test Client|HoloLens.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Test Client|HoloLens.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Test Client|Mac.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Test Client|Mac.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Test Client|Win32.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Test Client|Win32.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Test Client|Win64.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Test Client|Win64.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Test Client|XXX.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Test Client|XXX.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Test Server|HoloLens.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Test Server|HoloLens.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Test Server|Mac.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Test Server|Mac.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Test Server|Win32.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Test Server|Win32.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Test Server|Win64.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Test Server|Win64.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Test Server|XXX.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Test Server|XXX.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Test|HoloLens.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Test|HoloLens.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Test|Mac.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Test|Mac.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Test|Win32.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Test|Win32.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Test|Win64.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Test|Win64.Build.0 = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Test|XXX.ActiveCfg = Development|Any CPU
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F}.Test|XXX.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug Client|HoloLens.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug Client|HoloLens.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug Client|Mac.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug Client|Mac.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug Client|Win32.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug Client|Win32.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug Client|Win64.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug Client|Win64.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug Client|XXX.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug Client|XXX.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug Editor|HoloLens.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug Editor|HoloLens.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug Editor|Mac.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug Editor|Mac.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug Editor|Win32.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug Editor|Win32.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug Editor|Win64.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug Editor|Win64.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug Editor|XXX.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug Editor|XXX.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug Server|HoloLens.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug Server|HoloLens.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug Server|Mac.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug Server|Mac.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug Server|Win32.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug Server|Win32.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug Server|Win64.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug Server|Win64.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug Server|XXX.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug Server|XXX.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug|HoloLens.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug|HoloLens.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug|Mac.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug|Mac.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug|Win32.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug|Win64.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug|Win64.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug|XXX.ActiveCfg = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Debug|XXX.Build.0 = Debug|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame Client|HoloLens.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame Client|HoloLens.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame Client|Mac.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame Client|Mac.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame Client|Win32.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame Client|Win32.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame Client|Win64.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame Client|Win64.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame Client|XXX.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame Client|XXX.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame Editor|HoloLens.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame Editor|Mac.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame Editor|Mac.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame Editor|Win32.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame Editor|Win32.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame Editor|Win64.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame Editor|Win64.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame Editor|XXX.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame Editor|XXX.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame Server|HoloLens.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame Server|HoloLens.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame Server|Mac.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame Server|Mac.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame Server|Win32.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame Server|Win32.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame Server|Win64.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame Server|Win64.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame Server|XXX.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame Server|XXX.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame|HoloLens.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame|HoloLens.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame|Mac.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame|Mac.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame|Win32.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame|Win32.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame|Win64.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame|Win64.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame|XXX.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.DebugGame|XXX.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development Client|HoloLens.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development Client|HoloLens.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development Client|Mac.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development Client|Mac.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development Client|Win32.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development Client|Win32.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development Client|Win64.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development Client|Win64.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development Client|XXX.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development Client|XXX.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development Editor|HoloLens.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development Editor|Mac.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development Editor|Mac.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development Editor|Win32.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development Editor|Win32.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development Editor|Win64.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development Editor|Win64.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development Editor|XXX.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development Editor|XXX.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development Server|HoloLens.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development Server|HoloLens.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development Server|Mac.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development Server|Mac.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development Server|Win32.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development Server|Win32.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development Server|Win64.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development Server|Win64.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development Server|XXX.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development Server|XXX.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development|HoloLens.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development|HoloLens.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development|Mac.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development|Mac.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development|Win32.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development|Win32.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development|Win64.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development|Win64.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development|XXX.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Development|XXX.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Shipping Client|HoloLens.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Shipping Client|HoloLens.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Shipping Client|Mac.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Shipping Client|Mac.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Shipping Client|Win32.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Shipping Client|Win32.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Shipping Client|Win64.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Shipping Client|Win64.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Shipping Client|XXX.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Shipping Client|XXX.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Shipping Server|HoloLens.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Shipping Server|HoloLens.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Shipping Server|Mac.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Shipping Server|Mac.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Shipping Server|Win32.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Shipping Server|Win32.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Shipping Server|Win64.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Shipping Server|Win64.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Shipping Server|XXX.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Shipping Server|XXX.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Shipping|HoloLens.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Shipping|HoloLens.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Shipping|Mac.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Shipping|Mac.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Shipping|Win32.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Shipping|Win32.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Shipping|Win64.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Shipping|Win64.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Shipping|XXX.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Shipping|XXX.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Test Client|HoloLens.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Test Client|HoloLens.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Test Client|Mac.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Test Client|Mac.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Test Client|Win32.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Test Client|Win32.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Test Client|Win64.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Test Client|Win64.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Test Client|XXX.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Test Client|XXX.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Test Server|HoloLens.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Test Server|HoloLens.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Test Server|Mac.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Test Server|Mac.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Test Server|Win32.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Test Server|Win32.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Test Server|Win64.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Test Server|Win64.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Test Server|XXX.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Test Server|XXX.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Test|HoloLens.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Test|HoloLens.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Test|Mac.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Test|Mac.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Test|Win32.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Test|Win32.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Test|Win64.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Test|Win64.Build.0 = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Test|XXX.ActiveCfg = Development|Any CPU
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22}.Test|XXX.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug Client|HoloLens.ActiveCfg = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug Client|HoloLens.Build.0 = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug Client|Mac.ActiveCfg = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug Client|Mac.Build.0 = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug Client|Win32.ActiveCfg = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug Client|Win32.Build.0 = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug Client|Win64.ActiveCfg = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug Client|Win64.Build.0 = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug Client|XXX.ActiveCfg = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug Client|XXX.Build.0 = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug Editor|HoloLens.ActiveCfg = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug Editor|HoloLens.Build.0 = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug Editor|Mac.ActiveCfg = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug Editor|Mac.Build.0 = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug Editor|Win32.ActiveCfg = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug Editor|Win32.Build.0 = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug Editor|Win64.ActiveCfg = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug Editor|Win64.Build.0 = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug Editor|XXX.ActiveCfg = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug Editor|XXX.Build.0 = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug Server|HoloLens.ActiveCfg = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug Server|HoloLens.Build.0 = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug Server|Mac.ActiveCfg = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug Server|Mac.Build.0 = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug Server|Win32.ActiveCfg = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug Server|Win32.Build.0 = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug Server|Win64.ActiveCfg = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug Server|Win64.Build.0 = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug Server|XXX.ActiveCfg = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug Server|XXX.Build.0 = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug|HoloLens.ActiveCfg = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug|HoloLens.Build.0 = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug|Mac.ActiveCfg = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug|Mac.Build.0 = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug|Win32.Build.0 = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug|Win64.ActiveCfg = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug|Win64.Build.0 = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug|XXX.ActiveCfg = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Debug|XXX.Build.0 = Debug|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame Client|HoloLens.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame Client|HoloLens.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame Client|Mac.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame Client|Mac.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame Client|Win32.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame Client|Win32.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame Client|Win64.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame Client|Win64.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame Client|XXX.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame Client|XXX.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame Editor|HoloLens.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame Editor|Mac.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame Editor|Mac.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame Editor|Win32.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame Editor|Win32.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame Editor|Win64.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame Editor|Win64.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame Editor|XXX.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame Editor|XXX.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame Server|HoloLens.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame Server|HoloLens.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame Server|Mac.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame Server|Mac.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame Server|Win32.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame Server|Win32.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame Server|Win64.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame Server|Win64.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame Server|XXX.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame Server|XXX.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame|HoloLens.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame|HoloLens.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame|Mac.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame|Mac.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame|Win32.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame|Win32.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame|Win64.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame|Win64.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame|XXX.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.DebugGame|XXX.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development Client|HoloLens.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development Client|HoloLens.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development Client|Mac.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development Client|Mac.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development Client|Win32.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development Client|Win32.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development Client|Win64.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development Client|Win64.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development Client|XXX.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development Client|XXX.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development Editor|HoloLens.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development Editor|Mac.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development Editor|Mac.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development Editor|Win32.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development Editor|Win32.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development Editor|Win64.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development Editor|Win64.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development Editor|XXX.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development Editor|XXX.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development Server|HoloLens.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development Server|HoloLens.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development Server|Mac.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development Server|Mac.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development Server|Win32.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development Server|Win32.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development Server|Win64.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development Server|Win64.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development Server|XXX.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development Server|XXX.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development|HoloLens.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development|HoloLens.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development|Mac.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development|Mac.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development|Win32.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development|Win32.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development|Win64.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development|Win64.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development|XXX.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Development|XXX.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Shipping Client|HoloLens.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Shipping Client|HoloLens.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Shipping Client|Mac.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Shipping Client|Mac.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Shipping Client|Win32.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Shipping Client|Win32.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Shipping Client|Win64.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Shipping Client|Win64.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Shipping Client|XXX.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Shipping Client|XXX.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Shipping Server|HoloLens.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Shipping Server|HoloLens.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Shipping Server|Mac.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Shipping Server|Mac.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Shipping Server|Win32.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Shipping Server|Win32.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Shipping Server|Win64.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Shipping Server|Win64.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Shipping Server|XXX.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Shipping Server|XXX.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Shipping|HoloLens.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Shipping|HoloLens.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Shipping|Mac.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Shipping|Mac.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Shipping|Win32.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Shipping|Win32.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Shipping|Win64.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Shipping|Win64.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Shipping|XXX.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Shipping|XXX.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Test Client|HoloLens.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Test Client|HoloLens.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Test Client|Mac.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Test Client|Mac.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Test Client|Win32.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Test Client|Win32.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Test Client|Win64.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Test Client|Win64.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Test Client|XXX.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Test Client|XXX.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Test Server|HoloLens.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Test Server|HoloLens.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Test Server|Mac.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Test Server|Mac.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Test Server|Win32.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Test Server|Win32.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Test Server|Win64.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Test Server|Win64.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Test Server|XXX.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Test Server|XXX.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Test|HoloLens.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Test|HoloLens.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Test|Mac.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Test|Mac.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Test|Win32.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Test|Win32.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Test|Win64.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Test|Win64.Build.0 = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Test|XXX.ActiveCfg = Development|Any CPU
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128}.Test|XXX.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug Client|HoloLens.ActiveCfg = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug Client|HoloLens.Build.0 = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug Client|Mac.ActiveCfg = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug Client|Mac.Build.0 = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug Client|Win32.ActiveCfg = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug Client|Win32.Build.0 = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug Client|Win64.ActiveCfg = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug Client|Win64.Build.0 = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug Client|XXX.ActiveCfg = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug Client|XXX.Build.0 = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug Editor|HoloLens.ActiveCfg = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug Editor|HoloLens.Build.0 = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug Editor|Mac.ActiveCfg = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug Editor|Mac.Build.0 = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug Editor|Win32.ActiveCfg = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug Editor|Win32.Build.0 = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug Editor|Win64.ActiveCfg = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug Editor|Win64.Build.0 = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug Editor|XXX.ActiveCfg = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug Editor|XXX.Build.0 = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug Server|HoloLens.ActiveCfg = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug Server|HoloLens.Build.0 = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug Server|Mac.ActiveCfg = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug Server|Mac.Build.0 = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug Server|Win32.ActiveCfg = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug Server|Win32.Build.0 = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug Server|Win64.ActiveCfg = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug Server|Win64.Build.0 = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug Server|XXX.ActiveCfg = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug Server|XXX.Build.0 = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug|HoloLens.ActiveCfg = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug|HoloLens.Build.0 = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug|Mac.ActiveCfg = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug|Mac.Build.0 = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug|Win32.Build.0 = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug|Win64.ActiveCfg = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug|Win64.Build.0 = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug|XXX.ActiveCfg = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Debug|XXX.Build.0 = Debug|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame Client|HoloLens.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame Client|HoloLens.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame Client|Mac.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame Client|Mac.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame Client|Win32.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame Client|Win32.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame Client|Win64.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame Client|Win64.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame Client|XXX.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame Client|XXX.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame Editor|HoloLens.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame Editor|Mac.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame Editor|Mac.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame Editor|Win32.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame Editor|Win32.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame Editor|Win64.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame Editor|Win64.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame Editor|XXX.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame Editor|XXX.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame Server|HoloLens.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame Server|HoloLens.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame Server|Mac.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame Server|Mac.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame Server|Win32.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame Server|Win32.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame Server|Win64.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame Server|Win64.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame Server|XXX.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame Server|XXX.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame|HoloLens.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame|HoloLens.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame|Mac.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame|Mac.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame|Win32.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame|Win32.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame|Win64.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame|Win64.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame|XXX.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.DebugGame|XXX.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development Client|HoloLens.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development Client|HoloLens.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development Client|Mac.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development Client|Mac.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development Client|Win32.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development Client|Win32.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development Client|Win64.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development Client|Win64.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development Client|XXX.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development Client|XXX.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development Editor|HoloLens.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development Editor|Mac.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development Editor|Mac.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development Editor|Win32.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development Editor|Win32.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development Editor|Win64.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development Editor|Win64.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development Editor|XXX.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development Editor|XXX.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development Server|HoloLens.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development Server|HoloLens.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development Server|Mac.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development Server|Mac.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development Server|Win32.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development Server|Win32.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development Server|Win64.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development Server|Win64.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development Server|XXX.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development Server|XXX.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development|HoloLens.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development|HoloLens.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development|Mac.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development|Mac.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development|Win32.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development|Win32.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development|Win64.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development|Win64.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development|XXX.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Development|XXX.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Shipping Client|HoloLens.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Shipping Client|HoloLens.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Shipping Client|Mac.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Shipping Client|Mac.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Shipping Client|Win32.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Shipping Client|Win32.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Shipping Client|Win64.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Shipping Client|Win64.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Shipping Client|XXX.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Shipping Client|XXX.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Shipping Server|HoloLens.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Shipping Server|HoloLens.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Shipping Server|Mac.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Shipping Server|Mac.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Shipping Server|Win32.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Shipping Server|Win32.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Shipping Server|Win64.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Shipping Server|Win64.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Shipping Server|XXX.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Shipping Server|XXX.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Shipping|HoloLens.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Shipping|HoloLens.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Shipping|Mac.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Shipping|Mac.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Shipping|Win32.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Shipping|Win32.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Shipping|Win64.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Shipping|Win64.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Shipping|XXX.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Shipping|XXX.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Test Client|HoloLens.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Test Client|HoloLens.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Test Client|Mac.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Test Client|Mac.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Test Client|Win32.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Test Client|Win32.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Test Client|Win64.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Test Client|Win64.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Test Client|XXX.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Test Client|XXX.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Test Server|HoloLens.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Test Server|HoloLens.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Test Server|Mac.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Test Server|Mac.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Test Server|Win32.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Test Server|Win32.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Test Server|Win64.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Test Server|Win64.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Test Server|XXX.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Test Server|XXX.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Test|HoloLens.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Test|HoloLens.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Test|Mac.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Test|Mac.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Test|Win32.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Test|Win32.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Test|Win64.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Test|Win64.Build.0 = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Test|XXX.ActiveCfg = Development|Any CPU
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D}.Test|XXX.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug Client|HoloLens.ActiveCfg = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug Client|HoloLens.Build.0 = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug Client|Mac.ActiveCfg = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug Client|Mac.Build.0 = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug Client|Win32.ActiveCfg = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug Client|Win32.Build.0 = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug Client|Win64.ActiveCfg = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug Client|Win64.Build.0 = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug Client|XXX.ActiveCfg = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug Client|XXX.Build.0 = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug Editor|HoloLens.ActiveCfg = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug Editor|HoloLens.Build.0 = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug Editor|Mac.ActiveCfg = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug Editor|Mac.Build.0 = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug Editor|Win32.ActiveCfg = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug Editor|Win32.Build.0 = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug Editor|Win64.ActiveCfg = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug Editor|Win64.Build.0 = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug Editor|XXX.ActiveCfg = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug Editor|XXX.Build.0 = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug Server|HoloLens.ActiveCfg = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug Server|HoloLens.Build.0 = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug Server|Mac.ActiveCfg = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug Server|Mac.Build.0 = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug Server|Win32.ActiveCfg = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug Server|Win32.Build.0 = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug Server|Win64.ActiveCfg = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug Server|Win64.Build.0 = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug Server|XXX.ActiveCfg = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug Server|XXX.Build.0 = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug|HoloLens.ActiveCfg = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug|HoloLens.Build.0 = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug|Mac.ActiveCfg = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug|Mac.Build.0 = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug|Win32.Build.0 = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug|Win64.ActiveCfg = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug|Win64.Build.0 = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug|XXX.ActiveCfg = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Debug|XXX.Build.0 = Debug|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame Client|HoloLens.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame Client|HoloLens.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame Client|Mac.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame Client|Mac.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame Client|Win32.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame Client|Win32.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame Client|Win64.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame Client|Win64.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame Client|XXX.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame Client|XXX.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame Editor|HoloLens.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame Editor|Mac.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame Editor|Mac.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame Editor|Win32.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame Editor|Win32.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame Editor|Win64.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame Editor|Win64.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame Editor|XXX.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame Editor|XXX.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame Server|HoloLens.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame Server|HoloLens.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame Server|Mac.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame Server|Mac.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame Server|Win32.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame Server|Win32.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame Server|Win64.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame Server|Win64.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame Server|XXX.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame Server|XXX.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame|HoloLens.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame|HoloLens.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame|Mac.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame|Mac.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame|Win32.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame|Win32.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame|Win64.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame|Win64.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame|XXX.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.DebugGame|XXX.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development Client|HoloLens.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development Client|HoloLens.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development Client|Mac.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development Client|Mac.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development Client|Win32.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development Client|Win32.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development Client|Win64.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development Client|Win64.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development Client|XXX.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development Client|XXX.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development Editor|HoloLens.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development Editor|Mac.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development Editor|Mac.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development Editor|Win32.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development Editor|Win32.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development Editor|Win64.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development Editor|Win64.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development Editor|XXX.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development Editor|XXX.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development Server|HoloLens.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development Server|HoloLens.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development Server|Mac.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development Server|Mac.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development Server|Win32.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development Server|Win32.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development Server|Win64.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development Server|Win64.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development Server|XXX.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development Server|XXX.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development|HoloLens.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development|HoloLens.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development|Mac.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development|Mac.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development|Win32.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development|Win32.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development|Win64.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development|Win64.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development|XXX.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Development|XXX.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Shipping Client|HoloLens.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Shipping Client|HoloLens.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Shipping Client|Mac.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Shipping Client|Mac.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Shipping Client|Win32.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Shipping Client|Win32.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Shipping Client|Win64.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Shipping Client|Win64.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Shipping Client|XXX.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Shipping Client|XXX.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Shipping Server|HoloLens.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Shipping Server|HoloLens.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Shipping Server|Mac.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Shipping Server|Mac.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Shipping Server|Win32.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Shipping Server|Win32.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Shipping Server|Win64.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Shipping Server|Win64.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Shipping Server|XXX.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Shipping Server|XXX.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Shipping|HoloLens.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Shipping|HoloLens.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Shipping|Mac.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Shipping|Mac.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Shipping|Win32.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Shipping|Win32.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Shipping|Win64.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Shipping|Win64.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Shipping|XXX.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Shipping|XXX.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Test Client|HoloLens.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Test Client|HoloLens.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Test Client|Mac.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Test Client|Mac.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Test Client|Win32.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Test Client|Win32.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Test Client|Win64.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Test Client|Win64.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Test Client|XXX.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Test Client|XXX.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Test Server|HoloLens.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Test Server|HoloLens.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Test Server|Mac.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Test Server|Mac.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Test Server|Win32.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Test Server|Win32.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Test Server|Win64.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Test Server|Win64.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Test Server|XXX.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Test Server|XXX.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Test|HoloLens.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Test|HoloLens.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Test|Mac.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Test|Mac.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Test|Win32.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Test|Win32.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Test|Win64.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Test|Win64.Build.0 = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Test|XXX.ActiveCfg = Development|Any CPU
-		{22404B09-95BE-44DD-AD83-D64C42AAE245}.Test|XXX.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug Client|HoloLens.ActiveCfg = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug Client|HoloLens.Build.0 = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug Client|Mac.ActiveCfg = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug Client|Mac.Build.0 = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug Client|Win32.ActiveCfg = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug Client|Win32.Build.0 = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug Client|Win64.ActiveCfg = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug Client|Win64.Build.0 = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug Client|XXX.ActiveCfg = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug Client|XXX.Build.0 = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug Editor|HoloLens.ActiveCfg = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug Editor|HoloLens.Build.0 = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug Editor|Mac.ActiveCfg = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug Editor|Mac.Build.0 = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug Editor|Win32.ActiveCfg = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug Editor|Win32.Build.0 = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug Editor|Win64.ActiveCfg = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug Editor|Win64.Build.0 = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug Editor|XXX.ActiveCfg = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug Editor|XXX.Build.0 = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug Server|HoloLens.ActiveCfg = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug Server|HoloLens.Build.0 = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug Server|Mac.ActiveCfg = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug Server|Mac.Build.0 = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug Server|Win32.ActiveCfg = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug Server|Win32.Build.0 = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug Server|Win64.ActiveCfg = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug Server|Win64.Build.0 = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug Server|XXX.ActiveCfg = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug Server|XXX.Build.0 = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug|HoloLens.ActiveCfg = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug|HoloLens.Build.0 = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug|Mac.ActiveCfg = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug|Mac.Build.0 = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug|Win32.Build.0 = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug|Win64.ActiveCfg = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug|Win64.Build.0 = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug|XXX.ActiveCfg = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Debug|XXX.Build.0 = Debug|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame Client|HoloLens.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame Client|HoloLens.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame Client|Mac.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame Client|Mac.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame Client|Win32.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame Client|Win32.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame Client|Win64.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame Client|Win64.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame Client|XXX.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame Client|XXX.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame Editor|HoloLens.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame Editor|Mac.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame Editor|Mac.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame Editor|Win32.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame Editor|Win32.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame Editor|Win64.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame Editor|Win64.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame Editor|XXX.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame Editor|XXX.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame Server|HoloLens.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame Server|HoloLens.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame Server|Mac.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame Server|Mac.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame Server|Win32.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame Server|Win32.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame Server|Win64.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame Server|Win64.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame Server|XXX.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame Server|XXX.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame|HoloLens.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame|HoloLens.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame|Mac.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame|Mac.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame|Win32.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame|Win32.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame|Win64.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame|Win64.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame|XXX.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.DebugGame|XXX.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development Client|HoloLens.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development Client|HoloLens.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development Client|Mac.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development Client|Mac.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development Client|Win32.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development Client|Win32.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development Client|Win64.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development Client|Win64.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development Client|XXX.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development Client|XXX.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development Editor|HoloLens.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development Editor|Mac.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development Editor|Mac.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development Editor|Win32.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development Editor|Win32.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development Editor|Win64.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development Editor|Win64.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development Editor|XXX.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development Editor|XXX.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development Server|HoloLens.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development Server|HoloLens.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development Server|Mac.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development Server|Mac.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development Server|Win32.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development Server|Win32.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development Server|Win64.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development Server|Win64.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development Server|XXX.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development Server|XXX.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development|HoloLens.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development|HoloLens.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development|Mac.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development|Mac.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development|Win32.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development|Win32.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development|Win64.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development|Win64.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development|XXX.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Development|XXX.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Shipping Client|HoloLens.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Shipping Client|HoloLens.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Shipping Client|Mac.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Shipping Client|Mac.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Shipping Client|Win32.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Shipping Client|Win32.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Shipping Client|Win64.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Shipping Client|Win64.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Shipping Client|XXX.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Shipping Client|XXX.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Shipping Server|HoloLens.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Shipping Server|HoloLens.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Shipping Server|Mac.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Shipping Server|Mac.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Shipping Server|Win32.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Shipping Server|Win32.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Shipping Server|Win64.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Shipping Server|Win64.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Shipping Server|XXX.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Shipping Server|XXX.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Shipping|HoloLens.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Shipping|HoloLens.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Shipping|Mac.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Shipping|Mac.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Shipping|Win32.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Shipping|Win32.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Shipping|Win64.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Shipping|Win64.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Shipping|XXX.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Shipping|XXX.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Test Client|HoloLens.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Test Client|HoloLens.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Test Client|Mac.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Test Client|Mac.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Test Client|Win32.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Test Client|Win32.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Test Client|Win64.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Test Client|Win64.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Test Client|XXX.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Test Client|XXX.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Test Server|HoloLens.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Test Server|HoloLens.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Test Server|Mac.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Test Server|Mac.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Test Server|Win32.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Test Server|Win32.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Test Server|Win64.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Test Server|Win64.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Test Server|XXX.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Test Server|XXX.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Test|HoloLens.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Test|HoloLens.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Test|Mac.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Test|Mac.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Test|Win32.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Test|Win32.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Test|Win64.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Test|Win64.Build.0 = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Test|XXX.ActiveCfg = Development|Any CPU
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129}.Test|XXX.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug Client|HoloLens.ActiveCfg = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug Client|HoloLens.Build.0 = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug Client|Mac.ActiveCfg = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug Client|Mac.Build.0 = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug Client|Win32.ActiveCfg = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug Client|Win32.Build.0 = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug Client|Win64.ActiveCfg = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug Client|Win64.Build.0 = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug Client|XXX.ActiveCfg = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug Client|XXX.Build.0 = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug Editor|HoloLens.ActiveCfg = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug Editor|HoloLens.Build.0 = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug Editor|Mac.ActiveCfg = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug Editor|Mac.Build.0 = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug Editor|Win32.ActiveCfg = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug Editor|Win32.Build.0 = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug Editor|Win64.ActiveCfg = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug Editor|Win64.Build.0 = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug Editor|XXX.ActiveCfg = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug Editor|XXX.Build.0 = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug Server|HoloLens.ActiveCfg = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug Server|HoloLens.Build.0 = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug Server|Mac.ActiveCfg = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug Server|Mac.Build.0 = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug Server|Win32.ActiveCfg = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug Server|Win32.Build.0 = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug Server|Win64.ActiveCfg = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug Server|Win64.Build.0 = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug Server|XXX.ActiveCfg = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug Server|XXX.Build.0 = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug|HoloLens.ActiveCfg = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug|HoloLens.Build.0 = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug|Mac.ActiveCfg = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug|Mac.Build.0 = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug|Win32.Build.0 = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug|Win64.ActiveCfg = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug|Win64.Build.0 = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug|XXX.ActiveCfg = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Debug|XXX.Build.0 = Debug|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame Client|HoloLens.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame Client|HoloLens.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame Client|Mac.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame Client|Mac.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame Client|Win32.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame Client|Win32.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame Client|Win64.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame Client|Win64.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame Client|XXX.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame Client|XXX.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame Editor|HoloLens.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame Editor|Mac.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame Editor|Mac.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame Editor|Win32.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame Editor|Win32.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame Editor|Win64.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame Editor|Win64.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame Editor|XXX.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame Editor|XXX.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame Server|HoloLens.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame Server|HoloLens.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame Server|Mac.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame Server|Mac.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame Server|Win32.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame Server|Win32.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame Server|Win64.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame Server|Win64.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame Server|XXX.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame Server|XXX.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame|HoloLens.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame|HoloLens.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame|Mac.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame|Mac.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame|Win32.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame|Win32.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame|Win64.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame|Win64.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame|XXX.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.DebugGame|XXX.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development Client|HoloLens.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development Client|HoloLens.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development Client|Mac.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development Client|Mac.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development Client|Win32.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development Client|Win32.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development Client|Win64.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development Client|Win64.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development Client|XXX.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development Client|XXX.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development Editor|HoloLens.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development Editor|Mac.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development Editor|Mac.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development Editor|Win32.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development Editor|Win32.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development Editor|Win64.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development Editor|Win64.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development Editor|XXX.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development Editor|XXX.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development Server|HoloLens.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development Server|HoloLens.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development Server|Mac.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development Server|Mac.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development Server|Win32.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development Server|Win32.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development Server|Win64.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development Server|Win64.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development Server|XXX.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development Server|XXX.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development|HoloLens.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development|HoloLens.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development|Mac.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development|Mac.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development|Win32.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development|Win32.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development|Win64.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development|Win64.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development|XXX.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Development|XXX.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Shipping Client|HoloLens.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Shipping Client|HoloLens.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Shipping Client|Mac.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Shipping Client|Mac.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Shipping Client|Win32.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Shipping Client|Win32.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Shipping Client|Win64.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Shipping Client|Win64.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Shipping Client|XXX.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Shipping Client|XXX.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Shipping Server|HoloLens.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Shipping Server|HoloLens.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Shipping Server|Mac.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Shipping Server|Mac.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Shipping Server|Win32.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Shipping Server|Win32.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Shipping Server|Win64.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Shipping Server|Win64.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Shipping Server|XXX.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Shipping Server|XXX.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Shipping|HoloLens.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Shipping|HoloLens.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Shipping|Mac.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Shipping|Mac.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Shipping|Win32.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Shipping|Win32.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Shipping|Win64.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Shipping|Win64.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Shipping|XXX.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Shipping|XXX.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Test Client|HoloLens.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Test Client|HoloLens.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Test Client|Mac.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Test Client|Mac.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Test Client|Win32.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Test Client|Win32.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Test Client|Win64.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Test Client|Win64.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Test Client|XXX.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Test Client|XXX.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Test Server|HoloLens.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Test Server|HoloLens.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Test Server|Mac.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Test Server|Mac.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Test Server|Win32.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Test Server|Win32.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Test Server|Win64.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Test Server|Win64.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Test Server|XXX.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Test Server|XXX.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Test|HoloLens.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Test|HoloLens.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Test|Mac.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Test|Mac.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Test|Win32.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Test|Win32.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Test|Win64.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Test|Win64.Build.0 = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Test|XXX.ActiveCfg = Development|Any CPU
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29}.Test|XXX.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug Client|HoloLens.ActiveCfg = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug Client|HoloLens.Build.0 = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug Client|Mac.ActiveCfg = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug Client|Mac.Build.0 = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug Client|Win32.ActiveCfg = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug Client|Win32.Build.0 = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug Client|Win64.ActiveCfg = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug Client|Win64.Build.0 = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug Client|XXX.ActiveCfg = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug Client|XXX.Build.0 = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug Editor|HoloLens.ActiveCfg = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug Editor|HoloLens.Build.0 = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug Editor|Mac.ActiveCfg = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug Editor|Mac.Build.0 = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug Editor|Win32.ActiveCfg = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug Editor|Win32.Build.0 = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug Editor|Win64.ActiveCfg = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug Editor|Win64.Build.0 = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug Editor|XXX.ActiveCfg = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug Editor|XXX.Build.0 = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug Server|HoloLens.ActiveCfg = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug Server|HoloLens.Build.0 = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug Server|Mac.ActiveCfg = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug Server|Mac.Build.0 = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug Server|Win32.ActiveCfg = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug Server|Win32.Build.0 = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug Server|Win64.ActiveCfg = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug Server|Win64.Build.0 = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug Server|XXX.ActiveCfg = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug Server|XXX.Build.0 = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug|HoloLens.ActiveCfg = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug|HoloLens.Build.0 = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug|Mac.ActiveCfg = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug|Mac.Build.0 = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug|Win32.Build.0 = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug|Win64.ActiveCfg = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug|Win64.Build.0 = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug|XXX.ActiveCfg = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Debug|XXX.Build.0 = Debug|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame Client|HoloLens.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame Client|HoloLens.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame Client|Mac.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame Client|Mac.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame Client|Win32.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame Client|Win32.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame Client|Win64.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame Client|Win64.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame Client|XXX.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame Client|XXX.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame Editor|HoloLens.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame Editor|Mac.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame Editor|Mac.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame Editor|Win32.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame Editor|Win32.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame Editor|Win64.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame Editor|Win64.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame Editor|XXX.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame Editor|XXX.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame Server|HoloLens.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame Server|HoloLens.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame Server|Mac.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame Server|Mac.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame Server|Win32.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame Server|Win32.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame Server|Win64.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame Server|Win64.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame Server|XXX.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame Server|XXX.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame|HoloLens.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame|HoloLens.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame|Mac.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame|Mac.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame|Win32.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame|Win32.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame|Win64.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame|Win64.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame|XXX.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.DebugGame|XXX.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development Client|HoloLens.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development Client|HoloLens.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development Client|Mac.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development Client|Mac.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development Client|Win32.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development Client|Win32.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development Client|Win64.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development Client|Win64.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development Client|XXX.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development Client|XXX.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development Editor|HoloLens.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development Editor|Mac.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development Editor|Mac.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development Editor|Win32.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development Editor|Win32.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development Editor|Win64.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development Editor|Win64.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development Editor|XXX.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development Editor|XXX.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development Server|HoloLens.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development Server|HoloLens.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development Server|Mac.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development Server|Mac.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development Server|Win32.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development Server|Win32.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development Server|Win64.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development Server|Win64.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development Server|XXX.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development Server|XXX.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development|HoloLens.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development|HoloLens.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development|Mac.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development|Mac.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development|Win32.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development|Win32.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development|Win64.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development|Win64.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development|XXX.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Development|XXX.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Shipping Client|HoloLens.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Shipping Client|HoloLens.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Shipping Client|Mac.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Shipping Client|Mac.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Shipping Client|Win32.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Shipping Client|Win32.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Shipping Client|Win64.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Shipping Client|Win64.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Shipping Client|XXX.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Shipping Client|XXX.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Shipping Server|HoloLens.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Shipping Server|HoloLens.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Shipping Server|Mac.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Shipping Server|Mac.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Shipping Server|Win32.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Shipping Server|Win32.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Shipping Server|Win64.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Shipping Server|Win64.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Shipping Server|XXX.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Shipping Server|XXX.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Shipping|HoloLens.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Shipping|HoloLens.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Shipping|Mac.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Shipping|Mac.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Shipping|Win32.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Shipping|Win32.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Shipping|Win64.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Shipping|Win64.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Shipping|XXX.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Shipping|XXX.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Test Client|HoloLens.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Test Client|HoloLens.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Test Client|Mac.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Test Client|Mac.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Test Client|Win32.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Test Client|Win32.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Test Client|Win64.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Test Client|Win64.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Test Client|XXX.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Test Client|XXX.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Test Server|HoloLens.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Test Server|HoloLens.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Test Server|Mac.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Test Server|Mac.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Test Server|Win32.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Test Server|Win32.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Test Server|Win64.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Test Server|Win64.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Test Server|XXX.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Test Server|XXX.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Test|HoloLens.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Test|HoloLens.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Test|Mac.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Test|Mac.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Test|Win32.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Test|Win32.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Test|Win64.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Test|Win64.Build.0 = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Test|XXX.ActiveCfg = Development|Any CPU
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730}.Test|XXX.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug Client|HoloLens.ActiveCfg = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug Client|HoloLens.Build.0 = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug Client|Mac.ActiveCfg = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug Client|Mac.Build.0 = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug Client|Win32.ActiveCfg = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug Client|Win32.Build.0 = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug Client|Win64.ActiveCfg = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug Client|Win64.Build.0 = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug Client|XXX.ActiveCfg = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug Client|XXX.Build.0 = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug Editor|HoloLens.ActiveCfg = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug Editor|HoloLens.Build.0 = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug Editor|Mac.ActiveCfg = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug Editor|Mac.Build.0 = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug Editor|Win32.ActiveCfg = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug Editor|Win32.Build.0 = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug Editor|Win64.ActiveCfg = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug Editor|Win64.Build.0 = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug Editor|XXX.ActiveCfg = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug Editor|XXX.Build.0 = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug Server|HoloLens.ActiveCfg = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug Server|HoloLens.Build.0 = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug Server|Mac.ActiveCfg = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug Server|Mac.Build.0 = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug Server|Win32.ActiveCfg = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug Server|Win32.Build.0 = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug Server|Win64.ActiveCfg = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug Server|Win64.Build.0 = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug Server|XXX.ActiveCfg = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug Server|XXX.Build.0 = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug|HoloLens.ActiveCfg = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug|HoloLens.Build.0 = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug|Mac.ActiveCfg = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug|Mac.Build.0 = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug|Win32.Build.0 = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug|Win64.ActiveCfg = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug|Win64.Build.0 = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug|XXX.ActiveCfg = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Debug|XXX.Build.0 = Debug|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame Client|HoloLens.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame Client|HoloLens.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame Client|Mac.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame Client|Mac.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame Client|Win32.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame Client|Win32.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame Client|Win64.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame Client|Win64.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame Client|XXX.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame Client|XXX.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame Editor|HoloLens.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame Editor|Mac.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame Editor|Mac.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame Editor|Win32.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame Editor|Win32.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame Editor|Win64.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame Editor|Win64.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame Editor|XXX.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame Editor|XXX.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame Server|HoloLens.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame Server|HoloLens.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame Server|Mac.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame Server|Mac.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame Server|Win32.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame Server|Win32.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame Server|Win64.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame Server|Win64.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame Server|XXX.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame Server|XXX.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame|HoloLens.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame|HoloLens.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame|Mac.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame|Mac.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame|Win32.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame|Win32.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame|Win64.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame|Win64.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame|XXX.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.DebugGame|XXX.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development Client|HoloLens.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development Client|HoloLens.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development Client|Mac.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development Client|Mac.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development Client|Win32.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development Client|Win32.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development Client|Win64.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development Client|Win64.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development Client|XXX.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development Client|XXX.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development Editor|HoloLens.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development Editor|Mac.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development Editor|Mac.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development Editor|Win32.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development Editor|Win32.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development Editor|Win64.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development Editor|Win64.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development Editor|XXX.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development Editor|XXX.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development Server|HoloLens.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development Server|HoloLens.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development Server|Mac.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development Server|Mac.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development Server|Win32.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development Server|Win32.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development Server|Win64.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development Server|Win64.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development Server|XXX.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development Server|XXX.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development|HoloLens.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development|HoloLens.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development|Mac.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development|Mac.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development|Win32.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development|Win32.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development|Win64.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development|Win64.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development|XXX.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Development|XXX.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Shipping Client|HoloLens.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Shipping Client|HoloLens.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Shipping Client|Mac.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Shipping Client|Mac.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Shipping Client|Win32.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Shipping Client|Win32.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Shipping Client|Win64.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Shipping Client|Win64.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Shipping Client|XXX.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Shipping Client|XXX.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Shipping Server|HoloLens.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Shipping Server|HoloLens.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Shipping Server|Mac.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Shipping Server|Mac.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Shipping Server|Win32.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Shipping Server|Win32.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Shipping Server|Win64.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Shipping Server|Win64.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Shipping Server|XXX.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Shipping Server|XXX.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Shipping|HoloLens.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Shipping|HoloLens.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Shipping|Mac.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Shipping|Mac.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Shipping|Win32.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Shipping|Win32.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Shipping|Win64.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Shipping|Win64.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Shipping|XXX.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Shipping|XXX.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Test Client|HoloLens.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Test Client|HoloLens.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Test Client|Mac.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Test Client|Mac.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Test Client|Win32.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Test Client|Win32.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Test Client|Win64.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Test Client|Win64.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Test Client|XXX.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Test Client|XXX.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Test Server|HoloLens.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Test Server|HoloLens.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Test Server|Mac.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Test Server|Mac.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Test Server|Win32.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Test Server|Win32.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Test Server|Win64.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Test Server|Win64.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Test Server|XXX.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Test Server|XXX.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Test|HoloLens.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Test|HoloLens.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Test|Mac.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Test|Mac.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Test|Win32.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Test|Win32.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Test|Win64.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Test|Win64.Build.0 = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Test|XXX.ActiveCfg = Development|Any CPU
-		{9B740143-841C-4AF7-905E-D8883F1735DE}.Test|XXX.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug Client|HoloLens.ActiveCfg = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug Client|HoloLens.Build.0 = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug Client|Mac.ActiveCfg = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug Client|Mac.Build.0 = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug Client|Win32.ActiveCfg = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug Client|Win32.Build.0 = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug Client|Win64.ActiveCfg = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug Client|Win64.Build.0 = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug Client|XXX.ActiveCfg = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug Client|XXX.Build.0 = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug Editor|HoloLens.ActiveCfg = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug Editor|HoloLens.Build.0 = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug Editor|Mac.ActiveCfg = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug Editor|Mac.Build.0 = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug Editor|Win32.ActiveCfg = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug Editor|Win32.Build.0 = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug Editor|Win64.ActiveCfg = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug Editor|Win64.Build.0 = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug Editor|XXX.ActiveCfg = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug Editor|XXX.Build.0 = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug Server|HoloLens.ActiveCfg = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug Server|HoloLens.Build.0 = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug Server|Mac.ActiveCfg = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug Server|Mac.Build.0 = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug Server|Win32.ActiveCfg = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug Server|Win32.Build.0 = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug Server|Win64.ActiveCfg = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug Server|Win64.Build.0 = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug Server|XXX.ActiveCfg = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug Server|XXX.Build.0 = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug|HoloLens.ActiveCfg = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug|HoloLens.Build.0 = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug|Mac.ActiveCfg = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug|Mac.Build.0 = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug|Win32.Build.0 = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug|Win64.ActiveCfg = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug|Win64.Build.0 = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug|XXX.ActiveCfg = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Debug|XXX.Build.0 = Debug|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame Client|HoloLens.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame Client|HoloLens.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame Client|Mac.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame Client|Mac.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame Client|Win32.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame Client|Win32.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame Client|Win64.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame Client|Win64.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame Client|XXX.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame Client|XXX.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame Editor|HoloLens.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame Editor|Mac.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame Editor|Mac.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame Editor|Win32.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame Editor|Win32.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame Editor|Win64.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame Editor|Win64.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame Editor|XXX.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame Editor|XXX.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame Server|HoloLens.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame Server|HoloLens.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame Server|Mac.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame Server|Mac.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame Server|Win32.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame Server|Win32.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame Server|Win64.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame Server|Win64.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame Server|XXX.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame Server|XXX.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame|HoloLens.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame|HoloLens.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame|Mac.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame|Mac.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame|Win32.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame|Win32.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame|Win64.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame|Win64.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame|XXX.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.DebugGame|XXX.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development Client|HoloLens.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development Client|HoloLens.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development Client|Mac.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development Client|Mac.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development Client|Win32.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development Client|Win32.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development Client|Win64.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development Client|Win64.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development Client|XXX.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development Client|XXX.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development Editor|HoloLens.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development Editor|Mac.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development Editor|Mac.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development Editor|Win32.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development Editor|Win32.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development Editor|Win64.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development Editor|Win64.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development Editor|XXX.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development Editor|XXX.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development Server|HoloLens.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development Server|HoloLens.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development Server|Mac.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development Server|Mac.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development Server|Win32.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development Server|Win32.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development Server|Win64.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development Server|Win64.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development Server|XXX.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development Server|XXX.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development|HoloLens.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development|HoloLens.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development|Mac.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development|Mac.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development|Win32.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development|Win32.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development|Win64.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development|Win64.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development|XXX.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Development|XXX.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Shipping Client|HoloLens.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Shipping Client|HoloLens.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Shipping Client|Mac.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Shipping Client|Mac.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Shipping Client|Win32.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Shipping Client|Win32.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Shipping Client|Win64.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Shipping Client|Win64.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Shipping Client|XXX.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Shipping Client|XXX.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Shipping Server|HoloLens.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Shipping Server|HoloLens.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Shipping Server|Mac.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Shipping Server|Mac.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Shipping Server|Win32.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Shipping Server|Win32.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Shipping Server|Win64.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Shipping Server|Win64.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Shipping Server|XXX.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Shipping Server|XXX.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Shipping|HoloLens.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Shipping|HoloLens.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Shipping|Mac.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Shipping|Mac.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Shipping|Win32.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Shipping|Win32.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Shipping|Win64.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Shipping|Win64.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Shipping|XXX.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Shipping|XXX.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Test Client|HoloLens.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Test Client|HoloLens.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Test Client|Mac.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Test Client|Mac.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Test Client|Win32.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Test Client|Win32.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Test Client|Win64.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Test Client|Win64.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Test Client|XXX.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Test Client|XXX.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Test Server|HoloLens.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Test Server|HoloLens.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Test Server|Mac.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Test Server|Mac.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Test Server|Win32.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Test Server|Win32.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Test Server|Win64.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Test Server|Win64.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Test Server|XXX.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Test Server|XXX.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Test|HoloLens.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Test|HoloLens.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Test|Mac.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Test|Mac.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Test|Win32.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Test|Win32.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Test|Win64.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Test|Win64.Build.0 = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Test|XXX.ActiveCfg = Development|Any CPU
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD}.Test|XXX.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug Client|HoloLens.ActiveCfg = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug Client|HoloLens.Build.0 = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug Client|Mac.ActiveCfg = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug Client|Mac.Build.0 = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug Client|Win32.ActiveCfg = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug Client|Win32.Build.0 = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug Client|Win64.ActiveCfg = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug Client|Win64.Build.0 = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug Client|XXX.ActiveCfg = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug Client|XXX.Build.0 = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug Editor|HoloLens.ActiveCfg = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug Editor|HoloLens.Build.0 = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug Editor|Mac.ActiveCfg = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug Editor|Mac.Build.0 = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug Editor|Win32.ActiveCfg = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug Editor|Win32.Build.0 = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug Editor|Win64.ActiveCfg = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug Editor|Win64.Build.0 = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug Editor|XXX.ActiveCfg = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug Editor|XXX.Build.0 = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug Server|HoloLens.ActiveCfg = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug Server|HoloLens.Build.0 = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug Server|Mac.ActiveCfg = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug Server|Mac.Build.0 = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug Server|Win32.ActiveCfg = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug Server|Win32.Build.0 = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug Server|Win64.ActiveCfg = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug Server|Win64.Build.0 = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug Server|XXX.ActiveCfg = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug Server|XXX.Build.0 = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug|HoloLens.ActiveCfg = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug|HoloLens.Build.0 = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug|Mac.ActiveCfg = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug|Mac.Build.0 = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug|Win32.Build.0 = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug|Win64.ActiveCfg = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug|Win64.Build.0 = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug|XXX.ActiveCfg = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Debug|XXX.Build.0 = Debug|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame Client|HoloLens.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame Client|HoloLens.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame Client|Mac.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame Client|Mac.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame Client|Win32.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame Client|Win32.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame Client|Win64.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame Client|Win64.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame Client|XXX.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame Client|XXX.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame Editor|HoloLens.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame Editor|Mac.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame Editor|Mac.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame Editor|Win32.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame Editor|Win32.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame Editor|Win64.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame Editor|Win64.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame Editor|XXX.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame Editor|XXX.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame Server|HoloLens.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame Server|HoloLens.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame Server|Mac.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame Server|Mac.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame Server|Win32.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame Server|Win32.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame Server|Win64.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame Server|Win64.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame Server|XXX.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame Server|XXX.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame|HoloLens.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame|HoloLens.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame|Mac.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame|Mac.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame|Win32.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame|Win32.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame|Win64.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame|Win64.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame|XXX.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.DebugGame|XXX.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development Client|HoloLens.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development Client|HoloLens.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development Client|Mac.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development Client|Mac.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development Client|Win32.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development Client|Win32.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development Client|Win64.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development Client|Win64.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development Client|XXX.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development Client|XXX.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development Editor|HoloLens.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development Editor|Mac.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development Editor|Mac.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development Editor|Win32.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development Editor|Win32.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development Editor|Win64.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development Editor|Win64.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development Editor|XXX.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development Editor|XXX.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development Server|HoloLens.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development Server|HoloLens.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development Server|Mac.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development Server|Mac.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development Server|Win32.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development Server|Win32.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development Server|Win64.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development Server|Win64.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development Server|XXX.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development Server|XXX.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development|HoloLens.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development|HoloLens.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development|Mac.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development|Mac.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development|Win32.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development|Win32.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development|Win64.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development|Win64.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development|XXX.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Development|XXX.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Shipping Client|HoloLens.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Shipping Client|HoloLens.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Shipping Client|Mac.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Shipping Client|Mac.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Shipping Client|Win32.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Shipping Client|Win32.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Shipping Client|Win64.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Shipping Client|Win64.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Shipping Client|XXX.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Shipping Client|XXX.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Shipping Server|HoloLens.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Shipping Server|HoloLens.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Shipping Server|Mac.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Shipping Server|Mac.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Shipping Server|Win32.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Shipping Server|Win32.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Shipping Server|Win64.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Shipping Server|Win64.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Shipping Server|XXX.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Shipping Server|XXX.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Shipping|HoloLens.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Shipping|HoloLens.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Shipping|Mac.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Shipping|Mac.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Shipping|Win32.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Shipping|Win32.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Shipping|Win64.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Shipping|Win64.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Shipping|XXX.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Shipping|XXX.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Test Client|HoloLens.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Test Client|HoloLens.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Test Client|Mac.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Test Client|Mac.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Test Client|Win32.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Test Client|Win32.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Test Client|Win64.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Test Client|Win64.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Test Client|XXX.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Test Client|XXX.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Test Server|HoloLens.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Test Server|HoloLens.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Test Server|Mac.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Test Server|Mac.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Test Server|Win32.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Test Server|Win32.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Test Server|Win64.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Test Server|Win64.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Test Server|XXX.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Test Server|XXX.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Test|HoloLens.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Test|HoloLens.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Test|Mac.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Test|Mac.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Test|Win32.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Test|Win32.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Test|Win64.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Test|Win64.Build.0 = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Test|XXX.ActiveCfg = Development|Any CPU
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4}.Test|XXX.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug Client|HoloLens.ActiveCfg = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug Client|HoloLens.Build.0 = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug Client|Mac.ActiveCfg = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug Client|Mac.Build.0 = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug Client|Win32.ActiveCfg = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug Client|Win32.Build.0 = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug Client|Win64.ActiveCfg = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug Client|Win64.Build.0 = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug Client|XXX.ActiveCfg = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug Client|XXX.Build.0 = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug Editor|HoloLens.ActiveCfg = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug Editor|HoloLens.Build.0 = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug Editor|Mac.ActiveCfg = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug Editor|Mac.Build.0 = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug Editor|Win32.ActiveCfg = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug Editor|Win32.Build.0 = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug Editor|Win64.ActiveCfg = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug Editor|Win64.Build.0 = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug Editor|XXX.ActiveCfg = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug Editor|XXX.Build.0 = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug Server|HoloLens.ActiveCfg = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug Server|HoloLens.Build.0 = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug Server|Mac.ActiveCfg = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug Server|Mac.Build.0 = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug Server|Win32.ActiveCfg = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug Server|Win32.Build.0 = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug Server|Win64.ActiveCfg = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug Server|Win64.Build.0 = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug Server|XXX.ActiveCfg = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug Server|XXX.Build.0 = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug|HoloLens.ActiveCfg = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug|HoloLens.Build.0 = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug|Mac.ActiveCfg = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug|Mac.Build.0 = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug|Win32.Build.0 = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug|Win64.ActiveCfg = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug|Win64.Build.0 = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug|XXX.ActiveCfg = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Debug|XXX.Build.0 = Debug|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame Client|HoloLens.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame Client|HoloLens.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame Client|Mac.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame Client|Mac.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame Client|Win32.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame Client|Win32.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame Client|Win64.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame Client|Win64.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame Client|XXX.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame Client|XXX.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame Editor|HoloLens.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame Editor|Mac.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame Editor|Mac.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame Editor|Win32.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame Editor|Win32.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame Editor|Win64.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame Editor|Win64.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame Editor|XXX.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame Editor|XXX.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame Server|HoloLens.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame Server|HoloLens.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame Server|Mac.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame Server|Mac.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame Server|Win32.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame Server|Win32.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame Server|Win64.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame Server|Win64.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame Server|XXX.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame Server|XXX.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame|HoloLens.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame|HoloLens.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame|Mac.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame|Mac.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame|Win32.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame|Win32.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame|Win64.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame|Win64.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame|XXX.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.DebugGame|XXX.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development Client|HoloLens.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development Client|HoloLens.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development Client|Mac.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development Client|Mac.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development Client|Win32.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development Client|Win32.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development Client|Win64.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development Client|Win64.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development Client|XXX.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development Client|XXX.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development Editor|HoloLens.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development Editor|HoloLens.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development Editor|Mac.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development Editor|Mac.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development Editor|Win32.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development Editor|Win32.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development Editor|Win64.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development Editor|Win64.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development Editor|XXX.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development Editor|XXX.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development Server|HoloLens.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development Server|HoloLens.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development Server|Mac.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development Server|Mac.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development Server|Win32.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development Server|Win32.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development Server|Win64.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development Server|Win64.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development Server|XXX.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development Server|XXX.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development|HoloLens.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development|HoloLens.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development|Mac.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development|Mac.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development|Win32.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development|Win32.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development|Win64.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development|Win64.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development|XXX.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Development|XXX.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Shipping Client|HoloLens.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Shipping Client|HoloLens.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Shipping Client|Mac.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Shipping Client|Mac.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Shipping Client|Win32.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Shipping Client|Win32.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Shipping Client|Win64.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Shipping Client|Win64.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Shipping Client|XXX.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Shipping Client|XXX.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Shipping Server|HoloLens.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Shipping Server|HoloLens.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Shipping Server|Mac.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Shipping Server|Mac.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Shipping Server|Win32.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Shipping Server|Win32.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Shipping Server|Win64.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Shipping Server|Win64.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Shipping Server|XXX.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Shipping Server|XXX.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Shipping|HoloLens.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Shipping|HoloLens.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Shipping|Mac.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Shipping|Mac.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Shipping|Win32.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Shipping|Win32.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Shipping|Win64.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Shipping|Win64.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Shipping|XXX.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Shipping|XXX.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Test Client|HoloLens.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Test Client|HoloLens.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Test Client|Mac.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Test Client|Mac.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Test Client|Win32.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Test Client|Win32.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Test Client|Win64.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Test Client|Win64.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Test Client|XXX.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Test Client|XXX.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Test Server|HoloLens.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Test Server|HoloLens.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Test Server|Mac.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Test Server|Mac.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Test Server|Win32.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Test Server|Win32.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Test Server|Win64.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Test Server|Win64.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Test Server|XXX.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Test Server|XXX.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Test|HoloLens.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Test|HoloLens.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Test|Mac.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Test|Mac.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Test|Win32.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Test|Win32.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Test|Win64.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Test|Win64.Build.0 = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Test|XXX.ActiveCfg = Development|Any CPU
-		{89224712-325D-4500-A4A5-B102A3A8EE2F}.Test|XXX.Build.0 = Development|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{1FD68EFF-2EDD-4349-9237-79A67310D8EE} = {94A6C6F3-99B3-346E-9557-ABF9D4064DBD}
-		{B69A3F5A-8382-4DA9-AF9F-DD05032FD984} = {8FE31723-DCE6-3A23-9775-626568AA785E}
-		{DA128E33-FD2B-4A3C-BC8A-DBCE425A7831} = {8FE31723-DCE6-3A23-9775-626568AA785E}
-		{78D5E766-1789-4385-8301-52793B45E210} = {8FE31723-DCE6-3A23-9775-626568AA785E}
-		{61314208-BC97-4175-B563-AF8EA115958C} = {8FE31723-DCE6-3A23-9775-626568AA785E}
-		{D099FE48-143B-4610-AC5C-0625F6B4731D} = {8FE31723-DCE6-3A23-9775-626568AA785E}
-		{9CEB3721-A5EB-4348-BD7A-1B0E81C0C704} = {8FE31723-DCE6-3A23-9775-626568AA785E}
-		{00F8D5E3-DBA0-4174-8438-09F678868621} = {8FE31723-DCE6-3A23-9775-626568AA785E}
-		{FF1CE43A-D993-46A9-A74D-BB0AEDA86E42} = {8FE31723-DCE6-3A23-9775-626568AA785E}
-		{A7691B7F-8D28-4FDE-886D-825E152D2F05} = {8FE31723-DCE6-3A23-9775-626568AA785E}
-		{3B64D6F0-27A2-476F-A5D5-80E271C616C7} = {8FE31723-DCE6-3A23-9775-626568AA785E}
-		{98D7E41E-29B1-4FAE-81FB-B83DD5A4BCDC} = {8FE31723-DCE6-3A23-9775-626568AA785E}
-		{3C20F290-644F-456F-855E-1625E052E6C9} = {8FE31723-DCE6-3A23-9775-626568AA785E}
-		{FD6CB92C-1F05-4D7F-8C36-770A911A0571} = {8FE31723-DCE6-3A23-9775-626568AA785E}
-		{1C554502-5459-4B47-BF0F-C2C4F0D9BC17} = {8FE31723-DCE6-3A23-9775-626568AA785E}
-		{9F1F41E0-1CD8-466E-AA76-04CB7CCFA213} = {8FE31723-DCE6-3A23-9775-626568AA785E}
-		{83EB1D27-2D96-4CE8-BA58-A635FDC2FAD0} = {8FE31723-DCE6-3A23-9775-626568AA785E}
-		{DB19EC4A-BCBF-4ACA-8FDE-5E6A2C9975A8} = {8FE31723-DCE6-3A23-9775-626568AA785E}
-		{906A6833-61B4-4745-A2BB-349D92150A1D} = {8FE31723-DCE6-3A23-9775-626568AA785E}
-		{7619BEBE-294C-43B9-8787-605B776EFA15} = {8FE31723-DCE6-3A23-9775-626568AA785E}
-		{B70260B7-69A0-41EB-A620-1E6AB71FC8AA} = {8FE31723-DCE6-3A23-9775-626568AA785E}
-		{F6D6627B-5335-4371-A940-1E0818F99C7D} = {8FE31723-DCE6-3A23-9775-626568AA785E}
-		{D214E0BA-FA62-4D1A-895E-D39EE97F8D14} = {8FE31723-DCE6-3A23-9775-626568AA785E}
-		{052E7DD4-244C-417F-BC93-542303E2341D} = {8FE31723-DCE6-3A23-9775-626568AA785E}
-		{531B5567-1A85-432A-B1F9-B871486D23D8} = {8FE31723-DCE6-3A23-9775-626568AA785E}
-		{F04924E9-F295-48E6-8673-CB39F546BF31} = {8FE31723-DCE6-3A23-9775-626568AA785E}
-		{FD7C5E1A-CFE4-4FD5-A525-1EB1599A39AC} = {8FE31723-DCE6-3A23-9775-626568AA785E}
-		{A35B0261-D868-475E-A098-EB14CE6DC89F} = {8FE31723-DCE6-3A23-9775-626568AA785E}
-		{1D67A316-7EEC-4C07-83E3-BBD9C67AD129} = {8FE31723-DCE6-3A23-9775-626568AA785E}
-		{AC5CD7A5-0EA8-41C7-B6FA-79E650E96C29} = {8FE31723-DCE6-3A23-9775-626568AA785E}
-		{5D7D66E8-8C76-4AF9-B3EC-2EF03421D730} = {8FE31723-DCE6-3A23-9775-626568AA785E}
-		{9B740143-841C-4AF7-905E-D8883F1735DE} = {8FE31723-DCE6-3A23-9775-626568AA785E}
-		{75240A67-CF47-4DDC-83B2-AD5D371F31BD} = {8FE31723-DCE6-3A23-9775-626568AA785E}
-		{0CD16871-AE33-44AC-9E84-40DBFAEB51C4} = {8FE31723-DCE6-3A23-9775-626568AA785E}
-		{89224712-325D-4500-A4A5-B102A3A8EE2F} = {8FE31723-DCE6-3A23-9775-626568AA785E}
-		{09EF6FF8-22B7-3DBB-977F-3AD64734C6F5} = {8FE31723-DCE6-3A23-9775-626568AA785E}
-		{F07908E6-FF02-34DB-96F3-F1A60DE84FA0} = {8FE31723-DCE6-3A23-9775-626568AA785E}
-		{8ACB86F3-3657-459C-B2A5-B369575DC744} = {09EF6FF8-22B7-3DBB-977F-3AD64734C6F5}
-		{A2C764B8-B8F8-40A5-A177-F50A4C7D1B15} = {09EF6FF8-22B7-3DBB-977F-3AD64734C6F5}
-		{74E7CC2A-5D39-42E3-BECE-67E5AAD87CD1} = {09EF6FF8-22B7-3DBB-977F-3AD64734C6F5}
-		{3C9DDC90-765E-4AAE-AD19-929D32277E73} = {09EF6FF8-22B7-3DBB-977F-3AD64734C6F5}
-		{57770C43-107F-49F6-B7C4-8F635B2D3E55} = {09EF6FF8-22B7-3DBB-977F-3AD64734C6F5}
-		{E671DC67-2383-46E5-BB5B-F55C0CA68603} = {09EF6FF8-22B7-3DBB-977F-3AD64734C6F5}
-		{F0F10BA8-72E8-49B1-8F10-EC4ACBE8C771} = {09EF6FF8-22B7-3DBB-977F-3AD64734C6F5}
-		{64673500-F801-4E6E-96B8-890F5E95E83D} = {09EF6FF8-22B7-3DBB-977F-3AD64734C6F5}
-		{2F2E1220-C9DF-481B-9CFE-8DBF924E717B} = {09EF6FF8-22B7-3DBB-977F-3AD64734C6F5}
-		{20FB9496-E07E-41FB-943D-1146E8A47A50} = {09EF6FF8-22B7-3DBB-977F-3AD64734C6F5}
-		{7EF01036-2763-4A33-B283-F7CD7E44A875} = {09EF6FF8-22B7-3DBB-977F-3AD64734C6F5}
-		{0D5A0EF4-E20D-4893-8593-D2B911BB1741} = {09EF6FF8-22B7-3DBB-977F-3AD64734C6F5}
-		{390551B7-DC26-4DA6-B454-E606365D6F57} = {09EF6FF8-22B7-3DBB-977F-3AD64734C6F5}
-		{021DE5A4-227A-4CE4-938A-14B6F9F92851} = {09EF6FF8-22B7-3DBB-977F-3AD64734C6F5}
-		{8064FEF8-5588-4F48-84C2-F80EB78328D7} = {09EF6FF8-22B7-3DBB-977F-3AD64734C6F5}
-		{8616FBC7-C3B4-463A-8480-4503837FF89D} = {09EF6FF8-22B7-3DBB-977F-3AD64734C6F5}
-		{7CF817C8-7B3B-4D1A-A643-A5188F443693} = {09EF6FF8-22B7-3DBB-977F-3AD64734C6F5}
-		{A9CD1A06-764A-4C53-86CE-2F34B94F0283} = {F07908E6-FF02-34DB-96F3-F1A60DE84FA0}
-		{32E3A47E-359A-4F78-AE6C-703B87DE0B97} = {F07908E6-FF02-34DB-96F3-F1A60DE84FA0}
-		{2C96A7F2-B1A3-4258-8E0A-E588FF41A53E} = {F07908E6-FF02-34DB-96F3-F1A60DE84FA0}
-		{A002361E-37F9-4124-AF82-CF0D393CB928} = {F07908E6-FF02-34DB-96F3-F1A60DE84FA0}
-		{767B4F85-AB56-4B00-A033-04C7600ACC3D} = {F07908E6-FF02-34DB-96F3-F1A60DE84FA0}
-		{A9FB8BC6-A93D-4FC3-AC02-91333930505E} = {F07908E6-FF02-34DB-96F3-F1A60DE84FA0}
-		{E1F1261F-DA95-41BD-80C1-60FBE0D37D22} = {F07908E6-FF02-34DB-96F3-F1A60DE84FA0}
-		{EC395254-405B-4030-92CE-E346CC50848D} = {F07908E6-FF02-34DB-96F3-F1A60DE84FA0}
-		{C2F959B1-1727-4598-9C32-3D9ACCE72750} = {F07908E6-FF02-34DB-96F3-F1A60DE84FA0}
-		{17779110-5CAB-43A0-9DFB-4DF67DF29B42} = {F07908E6-FF02-34DB-96F3-F1A60DE84FA0}
-		{16778681-DAB8-46A4-89F6-927796467995} = {F07908E6-FF02-34DB-96F3-F1A60DE84FA0}
-		{39369368-5603-46DA-BAAE-766BB3CB2B51} = {F07908E6-FF02-34DB-96F3-F1A60DE84FA0}
-		{8AA00D65-0954-4A27-AC0D-FB8B1106120F} = {F07908E6-FF02-34DB-96F3-F1A60DE84FA0}
-		{E1F1261F-DA95-41BD-81C1-61FBE1D37D22} = {F07908E6-FF02-34DB-96F3-F1A60DE84FA0}
-		{6F6F8E5B-53CA-4C9F-A696-96AA9B8FB128} = {F07908E6-FF02-34DB-96F3-F1A60DE84FA0}
-		{7E2D6784-C9B7-40C6-A89B-0A8AFDDCE60D} = {F07908E6-FF02-34DB-96F3-F1A60DE84FA0}
-		{22404B09-95BE-44DD-AD83-D64C42AAE245} = {F07908E6-FF02-34DB-96F3-F1A60DE84FA0}
-	EndGlobalSection
-EndGlobal
+#include <DXUT.h>
+#include <DXUTcamera.h>
+#include <DXUTshapes.h>
+#include <DXUTgui.h>
+#include <DXUTsettingsdlg.h>
+#include "sdkmisc.h"
+#include "Clipmaps.h"
+#include "JPEG_Preprocessor.h"
+#include <math.h>
+#include <vector>
+#include <string>
+
+#define SOURCE_FILES_NUM 5
+
+WCHAR g_SrcMediaPath[SOURCE_FILES_NUM][MAX_PATH] = {  L"Clipmaps//Mars16k.jpg",
+                                                      L"Clipmaps//Mars8k.jpg",
+                                                      L"Clipmaps//Mars4k.jpg",
+                                                      L"Clipmaps//Mars2k.jpg",
+                                                      L"Clipmaps//Mars1k.jpg" };
+                                                      
+WCHAR g_SrcMediaPathHM[SOURCE_FILES_NUM][MAX_PATH] = {  L"Clipmaps//MarsHm16k.jpg",
+                                                        L"Clipmaps//MarsHm8k.jpg",
+                                                        L"Clipmaps//MarsHm4k.jpg",
+                                                        L"Clipmaps//MarsHm2k.jpg",
+                                                        L"Clipmaps//MarsHm1k.jpg" };
+                                                      
+WCHAR g_DstMediaPath[SOURCE_FILES_NUM][MAX_PATH];
+WCHAR g_DstMediaPathHM[SOURCE_FILES_NUM][MAX_PATH];
+
+#define SPHERE_MERIDIAN_SLICES_NUM 128
+#define SPHERE_PARALLEL_SLICES_NUM 128
+
+#define FILE_BLOCK_SIZE 512
+
+#define CLIPMAP_STACK_SIZE_MAX 4096
+#define CLIPMAP_STACK_SIZE_MIN 1024
+#define MIPMAP_LEVELS_MAX 7
+
+enum eRenderingTechniques
+{
+    RENDER_TRILINEAR,
+    RENDER_ANISOTROPIC,
+    RENDER_COLOR_MIPS,
+    TECHNIQUES_NUM,
+};
+
+const LPCSTR RENDER_TECHNIQUES[] =
+{
+    "Trilinear",
+    "Anisotropic",
+    "ColoredMips",
+};
+
+const LPCWSTR RENDER_TECHNIQUESW[] =
+{
+    L"Trilinear",
+    L"Anisotropic",
+    L"Colored mips",
+};
+
+class SelfCamera :public CModelViewerCamera
+{
+public:
+
+	
+	LRESULT HandleMessages(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+	{
+		CBaseCamera::HandleMessages(hWnd, uMsg, wParam, lParam);
+
+		if (((uMsg == WM_LBUTTONDOWN || uMsg == WM_LBUTTONDBLCLK) && m_nRotateModelButtonMask & MOUSE_LEFT_BUTTON) ||
+			((uMsg == WM_MBUTTONDOWN || uMsg == WM_MBUTTONDBLCLK) && m_nRotateModelButtonMask & MOUSE_MIDDLE_BUTTON) ||
+			((uMsg == WM_RBUTTONDOWN || uMsg == WM_RBUTTONDBLCLK) && m_nRotateModelButtonMask & MOUSE_RIGHT_BUTTON))
+		{
+			int iMouseX = (short)LOWORD(lParam);
+			int iMouseY = (short)HIWORD(lParam);
+			m_WorldArcBall.OnBegin(iMouseX, iMouseY);
+			iMouseX_download = iMouseX;
+		}
+
+		if (((uMsg == WM_LBUTTONDOWN || uMsg == WM_LBUTTONDBLCLK) && m_nRotateCameraButtonMask & MOUSE_LEFT_BUTTON) ||
+			((uMsg == WM_MBUTTONDOWN || uMsg == WM_MBUTTONDBLCLK) &&
+				m_nRotateCameraButtonMask & MOUSE_MIDDLE_BUTTON) ||
+				((uMsg == WM_RBUTTONDOWN || uMsg == WM_RBUTTONDBLCLK) && m_nRotateCameraButtonMask & MOUSE_RIGHT_BUTTON))
+		{
+			int iMouseX = (short)LOWORD(lParam);
+			int iMouseY = (short)HIWORD(lParam);
+			m_ViewArcBall.OnBegin(iMouseX, iMouseY);
+			iMouseX_download = iMouseX;
+
+		}
+
+		if (uMsg == WM_MOUSEMOVE)
+		{
+			int iMouseX = (short)LOWORD(lParam);
+			int iMouseY = (short)HIWORD(lParam);
+			if (focusX) iMouseX = iMouseX_download;
+			m_WorldArcBall.OnMove(iMouseX, iMouseY);
+			m_ViewArcBall.OnMove(iMouseX, iMouseY);
+		}
+
+		if ((uMsg == WM_LBUTTONUP && m_nRotateModelButtonMask & MOUSE_LEFT_BUTTON) ||
+			(uMsg == WM_MBUTTONUP && m_nRotateModelButtonMask & MOUSE_MIDDLE_BUTTON) ||
+			(uMsg == WM_RBUTTONUP && m_nRotateModelButtonMask & MOUSE_RIGHT_BUTTON))
+		{
+			m_WorldArcBall.OnEnd();
+		}
+
+		if ((uMsg == WM_LBUTTONUP && m_nRotateCameraButtonMask & MOUSE_LEFT_BUTTON) ||
+			(uMsg == WM_MBUTTONUP && m_nRotateCameraButtonMask & MOUSE_MIDDLE_BUTTON) ||
+			(uMsg == WM_RBUTTONUP && m_nRotateCameraButtonMask & MOUSE_RIGHT_BUTTON))
+		{
+			m_ViewArcBall.OnEnd();
+		}
+
+		if (uMsg == WM_CAPTURECHANGED)
+		{
+			if ((HWND)lParam != hWnd)
+			{
+				if ((m_nRotateModelButtonMask & MOUSE_LEFT_BUTTON) ||
+					(m_nRotateModelButtonMask & MOUSE_MIDDLE_BUTTON) ||
+					(m_nRotateModelButtonMask & MOUSE_RIGHT_BUTTON))
+				{
+					m_WorldArcBall.OnEnd();
+				}
+
+				if ((m_nRotateCameraButtonMask & MOUSE_LEFT_BUTTON) ||
+					(m_nRotateCameraButtonMask & MOUSE_MIDDLE_BUTTON) ||
+					(m_nRotateCameraButtonMask & MOUSE_RIGHT_BUTTON))
+				{
+					m_ViewArcBall.OnEnd();
+				}
+			}
+		}
+
+		if (uMsg == WM_LBUTTONDOWN ||
+			uMsg == WM_LBUTTONDBLCLK ||
+			uMsg == WM_MBUTTONDOWN ||
+			uMsg == WM_MBUTTONDBLCLK ||
+			uMsg == WM_RBUTTONDOWN ||
+			uMsg == WM_RBUTTONDBLCLK ||
+			uMsg == WM_LBUTTONUP ||
+			uMsg == WM_MBUTTONUP ||
+			uMsg == WM_RBUTTONUP ||
+			uMsg == WM_MOUSEWHEEL ||
+			uMsg == WM_MOUSEMOVE)
+		{
+			m_bDragSinceLastUpdate = true;
+		}
+
+		return FALSE;
+	}
+
+	bool focusX = true;
+	int iMouseX_download;
+
+};
+
+//--------------------------------------------------------------------------------------
+// Global variables
+//--------------------------------------------------------------------------------------
+int g_ClipmapStackSize = 4096;
+int g_UpdateRegionSize = 64;
+int g_RenderingTechnique = 1;
+
+ID3DX10Font*          g_pFont = NULL;
+ID3DX10Sprite*        g_pSprite = NULL;
+CDXUTTextHelper*      g_pTxtHelper = NULL;
+ID3D10Effect*         g_pEffect = NULL;
+ID3D10InputLayout*    g_pVertexLayout = NULL;
+ID3D10Device*         g_pD3DDevice = NULL;
+ID3D10Buffer*         g_pSphereIndexBuffer;
+SelfCamera    g_RotateCamera;
+
+bool g_showHelp = false;
+
+int        g_SourceImageWidth;
+int        g_SourceImageHeight;
+int        g_SourceImageMipsNum;
+int**      g_ppSourceImageMipsSize = NULL;
+int*       g_pMipDataOffset = NULL;     // Offset in bytes for each mip level data stored in a temporary file
+D3DXVECTOR2 g_StackPosition;            // Virtual clipmap stack position (defined using normalized texture coordinates)
+int        g_StackDepth;                // Number of layers in a clipmap stack
+
+std::vector<int>    g_StackSizeList;
+std::vector<int>    g_UpdateRegionSizeList;
+
+ID3D10Texture2D*             g_pPyramidTexture      = NULL; // Texture which is used to store coarse mip levels
+ID3D10ShaderResourceView*    g_pPyramidTextureSRV   = NULL;
+ID3D10Texture2D*             g_pPyramidTextureHM    = NULL; // Height map for pyramid texture
+ID3D10ShaderResourceView*    g_pPyramidTextureHMSRV = NULL;
+ID3D10Texture2D*             g_pStackTexture        = NULL; // Clipmap stack texture
+ID3D10ShaderResourceView*    g_pStackTextureSRV     = NULL;
+
+D3DXVECTOR3 g_LightPosition;
+D3DXVECTOR3 g_EyePosition;
+D3DXMATRIX  g_MProjection;
+D3DXMATRIX  g_MView;
+D3DXMATRIX  g_MWorldViewProjection;
+
+int **g_ppUpdatePositions;                           // Defines positions for each clipmap layer where new data should be placed
+
+bool g_bSampleInitialized    = false;
+bool g_bUseParallax          = true;
+bool g_bShowStackLevels      = false;
+
+float g_MipmapColors[MIPMAP_LEVELS_MAX][3] =
+{
+    {0.5f, 1.0f, 0.0f},
+    {0.0f, 1.0f, 1.0f},
+    {1.0f, 1.0f, 0.0f},
+    {0.0f, 1.0f, 0.0f},
+    {0.0f, 0.0f, 1.0f},
+    {1.0f, 0.0f, 1.0f},
+    {1.0f, 0.0f, 0.0f},
+};
+
+CD3DSettingsDlg                g_D3DSettingsDlg;
+CDXUTDialogResourceManager     g_DialogResourceManager;
+CDXUTDialog                    g_HUD;
+CDXUTDialog                    g_SampleUI_Startup;
+CDXUTDialog                    g_SampleUI_Runtime;
+
+//--------------------------------------------------------------------------------------
+// UI control IDs
+//--------------------------------------------------------------------------------------
+#define IDC_STATIC             -1
+#define IDC_TOGGLEFULLSCREEN    1
+#define IDC_TOGGLEREF           2
+#define IDC_CHANGEDEVICE        3
+#define IDC_STACK_SIZE          5
+#define IDC_UPDATE_SIZE         6
+#define IDC_START_SAMPLE        7
+#define IDC_RENDER_TECHNIQUES   8
+#define IDC_RENDER_PARALLAX     9
+#define IDC_SHOW_STACK_LEVELS   10
+
+//--------------------------------------------------------------------------------------
+// Forward declarations
+//--------------------------------------------------------------------------------------
+void        CalculateClipmapParameters();
+HRESULT     CreateClipmapTextures( ID3D10Device* pd3dDevice );
+void        InitStackTexture( ID3D10Device* pd3dDevice );
+void        UpdateStackTexture( ID3D10Device* pd3dDevice );
+void        UpdateMipPosition( int &position, int offset );
+HRESULT     InitGUI( ID3D10Device* pd3dDevice );
+void        CALLBACK OnGUIEvent( UINT nEvent, int nControlID, CDXUTControl* pControl, void* pUserContext );
+HRESULT     CreateIndexBuffer( ID3D10Device* pd3dDevice, ID3D10Buffer **ppIndexBuffer );
+
+//--------------------------------------------------------------------------------------
+// Reject any D3D10 devices that aren't acceptable by returning false
+//--------------------------------------------------------------------------------------
+bool CALLBACK IsD3D10DeviceAcceptable( UINT Adapter, UINT Output, D3D10_DRIVER_TYPE DeviceType, DXGI_FORMAT BackBufferFormat, bool bWindowed, void* pUserContext )
+{
+    return true;
+}
+
+
+//--------------------------------------------------------------------------------------
+// Called right before creating a D3D9 or D3D10 device, allowing the app to modify the device settings as needed
+//--------------------------------------------------------------------------------------
+bool CALLBACK ModifyDeviceSettings( DXUTDeviceSettings* pDeviceSettings, void* pUserContext )
+{
+    // For the first device created if its a REF device, optionally display a warning dialog box
+    static bool s_bFirstTime = true;
+    
+    if( s_bFirstTime )
+    {
+        s_bFirstTime = false;
+        
+        if( (DXUT_D3D9_DEVICE == pDeviceSettings->ver && pDeviceSettings->d3d9.DeviceType == D3DDEVTYPE_REF) ||
+            (DXUT_D3D10_DEVICE == pDeviceSettings->ver && pDeviceSettings->d3d10.DriverType == D3D10_DRIVER_TYPE_REFERENCE) )
+        {
+            DXUTDisplaySwitchingToREFWarning( pDeviceSettings->ver );
+        }
+    }
+    
+    return true;
+}
+
+
+//--------------------------------------------------------------------------------------
+// Create any D3D10 resources that aren't dependant on the back buffer
+//--------------------------------------------------------------------------------------
+HRESULT CALLBACK OnD3D10CreateDevice( ID3D10Device* pd3dDevice, const DXGI_SURFACE_DESC* pBackBufferSurfaceDesc, void* pUserContext )
+{
+    HRESULT hr;
+    
+    g_bSampleInitialized = false;
+
+    V_RETURN( g_DialogResourceManager.OnD3D10CreateDevice(pd3dDevice) );
+    V_RETURN( g_D3DSettingsDlg.OnD3D10CreateDevice(pd3dDevice ) );
+
+    V_RETURN( D3DX10CreateFont( pd3dDevice, 15, 0, FW_BOLD, 1, FALSE, DEFAULT_CHARSET, 
+                                OUT_DEFAULT_PRECIS, DEFAULT_QUALITY, DEFAULT_PITCH | FF_DONTCARE, 
+                                L"Arial", &g_pFont ) );
+    V_RETURN( D3DX10CreateSprite( pd3dDevice, 512, &g_pSprite ) );
+    g_pTxtHelper = new CDXUTTextHelper( g_pFont, g_pSprite, 15 );
+
+    V_RETURN( LoadEffect( pd3dDevice, L"Clipmaps.fx", &g_pEffect ) );
+    
+    for( int i = 0; i < SOURCE_FILES_NUM; i++ )
+    {
+        V_RETURN( DXUTFindDXSDKMediaFileCch( g_DstMediaPath[i], MAX_PATH, g_SrcMediaPath[i] ) );
+        V_RETURN( DXUTFindDXSDKMediaFileCch( g_DstMediaPathHM[i], MAX_PATH, g_SrcMediaPathHM[i] ) );
+    }
+    
+    D3DX10_IMAGE_INFO imageInfo;
+    D3DX10GetImageInfoFromFile( g_DstMediaPath[0], NULL, &imageInfo, &hr );
+    
+    g_SourceImageWidth = imageInfo.Width;
+    g_SourceImageHeight = imageInfo.Height;
+    
+    UINT baseDimension = CLIPMAP_STACK_SIZE_MAX;
+
+    while( baseDimension >= CLIPMAP_STACK_SIZE_MIN )
+    {
+        g_StackSizeList.push_back(baseDimension);
+        baseDimension >>= 1;
+    }
+    
+    V_RETURN( CreateIndexBuffer( pd3dDevice, &g_pSphereIndexBuffer ) );
+    V_RETURN( InitGUI( pd3dDevice) );
+    
+    D3DXVECTOR3 lookAt( 0.0f, 0.0f, 0.0f );
+    g_EyePosition = D3DXVECTOR3(0.0f, 0.0f, 3.0f);
+
+    g_RotateCamera.SetViewParams( &g_EyePosition, &lookAt );
+    g_RotateCamera.SetModelCenter( D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+    g_RotateCamera.SetButtonMasks( 0, MOUSE_WHEEL, MOUSE_LEFT_BUTTON );
+    g_RotateCamera.SetRadius( 3.0f, 1.3f, 20.0f );
+    
+    g_pD3DDevice = pd3dDevice;
+    
+    return S_OK;
+}
+
+
+//--------------------------------------------------------------------------------------
+// Create any D3D10 resources that depend on the back buffer
+//--------------------------------------------------------------------------------------
+HRESULT CALLBACK OnD3D10ResizedSwapChain( ID3D10Device* pd3dDevice, IDXGISwapChain *pSwapChain, const DXGI_SURFACE_DESC* pBackBufferSurfaceDesc, void* pUserContext )
+{
+    HRESULT hr;
+    
+    V_RETURN( g_D3DSettingsDlg.OnD3D10ResizedSwapChain(pd3dDevice, pBackBufferSurfaceDesc) );
+    V_RETURN( g_DialogResourceManager.OnD3D10ResizedSwapChain(pd3dDevice, pBackBufferSurfaceDesc) );
+
+    g_HUD.SetLocation( pBackBufferSurfaceDesc->Width - 170, 0 );
+    g_HUD.SetSize( 170, 170 );
+
+    g_SampleUI_Startup.SetLocation( ( pBackBufferSurfaceDesc->Width - g_SampleUI_Startup.GetWidth() ) / 2, ( pBackBufferSurfaceDesc->Height - g_SampleUI_Startup.GetHeight() ) / 2 );
+    
+    g_SampleUI_Runtime.SetLocation( pBackBufferSurfaceDesc->Width-170, pBackBufferSurfaceDesc->Height-300 );
+    g_SampleUI_Runtime.SetSize( 170, 300 );
+
+    float aspectRatio = (float)pBackBufferSurfaceDesc->Width / (float)pBackBufferSurfaceDesc->Height;
+    g_RotateCamera.SetProjParams( D3DX_PI * 0.2f, aspectRatio, 0.01f, 1000.0f );
+    g_RotateCamera.SetWindow( pBackBufferSurfaceDesc->Width, pBackBufferSurfaceDesc->Height );
+    
+    g_pEffect->GetVariableByName( "g_ScreenAspectRatio" )->AsScalar()->SetFloat( aspectRatio );
+
+    return S_OK;
+}
+
+
+//--------------------------------------------------------------------------------------
+// Handle updates to the scene.  This is called regardless of which D3D API is used
+//--------------------------------------------------------------------------------------
+void CALLBACK OnFrameMove( double fTime, float fElapsedTime, void* pUserContext )
+{
+    static float startTime = 0.0f;
+    static bool renderedScene = false;
+    
+    if( g_bSampleInitialized == true && renderedScene == false )
+        startTime = (float)fTime;
+
+    renderedScene = g_bSampleInitialized;
+    g_RotateCamera.FrameMove(fElapsedTime);
+    
+    g_LightPosition.x = cosf(((float)fTime - startTime) * 0.05f) * 10.0f;
+    g_LightPosition.z = sinf(((float)fTime - startTime) * 0.05f) * 10.0f;
+    
+    g_pEffect->GetVariableByName( "g_LightPosition" )->AsVector()->SetFloatVectorArray( (float*)&g_LightPosition, 0 , 3 );
+}
+
+
+//--------------------------------------------------------------------------------------
+// Render the help and statistics text
+//--------------------------------------------------------------------------------------
+void RenderText()
+{
+    g_pTxtHelper->Begin();
+    g_pTxtHelper->SetInsertionPos( 2, 0 );
+    g_pTxtHelper->SetForegroundColor( D3DXCOLOR( 1.0f, 1.0f, 0.0f, 1.0f ) );
+    g_pTxtHelper->DrawTextLine( DXUTGetFrameStats( true ) );
+    g_pTxtHelper->DrawTextLine( DXUTGetDeviceStats() );    
+  
+    if( g_showHelp )
+    {
+        UINT nBackBufferHeight = DXUTGetDXGIBackBufferSurfaceDesc()->Height;
+        g_pTxtHelper->SetInsertionPos( 2, nBackBufferHeight- 15 * 6 );
+        g_pTxtHelper->SetForegroundColor( D3DXCOLOR(1.0f, 1.0f, 0.0f, 1.0f ) );
+        g_pTxtHelper->DrawTextLine( L"Controls:" );
+
+        g_pTxtHelper->SetInsertionPos( 20, nBackBufferHeight - 15 * 5 );
+        g_pTxtHelper->DrawTextLine( L"Rotate model: Left mouse button\n"
+                                    L"Zoom: Mouse wheel\n");
+
+        g_pTxtHelper->SetInsertionPos( 300, nBackBufferHeight - 15 * 5 );
+        g_pTxtHelper->DrawTextLine( L"Hide help: F1\n" 
+                                    L"Quit: ESC\n" );
+    }
+    else
+    {
+        g_pTxtHelper->SetForegroundColor( D3DXCOLOR( 1.0f, 1.0f, 1.0f, 1.0f ) );
+        g_pTxtHelper->DrawTextLine( L"Press F1 for help" );
+    }
+
+    g_pTxtHelper->End();
+}
+
+
+//--------------------------------------------------------------------------------------
+// Render the scene using the D3D10 device
+//--------------------------------------------------------------------------------------
+void CALLBACK OnD3D10FrameRender( ID3D10Device* pd3dDevice, double fTime, float fElapsedTime, void* pUserContext )
+{
+    static float clearColor[4] = { 0.0f, 0.0f, 0.0f, 0.0f };
+
+    if( g_D3DSettingsDlg.IsActive() )
+    {
+        g_D3DSettingsDlg.OnRender( fElapsedTime );
+        return;
+    }
+
+    // Clear render target and the depth stencil 
+    pd3dDevice->ClearRenderTargetView( DXUTGetD3D10RenderTargetView(), clearColor );
+    pd3dDevice->ClearDepthStencilView( DXUTGetD3D10DepthStencilView(), D3D10_CLEAR_DEPTH, 1.0, 0 );
+
+    if( g_bSampleInitialized )
+    {
+        g_MProjection = *g_RotateCamera.GetProjMatrix();
+
+        float length = 0.0f;
+
+        g_EyePosition = (D3DXVECTOR3)*g_RotateCamera.GetEyePt();
+
+        length = D3DXVec3Length(&g_EyePosition);
+        if( length < 1.1f )
+        {
+            g_EyePosition *= 1.1f / length;
+
+            D3DXVECTOR3 lookAt(0.0f, 0.0f, 0.0f);
+            g_RotateCamera.SetViewParams( &g_EyePosition, &lookAt );
+        }
+            
+        g_MView = *g_RotateCamera.GetViewMatrix();
+        
+        g_MWorldViewProjection = g_MView * g_MProjection;
+
+        g_pEffect->GetVariableByName( "g_ModelViewProj" )->AsMatrix()->SetMatrix( g_MWorldViewProjection );
+        g_pEffect->GetVariableByName( "g_EyePosition" )->AsVector()->SetFloatVectorArray( (float*)&g_EyePosition, 0 , 3 );
+        
+        float vectorRight[3] = {g_RotateCamera.GetViewMatrix()->_11, g_RotateCamera.GetViewMatrix()->_21, g_RotateCamera.GetViewMatrix()->_31 };
+        float vectorUp[3] = {g_RotateCamera.GetViewMatrix()->_12, g_RotateCamera.GetViewMatrix()->_22, g_RotateCamera.GetViewMatrix()->_32 };
+            
+        g_pEffect->GetVariableByName( "g_WorldRight" )->AsVector()->SetFloatVectorArray( (float*)vectorRight, 0, 3 );
+        g_pEffect->GetVariableByName( "g_WorldUp" )->AsVector()->SetFloatVectorArray( (float*)vectorUp, 0, 3 );
+        
+        UpdateStackTexture( pd3dDevice );
+
+        g_pEffect->GetVariableByName( "g_StackCenter" )->AsVector()->SetFloatVectorArray( (float*)g_StackPosition, 0, 2 );
+
+        static ID3D10Buffer *pBuffers[] = {NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL};
+        static unsigned pStrides[] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+        static unsigned pOffsets[] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+        
+        pd3dDevice->IASetInputLayout( NULL );
+        pd3dDevice->IASetVertexBuffers(0, D3D10_IA_VERTEX_INPUT_RESOURCE_SLOT_COUNT, pBuffers, pStrides, pOffsets );
+        pd3dDevice->IASetIndexBuffer( g_pSphereIndexBuffer, DXGI_FORMAT_R32_UINT, 0 );
+        pd3dDevice->IASetPrimitiveTopology( D3D10_PRIMITIVE_TOPOLOGY_TRIANGLELIST );
+        
+        if( g_bUseParallax && g_RenderingTechnique < 2 )
+            g_pEffect->GetTechniqueByName( RENDER_TECHNIQUES[g_RenderingTechnique] )->GetPassByIndex( 1 )->Apply( 0 );
+        else
+            g_pEffect->GetTechniqueByName( RENDER_TECHNIQUES[g_RenderingTechnique] )->GetPassByIndex( 0 )->Apply( 0 );
+        
+        pd3dDevice->DrawIndexed( SPHERE_MERIDIAN_SLICES_NUM * SPHERE_PARALLEL_SLICES_NUM * 6, 0, 0 );
+
+        if( g_bShowStackLevels )
+        {
+            pd3dDevice->IASetIndexBuffer( NULL, DXGI_FORMAT_R32_UINT, 0 );
+            pd3dDevice->IASetPrimitiveTopology( D3D10_PRIMITIVE_TOPOLOGY_POINTLIST );
+            g_pEffect->GetTechniqueByName( "StackDrawPass" )->GetPassByIndex( 0 )->Apply( 0 );
+            pd3dDevice->Draw( g_StackDepth, 0 );
+        }
+        
+        g_SampleUI_Runtime.OnRender( fElapsedTime );
+    }
+    else
+    {
+        g_SampleUI_Startup.OnRender( fElapsedTime );
+    }
+
+    g_HUD.OnRender( fElapsedTime );
+    RenderText();
+}
+
+
+//--------------------------------------------------------------------------------------
+// Release D3D10 resources created in OnD3D10ResizedSwapChain 
+//--------------------------------------------------------------------------------------
+void CALLBACK OnD3D10ReleasingSwapChain( void* pUserContext )
+{
+    g_DialogResourceManager.OnD3D10ReleasingSwapChain();
+}
+
+
+//--------------------------------------------------------------------------------------
+// Release D3D10 resources created in OnD3D10CreateDevice 
+//--------------------------------------------------------------------------------------
+void CALLBACK OnD3D10DestroyDevice( void* pUserContext )
+{
+    SAFE_RELEASE( g_pFont );
+    SAFE_RELEASE( g_pSprite );
+    SAFE_RELEASE( g_pEffect );
+    SAFE_RELEASE( g_pPyramidTexture );
+    SAFE_RELEASE( g_pPyramidTextureSRV );
+    SAFE_RELEASE( g_pPyramidTextureHM );
+    SAFE_RELEASE( g_pPyramidTextureHMSRV );
+    SAFE_RELEASE( g_pStackTexture );
+    SAFE_RELEASE( g_pStackTextureSRV );
+    SAFE_RELEASE( g_pVertexLayout );
+    SAFE_RELEASE( g_pSphereIndexBuffer );
+    
+    SAFE_DELETE( g_pTxtHelper );
+
+    g_D3DSettingsDlg.OnD3D10DestroyDevice();
+    g_DialogResourceManager.OnD3D10DestroyDevice();
+
+    g_JPEG_Manager.Release();
+    
+    if( g_ppSourceImageMipsSize )
+    {
+        for( int i = 0; i < g_SourceImageMipsNum; i++ )
+        {
+            delete [] g_ppSourceImageMipsSize[i];
+        }
+        
+        delete [] g_ppSourceImageMipsSize;
+        g_ppSourceImageMipsSize = NULL;
+    }
+    
+    if( g_ppUpdatePositions )
+    {
+        for( int i = 0; i < g_StackDepth; i++ )
+        {
+            delete [] g_ppUpdatePositions[i];
+        }
+        
+        delete [] g_ppUpdatePositions;
+        g_ppUpdatePositions = NULL;
+    }
+    
+    if( g_pMipDataOffset )
+    {
+        delete [] g_pMipDataOffset;
+        g_pMipDataOffset = NULL;     
+    }
+}
+
+
+//--------------------------------------------------------------------------------------
+// Handle messages to the application
+//--------------------------------------------------------------------------------------
+LRESULT CALLBACK MsgProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam, 
+                          bool* pbNoFurtherProcessing, void* pUserContext )
+{
+    // Try to pass messages to settings dialog
+    if( g_D3DSettingsDlg.IsActive() )
+    {
+        g_D3DSettingsDlg.MsgProc( hWnd, uMsg, wParam, lParam );
+        return 0;
+    }
+
+    if( g_HUD.MsgProc( hWnd, uMsg, wParam, lParam ) )
+    {
+        return 0;
+    }
+
+    if( g_bSampleInitialized )
+    {
+        if( g_SampleUI_Runtime.MsgProc( hWnd, uMsg, wParam, lParam ) )
+            return 0;
+    }
+    else
+    {
+        if( g_SampleUI_Startup.MsgProc( hWnd, uMsg, wParam, lParam ) )
+            return 0;
+    }
+
+    g_RotateCamera.HandleMessages(hWnd, uMsg, wParam, lParam);
+    
+    return 0;
+}
+
+
+static float currentAgree = 0.0f;
+//--------------------------------------------------------------------------------------
+// Handle key presses
+//--------------------------------------------------------------------------------------
+void CALLBACK OnKeyboard( UINT nChar, bool bKeyDown, bool bAltDown, void* pUserContext )
+{
+    if( !bKeyDown )
+        return;
+
+    if( nChar == VK_F1 )
+    {
+        g_showHelp = !g_showHelp;
+    }
+
+	if (nChar == VK_UP)
+	{
+		static float agree = 20.0f;
+
+		currentAgree += agree;
+
+		float z = cos(currentAgree * D3DX_PI / 180.0f);
+		float y = sin(currentAgree * D3DX_PI / 180.0f);
+
+		D3DXVECTOR3 lookAt(0.0f, 0.0f, 0.0f);
+
+		g_RotateCamera.SetViewParams(&D3DXVECTOR3(0.0f, 3.0 * y, 3.0 * z), &lookAt);
+
+		int number = 10;
+		wchar_t str[256];
+		swprintf(str,256, L"x: 0 y:%f z:%f \n",y,z);
+		OutputDebugString(str);
+	}
+
+	if (nChar == VK_DOWN)
+	{
+		static float agree = 20.0f;
+
+		currentAgree -= agree;
+
+		float z = cos(currentAgree * D3DX_PI / 180.0f);
+		float y = sin(currentAgree * D3DX_PI / 180.0f);
+
+		D3DXVECTOR3 lookAt(0.0f, 0.0f, 0.0f);
+
+		g_RotateCamera.SetViewParams(&D3DXVECTOR3(0.0f, 3.0 * y, 3.0 * z), &lookAt);
+		int number = 10;
+		wchar_t str[256];
+		swprintf(str, 256, L"x: 0 y:%f z:%f \n", y, z);
+		OutputDebugString(str);
+	}
+}
+
+
+//--------------------------------------------------------------------------------------
+// Handle mouse button presses
+//--------------------------------------------------------------------------------------
+void CALLBACK OnMouse( bool bLeftButtonDown, bool bRightButtonDown, bool bMiddleButtonDown, 
+                       bool bSideButton1Down, bool bSideButton2Down, int nMouseWheelDelta, 
+                       int xPos, int yPos, void* pUserContext )
+{
+}
+
+
+//--------------------------------------------------------------------------------------
+// Call if device was removed.  Return true to find a new device, false to quit
+//--------------------------------------------------------------------------------------
+bool CALLBACK OnDeviceRemoved( void* pUserContext )
+{
+    return true;
+}
+
+
+//--------------------------------------------------------------------------------------
+// Initialize everything and go into a render loop
+//--------------------------------------------------------------------------------------
+int WINAPI wWinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow )
+{
+    // Enable run-time memory check for debug builds.
+#if defined(DEBUG) | defined(_DEBUG)
+    _CrtSetDbgFlag( _CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF );
+#endif
+
+    // DXUT will create and use the best device (either D3D9 or D3D10) 
+    // that is available on the system depending on which D3D callbacks are set below
+
+    // Set general DXUT callbacks
+    DXUTSetCallbackFrameMove( OnFrameMove );
+    DXUTSetCallbackKeyboard( OnKeyboard );
+    DXUTSetCallbackMouse( OnMouse );
+    DXUTSetCallbackMsgProc( MsgProc );
+    DXUTSetCallbackDeviceChanging( ModifyDeviceSettings );
+    DXUTSetCallbackDeviceRemoved( OnDeviceRemoved );
+
+    // Set the D3D10 DXUT callbacks. Remove these sets if the app doesn't need to support D3D10
+    DXUTSetCallbackD3D10DeviceAcceptable( IsD3D10DeviceAcceptable );
+    DXUTSetCallbackD3D10DeviceCreated( OnD3D10CreateDevice );
+    DXUTSetCallbackD3D10SwapChainResized( OnD3D10ResizedSwapChain );
+    DXUTSetCallbackD3D10FrameRender( OnD3D10FrameRender );
+    DXUTSetCallbackD3D10SwapChainReleasing( OnD3D10ReleasingSwapChain );
+    DXUTSetCallbackD3D10DeviceDestroyed( OnD3D10DestroyDevice );
+
+    // IMPORTANT: set SDK media search path to include source directory of this sample, when started from .\Bin
+    HRESULT hr;
+    V_RETURN( DXUTSetMediaSearchPath(L"..\\Source\\Clipmaps") );
+    
+    // Perform any application-level initialization here
+
+    g_D3DSettingsDlg.Init( &g_DialogResourceManager );
+    
+    int iY = 10; 
+    g_HUD.Init( &g_DialogResourceManager );
+    g_HUD.SetCallback( OnGUIEvent );
+    g_HUD.AddButton( IDC_TOGGLEFULLSCREEN, L"Toggle full screen", 35, iY, 125, 22 );
+    g_HUD.AddButton( IDC_TOGGLEREF, L"Toggle REF (F3)", 35, iY += 24, 125, 22, VK_F3 );
+    g_HUD.AddButton( IDC_CHANGEDEVICE, L"Change device (F2)", 35, iY += 24, 125, 22, VK_F2 );
+
+    DXUTInit( true, true, NULL ); // Parse the command line, show msgboxes on error, no extra command line params
+    DXUTSetCursorSettings( true, true ); // Show the cursor and clip it when in full screen
+    DXUTCreateWindow( L"Clipmaps" );
+    DXUTCreateDevice( true, 640, 480 );  
+    DXUTMainLoop(); // Enter into the DXUT render loop
+
+    return DXUTGetExitCode();
+}
+
+
+//--------------------------------------------------------------------------------------
+// Load effect from file
+//--------------------------------------------------------------------------------------
+HRESULT LoadEffect( ID3D10Device* pd3dDevice, WCHAR *pFileName, ID3D10Effect **ppEffect )
+{
+    HRESULT hr;
+    WCHAR path[MAX_PATH];
+
+    V_RETURN( DXUTFindDXSDKMediaFileCch( path, MAX_PATH, pFileName ) );
+    V_RETURN( D3DX10CreateEffectFromFile( path, NULL, NULL, "fx_4_0", D3D10_SHADER_NO_PRESHADER, 0, pd3dDevice, NULL, NULL, ppEffect, NULL, &hr ) );
+
+    return S_OK;
+}
+
+
+HRESULT InitGUI( ID3D10Device* pd3dDevice )
+{
+    g_SampleUI_Startup.Init( &g_DialogResourceManager );
+    g_SampleUI_Startup.SetCallback( OnGUIEvent );
+    g_SampleUI_Startup.EnableKeyboardInput( true );
+    
+    CDXUTComboBox* pComboBox = NULL;
+    
+    g_SampleUI_Startup.AddStatic( IDC_STATIC, L"Stack size: ", 0, 0, 150, 24 );
+    g_SampleUI_Startup.AddStatic( IDC_STATIC, L"Larger stack size produces better image quality.", 0, 40, 350, 24 );
+    g_SampleUI_Startup.AddStatic( IDC_STATIC, L"Note: Loading can take several minutes.", 50, 180, 255, 24 );
+    
+    g_SampleUI_Startup.AddComboBox( IDC_STACK_SIZE, 120, 0, 120, 24, ' ', false, &pComboBox );
+
+    WCHAR boxValue[256];
+    int location = 0;
+
+    for( std::vector<int>::iterator it = g_StackSizeList.begin(); it != g_StackSizeList.end(); ++it )
+    {
+        wsprintf( boxValue, L"%dx%d", *it, *it );
+        pComboBox->AddItem( boxValue, IntToPtr( location ) );
+        location++;
+    }
+    
+    pComboBox->SetDropHeight( 28 );
+
+    g_SampleUI_Startup.AddButton( IDC_START_SAMPLE, L"Start", 250, 0, 60, 24, VK_F5 );
+    g_SampleUI_Startup.SetSize( 350, 24 );
+    
+    g_SampleUI_Runtime.Init( &g_DialogResourceManager );
+    g_SampleUI_Runtime.SetCallback( OnGUIEvent );
+    g_SampleUI_Runtime.EnableKeyboardInput( true );
+    g_SampleUI_Runtime.AddStatic( IDC_STATIC, L"(R)ender mode", 0, 0, 105, 25 );
+    g_SampleUI_Runtime.AddComboBox( IDC_RENDER_TECHNIQUES, 0, 25, 140, 24, 'R', false, &pComboBox );
+    
+    for( int i = 0; i < 3; ++i )
+        pComboBox->AddItem( RENDER_TECHNIQUESW[i], IntToPtr(i) );
+    
+    pComboBox->SetDropHeight( 28 );
+    pComboBox->SetSelectedByIndex( g_RenderingTechnique );
+    
+    g_SampleUI_Runtime.AddCheckBox( IDC_RENDER_PARALLAX, L"Use (P)arallax mapping", 0, 120, 175, 22, g_bUseParallax, 'P');
+    g_SampleUI_Runtime.AddCheckBox( IDC_SHOW_STACK_LEVELS, L"Show stack (L)evels", 0, 160, 175, 22, g_bShowStackLevels, 'L');
+    
+    return S_OK;
+}
+
+
+HRESULT CreateClipmapTextures( ID3D10Device* pd3dDevice )
+{
+    HRESULT hr;
+    D3DX10_IMAGE_INFO imageInfo;
+    D3DX10_IMAGE_LOAD_INFO imageLoadInfo;
+    
+    D3DX10GetImageInfoFromFile( g_DstMediaPath[g_StackDepth], NULL, &imageInfo, &hr );
+
+    imageLoadInfo.Width = imageInfo.Width;
+    imageLoadInfo.Height = imageInfo.Height;
+    imageLoadInfo.Depth = imageInfo.Depth;
+    imageLoadInfo.FirstMipLevel = 0;
+    imageLoadInfo.MipLevels = g_SourceImageMipsNum - g_StackDepth;
+    imageLoadInfo.MiscFlags = imageInfo.MiscFlags;
+    imageLoadInfo.Format = imageInfo.Format;
+    imageLoadInfo.Usage = D3D10_USAGE_DEFAULT;
+    imageLoadInfo.BindFlags = D3D10_BIND_SHADER_RESOURCE;
+    imageLoadInfo.CpuAccessFlags = 0;
+    imageLoadInfo.pSrcInfo = &imageInfo;
+    
+    D3DX10CreateTextureFromFile( pd3dDevice, g_DstMediaPath[g_StackDepth], &imageLoadInfo, NULL, (ID3D10Resource**)&g_pPyramidTexture, &hr );
+
+    D3D10_TEXTURE2D_DESC texDesc;
+    g_pPyramidTexture->GetDesc( &texDesc );
+    
+    D3D10_SHADER_RESOURCE_VIEW_DESC SRVDesc;
+    ZeroMemory( &SRVDesc, sizeof(SRVDesc) );
+    SRVDesc.Format = texDesc.Format;
+    SRVDesc.ViewDimension = D3D10_SRV_DIMENSION_TEXTURE2D;
+    SRVDesc.Texture2D.MipLevels = texDesc.MipLevels;
+    SRVDesc.Texture2D.MostDetailedMip = 0;
+    
+    V_RETURN( pd3dDevice->CreateShaderResourceView( g_pPyramidTexture, &SRVDesc, &g_pPyramidTextureSRV ) );
+    
+    D3DX10GetImageInfoFromFile( g_DstMediaPathHM[g_StackDepth], NULL, &imageInfo, &hr );
+
+    imageLoadInfo.Width = imageInfo.Width;
+    imageLoadInfo.Height = imageInfo.Height;
+    imageLoadInfo.Depth = imageInfo.Depth;
+    imageLoadInfo.FirstMipLevel = 0;
+    imageLoadInfo.MipLevels = g_SourceImageMipsNum - g_StackDepth;
+    imageLoadInfo.MiscFlags = imageInfo.MiscFlags;
+    imageLoadInfo.Format = imageInfo.Format;
+    imageLoadInfo.Usage = D3D10_USAGE_DEFAULT;
+    imageLoadInfo.BindFlags = D3D10_BIND_SHADER_RESOURCE;
+    imageLoadInfo.CpuAccessFlags = 0;
+    imageLoadInfo.pSrcInfo = &imageInfo;
+    
+    D3DX10CreateTextureFromFile( pd3dDevice, g_DstMediaPathHM[g_StackDepth], &imageLoadInfo, NULL, (ID3D10Resource**)&g_pPyramidTextureHM, &hr );
+
+    g_pPyramidTexture->GetDesc( &texDesc );
+    ZeroMemory( &SRVDesc, sizeof(SRVDesc) );
+    SRVDesc.Format = texDesc.Format;
+    SRVDesc.ViewDimension = D3D10_SRV_DIMENSION_TEXTURE2D;
+    SRVDesc.Texture2D.MipLevels = texDesc.MipLevels;
+    SRVDesc.Texture2D.MostDetailedMip = 0;
+    
+    V_RETURN( pd3dDevice->CreateShaderResourceView( g_pPyramidTextureHM, &SRVDesc, &g_pPyramidTextureHMSRV ) );
+
+    ZeroMemory( &texDesc, sizeof(texDesc) );
+    texDesc.ArraySize = g_StackDepth;
+    texDesc.Usage = D3D10_USAGE_DEFAULT;
+    texDesc.BindFlags = D3D10_BIND_SHADER_RESOURCE;
+    texDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
+    texDesc.Width = g_ClipmapStackSize;
+    texDesc.Height = g_ClipmapStackSize;
+    texDesc.MipLevels = 1;
+    texDesc.SampleDesc.Count = 1;
+    
+    V_RETURN( pd3dDevice->CreateTexture2D(&texDesc, NULL, &g_pStackTexture) );
+   
+    ZeroMemory( &SRVDesc, sizeof(SRVDesc) );
+    SRVDesc.Format = texDesc.Format;
+    SRVDesc.ViewDimension = D3D10_SRV_DIMENSION_TEXTURE2DARRAY;
+    SRVDesc.Texture2DArray.ArraySize = g_StackDepth;
+    SRVDesc.Texture2DArray.FirstArraySlice = 0;
+    SRVDesc.Texture2DArray.MipLevels = 1;
+    SRVDesc.Texture2DArray.MostDetailedMip = 0;
+    
+    V_RETURN( pd3dDevice->CreateShaderResourceView( g_pStackTexture, &SRVDesc, &g_pStackTextureSRV ) );
+
+    g_pEffect->GetVariableByName( "PyramidTexture" )->AsShaderResource()->SetResource( g_pPyramidTextureSRV );
+    g_pEffect->GetVariableByName( "PyramidTextureHM" )->AsShaderResource()->SetResource( g_pPyramidTextureHMSRV );
+    g_pEffect->GetVariableByName( "StackTexture" )->AsShaderResource()->SetResource( g_pStackTextureSRV );
+
+    return S_OK;
+}
+
+
+//--------------------------------------------------------------------------------------
+// Create an index buffer to be used for procedural sphere mesh rendering
+//--------------------------------------------------------------------------------------
+HRESULT CreateIndexBuffer( ID3D10Device* pd3dDevice, ID3D10Buffer **ppIndexBuffer )
+{
+    HRESULT hr;
+    int IndexNumber = SPHERE_MERIDIAN_SLICES_NUM * SPHERE_PARALLEL_SLICES_NUM * 6;
+
+    unsigned *pIndices = new unsigned[IndexNumber];
+    unsigned indexCount = 0;
+
+    for( int i = 0; i < SPHERE_PARALLEL_SLICES_NUM; i++ )
+    {
+        for( int j = 0; j < SPHERE_MERIDIAN_SLICES_NUM; j++ )
+        {
+            pIndices[indexCount] = i * (SPHERE_MERIDIAN_SLICES_NUM + 1) + j;
+            indexCount++;
+
+            pIndices[indexCount] = (i + 1) * (SPHERE_MERIDIAN_SLICES_NUM + 1) + j + 1;
+            indexCount++;
+            
+            pIndices[indexCount] = (i + 1) * (SPHERE_MERIDIAN_SLICES_NUM + 1) + j;
+            indexCount++;
+            
+            pIndices[indexCount] = i * (SPHERE_MERIDIAN_SLICES_NUM + 1) + j;
+            indexCount++;
+            
+            pIndices[indexCount] = i * (SPHERE_MERIDIAN_SLICES_NUM + 1) + j + 1;
+            indexCount++;
+            
+            pIndices[indexCount] = (i + 1) * (SPHERE_MERIDIAN_SLICES_NUM + 1) + j + 1;
+            indexCount++;
+        }
+    }
+
+    D3D10_BUFFER_DESC desc;
+    memset( &desc, 0, sizeof(D3D10_BUFFER_DESC) );
+    desc.Usage = D3D10_USAGE_DEFAULT;
+    desc.ByteWidth = sizeof (unsigned int) * IndexNumber;
+    desc.BindFlags = D3D10_BIND_INDEX_BUFFER;
+
+    D3D10_SUBRESOURCE_DATA data;
+    data.pSysMem = pIndices;
+        
+    V_RETURN( pd3dDevice->CreateBuffer( &desc, &data, &g_pSphereIndexBuffer ) )
+
+    if( pIndices )
+    {
+        delete [] pIndices;
+        pIndices = NULL;
+    }
+    
+    return S_OK;
+}
+
+
+void InitStackTexture( ID3D10Device* pd3dDevice )
+{
+    int mipCornerLU[2];
+    int mipCornerRD[2];
+    int tileBlockSize = 0;
+    int blockIndex[2];
+    int subBlockIndex[2];
+    int blockCorner[2];
+    
+    D3D10_BOX SubResourceBox;
+    SubResourceBox.front = 0;
+    SubResourceBox.back = 1;
+    
+    int srcBlock[2];
+    int dstBlock[2];
+    
+    for( int i = 0; i < g_StackDepth; ++i )
+    {
+        mipCornerLU[0] = int(g_StackPosition.x * g_ppSourceImageMipsSize[i][0] - g_ClipmapStackSize* 0.5f);
+        mipCornerLU[1] = int(g_StackPosition.y * g_ppSourceImageMipsSize[i][1] - g_ClipmapStackSize* 0.5f);
+
+        mipCornerRD[0] = int(g_StackPosition.x * g_ppSourceImageMipsSize[i][0] + g_ClipmapStackSize* 0.5f);    
+        mipCornerRD[1] = int(g_StackPosition.y * g_ppSourceImageMipsSize[i][1] + g_ClipmapStackSize* 0.5f);
+
+        tileBlockSize = int(g_UpdateRegionSize / pow(2.0, i));
+        
+        SubResourceBox.top = 0;
+        SubResourceBox.bottom = SubResourceBox.top + tileBlockSize;
+
+        if( g_ppSourceImageMipsSize[i][1] == g_ClipmapStackSize )
+        {
+            g_ppUpdatePositions[i][1] = g_ClipmapStackSize / 2;
+            
+            for( int j = mipCornerLU[1] + g_ClipmapStackSize / 2; j < mipCornerRD[1]; j += tileBlockSize )
+            {
+                SubResourceBox.left = 0;
+                SubResourceBox.right = SubResourceBox.left + tileBlockSize;
+
+                blockIndex[1] = j / FILE_BLOCK_SIZE;
+                blockCorner[1] = blockIndex[1] * FILE_BLOCK_SIZE;
+                subBlockIndex[1] = ( j - blockCorner[1] ) / tileBlockSize;
+            
+                for( int k = mipCornerLU[0]; k < mipCornerRD[0]; k += tileBlockSize )
+                {
+                    int tempBoundary = k;
+
+                    if( tempBoundary < 0 )
+                        tempBoundary += g_ppSourceImageMipsSize[i][0];
+                
+                    blockIndex[0] = tempBoundary / FILE_BLOCK_SIZE;
+                                
+                    blockCorner[0] = blockIndex[0] * FILE_BLOCK_SIZE;
+                    subBlockIndex[0] = ( tempBoundary - blockCorner[0] ) / tileBlockSize; 
+
+                    srcBlock[0] = tempBoundary;
+                    srcBlock[1] = j;
+                
+                    dstBlock[0] = SubResourceBox.left;
+                    dstBlock[1] = SubResourceBox.top;
+                
+                    g_JPEG_Manager.AddBlock( i, srcBlock, dstBlock );
+                    
+                    SubResourceBox.left += tileBlockSize;
+                    SubResourceBox.right += tileBlockSize;
+                }
+                
+                g_JPEG_Manager.Update( pd3dDevice, i );
+
+                SubResourceBox.top += tileBlockSize;
+                SubResourceBox.bottom += tileBlockSize;
+            }
+
+            SubResourceBox.top = g_ClipmapStackSize/ 2;
+            SubResourceBox.bottom = SubResourceBox.top + tileBlockSize;
+
+            for( int j = mipCornerLU[1]; j < mipCornerRD[1] - g_ClipmapStackSize* 0.5; j += tileBlockSize )
+            {
+                SubResourceBox.left = 0;
+                SubResourceBox.right = SubResourceBox.left + tileBlockSize;
+
+                blockIndex[1] = j / FILE_BLOCK_SIZE;
+                blockCorner[1] = blockIndex[1] * FILE_BLOCK_SIZE;
+                subBlockIndex[1] = ( j - blockCorner[1] ) / tileBlockSize;
+            
+                for( int k = mipCornerLU[0]; k < mipCornerRD[0]; k += tileBlockSize )
+                {
+                    int tempBoundary = k;
+
+                    if( tempBoundary < 0 )
+                        tempBoundary += g_ppSourceImageMipsSize[i][0];
+                
+                    blockIndex[0] = tempBoundary / FILE_BLOCK_SIZE;
+
+                    blockCorner[0] = blockIndex[0] * FILE_BLOCK_SIZE;
+                    subBlockIndex[0] = ( tempBoundary - blockCorner[0] ) / tileBlockSize; 
+
+                    srcBlock[0] = tempBoundary;
+                    srcBlock[1] = j;
+                
+                    dstBlock[0] = SubResourceBox.left;
+                    dstBlock[1] = SubResourceBox.top;
+                
+                    g_JPEG_Manager.AddBlock( i, srcBlock, dstBlock );
+                    
+                    SubResourceBox.left += tileBlockSize;
+                    SubResourceBox.right += tileBlockSize;
+                }
+                
+                g_JPEG_Manager.Update( pd3dDevice, i );
+
+                SubResourceBox.top += tileBlockSize;
+                SubResourceBox.bottom += tileBlockSize;
+            }
+        }
+        else
+        {
+            for( int j = mipCornerLU[1]; j < mipCornerRD[1]; j += tileBlockSize )
+            {
+                SubResourceBox.left = 0;
+                SubResourceBox.right = SubResourceBox.left + tileBlockSize;
+
+                blockIndex[1] = j / FILE_BLOCK_SIZE;
+                blockCorner[1] = blockIndex[1] * FILE_BLOCK_SIZE;
+                subBlockIndex[1] = ( j - blockCorner[1] ) / tileBlockSize;
+            
+                for( int k = mipCornerLU[0]; k < mipCornerRD[0]; k += tileBlockSize )
+                {
+                    int tempBoundary = k;
+
+                    if( tempBoundary < 0 )
+                        tempBoundary += g_ppSourceImageMipsSize[i][0];
+                
+                    blockIndex[0] = tempBoundary / FILE_BLOCK_SIZE;
+
+                    blockCorner[0] = blockIndex[0] * FILE_BLOCK_SIZE;
+                    subBlockIndex[0] = ( tempBoundary - blockCorner[0] ) / tileBlockSize; 
+
+                    srcBlock[0] = tempBoundary;
+                    srcBlock[1] = j;
+                
+                    dstBlock[0] = SubResourceBox.left;
+                    dstBlock[1] = SubResourceBox.top;
+                
+                    g_JPEG_Manager.AddBlock( i, srcBlock, dstBlock );
+                   
+                    SubResourceBox.left += tileBlockSize;
+                    SubResourceBox.right += tileBlockSize;
+                }
+                
+                g_JPEG_Manager.Update( pd3dDevice, i );
+
+                SubResourceBox.top += tileBlockSize;
+                SubResourceBox.bottom += tileBlockSize;
+            }
+        }
+    }
+}
+
+
+//--------------------------------------------------------------------------------------
+// Calculate base parameters using defined sizes
+//--------------------------------------------------------------------------------------
+void CalculateClipmapParameters()
+{
+    g_StackDepth = 0;
+    int dimensionMax = g_SourceImageWidth;
+    
+    if( g_SourceImageHeight > g_SourceImageWidth )
+        dimensionMax = g_SourceImageHeight;
+    
+    g_SourceImageMipsNum = int( log( (double)dimensionMax + 1.0 ) / log( 2.0 ) ) + 1;
+    
+    for( int i = 0; i < dimensionMax; ++i )
+    {
+        if( dimensionMax / pow(2.0f, g_StackDepth) > g_ClipmapStackSize)
+        {
+            g_StackDepth++;
+        }
+        else
+        {
+            break;
+        }
+    }
+
+    g_ppSourceImageMipsSize = new int*[g_SourceImageMipsNum];
+
+    for( int i = 0; i < g_SourceImageMipsNum; ++i )
+    {
+        g_ppSourceImageMipsSize[i] = new int[2];
+        
+        g_ppSourceImageMipsSize[i][0] = g_SourceImageWidth / (unsigned)pow( 2.0f, i );
+        g_ppSourceImageMipsSize[i][1] = g_SourceImageHeight / (unsigned)pow( 2.0f, i );
+    }
+    
+    g_StackPosition.x = 0.0f;
+    g_StackPosition.y = 0.5f;
+
+    assert(g_StackDepth);
+    
+    g_pMipDataOffset = new int[g_StackDepth];
+    g_ppUpdatePositions = new int*[g_StackDepth];
+
+    for( int i = 0; i < g_StackDepth; ++i )
+    {
+        g_ppUpdatePositions[i] = new int[2];
+        
+        g_ppUpdatePositions[i][0] = 0;
+        g_ppUpdatePositions[i][1] = 0;
+    }
+    
+    g_pEffect->GetVariableByName( "g_StackDepth" )->AsScalar()->SetInt( g_StackDepth );
+    
+    D3DXVECTOR2 scaleFactor;
+    scaleFactor.x = (float)g_SourceImageWidth / g_ClipmapStackSize;
+    scaleFactor.y = (float)g_SourceImageHeight / g_ClipmapStackSize;
+    g_pEffect->GetVariableByName( "g_ScaleFactor" )->AsVector()->SetFloatVectorArray( scaleFactor, 0, 2 );
+    
+    int textureSize[2];
+    textureSize[0] = g_SourceImageWidth;
+    textureSize[1] = g_SourceImageHeight;
+
+    g_pEffect->GetVariableByName( "g_TextureSize" )->AsVector()->SetIntVectorArray( (int*)textureSize, 0, 2 );
+    g_pEffect->GetVariableByName( "g_MipColors" )->AsVector()->SetFloatVectorArray( (float*)g_MipmapColors, 0, MIPMAP_LEVELS_MAX * 3 );
+
+    g_pEffect->GetVariableByName( "g_SphereMeridianSlices" )->AsScalar()->SetInt( SPHERE_MERIDIAN_SLICES_NUM );
+    g_pEffect->GetVariableByName( "g_SphereParallelSlices" )->AsScalar()->SetInt( SPHERE_PARALLEL_SLICES_NUM );
+}
+
+
+void outPrint_2(const wchar_t* msg,float x,float y)
+{
+	int number = 10;
+	wchar_t str[256];
+	std::wstring m(msg);
+	m += std::wstring(L"\n");
+	swprintf(str, 256, m.c_str(), x, y);
+	OutputDebugString(str);
+}
+
+void outPrint_4(const wchar_t* msg, float x, float y, float z, float w)
+{
+	wchar_t str[1024];
+	std::wstring m(msg);
+	m += std::wstring(L"\n");
+	swprintf(str, 1024, m.c_str(), x, y,z,w);
+	OutputDebugString(str);
+}
+
+
+//--------------------------------------------------------------------------------------
+// Perform stack texture updates based on a new viewer's position
+//--------------------------------------------------------------------------------------
+void UpdateStackTexture( ID3D10Device* pd3dDevice )
+{
+    D3DXVECTOR2 updateBorder;
+    float length = sqrtf( g_EyePosition.x * g_EyePosition.x + g_EyePosition.z * g_EyePosition.z );
+    float posHorizontal;
+    float posVertical;
+
+    // Positions are calculated in order to map current viewer's position
+    // to a rectangular region of a source image mapped on a spherical mesh.
+    // Positions are represented by values clamped to [0 - 1] range in each dimension
+    if( g_EyePosition.z >= 0 )
+    {
+        if( g_EyePosition.x <= 0 )
+            posHorizontal = atanf( -( g_EyePosition.x / g_EyePosition.z ) ) / (D3DX_PI * 2);
+        else
+            posHorizontal = 1.0f - atanf( g_EyePosition.x / g_EyePosition.z ) / (D3DX_PI * 2);
+    }
+    else
+    {
+        posHorizontal = 0.5f - atanf((g_EyePosition.x / g_EyePosition.z)) / (D3DX_PI * 2);
+    }
+        
+    posVertical = 0.5f - atanf(g_EyePosition.y / length) / D3DX_PI;
+    
+    int srcBlock[2];
+    int dstBlock[2];
+    
+    // Calculate border sizes to be updated
+    updateBorder.x = posHorizontal - g_StackPosition.x;
+    
+    if( updateBorder.x > 0 )
+    {
+        if( updateBorder.x > 0.5f )
+            updateBorder.x = updateBorder.x - 1.0f;
+    }
+    else
+    {
+        if( updateBorder.x < -0.5f )
+            updateBorder.x += 1.0f; 
+    }
+
+    updateBorder.y = posVertical - g_StackPosition.y;
+
+    int updateBorderSize[2];
+    updateBorderSize[0] = int( updateBorder.x * g_SourceImageWidth );
+    updateBorderSize[1] = int( updateBorder.y * g_SourceImageHeight );
+
+    int tileBlockSize = 0;
+    int mipCornerLU[2];
+    int mipCornerRD[2];
+
+    D3D10_BOX SubResourceBox;
+    SubResourceBox.front = 0;
+    SubResourceBox.back = 1;
+
+    unsigned correction = 0;
+
+    // Update square region when we move "Image space Right"
+    if( updateBorderSize[0] > g_UpdateRegionSize )
+    {
+		OutputDebugString(L"==================================================\n");
+		OutputDebugString(L"eye move right \n");
+        // Update all clipmap stack layers one by one
+        for( int i = 0; i < g_StackDepth; ++i )
+        {            
+            tileBlockSize = g_UpdateRegionSize / (unsigned)pow(2.0, i);
+
+            // Calculate regions of source image that should be updated in the current stack layer
+            mipCornerLU[0] = int(g_StackPosition.x * g_ppSourceImageMipsSize[i][0]) + g_ClipmapStackSize / 2;
+            mipCornerRD[0] = mipCornerLU[0] + tileBlockSize;
+            mipCornerLU[1] = int(g_StackPosition.y * g_ppSourceImageMipsSize[i][1]) - g_ClipmapStackSize / 2;
+            mipCornerRD[1] = int(g_StackPosition.y * g_ppSourceImageMipsSize[i][1]) + g_ClipmapStackSize / 2;
+
+			if (mipCornerLU[0] > int(g_ppSourceImageMipsSize[i][0] - tileBlockSize))
+				mipCornerLU[0] -= g_ppSourceImageMipsSize[i][0];
+
+            if( mipCornerLU[1] < 0 )
+            {
+				if (i == 0)  OutputDebugString(L" mipCornerLU[1] < 0 and mipCornerLU[1] = 0 \n ");
+                correction = -mipCornerLU[1];
+                mipCornerLU[1] = 0;
+            }
+            else if( mipCornerLU[1] >= g_ppSourceImageMipsSize[i][1] )
+            {
+                UpdateMipPosition(g_ppUpdatePositions[i][0], tileBlockSize);
+				if (i == 0) 	OutputDebugString(L" mipCornerLU[1] > maxsize and update g_ppUpdatePositions[0] \n  ");
+                continue;
+            }
+
+            if( mipCornerRD[1] <= 0 )
+            {
+                UpdateMipPosition(g_ppUpdatePositions[i][0], tileBlockSize);
+                continue;
+            }
+			else if (mipCornerRD[1] > g_ppSourceImageMipsSize[i][1])
+			{
+				if (i == 0) 	OutputDebugString(L" mipCornerRD[1] > maxsize and  mipCornerRD[1] = maxsize \n  ");
+				mipCornerRD[1] = g_ppSourceImageMipsSize[i][1];
+			}
+
+            SubResourceBox.left = g_ppUpdatePositions[i][0];
+            SubResourceBox.right = SubResourceBox.left + tileBlockSize;
+            SubResourceBox.top = g_ppUpdatePositions[i][1] + correction;
+
+			if (i == 0)
+			{
+				outPrint_4(L"add block from : (%f,%f) to (%f,%f) ", mipCornerLU[0], mipCornerLU[1], mipCornerLU[0] + tileBlockSize, mipCornerRD[1]);
+				outPrint_4(L"the box is origin : (%f,%f) to (%f,%f) ", SubResourceBox.left, SubResourceBox.top, SubResourceBox.left + tileBlockSize, SubResourceBox.top + (mipCornerRD[1] - mipCornerLU[1]));
+			}
+
+            for( int j = mipCornerLU[1]; j < mipCornerRD[1]; j += tileBlockSize )
+            {
+                SubResourceBox.bottom = SubResourceBox.top + tileBlockSize;
+
+                srcBlock[0] = mipCornerLU[0];
+                srcBlock[1] = j;
+                
+                dstBlock[0] = SubResourceBox.left;
+                dstBlock[1] = SubResourceBox.top;
+                
+
+                g_JPEG_Manager.AddBlock( i, srcBlock, dstBlock );
+
+                SubResourceBox.top += tileBlockSize;
+
+                if( SubResourceBox.top > UINT(g_ClipmapStackSize - tileBlockSize) )
+                    SubResourceBox.top = 0;
+            }
+        
+            g_JPEG_Manager.Update( pd3dDevice, i );
+            UpdateMipPosition( g_ppUpdatePositions[i][0], tileBlockSize );
+        }
+
+        g_StackPosition.x += (float)g_UpdateRegionSize / g_SourceImageWidth;
+    }
+
+    // Update square region when we move "Image space Left"
+    if( updateBorderSize[0] < -g_UpdateRegionSize )
+    {
+		OutputDebugString(L"==================================================\n");
+		OutputDebugString(L"eye move left \n");
+
+		outPrint_4(L"eye  :(%f , %f)  and stackpost (%f , %f)", g_EyePosition.x, g_EyePosition.y,g_StackPosition.x, g_StackPosition.y);
+
+
+        for( int i = 0; i < g_StackDepth; ++i )
+        {
+            tileBlockSize = g_UpdateRegionSize / (unsigned)pow(2.0, i);
+
+            UpdateMipPosition(g_ppUpdatePositions[i][0], -tileBlockSize);
+            
+            mipCornerLU[0] = int(g_StackPosition.x * g_ppSourceImageMipsSize[i][0]) - g_ClipmapStackSize / 2 - tileBlockSize;
+            mipCornerRD[0] = mipCornerLU[0] + tileBlockSize;
+            mipCornerLU[1] = int(g_StackPosition.y * g_ppSourceImageMipsSize[i][1]) - g_ClipmapStackSize / 2;
+            mipCornerRD[1] = int(g_StackPosition.y * g_ppSourceImageMipsSize[i][1]) + g_ClipmapStackSize / 2;
+
+			 
+
+			if (mipCornerLU[0] < 0)
+				mipCornerLU[0] += g_ppSourceImageMipsSize[i][0];
+
+            if( mipCornerLU[1] < 0 )
+            {
+                correction = -mipCornerLU[1];
+				if (i == 0) 	OutputDebugString(L" mipCornerLU[1] < 0 and  mipCornerLU[1] = 0 \n  ");
+
+                mipCornerLU[1] = 0;
+            }
+			else if (mipCornerLU[1] >= g_ppSourceImageMipsSize[i][1])
+			{
+				if (i == 0) 	OutputDebugString(L" mipCornerLU[1] > 0 and continue \n  ");
+				continue;
+			}
+
+			if (mipCornerRD[1] <= 0)
+			{
+				if (i == 0) 	OutputDebugString(L" mipCornerRD[1] <= 0 and  continue \n  ");
+				continue;
+			}
+
+			else if (mipCornerRD[1] > g_ppSourceImageMipsSize[i][1])
+			{
+				if (i == 0) 	OutputDebugString(L" mipCornerRD[1] > maxisize and  mipCornerRD[1] = maxise\n  ");
+
+				mipCornerRD[1] = g_ppSourceImageMipsSize[i][1];
+			}
+
+            SubResourceBox.left = g_ppUpdatePositions[i][0];
+            SubResourceBox.right = SubResourceBox.left + tileBlockSize;
+            SubResourceBox.top = g_ppUpdatePositions[i][1] + correction;
+
+			if (i == 0)
+			{
+				outPrint_4(L"add block from : (%f,%f) to (%f,%f) ", mipCornerLU[0], mipCornerLU[1], mipCornerLU[0] + tileBlockSize, mipCornerRD[1]);
+				outPrint_4(L"the box is origin : (%f,%f) to (%f,%f) ", SubResourceBox.left, SubResourceBox.top, SubResourceBox.left + tileBlockSize, SubResourceBox.top + (mipCornerRD[1] - mipCornerLU[1]));
+			}
+
+            for( int j = mipCornerLU[1]; j < mipCornerRD[1]; j += tileBlockSize )
+            {
+                SubResourceBox.bottom = SubResourceBox.top + tileBlockSize;
+
+                srcBlock[0] = mipCornerLU[0];
+                srcBlock[1] = j;
+                
+                dstBlock[0] = SubResourceBox.left;
+                dstBlock[1] = SubResourceBox.top;
+                
+			 
+
+                g_JPEG_Manager.AddBlock( i, srcBlock, dstBlock );
+
+                SubResourceBox.top += tileBlockSize;
+
+                if( SubResourceBox.top > UINT(g_ClipmapStackSize - tileBlockSize) )
+                    SubResourceBox.top = 0;
+            }
+            
+            g_JPEG_Manager.Update( pd3dDevice, i );
+        }
+        
+        g_StackPosition.x -= (float)g_UpdateRegionSize / g_SourceImageWidth;
+    }
+
+    if( g_StackPosition.x < 0.0f )
+        g_StackPosition.x = 1.0f + g_StackPosition.x;
+    else if( g_StackPosition.x > 1.0f )
+        g_StackPosition.x -= 1.0f;
+    
+    // Update square region when we move "Image space Down"
+    if( updateBorderSize[1] > g_UpdateRegionSize )
+    {
+		OutputDebugString(L"==================================================\n");
+
+		OutputDebugString(L"eye move down \n");
+
+        for( int i = 0; i < g_StackDepth; ++i )
+        {
+            correction = 0;
+            
+            tileBlockSize = g_UpdateRegionSize / (unsigned)pow(2.0, i);
+
+            mipCornerLU[0] = int(g_StackPosition.x * g_ppSourceImageMipsSize[i][0]) - g_ClipmapStackSize / 2;
+                            
+            int stepsNum = g_ClipmapStackSize / tileBlockSize;
+
+            mipCornerLU[1] = int(g_StackPosition.y * g_ppSourceImageMipsSize[i][1]) + g_ClipmapStackSize / 2;
+            mipCornerRD[1] = mipCornerLU[1] + tileBlockSize;
+
+		 
+			if (mipCornerLU[0] < 0)
+				mipCornerLU[0] += g_ppSourceImageMipsSize[i][0];
+
+			if (mipCornerLU[1] < 0)
+			{
+				if (i == 0) 	OutputDebugString(L" mipCornerLU[1] < 0 and  mipCornerLU[1] = 0\n  ");
+				mipCornerLU[1] = 0;
+
+			}
+            else if( mipCornerLU[1] >= g_ppSourceImageMipsSize[i][1] )
+            {
+                UpdateMipPosition(g_ppUpdatePositions[i][1], tileBlockSize);
+				if (i == 0) 	OutputDebugString(L" mipCornerLU[1] > maxisize and  continue\n  ");
+
+                continue;
+            }
+
+			if (mipCornerRD[1] <= 0)
+			{
+				if (i == 0) 	OutputDebugString(L" mipCornerRD[1] <=  0 and  continue\n  ");
+				continue;
+
+			}
+			else if (mipCornerRD[1] > g_ppSourceImageMipsSize[i][1])
+			{
+				if (i == 0) 	OutputDebugString(L" mipCornerRD[1] > maxisize  0 and  = maxisize\n  ");
+				mipCornerRD[1] = g_ppSourceImageMipsSize[i][1];
+
+			}
+
+            SubResourceBox.top = g_ppUpdatePositions[i][1];
+            SubResourceBox.bottom = SubResourceBox.top + tileBlockSize;
+            SubResourceBox.left = g_ppUpdatePositions[i][0];
+
+            while( SubResourceBox.left > UINT(g_ClipmapStackSize - tileBlockSize) )
+                SubResourceBox.left -= g_ClipmapStackSize;
+
+			if (i == 0)
+			{
+				outPrint_4(L"add block from : (%f,%f) to (%f,%f) ", mipCornerLU[0], mipCornerLU[1], mipCornerLU[0] + g_ClipmapStackSize, mipCornerRD[1]);
+				outPrint_4(L"the box is origin : (%f,%f) to (%f,%f) ", SubResourceBox.left, SubResourceBox.top, SubResourceBox.left + tileBlockSize, SubResourceBox.top + (mipCornerRD[1] - mipCornerLU[1]));
+			}
+
+            for( int step = 0, j = mipCornerLU[0]; step < stepsNum; step++, j += tileBlockSize )
+            {
+                if( j == g_ppSourceImageMipsSize[i][0] )
+                    j = 0;
+
+                SubResourceBox.right = SubResourceBox.left + tileBlockSize;
+                
+                srcBlock[0] = j;
+                srcBlock[1] = mipCornerLU[1];
+                
+                dstBlock[0] = SubResourceBox.left;
+                dstBlock[1] = SubResourceBox.top;
+
+                g_JPEG_Manager.AddBlock( i, srcBlock, dstBlock );
+
+                SubResourceBox.left += tileBlockSize;
+
+                if( SubResourceBox.left > UINT( g_ClipmapStackSize - tileBlockSize ) )
+                    SubResourceBox.left = 0;
+            }
+
+            g_JPEG_Manager.Update( pd3dDevice, i );
+            UpdateMipPosition( g_ppUpdatePositions[i][1], tileBlockSize );
+        }
+
+        g_StackPosition.y += (float)g_UpdateRegionSize / g_SourceImageHeight;
+    }
+    
+    // Update square region when we move "Image space Up"
+    if( updateBorderSize[1] < -g_UpdateRegionSize )
+    {
+		OutputDebugString(L"==================================================\n");
+
+		OutputDebugString(L"eye move up \n");
+
+        for( int i = 0; i < g_StackDepth; ++i )
+        {
+            correction = 0;
+            
+            tileBlockSize = g_UpdateRegionSize / (unsigned)pow(2.0, i);
+
+            mipCornerLU[0] = int(g_StackPosition.x * g_ppSourceImageMipsSize[i][0]) - g_ClipmapStackSize / 2;
+          
+            int stepsNum = g_ClipmapStackSize / tileBlockSize;
+            
+
+			if (mipCornerLU[0] < 0)
+				mipCornerLU[0] += g_ppSourceImageMipsSize[i][0];
+
+            UpdateMipPosition(g_ppUpdatePositions[i][1], -tileBlockSize);
+                        
+            mipCornerLU[1] = int(g_StackPosition.y * g_ppSourceImageMipsSize[i][1]) - g_ClipmapStackSize / 2 - tileBlockSize;
+
+            if( mipCornerLU[1] < 0 )
+            {
+				if (i == 0) 	OutputDebugString(L" mipCornerLU[1] < 0  0 and  += maxisize\n  ");
+                mipCornerLU[1] += g_ppSourceImageMipsSize[i][1];
+            }
+
+            mipCornerRD[1] = mipCornerLU[1] + tileBlockSize;
+
+			if (mipCornerRD[1] <= 0)
+			{
+				if (i == 0) 	OutputDebugString(L" mipCornerRD[1] <= 0  0 and  continue\n  ");
+				continue;
+
+			}
+			else if (mipCornerRD[1] > g_ppSourceImageMipsSize[i][1])
+			{
+				if (i == 0) 	OutputDebugString(L" mipCornerRD[1] > maxsize  0 and  = maxsize\n  ");
+				mipCornerRD[1] = g_ppSourceImageMipsSize[i][1];
+
+			}
+
+			if (i == 0)
+			{
+				outPrint_4(L"add block from : (%f,%f) to (%f,%f) ", mipCornerLU[0], mipCornerLU[1], mipCornerLU[0] + g_ClipmapStackSize, mipCornerRD[1]);
+			}
+
+            SubResourceBox.top = g_ppUpdatePositions[i][1];
+            SubResourceBox.bottom = SubResourceBox.top + tileBlockSize;
+            SubResourceBox.left = g_ppUpdatePositions[i][0];
+
+            while( SubResourceBox.left > UINT(g_ClipmapStackSize - tileBlockSize) )
+                SubResourceBox.left -= g_ClipmapStackSize;
+
+			if (i == 0)outPrint_4(L"the box is origin : (%f,%f) to (%f,%f) ", SubResourceBox.left, SubResourceBox.top, SubResourceBox.left + tileBlockSize, SubResourceBox.top + (mipCornerRD[1] - mipCornerLU[1]));
+            for( int step = 0, j = mipCornerLU[0]; step < stepsNum; step++, j += tileBlockSize )
+            {
+                if( j == g_ppSourceImageMipsSize[i][0] )
+                    j = 0;
+            
+                SubResourceBox.right = SubResourceBox.left + tileBlockSize;
+
+                srcBlock[0] = j;
+                srcBlock[1] = mipCornerLU[1];
+                
+                dstBlock[0] = SubResourceBox.left;
+                dstBlock[1] = SubResourceBox.top;
+                
+
+                g_JPEG_Manager.AddBlock( i, srcBlock, dstBlock );
+
+                SubResourceBox.left += tileBlockSize;
+
+                if( SubResourceBox.left > UINT(g_ClipmapStackSize - tileBlockSize) )
+                    SubResourceBox.left = 0;
+            }
+            
+            g_JPEG_Manager.Update( pd3dDevice, i );
+        }
+
+        g_StackPosition.y -= (float)g_UpdateRegionSize / g_SourceImageHeight;
+    }
+
+    if( g_StackPosition.y < 0.0f )
+        g_StackPosition.y = 1.0f + g_StackPosition.y;
+    else if( g_StackPosition.y > 1.0f )
+        g_StackPosition.y -= 1.0f;
+}
+
+
+//--------------------------------------------------------------------------------------
+// Calculate new positions of updatable regions in each clipmap stack level.
+// Positions define the upper left corner of updatable square region
+//--------------------------------------------------------------------------------------
+void UpdateMipPosition( int &position, int offset )
+{
+    position += offset;
+
+    if( offset > 0 )
+    {
+        if( position > g_ClipmapStackSize - offset)
+            position = 0;
+    }
+    else
+    {
+        if( position < 0 )
+            position = g_ClipmapStackSize + offset;
+    }    
+}
+
+
+//--------------------------------------------------------------------------------------
+// Handles the GUI events
+//--------------------------------------------------------------------------------------
+void CALLBACK OnGUIEvent( UINT nEvent, int nControlID, CDXUTControl* pControl, void* pUserContext )
+{
+    int blocksPerLayer = 0;
+        
+    switch( nControlID )
+    {
+        case IDC_TOGGLEFULLSCREEN:
+            DXUTToggleFullScreen();
+            break;
+        case IDC_TOGGLEREF:
+            DXUTToggleREF();
+            break;
+        case IDC_CHANGEDEVICE:
+            g_D3DSettingsDlg.SetActive( !g_D3DSettingsDlg.IsActive() );
+            break;
+        case IDC_START_SAMPLE:
+            g_ClipmapStackSize = g_StackSizeList[ g_SampleUI_Startup.GetComboBox( IDC_STACK_SIZE )->GetSelectedIndex() ];
+            CalculateClipmapParameters();
+            blocksPerLayer = g_SourceImageWidth / g_UpdateRegionSize;
+
+            g_UpdateRegionSize = (int)( 16.0 * pow( 2.0f, g_StackDepth - 1 ) );
+
+            g_JPEG_Manager.Intitialize( g_StackDepth, g_DstMediaPath, g_DstMediaPathHM );
+            g_JPEG_Manager.AllocateBlocks( blocksPerLayer );
+            g_JPEG_Manager.AllocateTextures( g_pD3DDevice, g_ClipmapStackSize, g_UpdateRegionSize );
+
+            CreateClipmapTextures( g_pD3DDevice );
+            InitStackTexture( g_pD3DDevice );
+
+            g_bSampleInitialized = true;
+
+            break;
+        case IDC_RENDER_TECHNIQUES:
+            g_RenderingTechnique = g_SampleUI_Runtime.GetComboBox(IDC_RENDER_TECHNIQUES)->GetSelectedIndex();
+            break;
+        case IDC_RENDER_PARALLAX:
+            g_bUseParallax = !g_bUseParallax;
+            break;
+        case IDC_SHOW_STACK_LEVELS:
+            g_bShowStackLevels = !g_bShowStackLevels;
+            break;
+    }
+}
