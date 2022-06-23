@@ -1,0 +1,50 @@
+
+影响OpenGL绘制的效率直接和OpenGL API相关的一部分来自于其在CPU上执行的开销，一部分来自于渲染本身在GPU上执行的开销。CPU上执行的开销主要是由于调用API导致的OpenGL驱动的开销，
+这类开销一般可以分成三大类：
+
+1. 第一类是由于驱动提交渲染命令的开销，即调用OpenGL draw函数造成；
+2. 第二类是由于驱动提交状态命令导致的状态命令切换的开销，这种切换命令包括了固定管线中的各种光照函数的切换，片段测试与操作的切换，不同Shader, Texture之间的切换，甚至包括VBO, UBO等GPU缓冲对象之间的开销，这两类情况在D3D API使用时也是一样，甚至有表明在D3D中更显著；
+3. 第三类就是其他由于OpenGL API被调用导致加载或是同步数据的驱动开销。
+
+
+通过批次合并（即将合理的方式将渲染状态相同多个可渲染物的draw绘制数据合并到一批绘制），以及实例渲染（即将诸多几何数据近似的可渲染物通过一次drawInstance函数绘制，而将这些可渲染物的区别通过数组传入渲染命令中），可以显著降低第一类开销。
+
+通过对可渲染物进行有效的排序，将状态相同的部分的可渲染物尽可能依次渲染，从而减少状态的切换，可以较明显减少第二类开销。因此在执行渲染之前，可以通过上述两种方式对数据进行预处理，从而达到目的，这两种策略已经成为3D渲染引擎最常用的提高效率的方法。
+
+### 使用非直接（Indirect）绘制来减少绘制命令提交导致的开销 [这种说法可能有些问题]
+  In direct rendering the CPU is occupied with preparing and streaming the index data out of its own memory, over a bus with limited bandwidth to the GPU. It must check for GPU state and synchronize with it. Each of those steps is time consuming。
+
+### 使用无绑定（bindless）技术来提高状态切换的效率
+
+在渲染中不同纹理，VBO，UBO等之间的切换开销是各种状态开销中比较明显的，尤其是这些对象数量众多时较为明显。比如对于纹理，
+1. 传统的解决办法主要有纹理图册（Texture Atlases），就是将多个纹理合并到一张图中，然后重新给出不同的纹理坐标；
+2. 还有纹理数组（TextureArray），即将这些纹理组装成数组传到OpenGL中。这些方法都存在可能会将不需要的纹理数据负载到管线中，以及纹理的某些参数必须一致的情况：纹理图层必须各种环绕，过滤等都一致，纹理数组也得必须原来的纹理格式和形状一致。
+
+通过无绑定技术即可在改动原有代码很少的基础上解决上述问题。
+glBindTexture, glBindBuffer等API的调用实质上就是驱动对相应的buffer和texture进行查找与解引用，之前文章《Nvidia OpenGL无绑定VBO与UBO技术》（ http://www.opengpu.org/home.php?mod=space&uid=36152&do=blog&id=595 ），讲过的无绑定VBO与UBO原理。这里在说下无绑定纹理，与无绑定VBO与UBO相比，这里无绑定纹理是一个ARB通用标准，而不是仅N卡支持的标准，在OpenGL 4.0或以上版本的机器和驱动上支持。同样无绑定纹理也只有在每帧需要做较多的纹理切换时才效果明显。
+
+### 使用稀疏（sparse）纹理技术提高大规模纹理加载效率
+
+当大规模纹理被OpenGL载入时，当纹理数据的大小超过当前显卡能分配的显存时，这时候纹理会被分页的加载到显存中，这种分页不是稳定的，这就在一定程度上降低了使用大纹理程序的性能，甚至在某些情况下会导致程序崩溃。这种开销也是在驱动上进行的，同样才CPU端。在OpenGL 4.3及以上版本中，可以利用稀疏纹理技术解决这个问题。所谓稀疏纹理技术，就是OpenGL对输入的纹理按照用户指定的参数固定的对大纹理进行了分页与金字塔处理，形成一个 ** 虚拟 ** 的被分割后纹理，因此称“稀疏”纹理。这使得纹理在实际加载中实现了稳定的动态分页调度，从而改善了大纹理加载的效率。
+
+### 使用新的缓冲区分配接口解决由于GPU缓冲区对象数据同步带来的开销
+
+在OpenGL中有一组叫glMapBuffer/glMapBufferRange的API，这个API将GPU缓存中的数据映射到内存的地址上，使得内存可以直接通过这个地址将数据读回或将数据写入到该GPU缓冲中。这是这个函数已经被各方面证明了出奇得慢，慢到似乎不管填什么参数，在渲染时如果稍微多次调用该函数，那么时间的开销就无法接受，必须换其他方法（D3D中类似的API也慢，但是要比OpenGL要好些，还没有到必须换其他方法的程度）。可以通过使用glGetBufferSubData/glBufferSubData来分别替换map的读写操作。之所以这个API慢，是因为调用该API进行了对GPU的同步操作。
+
+对于常常需要修改其内容的GPU缓存对象，解决此问题的方法还有使用glBufferStorage(target, size, dataPtr, flags)这个API来代替进行数据的分配，使得在后续使用glMapBuffer/glMapBufferRange时可以不进行同步操作，也就是说缓冲区在被映射的状态下，GPU也能使用这个对象而不发生任何错误，并且可以在被映射的状态下不管是CPU还是GPU哪端更改了数据，被更新后的都立刻在另一端可见。GPU缓冲区对象的这个特性在OpenGL 4.4或更高版本中得以支持，使用方式如下：
+glGenBuffer(1, &buffer);
+glBindBuffer(GL_ARRAY_BUFFER, buffer);
+GLbitfield flags = GL_MAP_WRITE_BIT
+| GL_MAP_PERSISTENT_BIT //在被映射状态下不同步
+| GL_MAP_COHERENT_BIT //数据对GPU立即可见
+//为Buffer分配数据，取代之前的glBufferData
+glBufferStroage(GL_ARRAY_BUFFER, size, data, flags);
+//映射一次即可，保存该指针后用于渲染时使用
+GLvoid* dataPtr = glMapBuffer(GL_ARRAY_BUFFER, flags);
+
+//渲染时用dataPtr修改数据
+.....
+//接着可以直接调用draw call，不需要调用glUnmapBuffer，如果需要同步的话，需要在draw之前手动调用glFenceSync与glClientWaitSync。
+glDrawArray(mode, first, count);
+
+已经有证明非同步下的GPU缓存对象进行map的效率比要求同步下明显要高，这时候大量调用glMapBuffer/glMapBufferRange不再是效率瓶颈。

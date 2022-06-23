@@ -1,0 +1,46 @@
+Fixed Point Scaling in Easy Steps with Important Example
+March 17, 2021 / Computer Graphics, Computer Science, Gate preparation, UGC-NET preparation / Leave a Comment
+The Scaling that we were performing up till now is actually 2D Scaling about the origin. We can also perform Fixed-Point Scaling. That is scaling about a point other than the origin. Fixed-Point Scaling can be performed easily with the help of a sequence of operations.
+
+Suppose the Fixed-Point is ( xf, yf ). Then
+![Philadelphia's Magic Gardens. This place was so cool!](https://lectureloops.com/wp-content/uploads/2021/03/fixedscaling1.jpg)
+
+Translate the whole object such that the fixed point coincides with the origin. That is you have to shift each and every vertex of the object by the factor xf, yf. If we are moving it towards the left then the sign will be negative. So, we can express it as :
+O’ = T ( -xf, -yf ) . O
+
+![Philadelphia's Magic Gardens. This place was so cool!](https://lectureloops.com/wp-content/uploads/2021/03/image-3.png)
+
+
+2. Now, we will perform scaling about origin. And remember that origin and fixed-point are actually same at this instant. Since we have shifted the whole object.
+
+O” = S ( sx, sy ) . O’
+![Philadelphia's Magic Gardens. This place was so cool!](https://lectureloops.com/wp-content/uploads/2021/03/scalenew-768x621.jpg)
+
+3. We can not keep the object where it is. We will shift it back to its original position. If we are moving it towards right then translation factors will be positive.
+
+O”’ = T( xf, yf) . O”
+![Philadelphia's Magic Gardens. This place was so cool!](https://lectureloops.com/wp-content/uploads/2021/03/scalenew2-768x576.jpg)
+fixed point scaling
+We can arrange all these matrices and then we can perform the composite transformation. Remember to perform all the transformations from right to left. Left-most being the object matrix. Also, remember Matrix multiplication is associative but not commutative.
+![Philadelphia's Magic Gardens. This place was so cool!](https://lectureloops.com/wp-content/uploads/2021/03/fullscaling-768x529.jpg)
+
+This fixed-point may be inside the object which we are going to scale. It may be outside also. Now, we are ready to solve a numerical on fixed point scaling. We can also derive a composite matrix by multiplying all these matrices and then we just have to put the values in that matrix.
+
+•There is a triangle ABC A(4,6) B(2,2)C(6,2). Scale the image thrice as large about the point (4,4).
+
+Solution: We have
+
+xf=4  yf=4
+
+sx=3  sy=3
+
+1.Translate to origin T(-4,-4).
+
+2. Then Scale S(3,3)
+
+3.Translate back to original position T(4,4)
+
+![Philadelphia's Magic Gardens. This place was so cool!](https://lectureloops.com/wp-content/uploads/2021/03/fixedsol1-1-768x576.jpg)
+
+Fixed point scaling solution
+Fixed Point Scaling
