@@ -1,15 +1,16 @@
-主要由三部分组成：变量声明，管道状态technique, pass，渲染函数, 
+主要由三部分组成：变量声明，管道状态technique, pass，渲染函数,
 
-1.  变量声明在文件开始，这些变量可以在运行时操作，格式如下，
+1.变量声明在文件开始，这些变量可以在运行时操作，格式如下，
 
-type id : tag = {initiliaze value} ;  
+type id : tag = {initiliaze value} ;
 
 其中 type 必须是 HLSL 可识别的类型, id 必须唯一, tag 用来表示变量的用途,  后面是初始值
 
-2. 管道状态, 一个 fx 文件可以配置多个 technique,  一个 technique 可以配置多个 pass 特殊如下，
+2.管道状态, 一个 fx 文件可以配置多个 technique,  一个 technique 可以配置多个 pass 特殊如下，
 
+```cpp
 technique (tch_uniqueId)
-{ 
+{
      pass (pass_uniqueId)
       {
           Texture[0] = <diffuseTexture>;
@@ -17,30 +18,24 @@ technique (tch_uniqueId)
           PiexlShader = compile ps_2_2 psMain()
        }
   }
+```
+
 配置的 technique , pass 可以根据 显卡的支持，以及应用程序的需求，选择性的激活相应的 technique 和 pass
 
-3. 渲染函数，   这个就是传统意义上的着色程序，定点着色，片段着色等
+3.渲染函数，这个就是传统意义上的着色程序，定点着色，片段着色等
 
+```cpp
 Coding Conventions(命名习俗)
      Connection Structs:
-          Most example shaders use a struct to collect their special‐register inputs and outputs, where each member of the struct has the 
+          Most example shaders use a struct to collect their special‐register inputs and outputs, where each member of the struct has the
           appropriate register semantic (for example, “:TANGENT0”).This is not a language requirement, but makes debugging much easier.
           In general, functions are declared after global parameters, so that those parameters can be used without declaration.
-     
+
+```
 
 4 .
 用fxc.exe编译shader文件（*.fx, *.hlsl）的设置:
 拿DX11 SDK中BasicCompute11为例子
-右击BasicCompute11.hlsl -> properities -> Custom Build Tool -> command line: "$(DXSDK_DIR)Utilities\bin\x86\"fxc.exe  /T cs_5_0 /E CSMain /Fo "%(Filename).cso" "%(FullPath)" -> outputs: $(filename).cso
+右击BasicCompute11.hlsl -> properities -> Custom Build Tool -> command line:
+"$(DXSDK_DIR)Utilities\bin\x86\"fxc.exe  /T cs_5_0 /E CSMain /Fo "%(Filename).cso" "%(FullPath)" -> outputs: $(filename).cso
 根据shader类型和入口函数名的不同，红色字体部分可做相应的替换。
-
-例如对于fx文件，可设置为：
-"$(DXSDK_DIR)Utilities\bin\x86\"fxc.exe  /T fx_4_0 /Fo "%(Filename).fxo" "%(FullPath)"
-$(filename).fxo
-
-拿DX11 SDK中BasicCompute11为例子
-右击BasicCompute11.hlsl -> properities -> Custom Build Tool -> command line: "$(DXSDK_DIR)Utilities\bin\x86\"fxc.exe  /T cs_5_0 /E CSMain /Fo "%(Filename).cso" "%(FullPath)" -> outputs: $(filename).cso
-根据shader类型和入口函数名的不同，红色字体部分可做相应的替换。
-例如对于fx文件，可设置为：
-"$(DXSDK_DIR)Utilities\bin\x86\"fxc.exe  /T fx_4_0 /Fo "%(Filename).fxo" "%(FullPath)"
-$(filename).fxo
