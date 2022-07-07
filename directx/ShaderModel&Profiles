@@ -1,49 +1,101 @@
-HLSL与Shader model关系:
-HLSL shaders can be compiled at author-time or at runtime, and set at runtime into the appropriate pipeline stage. 
-Direct3D 9 shaders can be designed using shader model 1, shader model 2 and shader model 3; 
-Direct3D 10 shaders can only be designed on shader model 4. 
-Direct3D 11 shaders can be designed on shader model 5.
-Direct3D 11.3 and Direct3D 12 can be designed on shader model 5.1, and Direct3D 12 can also be designed on shader model 6.
+### HLSL与Shader model关系:
+HLSL shaders can be compiled at author-time or at runtime, and set at runtime into the appropriate pipeline stage.
+- Direct3D 9 shaders can be designed using shader model 1, shader model 2 and shader model 3;
+- Direct3D 10 shaders can only be designed on shader model 4.
+- Direct3D 11 shaders can be designed on shader model 5.
+- Direct3D 11.3 and Direct3D 12 can be designed on shader model 5.1, and Direct3D 12 can also be designed on shader model 6.
 
-Shader model与 Shader Profiles关系:
-   shader profile is the target for compiling a shader; 
-   
-Shader Model	Shader Profiles
-Shader Model 1	vs_1_1
-Shader Model 2	ps_2_0, ps_2_x, vs_2_0, vs_2_x, ps_4_0_level_9_0, ps_4_0_level_9_1, ps_4_0_level_9_3, vs_4_0_level_9_0,       
-                vs_4_0_level_9_1, vs_4_0_level_9_3, lib_4_0_level_9_1, lib_4_0_level_9_3
-Shader Model 3	ps_3_0, vs_3_0
-Shader Model 4	cs_4_0, gs_4_0, ps_4_0, vs_4_0, cs_4_1, gs_4_1, ps_4_1, vs_4_1, lib_4_0, lib_4_1
-Shader Model 5	cs_5_0, ds_5_0, gs_5_0, hs_5_0, ps_5_0, vs_5_0, lib_5_0 (Although gs_4_0, gs_4_1, ps_4_0, ps_4_1, vs_4_0, and vs_4_1 were introduced in shader model 4.0, shader model 5 adds support to these shader profiles for structured buffers and byte address buffers.)
-Shader Model 6	cs_6_0, ds_6_0, gs_6_0, hs_6_0, ps_6_0, vs_6_0, lib_6_0
+### Shader model与 Shader Profiles关系:
 
-Differences between Direct3D 9 and Direct3D 10:
-      Direct3D 9 introduced shader models 1, 2, and 3.
-      Direct3D 10 introduced shader model 4.
-      Direct3D 10.1 introduced shader model 4.1.
+shader profile is the target for compiling a shader;
 
-Effect Profiles
+<table>
+  <tr>
+    <td>
+          Shader Model
+    </td>
+    <td>
+          Shader Profiles
+    </td>
+  </tr>
+  <tr>
+  <td>
+        Shader Model1
+  </td>
+  <td>
+        vs_1_1
+  </td>
+  </tr>
+  <tr>
+  <td>
+        Shader Model 2
+  </td>
+  <td>
+  ps_2_0, ps_2_x, vs_2_0, vs_2_x, ps_4_0_level_9_0, ps_4_0_level_9_1, ps_4_0_level_9_3, vs_4_0_level_9_0,
+                  vs_4_0_level_9_1, vs_4_0_level_9_3, lib_4_0_level_9_1, lib_4_0_level_9_3
+  </td>
+  </tr>
+  <tr>
+  <td>
+        Shader Model 3
+  </td>
+  <td>
+    ps_3_0, vs_3_0
+  </td>
+  </tr>
+  <tr>
+  <td>
+        Shader Model 4
+  </td>
+  <td>
+    cs_4_0, gs_4_0, ps_4_0, vs_4_0, cs_4_1, gs_4_1, ps_4_1, vs_4_1, lib_4_0, lib_4_1
+  </td>
+  </tr>
+  <tr>
+  <td>
+        Shader Model 5
+  </td>
+  <td>
+  cs_5_0, ds_5_0, gs_5_0, hs_5_0, ps_5_0, vs_5_0, lib_5_0 (Although gs_4_0, gs_4_1, ps_4_0, ps_4_1, vs_4_0, and vs_4_1 were introduced in shader model 4.0, shader model 5 adds support to these shader profiles for structured buffers and byte address buffers.)
+  </td>
+  </tr>
+  <tr>
+  <td>
+        Shader Model 6
+  </td>
+  <td>
+    cs_6_0, ds_6_0, gs_6_0, hs_6_0, ps_6_0, vs_6_0, lib_6_0
+  </td>
+  </tr>
+</table>
+
+### Differences between Direct3D 9 and Direct3D 10:
+- Direct3D 9 introduced shader models 1, 2, and 3.
+- Direct3D 10 introduced shader model 4.
+- Direct3D 10.1 introduced shader model 4.1.
+
+### Effect Profiles
 An effect profile is the target for compiling an effect/shader; this table lists the effect profiles that are supported by each version of Direct3D.
 Differences between Direct3D 9 and Direct3D 10:
-     Direct3D 9 introduced effect-framework profiles fx_1_0 and fx_2_0.
-     Direct3D 10 introduced effect-framework profile fx_4_0.
-     Direct3D 10.1 introduced effect-framework profile fx_4_1.
-     Direct3D 11 introduced effect-framework profile fx_5_0.
+- Direct3D 9 introduced effect-framework profiles fx_1_0 and fx_2_0.
+- Direct3D 10 introduced effect-framework profile fx_4_0.
+- Direct3D 10.1 introduced effect-framework profile fx_4_1.
+- Direct3D 11 introduced effect-framework profile fx_5_0.
 
 Version History
-D3DCompiler_47 - Windows 10 (inbox), Windows 10 SDK; Windows 8.1 (inbox), Windows 8.1 SDK, Visual Studio 2013/2015
-D3DCompiler_46 - Windows 8.0 SDK, Visual Studio 2012
-D3DCompiler_43 - DirectX SDK (June 2010)
-D3DCompiler_42 - DirectX SDK (February 2010)
-D3DCompiler_41 - DirectX SDK (March 2009)
-D3DCompiler_40 - DirectX SDK (November 2008)
-D3DCompiler_39 - DirectX SDK (August 2008)
-D3DCompiler_38 - DirectX SDK (June 2008)
-D3DCompiler_37 - DirectX SDK (March 2008)
-D3DCompiler_36 - DirectX SDK (November 2007)
-D3DCompiler_35 - DirectX SDK (August 2007)
-D3DCompiler_34 - DirectX SDK (June 2007)
-D3DCompiler_33 - DirectX SDK (Aprli 2007)x
+- D3DCompiler_47 - Windows 10 (inbox), Windows 10 SDK; Windows 8.1 (inbox), Windows 8.1 SDK, Visual Studio 2013/2015
+- D3DCompiler_46 - Windows 8.0 SDK, Visual Studio 2012
+- D3DCompiler_43 - DirectX SDK (June 2010)
+- D3DCompiler_42 - DirectX SDK (February 2010)
+- D3DCompiler_41 - DirectX SDK (March 2009)
+- D3DCompiler_40 - DirectX SDK (November 2008)
+- D3DCompiler_39 - DirectX SDK (August 2008)
+- D3DCompiler_38 - DirectX SDK (June 2008)
+- D3DCompiler_37 - DirectX SDK (March 2008)
+- D3DCompiler_36 - DirectX SDK (November 2007)
+- D3DCompiler_35 - DirectX SDK (August 2007)
+- D3DCompiler_34 - DirectX SDK (June 2007)
+- D3DCompiler_33 - DirectX SDK (Aprli 2007)x
 
 Direct3D 6.0 – Multitexturing
 Direct3D 7.0 – Hardware Transformation, Clipping and Lighting (TCL/T&L)
@@ -61,4 +113,3 @@ Direct3D 11.1 – Windows 7 SP1/Windows 8, Stereoscopic 3D Rendering, GPGPU
 Direct3D 11.2 – Windows 8.1, Tiled resources, GPGPU
 Direct3D 11.3 – Windows 10, Shader Model 5.1, GPGPU
 Direct3D 12.0 – Windows 10, low-level rendering API, Shader Model 6.0, GPGPU
-
